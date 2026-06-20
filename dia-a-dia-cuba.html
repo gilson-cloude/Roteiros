@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuba — Roteiro dia a dia (14 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241a12; --slate:#6b5d4f; --faint:#9c8e7d;
+    --paper:#fbf6ec; --card:#ffffff; --line:#e7ddcb;
+    --terra:#b8431f; --amber:#c2820c; --teal:#0e6f6a; --teal-d:#0b5450;
+    --rum:#7c3f12;
+    --shadow:0 14px 34px -20px rgba(60,40,20,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(194,130,12,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(14,111,106,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+
+  /* ---- header ---- */
+  .hero{position:relative;background:linear-gradient(135deg,#0e6f6a 0%,#0b5450 55%,#0a3f3c 100%);
+    color:#fdf7ea;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,130,12,.45),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffd9a8;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffb454}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#dff0ec;max-width:560px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+
+  /* ---- route strip ---- */
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--teal-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(60,40,20,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+
+  /* ---- intro note ---- */
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+
+  /* ---- section label ---- */
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+
+  /* ---- day card ---- */
+  .day{display:flex;gap:0;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--teal),var(--teal-d));
+    color:#fdf7ea;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.8}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.amber .rail{background:linear-gradient(165deg,var(--amber),var(--rum))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.amber .loc{color:var(--rum)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#43382c}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(14,111,106,.08);border:1px solid rgba(14,111,106,.18);border-radius:999px;padding:4px 10px}
+  .day.amber .chip{color:var(--rum);background:rgba(194,130,12,.1);border-color:rgba(194,130,12,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+
+  /* ---- practical footer ---- */
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#fdf6e9);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(14,111,106,.1);
+    display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}
+    .hero{padding:28px 22px}
+    .hero h1{font-size:32px}
+    .pgrid{grid-template-columns:1fr}
+    .day .rail{width:60px}
+    .day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}
+    body::before{display:none}
+    .wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}
+    .day,.prac,.note{break-inside:avoid}
+    .leg{break-after:avoid}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Cuba · Caribe · roteiro dia a dia</div>
+    <h1>Cuba em 14 dias</h1>
+    <p class="sub">Da Havana dos carros clássicos ao vale do tabaco de Viñales, pelas cidades coloniais de Cienfuegos e Trinidad, a Santa Clara do Che e as praias turquesa de Varadero. Um roteiro de carro, dia a dia.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>14 dias</b></span>
+      <span class="fact">🚗 <b>≈ 1.050 km</b></span>
+      <span class="fact">☀️ Melhor época: <b>nov–abr</b></span>
+      <span class="fact">🏠 <b>Casas particulares</b></span>
+      <span class="fact">💵 <b>Dinheiro vivo</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Havana</span><i>→</i><span>Viñales</span><i>→</i><span>Cienfuegos</span><i>→</i><span>Trinidad</span><i>→</i><span>Santa Clara</span><i>→</i><span>Varadero</span><i>→</i><span>Havana</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Antes de partir</h4>
+      <p>Leve <b>dinheiro em espécie</b> (cartões estrangeiros nem sempre funcionam) e troque por pesos na chegada. <b>Conectividade e combustível</b> podem ser limitados — planeje com folga e abasteça sempre que puder. As <b>casas particulares</b> são a melhor (e mais autêntica) hospedagem.</p>
+    </div>
+  </div>
+
+  <!-- ============ PARTE 1 ============ -->
+  <div class="leg">
+    <span class="lt">Havana &amp; Viñales</span>
+    <span class="lk">dias 1–5 · ocidente</span>
+    <span class="lr"></span>
+  </div>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana<span class="move">chegada</span></div>
+      <h3>Chegada e primeira noite na Habana Vieja</h3>
+      <p>Transfer do aeroporto e instalação na <b>casa particular</b>. Caminhada de reconhecimento pelas quatro praças da <b>Havana Velha</b> (UNESCO): Plaza de la Catedral, Plaza Vieja, Plaza de Armas e Plaza de San Francisco. Primeiro mojito ao som de um trio ao entardecer.</p>
+      <div class="chips"><span class="chip">Habana Vieja</span><span class="chip">4 praças</span><span class="chip">mojito</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> ropa vieja na Plaza Vieja</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Havana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana</div>
+      <h3>Havana de carro clássico</h3>
+      <p>Manhã no <b>Capitólio</b> e no Paseo del Prado; passeio em <b>carro clássico conversível</b> pelo Malecón até a <b>Plaza de la Revolución</b>. À tarde, a colorida <b>Fusterlândia</b> (Jaimanitas) e o <b>Callejón de Hamel</b>, com rumba afro-cubana. Fim de tarde no Malecón.</p>
+      <div class="chips"><span class="chip">Capitólio</span><span class="chip">Malecón</span><span class="chip">Fusterlândia</span><span class="chip">carro clássico</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> La Guarida (reserve)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> pôr do sol no Malecón</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana → Viñales<span class="move">≈ 3 h · 180 km</span></div>
+      <h3>Rumo ao vale do tabaco</h3>
+      <p>Saída cedo para <b>Viñales</b> (Pinar del Río). À chegada, o <b>mirante de Los Jazmines</b> sobre o vale de <b>mogotes</b> calcários. Tarde leve pela vila e visita a uma <b>fábrica/secadeiro de charutos</b>, do plantio ao torcido.</p>
+      <div class="chips"><span class="chip">mogotes</span><span class="chip">charutos</span><span class="chip">Los Jazmines</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> comida criolla em finca local</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Viñales</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Viñales</div>
+      <h3>O vale a cavalo e as grutas</h3>
+      <p>Manhã de <b>cavalgada</b> (ou bicicleta) entre as plantações de tabaco e cafezais. À tarde, a <b>Cueva del Indio</b> (com trecho de barco no rio subterrâneo) e o <b>Mural de la Prehistoria</b>. Pôr do sol no vale com charuto recém-torcido.</p>
+      <div class="chips"><span class="chip">cavalgada</span><span class="chip">Cueva del Indio</span><span class="chip">tabaco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> Finca Agroecológica El Paraíso</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> mirante ao entardecer</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Viñales → Cienfuegos<span class="move">≈ 5–6 h · 420 km</span></div>
+      <h3>Travessia ao sul: a Pérola do Sul</h3>
+      <p>Dia de estrada cruzando a ilha rumo a <b>Cienfuegos</b>, a mais "francesa" das cidades cubanas. À chegada, caminhada pelo <b>Paseo del Prado</b> — o bulevar mais longo de Cuba — e pela <b>Plaza José Martí</b>. Fim de tarde no bairro <b>Punta Gorda</b>, à beira da baía.</p>
+      <div class="chips"><span class="chip">Paseo del Prado</span><span class="chip">Punta Gorda</span><span class="chip">baía</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixe no Palacio de Valle</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Cienfuegos</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ PARTE 2 ============ -->
+  <div class="leg">
+    <span class="lt">Trinidad &amp; o Caribe</span>
+    <span class="lk">dias 6–14 · centro &amp; norte</span>
+    <span class="lr"></span>
+  </div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cienfuegos → Trinidad<span class="move">≈ 1,5 h · 80 km · via El Nicho</span></div>
+      <h3>Cachoeiras de El Nicho e chegada a Trinidad</h3>
+      <p>Desvio pela serra do Escambray até as cachoeiras e poços de <b>El Nicho</b> para um banho refrescante. Seguir a <b>Trinidad</b> e a primeira noite na <b>escadaria da Casa de la Música</b>, ponto de salsa ao ar livre.</p>
+      <div class="chips"><span class="chip">El Nicho</span><span class="chip">Escambray</span><span class="chip">salsa</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> La Canchánchara (drink típico)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Trinidad</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Trinidad</div>
+      <h3>A cidade-museu colonial</h3>
+      <p>Dia inteiro na <b>Plaza Mayor</b> e suas ruas de paralelepípedo: o <b>Museo Romántico</b> (Palácio Brunet), o <b>Museo Histórico</b> (Palácio Cantero) — suba à torre para a vista — e a Iglesia de la Santísima Trinidad. Compras de artesanato e charutos.</p>
+      <div class="chips"><span class="chip">Plaza Mayor</span><span class="chip">museus</span><span class="chip">torre Cantero</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> Vista Gourmet (buffet com vista)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> ruas e museus a pé</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Trinidad · arredores</div>
+      <h3>Valle de los Ingenios e Playa Ancón</h3>
+      <p>Manhã no <b>Valle de los Ingenios</b> (UNESCO): a <b>Torre Manaca Iznaga</b> e os antigos engenhos de açúcar — opção de ir de <b>trem turístico</b>. À tarde, descanso e mergulho na turquesa <b>Playa Ancón</b>.</p>
+      <div class="chips"><span class="chip">Manaca Iznaga</span><span class="chip">engenhos</span><span class="chip">Playa Ancón</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> vista do alto da torre</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Praia:</b> Ancón (10 km de Trinidad)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Trinidad → Santa Clara<span class="move">≈ 1,5 h · 90 km</span></div>
+      <h3>Santa Clara, a cidade do Che</h3>
+      <p>Subida a <b>Santa Clara</b>: o <b>Memorial e Mausoléu do Che Guevara</b> e o <b>Monumento ao Trem Blindado</b>, marcos da Revolução. À noite, a cidade mais jovem e boêmia de Cuba, com o famoso <b>El Mejunje</b>.</p>
+      <div class="chips"><span class="chip">Memorial do Che</span><span class="chip">Trem Blindado</span><span class="chip">boemia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>História:</b> Memorial Ernesto Che Guevara</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Santa Clara</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santa Clara → Varadero<span class="move">≈ 3 h · 200 km</span></div>
+      <h3>Os 20 km de areia branca</h3>
+      <p>Travessia ao litoral norte e chegada a <b>Varadero</b>, a praia mais famosa de Cuba. Tarde de descanso na areia branca e no mar turquesa; passeio pela <b>Avenida 1ra</b> e pelo Parque Josone.</p>
+      <div class="chips"><span class="chip">Varadero</span><span class="chip">praia</span><span class="chip">descanso</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Praia:</b> Playa de Varadero</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> hotel ou casa em Varadero</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Varadero</div>
+      <h3>Mar, mergulho ou um cayo</h3>
+      <p>Dia livre de praia. Opções: <b>catamarã</b> a um cayo próximo (Cayo Blanco) com snorkel e golfinhos, mergulho na <b>Cueva de Saturno</b>, ou simplesmente o <i>far niente</i> caribenho com um bom livro e um <b>daiquiri</b>.</p>
+      <div class="chips"><span class="chip">catamarã</span><span class="chip">snorkel</span><span class="chip">Cueva de Saturno</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Opcional:</b> passeio de catamarã (dia inteiro)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> lagosta à beira-mar</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">12</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Varadero → Havana<span class="move">≈ 2 h · 140 km</span></div>
+      <h3>De volta à capital</h3>
+      <p>Retorno tranquilo a <b>Havana</b> pela Vía Blanca. Tarde para o que ficou para trás: o <b>Museo Nacional de Bellas Artes</b>, o <b>Museo de la Revolución</b> ou simplesmente perder-se nas ruelas da Habana Vieja com calma.</p>
+      <div class="chips"><span class="chip">Bellas Artes</span><span class="chip">Habana Vieja</span><span class="chip">compras</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Museu:</b> Bellas Artes ou Revolución</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Havana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">13</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana</div>
+      <h3>O último mergulho na cidade</h3>
+      <p>Manhã no <b>Cristo de La Habana</b> e na <b>Fortaleza San Carlos de la Cabaña</b>, do outro lado da baía, com vista da cidade. À noite, a clássica cerimônia do <b>cañonazo</b> (tiro de canhão das 21h) e jantar de despedida com música ao vivo.</p>
+      <div class="chips"><span class="chip">La Cabaña</span><span class="chip">Cristo</span><span class="chip">cañonazo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> Doña Eutimia ou bar Floridita</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> cañonazo às 21h</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">14</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana<span class="move">partida</span></div>
+      <h3>Despedida</h3>
+      <p>Últimas compras de <b>charutos e ron</b>, um café cubano no Paseo del Prado e transfer ao aeroporto. <i>¡Hasta luego, Cuba!</i></p>
+      <div class="chips"><span class="chip">charutos</span><span class="chip">ron</span><span class="chip">transfer</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Dica:</b> compre charutos em loja oficial (com nota)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ PRÁTICO ============ -->
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a viagem correr leve.</p>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+        <div><h5>Dinheiro</h5><p>Leve euros ou dólares em espécie e troque por pesos cubanos. Cartões estrangeiros raramente funcionam.</p></div>
+      </div>
+      <div class="pcard">
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></div>
+        <div><h5>Hospedagem</h5><p>As <i>casas particulares</i> são autênticas, baratas e a melhor forma de conhecer a vida local.</p></div>
+      </div>
+      <div class="pcard">
+        <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+        <div><h5>Quando ir</h5><p>Estação seca de <b>nov a abr</b>: sol e fora dos furacões (que vão de jun a nov).</p></div>
+      </div>
+      <div class="pcard">
+        <div class="pic"><svg viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M5 17h-1v-4l2-5h9l4 5v4h-2M7 17h10"/></svg></div>
+        <div><h5>Transporte</h5><p>De carro alugado (com folga para o combustível) ou ônibus <b>Víazul</b>. Táxis clássicos para os trechos curtos.</p></div>
+      </div>
+      <div class="pcard">
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div>
+        <div><h5>Conectividade</h5><p>Internet é limitada e por cartão (ETECSA / hotéis). Baixe mapas offline antes de viajar.</p></div>
+      </div>
+      <div class="pcard">
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div>
+        <div><h5>Sabores</h5><p>Ropa vieja, moros y cristianos, lagosta e o melhor do <b>ron</b> e dos <b>charutos</b> do mundo.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Cuba em 14 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
