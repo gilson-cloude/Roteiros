@@ -387,6 +387,9 @@
     ],
   },
   "sc-litoral": {
+    transporte:[
+      {cidade:"Florianópolis", sistema:"Ônibus urbanos (terminais de integração)", passe:"Cartão (Sim/Vacilão)", app:"Busão Floripa · Moovit", dica:"Centro e Lagoa por ônibus; carro/app ajuda muito nas 40+ praias da Ilha."},
+    ],
     atracoes:[
       {n:"Bombinhas", base:"Bombinhas", nota:"Mar transparente e mergulho na Reserva do Arvoredo.", lat:-27.1389, lng:-48.4814},
       {n:"Florianópolis", base:"Florianópolis", nota:"Ilha com 40+ praias, Lagoa da Conceição e centro histórico.", lat:-27.5949, lng:-48.5482},
@@ -750,6 +753,9 @@
 
   /* ===================== PANTANAL ===================== */
   "mt-pantanal-norte": {
+    transporte:[
+      {cidade:"Cuiabá", sistema:"Ônibus urbanos", passe:"Cartão", app:"Moovit", dica:"Centro Histórico a pé; carro/transfer para a Chapada e a Transpantaneira."},
+    ],
     atracoes:[
       {n:"Centro Histórico de Cuiabá", base:"Cuiabá", nota:"Igreja do Rosário, Praça da República e museus.", lat:-15.5989, lng:-56.0949},
       {n:"Mercado do Porto", base:"Cuiabá", nota:"Peixes do Pantanal (pacu, pintado) e cultura local.", lat:-15.6033, lng:-56.1067},
@@ -786,6 +792,9 @@
     ],
   },
   "ms-pantanal-bonito": {
+    transporte:[
+      {cidade:"Campo Grande", sistema:"Ônibus urbanos (terminais)", passe:"Cartão", app:"Moovit", dica:"Parque das Nações e Feira Central por app/ônibus; Bonito é só de carro/transfer."},
+    ],
     atracoes:[
       {n:"Parque das Nações Indígenas", base:"Campo Grande", nota:"Um dos maiores parques urbanos do país; museus.", lat:-20.4486, lng:-54.5715},
       {n:"Feira Central", base:"Campo Grande", nota:"Sobá e cultura nipo-sul-mato-grossense (qui–sáb).", lat:-20.464, lng:-54.609},
@@ -921,6 +930,9 @@
 
   /* ===================== PARAGUAI · BOLÍVIA · PERU ===================== */
   "py-missoes-asuncion": {
+    transporte:[
+      {cidade:"Asunción", sistema:"Ônibus urbanos + Costanera (sem metrô)", passe:"Billetaje eletrônico (Más/Jaha)", app:"Asaja · Moovit", dica:"Centro e Costanera a pé; para bairros, confira o app — o trânsito é intenso."},
+    ],
     atracoes:[
       {n:"Palacio de los López", base:"Asunción", nota:"Sede do governo à beira do rio; iluminado à noite.", lat:-25.2806, lng:-57.6356},
       {n:"Costanera de Asunción", base:"Asunción", nota:"Orla do rio Paraguai e o pôr do sol da capital.", lat:-25.2667, lng:-57.645},
@@ -1317,7 +1329,7 @@
     atracoes:[
       {n:"Centro Histórico de Quito", base:"Quito", nota:"O maior e mais preservado das Américas (UNESCO). Metrô: est. San Francisco (L1)"},
       {n:"La Ronda", base:"Quito", nota:"Ruela colonial de bares, música e artesãos. Metrô: est. San Francisco (L1)"},
-      {n:"El Panecillo & TelefériQo", base:"Quito", nota:"Mirantes da cidade e subida ao Pichincha (4.100 m)."},
+      {n:"El Panecillo & TelefériQo", base:"Quito", nota:"Mirantes da cidade e subida ao Pichincha (4.100 m). Metrô: est. La Magdalena (+ táxi)"},
       {n:"Mitad del Mundo", base:"Quito", nota:"Monumento sobre a linha do Equador."},
       {n:"Quito", base:"Quito", nota:"Capital colonial (UNESCO); centro histórico e Pichincha.", lat:-0.1807, lng:-78.4678},
       {n:"Mitad del Mundo", base:"Quito", nota:"Monumento sobre a linha do Equador, ao norte de Quito.", lat:-0.0022, lng:-78.4558},
@@ -1367,7 +1379,7 @@
     ],
     atracoes:[
       {n:"Cerro de Monserrate", base:"Bogotá", nota:"Mirante a 3.150 m sobre Bogotá; funicular e teleférico. BRT: est. Universidades / Las Aguas"},
-      {n:"La Candelaria & Plaza Bolívar", base:"Bogotá", nota:"Centro histórico colonial, museus e street art."},
+      {n:"La Candelaria & Plaza Bolívar", base:"Bogotá", nota:"Centro histórico colonial, museus e street art. BRT: est. Las Aguas / Museo del Oro"},
       {n:"Comuna 13", base:"Medellín", nota:"Escadas rolantes, grafites e a virada social da cidade. Metrô: est. San Javier (linha B)"},
       {n:"Pueblito Paisa & Plaza Botero", base:"Medellín", nota:"Vila típica no Cerro Nutibara e as esculturas de Botero. Metrô: est. Parque Berrío (centro)"},
       {n:"Ciudad Amurallada", base:"Cartagena", nota:"Muralhas, Getsemaní e o casario colorido (UNESCO)."},
@@ -1852,7 +1864,7 @@
       {n:"Isla Negra", base:"Pomaire", nota:"Casa-museu de Pablo Neruda à beira do Pacífico.", lat:-33.4469, lng:-71.7},
     ],
     museus:[
-      {n:"La Chascona (Casa de Neruda)", base:"Santiago", nota:"Casa-museu do poeta no bairro Bellavista."},
+      {n:"La Chascona (Casa de Neruda)", base:"Santiago", nota:"Casa-museu do poeta no bairro Bellavista. Metrô: est. Baquedano (L1/L5)"},
       {n:"Museo Chileno de Arte Precolombino", base:"Santiago", nota:"Um dos melhores acervos pré-colombianos do continente."},
       {n:"Museo de la Memoria y los DD.HH.", base:"Santiago", nota:"Memória da ditadura; arquitetura premiada."},
     ],
@@ -1887,6 +1899,9 @@
     ],
   },
   "ne-rota-emocoes": {
+    transporte:[
+      {cidade:"São Luís", sistema:"Ônibus urbanos; Centro a pé", passe:"Bilhete Único (cartão)", app:"Cittamobi", dica:"O Reviver (centro histórico) todo a pé; ônibus/app para Calhau e Ponta d'Areia."},
+    ],
     atracoes:[
       {n:"Centro Histórico (Reviver)", base:"São Luís", nota:"Maior conjunto de azulejos portugueses das Américas (UNESCO)."},
       {n:"Jericoacoara", base:"Jericoacoara", nota:"Vila de dunas; acesso só em 4x4 pela areia.", lat:-2.7939, lng:-40.5119},
