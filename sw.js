@@ -1,5 +1,5 @@
 /* Service worker — Expedição Carretera Austral (offline-first) */
-const CACHE = 'carretera-austral-v52';
+const CACHE = 'carretera-austral-v53';
 const ASSETS = [
   'app.html', 'index.html',
   'mapa.html', 'roteiro.html', 'roteiros.html', 'novo-roteiro.html', 'custos.html', 'logistica.html',

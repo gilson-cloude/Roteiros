@@ -228,7 +228,7 @@
     servico(){ return `<div class="row" data-row="servico">
       <div class="rhead"><span class="ri">Indicação</span><button class="del">remover</button></div>
       <div class="grid three">
-        <div class="field"><label>Categoria</label><select class="v_cat"><option value="parques">Parque &amp; natureza</option><option value="igrejas">Igreja / patrimônio</option><option value="museus">Museu / cultura</option><option value="campings">Camping</option><option value="pernoite">Pernoite de motorhome</option><option value="comer">Restaurante / bar</option><option value="eventos">Evento / festival</option></select></div>
+        <div class="field"><label>Categoria</label><select class="v_cat"><option value="atracoes">Ponto turístico</option><option value="parques">Parque &amp; natureza</option><option value="igrejas">Igreja / patrimônio</option><option value="museus">Museu / cultura</option><option value="campings">Camping</option><option value="pernoite">Pernoite de motorhome</option><option value="comer">Restaurante / bar</option><option value="eventos">Evento / festival</option></select></div>
         <div class="field"><label>Nome</label><input class="v_nome" placeholder="Ex.: Camping do Lago"></div>
         <div class="field"><label>Cidade-base</label><input class="v_base" placeholder="Ex.: Urubici"></div>
         <div class="field full"><label>Nota</label><input class="v_nota" placeholder="Dica curta sobre o ponto"></div>
@@ -314,7 +314,7 @@
     const diste=document.getElementById('f_diste').value.trim()||distc;
 
     // indicações (serviços)
-    const servicos={parques:[],igrejas:[],museus:[],campings:[],pernoite:[],comer:[],eventos:[]};
+    const servicos={atracoes:[],parques:[],igrejas:[],museus:[],campings:[],pernoite:[],comer:[],eventos:[]};
     [...document.querySelectorAll('#servicos .row')].forEach(r=>{
       const cat=val(r,'v_cat')||'parques'; const nome=val(r,'v_nome');
       if(!nome) return;
@@ -323,7 +323,7 @@
       if(!isNaN(la)&&!isNaN(lo)){ item.lat=la; item.lng=lo; }
       (servicos[cat]||servicos.parques).push(item);
     });
-    const temServicos = servicos.parques.length||servicos.igrejas.length||servicos.museus.length||servicos.campings.length||servicos.pernoite.length||servicos.comer.length||servicos.eventos.length;
+    const temServicos = servicos.atracoes.length||servicos.parques.length||servicos.igrejas.length||servicos.museus.length||servicos.campings.length||servicos.pernoite.length||servicos.comer.length||servicos.eventos.length;
 
     return { roteiro:{
       id: slug(nome)+'-'+Math.random().toString(36).slice(2,6),
