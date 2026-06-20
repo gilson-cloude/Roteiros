@@ -1,5 +1,5 @@
 /* Service worker — Expedição Carretera Austral (offline-first) */
-const CACHE = 'carretera-austral-v51';
+const CACHE = 'carretera-austral-v52';
 const ASSETS = [
   'app.html', 'index.html',
   'mapa.html', 'roteiro.html', 'roteiros.html', 'novo-roteiro.html', 'custos.html', 'logistica.html',
@@ -7,11 +7,11 @@ const ASSETS = [
   'documentacao.html', 'checklist.html', 'camping.html', 'catalogo.html',
   'estilo-doc.css', 'dados.js', 'roteiros.js', 'servicos.js', 'app-shared.js', 'image-slot.js', 'geo.js',
   'servicos.html',
-  'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-180.png',
-  'icons/icon-192-maskable.png', 'icons/icon-512-maskable.png',
-  'scenes/lago.svg','scenes/glaciar.svg','scenes/picos.svg','scenes/costa.svg',
-  'scenes/marmore.svg','scenes/rio.svg','scenes/termas.svg','scenes/bosque.svg',
-  'scenes/vulcao.svg','scenes/cascata.svg','scenes/vila.svg','scenes/estepe.svg',
+  'icon-192.png', 'icon-512.png', 'icon-180.png',
+  'icon-192-maskable.png', 'icon-512-maskable.png',
+  'lago.svg','glaciar.svg','picos.svg','costa.svg',
+  'marmore.svg','rio.svg','termas.svg','bosque.svg',
+  'vulcao.svg','cascata.svg','vila.svg','estepe.svg',
   'manifest.webmanifest'
 ];
 

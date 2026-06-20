@@ -209,7 +209,7 @@
           <div class="ph">
             ${p.estrela?`<span class="star"><svg viewBox="0 0 24 24"><path d="M12 2.2l2.92 5.92 6.53.95-4.72 4.6 1.11 6.5L12 17.7 6.16 20.77l1.11-6.5L2.55 9.09l6.53-.95z"/></svg>Imperdível</span>`:''}
             <span class="acc" style="background:${am.cor}"><svg viewBox="0 0 24 24">${am.svg}</svg>${am.short}</span>
-            <image-slot id="cat-${p.id}" shape="rect" fit="cover" src="${FOTO.has(p.id)?`fotos/${p.id}.jpg`:`scenes/${CENA[p.id]||'lago'}.svg`}" placeholder="Arraste uma foto de ${p.n}"></image-slot>
+            <image-slot id="cat-${p.id}" shape="rect" fit="cover" src="${FOTO.has(p.id)?`${p.id}.jpg`:`${CENA[p.id]||'lago'}.svg`}" placeholder="Arraste uma foto de ${p.n}"></image-slot>
           </div>
           <div class="body">
             <span class="ptag"><span class="d" style="background:${f.cor}"></span>${f.nome}</span>
