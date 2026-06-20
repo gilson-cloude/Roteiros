@@ -52,13 +52,29 @@
   .cat-h h2{font-family:"Space Grotesk",sans-serif;font-size:18px;letter-spacing:-.01em}
   .cat-h .cnt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);margin-left:2px}
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-  .item{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;
-    border-left:3px solid var(--cc);box-shadow:var(--shadow)}
+  .item{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;
+    border-left:3px solid var(--cc);box-shadow:var(--shadow);cursor:pointer;transition:transform .14s, border-color .14s, box-shadow .14s}
+  .item:hover{transform:translateY(-2px);border-color:var(--cc);box-shadow:0 14px 32px -14px rgba(22,32,44,.3)}
+  .item .go{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:11px;font-weight:600;color:var(--cc);opacity:.9}
+  .item .go svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
   .item .n{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;line-height:1.25}
   .item .base{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--cc);font-weight:600;margin-top:5px}
   .item .base svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
   .item .nt{font-size:12.5px;color:var(--slate);margin-top:7px}
   .empty{color:var(--faint);font-size:13px;padding:8px 2px}
+  .transp{margin-top:28px}
+  .transp-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+  .transp-h .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;
+    background:color-mix(in srgb,#0F766E 14%,#fff);color:#0F766E}
+  .transp-h .ic svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9}
+  .transp-h h2{font-family:"Space Grotesk",sans-serif;font-size:18px;letter-spacing:-.01em}
+  .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  .tcard{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;
+    border-left:3px solid #0F766E;box-shadow:var(--shadow)}
+  .tcard .tc-city{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px}
+  .tcard .tc-row{font-size:12.5px;color:var(--slate);margin-top:6px}
+  .tcard .tc-row b{color:var(--ink);font-weight:600}
+  .tcard .tc-dica{font-size:12px;color:var(--slate);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
   footer{margin-top:42px;border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;
     flex-wrap:wrap;gap:8px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}
   @media(max-width:600px){ body{padding:26px 14px 50px} .cards{grid-template-columns:1fr} }
@@ -127,6 +143,13 @@
   });
 
   const pinIc = '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>';
+  const navIc = '<svg viewBox="0 0 24 24"><path d="M3 11l19-8-8 19-2-9-9-2z"/></svg>';
+  function mapUrl(it){
+    const q = (typeof it.lat==='number' && typeof it.lng==='number')
+      ? (it.lat+','+it.lng)
+      : encodeURIComponent([it.n, it.base].filter(Boolean).join(' '));
+    return 'https://www.google.com/maps/search/?api=1&query='+q;
+  }
   function render(){
     sel.value = current.id;
     const sv = current.servicos;
@@ -137,7 +160,19 @@
       return;
     }
     let html = `<div class="note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>`
-      + `Indicações para <b style="color:var(--ink)">${current.nome}</b> · ${current.regiao}. Toque em qualquer item para ver no contexto da semana, na tela de Roteiro.</div>`;
+      + `Indicações para <b style="color:var(--ink)">${current.nome}</b> · ${current.regiao}. Toque em qualquer item para abrir a localização no mapa (GPS).</div>`;
+    if(sv.transporte && sv.transporte.length){
+      html += `<section class="transp"><div class="transp-h"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10M4 16h16M6 16v2a1 1 0 0 0 1 1h0a1 1 0 0 0 1-1v-2M16 16v2a1 1 0 0 0 1 1h0a1 1 0 0 0 1-1v-2M7 8h10M8 12h.01M16 12h.01"/></svg></span><h2>Como circular</h2></div><div class="tcards">`;
+      sv.transporte.forEach(t=>{
+        html += `<div class="tcard"><div class="tc-city">${t.cidade}</div>`
+          + (t.sistema?`<div class="tc-row"><b>Sistema:</b> ${t.sistema}</div>`:'')
+          + (t.passe?`<div class="tc-row"><b>Passe:</b> ${t.passe}</div>`:'')
+          + (t.app?`<div class="tc-row"><b>App:</b> ${t.app}</div>`:'')
+          + (t.dica?`<div class="tc-dica">${t.dica}</div>`:'')
+          + `</div>`;
+      });
+      html += `</div></section>`;
+    }
     CATS.forEach(c=>{
       const items = sv[c.key]||[];
       if(!items.length) return;
@@ -146,10 +181,11 @@
           <h2>${c.label}</h2><span class="cnt">${items.length}</span></div>`;
       html += `<div class="cards">`;
       items.forEach(it=>{
-        html += `<div class="item"><div class="n">${it.n}</div>`
+        html += `<a class="item" href="${mapUrl(it)}" target="_blank" rel="noopener"><div class="n">${it.n}</div>`
           + (it.base?`<div class="base">${pinIc}${it.base}</div>`:'')
           + (it.nota?`<div class="nt">${it.nota}</div>`:'')
-          + `</div>`;
+          + `<div class="go">${navIc}Abrir no mapa</div>`
+          + `</a>`;
       });
       html += `</div></section>`;
     });

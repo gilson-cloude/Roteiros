@@ -650,6 +650,9 @@
 
   /* ===================== URUGUAI ===================== */
   "uy-costeiro": {
+    transporte:[
+      {cidade:"Montevidéu", sistema:"Ônibus urbanos (STM)", passe:"Tarjeta STM", app:"Cómo Ir · Moovit", dica:"Em Punta del Este o centro e a Brava/Mansa se fazem a pé ou de táxi."},
+    ],
     atracoes:[
       {n:"La Mano & Playa Brava", base:"Punta del Este", nota:"A escultura-símbolo emergindo da areia."},
       {n:"Puerto & Casapueblo", base:"Punta del Este", nota:"Marina chique e a casa-ateliê de Páez Vilaró."},
@@ -696,6 +699,9 @@
     ],
   },
   "uy-colonia-vinhos": {
+    transporte:[
+      {cidade:"Montevidéu", sistema:"Ônibus urbanos (STM) — sem metrô", passe:"Tarjeta STM", app:"Cómo Ir · Moovit", dica:"Ciudad Vieja e Rambla a pé; ônibus para bairros afastados e o Mercado del Puerto."},
+    ],
     atracoes:[
       {n:"Ciudad Vieja & Plaza Independencia", base:"Montevidéu", nota:"Centro histórico, Palácio Salvo e Mercado del Puerto."},
       {n:"Rambla de Montevidéu", base:"Montevidéu", nota:"A orla mais longa do mundo; pôr do sol e mate."},
@@ -745,6 +751,8 @@
   /* ===================== PANTANAL ===================== */
   "mt-pantanal-norte": {
     atracoes:[
+      {n:"Centro Histórico de Cuiabá", base:"Cuiabá", nota:"Igreja do Rosário, Praça da República e museus.", lat:-15.5989, lng:-56.0949},
+      {n:"Mercado do Porto", base:"Cuiabá", nota:"Peixes do Pantanal (pacu, pintado) e cultura local.", lat:-15.6033, lng:-56.1067},
       {n:"Cuiabá", base:"Cuiabá", nota:"Capital de MT e porta de entrada do Pantanal Norte.", lat:-15.6014, lng:-56.0979},
       {n:"Chapada dos Guimarães", base:"Cuiabá", nota:"Véu de Noiva, paredões e a Cidade de Pedra no cerrado.", lat:-15.4608, lng:-55.7503},
       {n:"Nobres", base:"Cuiabá", nota:"Flutuação em rios cristalinos (Aquário Encantado) e Lagoa das Araras.", lat:-14.7203, lng:-56.3286},
@@ -779,6 +787,9 @@
   },
   "ms-pantanal-bonito": {
     atracoes:[
+      {n:"Parque das Nações Indígenas", base:"Campo Grande", nota:"Um dos maiores parques urbanos do país; museus.", lat:-20.4486, lng:-54.5715},
+      {n:"Feira Central", base:"Campo Grande", nota:"Sobá e cultura nipo-sul-mato-grossense (qui–sáb).", lat:-20.464, lng:-54.609},
+      {n:"Morada dos Baís", base:"Campo Grande", nota:"Casarão histórico e centro de informação turística.", lat:-20.469, lng:-54.614},
       {n:"Campo Grande", base:"Campo Grande", nota:"Capital de MS e porta de entrada da região.", lat:-20.4697, lng:-54.6201},
       {n:"Estrada Parque (Passo do Lontra)", base:"Aquidauana", nota:"Estrada de terra e pontes pela planície alagável; fauna abundante.", lat:-19.5747, lng:-57.0233},
       {n:"Bonito", base:"Bonito", nota:"Rios cristalinos para flutuação, Gruta do Lago Azul e cachoeiras.", lat:-21.1261, lng:-56.4836},
@@ -911,6 +922,9 @@
   /* ===================== PARAGUAI · BOLÍVIA · PERU ===================== */
   "py-missoes-asuncion": {
     atracoes:[
+      {n:"Palacio de los López", base:"Asunción", nota:"Sede do governo à beira do rio; iluminado à noite.", lat:-25.2806, lng:-57.6356},
+      {n:"Costanera de Asunción", base:"Asunción", nota:"Orla do rio Paraguai e o pôr do sol da capital.", lat:-25.2667, lng:-57.645},
+      {n:"Loma San Jerónimo", base:"Asunción", nota:"Bairro colorido boêmio, o 1º barrio turístico.", lat:-25.2731, lng:-57.6469},
       {n:"Itaipu Binacional", base:"Ciudad del Este", nota:"Uma das maiores hidrelétricas do mundo; visita guiada.", lat:-25.4083, lng:-54.5889},
       {n:"Trinidad (ruínas)", base:"Ciudad del Este", nota:"Maior conjunto jesuítico do país; show de luzes à noite (UNESCO).", lat:-27.1331, lng:-55.7169},
       {n:"Jesús de Tavarangue", base:"Ciudad del Este", nota:"Ruínas jesuíticas inacabadas; arcos e portais barrocos.", lat:-27.0467, lng:-55.7783},
@@ -958,6 +972,9 @@
     ],
   },
   "bo-altiplano-uyuni": {
+    transporte:[
+      {cidade:"La Paz", sistema:"Mi Teleférico (maior rede do mundo) + minibuses", passe:"Bilhete por linha (cores)", app:"Mi Teleférico", dica:"Use os teleféricos para vencer o relevo; linhas Vermelha/Amarela ligam o centro a El Alto."},
+    ],
     atracoes:[
       {n:"Calle Jaén & Plaza Murillo", base:"La Paz", nota:"Rua colonial-museu e a praça do poder, no centro."},
       {n:"Mirador Killi Killi", base:"La Paz", nota:"Vista 360° da cidade encravada nos Andes."},
@@ -1014,10 +1031,14 @@
     ],
   },
   "pe-cusco-machupicchu": {
+    transporte:[
+      {cidade:"Lima", sistema:"Metropolitano (BRT) + Metrô (Línea 1)", passe:"Tarjeta del Metropolitano / del Metro", app:"Moovit", dica:"Miraflores–Barranco a pé ou por app (Uber/Cabify). Trânsito caótico fora dos corredores."},
+      {cidade:"Cusco", sistema:"Centro compacto a pé; colectivos e táxis para arredores", passe:"—", app:"—", dica:"Suba devagar pela altitude (3.400 m). Vale Sagrado e Sacsayhuamán por tour/colectivo."},
+    ],
     atracoes:[
-      {n:"Centro Histórico de Lima", base:"Lima", nota:"Plaza Mayor, Catedral e o casario colonial (UNESCO)."},
-      {n:"Miraflores & Malecón", base:"Lima", nota:"Orla sobre o Pacífico, Parque del Amor e Larcomar."},
-      {n:"Barranco", base:"Lima", nota:"Bairro boêmio e artístico; Puente de los Suspiros e murais."},
+      {n:"Centro Histórico de Lima", base:"Lima", nota:"Plaza Mayor, Catedral e o casario colonial (UNESCO). Metropolitano: est. Jirón de la Unión"},
+      {n:"Miraflores & Malecón", base:"Lima", nota:"Orla sobre o Pacífico, Parque del Amor e Larcomar. Metropolitano: est. Ricardo Palma"},
+      {n:"Barranco", base:"Lima", nota:"Bairro boêmio e artístico; Puente de los Suspiros e murais. Metropolitano: est. Bulevar / Balta"},
       {n:"Plaza de Armas de Cusco", base:"Cusco", nota:"Coração inca-colonial; catedral e La Compañía."},
       {n:"Bairro de San Blas", base:"Cusco", nota:"Ruelas de artesãos, mirantes e cafés sobre a cidade."},
       {n:"Mercado de San Pedro", base:"Cusco", nota:"Mercado típico; sucos, queijos e cultura local."},
@@ -1154,6 +1175,8 @@
   },
   "pe-cordillera-blanca": {
     atracoes:[
+      {n:"Plaza de Armas de Huaraz", base:"Huaraz", nota:"Centro da capital do montanhismo; catedral e mercado.", lat:-9.5295, lng:-77.5285},
+      {n:"Mirador de Rataquenua", base:"Huaraz", nota:"Vista da cidade e da Cordillera Blanca.", lat:-9.543, lng:-77.521},
       {n:"Lima", base:"Lima", nota:"Capital costeira e ponto de partida rumo aos Andes.", lat:-12.0464, lng:-77.0428},
       {n:"Huaraz", base:"Huaraz", nota:"Capital do montanhismo; base da Cordillera Blanca.", lat:-9.5278, lng:-77.5278},
       {n:"Laguna 69", base:"Lima", nota:"Laguna glacial turquesa a 4.600 m; trilha de meio-dia de altitude.", lat:-8.9667, lng:-77.61},
@@ -1192,6 +1215,9 @@
     ],
   },
   "ar-norte-salta": {
+    transporte:[
+      {cidade:"Salta", sistema:"Teleférico San Bernardo + ônibus urbano (SAETA)", passe:"Tarjeta SAETA", app:"—", dica:"Centro histórico a pé; teleférico ou trilha ao Cerro San Bernardo."},
+    ],
     atracoes:[
       {n:"Teleférico San Bernardo", base:"Salta", nota:"Mirante sobre 'Salta la linda' e o vale."},
       {n:"Plaza 9 de Julio & Cabildo", base:"Salta", nota:"Praça central colonial, catedral e museus."},
@@ -1285,9 +1311,12 @@
     ],
   },
   "ec-andes-vulcoes": {
+    transporte:[
+      {cidade:"Quito", sistema:"Metrô de Quito (Línea 1) + Trolebús/Ecovía (BRT)", passe:"Tarjeta Metro de Quito", app:"Metro de Quito", dica:"Centro Histórico a pé; TelefériQo e Mitad del Mundo por táxi/app."},
+    ],
     atracoes:[
-      {n:"Centro Histórico de Quito", base:"Quito", nota:"O maior e mais preservado das Américas (UNESCO)."},
-      {n:"La Ronda", base:"Quito", nota:"Ruela colonial de bares, música e artesãos."},
+      {n:"Centro Histórico de Quito", base:"Quito", nota:"O maior e mais preservado das Américas (UNESCO). Metrô: est. San Francisco (L1)"},
+      {n:"La Ronda", base:"Quito", nota:"Ruela colonial de bares, música e artesãos. Metrô: est. San Francisco (L1)"},
       {n:"El Panecillo & TelefériQo", base:"Quito", nota:"Mirantes da cidade e subida ao Pichincha (4.100 m)."},
       {n:"Mitad del Mundo", base:"Quito", nota:"Monumento sobre a linha do Equador."},
       {n:"Quito", base:"Quito", nota:"Capital colonial (UNESCO); centro histórico e Pichincha.", lat:-0.1807, lng:-78.4678},
@@ -1332,11 +1361,15 @@
     ],
   },
   "co-cafe-caribe": {
+    transporte:[
+      {cidade:"Bogotá", sistema:"TransMilenio (BRT) + SITP (ônibus) — metrô em obras", passe:"Tarjeta Tu Llave", app:"TransMilenio · Moovit", dica:"Monserrate por funicular/teleférico. Trânsito intenso — prefira os corredores do BRT."},
+      {cidade:"Medellín", sistema:"Metrô de Medellín + Metrocable (teleférico) + tranvía", passe:"Tarjeta Cívica", app:"Metro de Medellín", dica:"Comuna 13 pela linha B até San Javier; Parque Arví pela linha K + Metrocable."},
+    ],
     atracoes:[
-      {n:"Cerro de Monserrate", base:"Bogotá", nota:"Mirante a 3.150 m sobre Bogotá; funicular e teleférico."},
+      {n:"Cerro de Monserrate", base:"Bogotá", nota:"Mirante a 3.150 m sobre Bogotá; funicular e teleférico. BRT: est. Universidades / Las Aguas"},
       {n:"La Candelaria & Plaza Bolívar", base:"Bogotá", nota:"Centro histórico colonial, museus e street art."},
-      {n:"Comuna 13", base:"Medellín", nota:"Escadas rolantes, grafites e a virada social da cidade."},
-      {n:"Pueblito Paisa & Plaza Botero", base:"Medellín", nota:"Vila típica no Cerro Nutibara e as esculturas de Botero."},
+      {n:"Comuna 13", base:"Medellín", nota:"Escadas rolantes, grafites e a virada social da cidade. Metrô: est. San Javier (linha B)"},
+      {n:"Pueblito Paisa & Plaza Botero", base:"Medellín", nota:"Vila típica no Cerro Nutibara e as esculturas de Botero. Metrô: est. Parque Berrío (centro)"},
       {n:"Ciudad Amurallada", base:"Cartagena", nota:"Muralhas, Getsemaní e o casario colorido (UNESCO)."},
       {n:"Bogotá", base:"Bogotá", nota:"Capital andina a 2.600 m; La Candelaria e Monserrate.", lat:4.711, lng:-74.0721},
       {n:"Zipaquirá", base:"Bogotá", nota:"Catedral de Sal subterrânea, esculpida em mina.", lat:5.0221, lng:-74.0044},
@@ -1391,6 +1424,9 @@
     ],
   },
   "co-caribe-guajira": {
+    transporte:[
+      {cidade:"Cartagena", sistema:"Centro a pé + Transcaribe (BRT) e táxis", passe:"Tarjeta Transcaribe", app:"Moovit", dica:"Ciudad Amurallada e Getsemaní a pé; táxi para Bocagrande e Castillo (combine o preço antes)."},
+    ],
     atracoes:[
       {n:"Getsemaní & Ciudad Amurallada", base:"Cartagena", nota:"Bairro boêmio, murais e a cidade colonial murada."},
       {n:"Las Bóvedas & Castillo San Felipe", base:"Cartagena", nota:"Arcos coloniais e a maior fortaleza espanhola."},
@@ -1479,7 +1515,12 @@
     ],
   },
   "ve-andes-llanos": {
+    transporte:[
+      {cidade:"Mérida", sistema:"Trolebús (Trolmérida) + teleférico Mukumbarí", passe:"Dinheiro vivo (bolívares)", app:"—", dica:"Centro a pé; vá cedo ao teleférico (o mais alto do mundo)."},
+    ],
     atracoes:[
+      {n:"Plaza Bolívar & Catedral", base:"Mérida", nota:"Coração da capital andina venezuelana.", lat:8.5938, lng:-71.1448},
+      {n:"Mercado Principal", base:"Mérida", nota:"Artesanato, queijos e doces andinos.", lat:8.5897, lng:-71.1561},
       {n:"Mérida", base:"Mérida", nota:"Capital andina; base do teleférico Mukumbarí.", lat:8.5897, lng:-71.1561},
       {n:"Mukumbarí (teleférico)", base:"Mérida", nota:"Teleférico mais alto e longo do mundo (4.765 m); vista do Pico Bolívar.", lat:8.5333, lng:-71.05},
       {n:"Laguna de Mucubají", base:"Mérida", nota:"Lagoa glacial no páramo de frailejones, a 3.600 m.", lat:8.7972, lng:-70.8222},
@@ -1519,6 +1560,9 @@
     ],
   },
   "ar-cuyo-mendoza": {
+    transporte:[
+      {cidade:"Mendoza", sistema:"Metrotranvía (1 linha) + ônibus (Red Bus)", passe:"Tarjeta SUBE / Red Bus", app:"—", dica:"Centro e Parque San Martín a pé ou de bici; bodegas por tour, táxi ou bike."},
+    ],
     atracoes:[
       {n:"Parque General San Martín", base:"Mendoza", nota:"Grande parque urbano e o Cerro de la Gloria."},
       {n:"Peatonal Sarmiento & Plaza Independencia", base:"Mendoza", nota:"Calçadão de bares, vinho e vida mendocina."},
@@ -1561,9 +1605,12 @@
     ],
   },
   "cl-central-valparaiso": {
+    transporte:[
+      {cidade:"Santiago", sistema:"Metrô de Santiago + ônibus Red", passe:"Tarjeta bip!", app:"Metro de Santiago · Moovit", dica:"Para Valparaíso, use o Metro Valparaíso (Merval) e os ascensores nos cerros."},
+    ],
     atracoes:[
       {n:"Cerros Alegre & Concepción", base:"Valparaíso", nota:"Casario colorido, ascensores e murais (UNESCO)."},
-      {n:"Cerro San Cristóbal", base:"Santiago", nota:"Mirante e teleférico sobre a capital."},
+      {n:"Cerro San Cristóbal", base:"Santiago", nota:"Mirante e teleférico sobre a capital. Metrô: est. Baquedano (L1/L5)"},
       {n:"Plaza Sotomayor & porto", base:"Valparaíso", nota:"Praça histórica e o porto boêmio do Pacífico."},
       {n:"Santiago", base:"Santiago", nota:"Capital chilena aos pés dos Andes; bairros e mirantes.", lat:-33.4489, lng:-70.6693},
       {n:"Cajón del Maipo", base:"Santiago", nota:"Montanha de Santiago; Embalse El Yeso e termas.", lat:-33.8, lng:-70.0833},
@@ -1613,6 +1660,7 @@
   },
   "ar-patagonia-chalten": {
     atracoes:[
+      {n:"Centro & porto de Ushuaia", base:"Ushuaia", nota:"Cidade mais austral do mundo; museus e o canal.", lat:-54.8019, lng:-68.303},
       {n:"El Calafate", base:"El Calafate", nota:"Base do Parque Los Glaciares; porta do Perito Moreno.", lat:-50.3379, lng:-72.2648},
       {n:"Glaciar Perito Moreno", base:"El Calafate", nota:"Glaciar com passarelas de frente para a parede de gelo.", lat:-50.4953, lng:-73.1378},
       {n:"El Chaltén", base:"El Chaltén", nota:"Capital nacional do trekking; base do Fitz Roy.", lat:-49.3315, lng:-72.8863},
@@ -1653,6 +1701,9 @@
     ],
   },
   "cu-havana-trinidad": {
+    transporte:[
+      {cidade:"Havana", sistema:"Táxis clássicos, 'almendrones' (coletivos) e ônibus (guaguas)", passe:"Dinheiro vivo (pesos)", app:"—", dica:"Habana Vieja toda a pé; almendrones seguem rotas fixas — combine o valor antes de entrar."},
+    ],
     atracoes:[
       {n:"Plaza Vieja & Plaza de la Catedral", base:"Havana", nota:"As praças mais bonitas da Habana Vieja."},
       {n:"El Capitólio & Paseo del Prado", base:"Havana", nota:"Cartão-postal e o bulevar arborizado do centro."},
@@ -1727,7 +1778,12 @@
     ],
   },
   "cu-cayos-oriente": {
+    transporte:[
+      {cidade:"Santiago de Cuba", sistema:"Táxis, almendrones e ônibus locais", passe:"Dinheiro vivo (pesos)", app:"—", dica:"Centro e Parque Céspedes a pé; táxi para o Morro e El Cobre."},
+    ],
     atracoes:[
+      {n:"Parque Céspedes & Calle Heredia", base:"Santiago de Cuba", nota:"Praça central e a rua da trova e do son.", lat:20.0206, lng:-75.8219},
+      {n:"Plaza San Juan de Dios", base:"Camagüey", nota:"A praça colonial mais bela da cidade-labirinto.", lat:21.376, lng:-77.917},
       {n:"Havana", base:"Havana", nota:"Capital e ponto de partida rumo aos cayos e ao oriente.", lat:23.1136, lng:-82.3666},
       {n:"Varadero", base:"Varadero", nota:"A praia mais famosa de Cuba; 20 km de areia branca.", lat:23.1394, lng:-81.2861},
       {n:"Cayo Santa María", base:"Varadero", nota:"Jardines del Rey; praias de resort sobre pedraplén.", lat:22.6479, lng:-78.9986},
@@ -1782,11 +1838,14 @@
     ],
   },
   "cl-santiago-cordilheira": {
+    transporte:[
+      {cidade:"Santiago", sistema:"Metrô de Santiago (7 linhas) + ônibus Red (Transantiago)", passe:"Tarjeta bip! (recarregável; metrô e ônibus)", app:"Metro de Santiago · Moovit", dica:"Cerro San Cristóbal pela L1 (est. Baquedano) + funicular. Evite o rush 7–9h e 18–20h."},
+    ],
     atracoes:[
       {n:"Cerro San Cristóbal", base:"Santiago", nota:"Parque Metropolitano com funicular e vista panorâmica."},
-      {n:"Cerro Santa Lucía", base:"Santiago", nota:"Mirante ajardinado no coração da capital."},
-      {n:"Plaza de Armas & Bellas Artes", base:"Santiago", nota:"Centro histórico, catedral e museus."},
-      {n:"Bairro Bellavista & Sky Costanera", base:"Santiago", nota:"Vida noturna, La Chascona e o mirante mais alto."},
+      {n:"Cerro Santa Lucía", base:"Santiago", nota:"Mirante ajardinado no coração da capital. Metrô: est. Santa Lucía (L1)"},
+      {n:"Plaza de Armas & Bellas Artes", base:"Santiago", nota:"Centro histórico, catedral e museus. Metrô: est. Plaza de Armas (L5)"},
+      {n:"Bairro Bellavista & Sky Costanera", base:"Santiago", nota:"Vida noturna, La Chascona e o mirante mais alto. Metrô: est. Baquedano / Tobalaba"},
       {n:"Santiago", base:"Santiago", nota:"Capital aos pés dos Andes; bairros, mercados e mirantes.", lat:-33.4489, lng:-70.6693},
       {n:"Valle Nevado", base:"Santiago", nota:"Estação de ski nos Andes a ~1h30 de Santiago; trekking no verão.", lat:-33.3547, lng:-70.2497},
       {n:"Cajón del Maipo", base:"Santiago", nota:"Vale de montanha; Embalse El Yeso e termas.", lat:-33.8, lng:-70.0833},
