@@ -481,6 +481,9 @@
   /* ===================== RIO GRANDE DO SUL ===================== */
   "rs-serra-gaucha": {
     atracoes:[
+      {n:"Lago Negro", base:"Gramado", nota:"Lago com pedalinhos e bosque; cartão-postal de Gramado.", lat:-29.387, lng:-50.874},
+      {n:"Rua Coberta", base:"Gramado", nota:"Centro gastronômico e de compras a céu aberto.", lat:-29.3789, lng:-50.874},
+      {n:"Parque do Caracol", base:"Canela", nota:"Cachoeira de 131 m e mirantes; pertinho de Canela.", lat:-29.247, lng:-50.839},
       {n:"Porto Alegre", base:"Porto Alegre", nota:"Capital gaúcha e ponto de partida rumo à serra.", lat:-30.0346, lng:-51.2177},
       {n:"Gramado", base:"Gramado", nota:"Centro turístico da serra; Lago Negro, chocolates e Natal Luz.", lat:-29.3747, lng:-50.8769},
       {n:"Bento Gonçalves", base:"Bento Gonçalves", nota:"Capital do vinho; Vale dos Vinhedos e Maria-Fumaça.", lat:-29.1714, lng:-51.5189},
@@ -1048,6 +1051,8 @@
       {cidade:"Cusco", sistema:"Centro compacto a pé; colectivos e táxis para arredores", passe:"—", app:"—", dica:"Suba devagar pela altitude (3.400 m). Vale Sagrado e Sacsayhuamán por tour/colectivo."},
     ],
     atracoes:[
+      {n:"Plaza de Armas de Arequipa", base:"Arequipa", nota:"Praça de sillar branco, catedral e portais.", lat:-16.3989, lng:-71.5369},
+      {n:"Bairro de Yanahuara", base:"Arequipa", nota:"Mirante de arcos com vista do vulcão Misti.", lat:-16.394, lng:-71.545},
       {n:"Centro Histórico de Lima", base:"Lima", nota:"Plaza Mayor, Catedral e o casario colonial (UNESCO). Metropolitano: est. Jirón de la Unión"},
       {n:"Miraflores & Malecón", base:"Lima", nota:"Orla sobre o Pacífico, Parque del Amor e Larcomar. Metropolitano: est. Ricardo Palma"},
       {n:"Barranco", base:"Lima", nota:"Bairro boêmio e artístico; Puente de los Suspiros e murais. Metropolitano: est. Bulevar / Balta"},
@@ -1231,6 +1236,8 @@
       {cidade:"Salta", sistema:"Teleférico San Bernardo + ônibus urbano (SAETA)", passe:"Tarjeta SAETA", app:"—", dica:"Centro histórico a pé; teleférico ou trilha ao Cerro San Bernardo."},
     ],
     atracoes:[
+      {n:"Mercado San Miguel", base:"Salta", nota:"Mercado popular; empanadas, tamales e produtos andinos.", lat:-24.7905, lng:-65.4106},
+      {n:"Museo MAAM", base:"Salta", nota:"As múmias incas de Llullaillaco, junto à Plaza 9 de Julio.", lat:-24.7889, lng:-65.4108},
       {n:"Teleférico San Bernardo", base:"Salta", nota:"Mirante sobre 'Salta la linda' e o vale."},
       {n:"Plaza 9 de Julio & Cabildo", base:"Salta", nota:"Praça central colonial, catedral e museus."},
       {n:"Salta", base:"Salta", nota:"'Salta la linda'; capital colonial do noroeste argentino.", lat:-24.7821, lng:-65.4232},
@@ -1576,6 +1583,8 @@
       {cidade:"Mendoza", sistema:"Metrotranvía (1 linha) + ônibus (Red Bus)", passe:"Tarjeta SUBE / Red Bus", app:"—", dica:"Centro e Parque San Martín a pé ou de bici; bodegas por tour, táxi ou bike."},
     ],
     atracoes:[
+      {n:"Plaza Independencia", base:"Mendoza", nota:"Praça central com feira de artesãos e museu subterrâneo.", lat:-32.8895, lng:-68.8458},
+      {n:"Cerro de la Gloria", base:"Mendoza", nota:"Monumento ao Exército dos Andes, no Parque San Martín.", lat:-32.893, lng:-68.876},
       {n:"Parque General San Martín", base:"Mendoza", nota:"Grande parque urbano e o Cerro de la Gloria."},
       {n:"Peatonal Sarmiento & Plaza Independencia", base:"Mendoza", nota:"Calçadão de bares, vinho e vida mendocina."},
       {n:"Mendoza", base:"Mendoza", nota:"Capital do vinho argentino; cidade-jardim arborizada.", lat:-32.8895, lng:-68.8458},
@@ -1621,6 +1630,8 @@
       {cidade:"Santiago", sistema:"Metrô de Santiago + ônibus Red", passe:"Tarjeta bip!", app:"Metro de Santiago · Moovit", dica:"Para Valparaíso, use o Metro Valparaíso (Merval) e os ascensores nos cerros."},
     ],
     atracoes:[
+      {n:"Paseo Gervasoni & Atkinson", base:"Valparaíso", nota:"Mirantes dos cerros Concepción/Alegre; casario e murais.", lat:-33.0392, lng:-71.629},
+      {n:"Ascensor Concepción", base:"Valparaíso", nota:"O mais antigo funicular da cidade (1883).", lat:-33.0386, lng:-71.63},
       {n:"Cerros Alegre & Concepción", base:"Valparaíso", nota:"Casario colorido, ascensores e murais (UNESCO)."},
       {n:"Cerro San Cristóbal", base:"Santiago", nota:"Mirante e teleférico sobre a capital. Metrô: est. Baquedano (L1/L5)"},
       {n:"Plaza Sotomayor & porto", base:"Valparaíso", nota:"Praça histórica e o porto boêmio do Pacífico."},
@@ -1717,6 +1728,8 @@
       {cidade:"Havana", sistema:"Táxis clássicos, 'almendrones' (coletivos) e ônibus (guaguas)", passe:"Dinheiro vivo (pesos)", app:"—", dica:"Habana Vieja toda a pé; almendrones seguem rotas fixas — combine o valor antes de entrar."},
     ],
     atracoes:[
+      {n:"Plaza Mayor de Trinidad", base:"Trinidad", nota:"Coração colonial; igreja, museus e a Casa de la Música.", lat:21.802, lng:-79.9847},
+      {n:"Paseo del Prado", base:"Cienfuegos", nota:"O bulevar mais longo de Cuba; arquitetura francesa.", lat:22.146, lng:-80.436},
       {n:"Plaza Vieja & Plaza de la Catedral", base:"Havana", nota:"As praças mais bonitas da Habana Vieja."},
       {n:"El Capitólio & Paseo del Prado", base:"Havana", nota:"Cartão-postal e o bulevar arborizado do centro."},
       {n:"Callejón de Hamel", base:"Havana", nota:"Beco de arte afro-cubana, rumba aos domingos."},
