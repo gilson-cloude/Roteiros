@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logística · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>abastecimento & travessias</div>
+  <h1>Logística da <span class="hl">rota</span></h1>
+  <p class="lead">Onde abastecer com segurança e quais <b>ferries</b> atravessar. Na Patagônia, postos são raros e a distância entre eles define o planejamento do tanque.</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><path d="M5 12l5-8 4 6 5-4v10z"/><path d="M3 21h18"/></svg>
+    <div><h4>Regra de ouro</h4><p>Na Patagônia, <b>abasteça sempre que o tanque chegar à metade</b> — não confie no próximo posto. Leve um galão extra de diesel para os trechos de ripio.</p></div>
+  </div>
+
+  <!-- ===== ABASTECIMENTO ===== -->
+  <div class="section">
+    <div class="section-h"><span class="sn">01</span><h2>Pontos-chave de abastecimento</h2><span class="note">diesel</span></div>
+    <table class="tbl">
+      <thead><tr><th>Ponto</th><th>País</th><th>Por que importa</th></tr></thead>
+      <tbody>
+        <tr><td><b>Bahía Blanca</b></td><td>AR</td><td>Última grande cidade antes da Patagônia; tanque cheio e estoque.</td></tr>
+        <tr><td><b>Puerto Madryn</b></td><td>AR</td><td>Apoio completo antes da Ruta 3; postos YPF confiáveis.</td></tr>
+        <tr><td><b>San Julián / Piedra Buena</b></td><td>AR</td><td>Reabastecer no meio da Ruta 3 — gaps longos no trecho.</td></tr>
+        <tr><td><b>Río Gallegos</b></td><td>AR</td><td>Encher tudo antes da Terra do Fogo e da dupla fronteira.</td></tr>
+        <tr><td><b>El Calafate</b></td><td>AR</td><td>Base antes de Chaltén e do cruzamento ao Chile.</td></tr>
+        <tr><td><b>Perito Moreno / Los Antiguos</b></td><td>AR</td><td>Últimos postos antes de Chile Chico e da Carretera.</td></tr>
+        <tr><td><b>Cochrane</b></td><td>CL</td><td>Último abastecimento forte do sul da Carretera Austral.</td></tr>
+        <tr><td><b>Coyhaique</b></td><td>CL</td><td>Maior apoio de Aysén — Copec/Petrobras, oficinas e GLP.</td></tr>
+        <tr><td><b>Puerto Montt</b></td><td>CL</td><td>Reentrada na malha asfaltada; reabastecer para o retorno.</td></tr>
+        <tr><td><b>Bariloche / Neuquén</b></td><td>AR</td><td>Apoio na volta pela Argentina rumo ao Brasil.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" style="border-left-color:var(--blue)">
+      <svg viewBox="0 0 24 24" style="stroke:var(--blue)"><path d="M12 2a7 7 0 0 1 4 12.7V17H8v-2.3A7 7 0 0 1 12 2z"/><path d="M9 21h6"/></svg>
+      <div><h4>Apps úteis</h4><p>Use <b>YPF App</b> e <b>Surtidores</b> (AR) e <b>Bencina en Línea / Copec</b> (CL) para localizar postos e preços. <b>iOverlander</b> mostra postos, água e pernoites no mapa offline.</p></div>
+    </div>
+  </div>
+
+  <!-- ===== FERRIES ===== -->
+  <div class="section">
+    <div class="section-h"><span class="sn">02</span><h2>Ferries & balsas</h2><span class="note">reservar para motorhome</span></div>
+    <table class="tbl">
+      <thead><tr><th>Travessia</th><th class="num">Duração</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td><b>Primera Angostura</b><div class="muted">Estreito de Magalhães (Punta Delgada)</div></td><td class="num">~20 min</td><td>Rumo à Terra do Fogo. Sai a cada ~40 min; paga-se na hora.</td></tr>
+        <tr><td><b>Chaitén → Puerto Montt</b><div class="muted">Naviera Austral</div></td><td class="num">~9–10 h</td><td><b>Reservar com antecedência</b> — vagas para motorhome são limitadas e disputadas.</td></tr>
+        <tr><td><b>Hornopirén → Caleta Gonzalo</b><div class="muted">alternativa na Carretera norte</div></td><td class="num">~5 h (2 balsas)</td><td>Rota cênica por Pumalín; exige reserva e horários casados.</td></tr>
+        <tr><td><b>Río Tranquilo / Lago Gral. Carrera</b><div class="muted">desvios locais</div></td><td class="num">variável</td><td>Passeios náuticos (Capillas de Mármol) — não levam o veículo.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <svg viewBox="0 0 24 24"><path d="M3 16l9-13 9 13M3 16l9 5 9-5M3 16h18"/></svg>
+      <div><h4>Sobre a Carretera Austral</h4><p>O trecho mais ao sul (até <b>Villa O'Higgins</b>) é estrada <b>sem saída</b> — vá e volte por Cochrane. Não há travessia rodoviária de O'Higgins para Torres del Paine: o motorhome sobe pela Ruta 40 (Argentina) e cruza em <b>Chile Chico</b>.</p></div>
+    </div>
+  </div>
+
+  <!-- ===== DISTÂNCIAS CRÍTICAS ===== -->
+  <div class="section">
+    <div class="section-h"><span class="sn">03</span><h2>Trechos a planejar o tanque</h2></div>
+    <div class="grid2">
+      <div class="card acc" style="--ac:var(--amber)"><h3>Ruta 3 — costa de Santa Cruz</h3><p>Distâncias longas entre vilas. Saia sempre com tanque cheio de San Julián e Piedra Buena.</p></div>
+      <div class="card acc" style="--ac:var(--amber)"><h3>Ruta 40 — Bajo Caracoles</h3><p>Um dos trechos mais isolados da Argentina. Abasteça em Perito Moreno antes de subir.</p></div>
+      <div class="card acc" style="--ac:var(--teal)"><h3>Carretera sul — Cochrane → O'Higgins</h3><p>Ripio e postos escassos. Galão extra e cautela com pneus.</p></div>
+      <div class="card acc" style="--ac:var(--teal)"><h3>Terra do Fogo</h3><p>Planeje o ferry e os postos de Río Grande e Tolhuin antes de Ushuaia.</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>// planejador de roteiros · logística</span>
+    <span>confirme horários de ferry perto da data</span>
+  </footer>
+
+</div>
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Indicações · Planejador de Roteiros</title>
+<meta name="theme-color" content="#0F766E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F9; --panel:#FFFFFF; --ink:#16202C; --slate:#5B6472; --faint:#8B93A1;
+    --line:#E6E9EE; --teal:#0F766E; --terra:#E07A3F; --accent:#0F766E;
+    --shadow:0 10px 30px -16px rgba(22,32,44,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink);
+    background:radial-gradient(900px 460px at 100% -5%, color-mix(in srgb,var(--accent) 8%,transparent), transparent 60%), var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.5;padding:36px 20px 60px}
+  .wrap{max-width:960px;margin:0 auto}
+  a{color:var(--accent)}
+  .backlink{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--slate);
+    text-decoration:none;margin-bottom:16px}
+  .backlink svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+  .brandline{display:flex;align-items:center;gap:9px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  .brandline .dot{width:7px;height:7px;border-radius:50%;background:var(--terra)}
+  h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(25px,4.2vw,36px);letter-spacing:-.025em;line-height:1.05}
+  .lead{color:var(--slate);font-size:14.5px;margin-top:10px;max-width:640px}
+
+  .rotpick{display:flex;align-items:center;gap:10px;margin:20px 0 6px;flex-wrap:wrap}
+  .rotpick .rplab{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--faint)}
+  .rotpick select{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:var(--ink);
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 32px 9px 13px;cursor:pointer;
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6472' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;background-size:15px}
+  .rotpick select:focus{outline:none;border-color:var(--accent)}
+
+  .note{display:flex;gap:9px;align-items:flex-start;background:color-mix(in srgb,var(--accent) 7%,#fff);
+    border:1px solid color-mix(in srgb,var(--accent) 20%,#fff);border-radius:12px;padding:11px 14px;margin:16px 0 4px;
+    font-size:12.5px;color:var(--slate)}
+  .note svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+
+  .cat{margin-top:30px}
+  .cat-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+  .cat-h .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;
+    background:color-mix(in srgb,var(--cc) 15%,#fff);color:var(--cc)}
+  .cat-h .ic svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9}
+  .cat-h h2{font-family:"Space Grotesk",sans-serif;font-size:18px;letter-spacing:-.01em}
+  .cat-h .cnt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);margin-left:2px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .item{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;
+    border-left:3px solid var(--cc);box-shadow:var(--shadow)}
+  .item .n{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;line-height:1.25}
+  .item .base{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--cc);font-weight:600;margin-top:5px}
+  .item .base svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+  .item .nt{font-size:12.5px;color:var(--slate);margin-top:7px}
+  .empty{color:var(--faint);font-size:13px;padding:8px 2px}
+  footer{margin-top:42px;border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:8px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}
+  @media(max-width:600px){ body{padding:26px 14px 50px} .cards{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+  <div class="brandline"><span class="dot"></span>guia de serviços</div>
+  <h1>Indicações</h1>
+  <p class="lead">Parques, campings, pontos de pernoite e onde comer ao longo do roteiro selecionado. Curadoria de planejamento — confirme funcionamento e condições perto da viagem.</p>
+
+  <div class="rotpick">
+    <span class="rplab">Roteiro</span>
+    <select id="rotsel" aria-label="Selecionar roteiro"></select>
+  </div>
+
+  <div id="content"></div>
+
+  <footer>
+    <span>// planejador de roteiros · indicações</span>
+    <span>sugestões aproximadas · revise antes de viajar</span>
+  </footer>
+</div>
+
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="servicos.js"></script>
+<script src="app-shared.js"></script>
+<script>
+(function(){
+  const ROTEIROS = window.ROTEIROS;
+  const params = new URLSearchParams(location.search);
+  let current = ROTEIROS.find(r=>r.id===(params.get('r')||localStorage.getItem('roteiroAtivo'))) || ROTEIROS[0];
+  try{ localStorage.setItem('roteiroAtivo', current.id); }catch(e){}
+  try{ if(window.PLANNER) PLANNER.applyTheme(current); }catch(e){}
+
+  const CATS = [
+    { key:"parques",  label:"Parques & natureza", cor:"#2E9E5B", ic:'<path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/>' },
+    { key:"igrejas",  label:"Igrejas & patrimônio", cor:"#2563EB", ic:'<path d="M12 2v3M10.5 3.5h3M12 5l-5 4v11h10V9l-5-4zM10 20v-4a2 2 0 0 1 4 0v4"/>' },
+    { key:"campings",  label:"Campings",            cor:"#0EA5C0", ic:'<path d="M3 20h18M12 4 5 20M12 4l7 16M9 13l3-2 3 2"/>' },
+    { key:"pernoite",  label:"Pernoite de motorhome", cor:"#B45309", ic:'<path d="M3 17V8a1 1 0 0 1 1-1h9v10M13 11h4l3 3v3M7 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0z"/>' },
+    { key:"comer",     label:"Restaurantes & bares", cor:"#DC2626", ic:'<path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/>' },
+    { key:"museus",    label:"Museus & cultura", cor:"#0D9488", ic:'<path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/>' },
+    { key:"eventos",   label:"Eventos & festivais", cor:"#9333EA", ic:'<path d="M4 8h16M4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M9 2v4M15 2v4M9 13h6"/>' },
+  ];
+  const sel = document.getElementById('rotsel');
+
+  function buildSelect(){
+    sel.innerHTML='';
+    const groups={};
+    ROTEIROS.forEach(r=>{ const rg=(window.REGIOES[r.regiaoId]&&window.REGIOES[r.regiaoId].nome)||r.regiao||'Outros'; (groups[rg]=groups[rg]||[]).push(r); });
+    Object.keys(groups).forEach(gn=>{
+      const og=document.createElement('optgroup'); og.label=gn;
+      groups[gn].forEach(r=>{ const o=document.createElement('option'); o.value=r.id; o.textContent=r.nome; if(r.id===current.id)o.selected=true; og.appendChild(o); });
+      sel.appendChild(og);
+    });
+    sel.value=current.id;
+  }
+  sel.addEventListener('change', ()=>{
+    current = ROTEIROS.find(r=>r.id===sel.value)||current;
+    try{ localStorage.setItem('roteiroAtivo', current.id); }catch(e){}
+    try{ if(window.PLANNER) PLANNER.applyTheme(current); }catch(e){}
+    render();
+  });
+
+  const pinIc = '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>';
+  function render(){
+    sel.value = current.id;
+    const sv = current.servicos;
+    const box = document.getElementById('content');
+    if(!sv){
+      box.innerHTML = '<div class="note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>'
+        + 'Este roteiro ainda não tem indicações cadastradas. Você pode adicioná-las ao criar/editar o roteiro.</div>';
+      return;
+    }
+    let html = `<div class="note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>`
+      + `Indicações para <b style="color:var(--ink)">${current.nome}</b> · ${current.regiao}. Toque em qualquer item para ver no contexto da semana, na tela de Roteiro.</div>`;
+    CATS.forEach(c=>{
+      const items = sv[c.key]||[];
+      if(!items.length) return;
+      html += `<section class="cat" style="--cc:${c.cor}">
+        <div class="cat-h"><span class="ic"><svg viewBox="0 0 24 24">${c.ic}</svg></span>
+          <h2>${c.label}</h2><span class="cnt">${items.length}</span></div>`;
+      html += `<div class="cards">`;
+      items.forEach(it=>{
+        html += `<div class="item"><div class="n">${it.n}</div>`
+          + (it.base?`<div class="base">${pinIc}${it.base}</div>`:'')
+          + (it.nota?`<div class="nt">${it.nota}</div>`:'')
+          + `</div>`;
+      });
+      html += `</div></section>`;
+    });
+    box.innerHTML = html;
+  }
+
+  buildSelect();
+  render();
+})();
+</script>
+</body>
+</html>

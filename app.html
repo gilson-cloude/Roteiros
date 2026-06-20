@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Planejador de Roteiros</title>
+<meta name="theme-color" content="#0F766E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Roteiros">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F9; --panel:#FFFFFF; --ink:#16202C; --slate:#5B6472; --faint:#8B93A1;
+    --line:#E6E9EE; --line-soft:#EEF1F5; --teal:#0F766E; --terra:#E07A3F;
+    --shadow:0 10px 30px -16px rgba(22,32,44,.18);
+    --navh:64px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.5}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  /* App is a centered phone-width column; full-bleed on real phones */
+  .app{max-width:480px;margin:0 auto;min-height:100%;background:var(--bg);position:relative;
+    box-shadow:0 0 60px -20px rgba(0,0,0,.2);padding-bottom:calc(var(--navh) + env(safe-area-inset-bottom)))}
+
+  /* HEADER */
+  .hdr{position:sticky;top:0;z-index:30;color:#fff;
+    background:linear-gradient(150deg,#0c2a2a,#0F766E 60%,#15807a);
+    padding:calc(18px + env(safe-area-inset-top)) 18px 16px}
+  .hdr::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background:radial-gradient(360px 180px at 92% -20%, rgba(224,122,63,.5), transparent 60%)}
+  .hdr .row{position:relative;z-index:2;display:flex;align-items:center;gap:12px}
+  .hdr .ico{width:40px;height:40px;border-radius:11px;flex-shrink:0;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+  .hdr .ico img{width:100%;height:100%;display:block}
+  .hdr h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1}
+  .hdr .sub{font-size:11.5px;color:#bfe7e2;font-family:"JetBrains Mono",monospace;margin-top:3px;letter-spacing:.04em}
+  .hdr .metarow{position:relative;z-index:2;display:flex;gap:8px;margin-top:15px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .hdr .metarow::-webkit-scrollbar{display:none}
+  .hdr .m{flex-shrink:0;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    border-radius:10px;padding:7px 11px;font-size:11.5px;color:#eafaf7;white-space:nowrap;display:flex;gap:7px;align-items:center}
+  .hdr .m svg{width:14px;height:14px;stroke:#9fe0d8;fill:none;stroke-width:1.9}
+  .hdr .m b{color:#fff;font-weight:600}
+
+  .hdr .hd{min-width:0;flex:1}
+  .hdr .applabel{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:#9fe0d8;margin-bottom:5px}
+  .hdr h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1.05}
+  .hdr .rotpicker{position:relative;z-index:2;display:flex;gap:10px;margin-top:15px;align-items:center}
+  .hdr .rotsel{flex:1;min-width:0;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#13242b;
+    background:#fff;border:1px solid rgba(255,255,255,.55);border-radius:12px;padding:12px 36px 12px 14px;cursor:pointer;
+    appearance:none;-webkit-appearance:none;box-shadow:0 6px 18px -10px rgba(0,0,0,.4);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2313242b' stroke-width='2.2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 12px center;background-size:17px}
+  .hdr .rotsel:focus{outline:none}
+  .hdr .rotadd{flex-shrink:0;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;text-decoration:none;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);color:#fff;transition:background .15s}
+  .hdr .rotadd:hover{background:rgba(255,255,255,.26)}
+  .hdr .rotadd svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2.4}
+
+  /* SEARCH */
+  .searchwrap{position:sticky;top:0;z-index:20;background:var(--bg);padding:14px 16px 6px}
+  .search{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);
+    border-radius:13px;padding:12px 14px;box-shadow:var(--shadow)}
+  .search svg{width:18px;height:18px;stroke:var(--faint);fill:none;stroke-width:2;flex-shrink:0}
+  .search input{border:0;outline:0;font-size:15px;font-family:inherit;color:var(--ink);width:100%;background:transparent}
+  .search input::placeholder{color:var(--faint)}
+
+  /* INSTALL banner */
+  .install{display:none;align-items:center;gap:12px;margin:8px 16px 0;background:#0F766E;color:#fff;
+    border-radius:13px;padding:12px 14px;box-shadow:var(--shadow)}
+  .install.show{display:flex}
+  .install svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;flex-shrink:0}
+  .install .t{flex:1;font-size:12.5px;line-height:1.3}
+  .install .t b{font-weight:600}
+  .install button{font-family:inherit;font-weight:600;font-size:12.5px;border:0;border-radius:9px;
+    padding:8px 13px;background:#fff;color:#0F766E;cursor:pointer;white-space:nowrap}
+  .install .x{background:transparent;color:#cdeee9;padding:8px 4px}
+
+  /* SECTIONS */
+  main{padding:10px 16px 24px}
+  .grp{margin-top:20px}
+  .grp-h{display:flex;align-items:center;gap:10px;margin:0 2px 11px}
+  .grp-h .gt{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;letter-spacing:.03em;
+    text-transform:uppercase;color:var(--slate);white-space:nowrap}
+  .grp-h .gl{flex:1;height:1px;background:var(--line)}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .tile{display:flex;flex-direction:column;gap:9px;background:var(--panel);border:1px solid var(--line);
+    border-radius:15px;padding:15px 15px 14px;box-shadow:var(--shadow);text-decoration:none;color:inherit;
+    transition:transform .14s,box-shadow .14s;min-height:118px;position:relative}
+  .tile:active{transform:scale(.97)}
+  .tile .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;
+    background:color-mix(in srgb,var(--c) 13%,#fff);border:1px solid color-mix(in srgb,var(--c) 26%,#fff)}
+  .tile .ic svg{width:20px;height:20px;stroke:var(--c);fill:none;stroke-width:1.9}
+  .tile h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;letter-spacing:-.01em;line-height:1.12;margin-top:auto}
+  .tile p{font-size:11.5px;color:var(--slate);line-height:1.35}
+  .tile.wide{grid-column:1 / -1;flex-direction:row;align-items:center;min-height:0}
+  .tile.wide .ic{width:44px;height:44px}
+  .tile.wide .bd{flex:1}
+  .tile.wide h3{margin-top:0}
+  .tile.wide .go{margin-left:auto;color:var(--c)}
+  .tile.wide .go svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+  .empty{display:none;text-align:center;color:var(--faint);font-size:14px;padding:50px 20px}
+  .empty.show{display:block}
+
+  footer{padding:8px 18px 26px;text-align:center}
+  footer .net{display:inline-flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;
+    font-size:11px;color:var(--faint)}
+  footer .net .dot{width:7px;height:7px;border-radius:50%;background:var(--terra)}
+  footer .net.on .dot{background:#2E9E5B}
+
+  /* BOTTOM NAV */
+  .nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:40;
+    height:calc(var(--navh) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+    background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+    display:flex;align-items:stretch}
+  .nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    text-decoration:none;color:var(--faint);font-size:10.5px;font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .nav a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2}
+  .nav a.on{color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="hdr">
+    <div class="row">
+      <div class="ico"><img src="icons/icon-192.png" alt=""></div>
+      <div class="hd">
+        <div class="applabel">Planejador de roteiros</div>
+        <h1 id="rotName">—</h1>
+        <div class="sub" id="rotSub"></div>
+      </div>
+    </div>
+    <div class="metarow" id="metarow"></div>
+    <div class="rotpicker" id="rotpicker"></div>
+  </header>
+
+  <div class="searchwrap">
+    <label class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Buscar seção (postos, fronteiras, camping…)" autocomplete="off">
+    </label>
+  </div>
+
+  <div class="install" id="install">
+    <svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg>
+    <div class="t"><b>Instalar o app</b> — funciona offline na estrada</div>
+    <button id="installBtn">Instalar</button>
+    <button class="x" id="installX" aria-label="fechar">✕</button>
+  </div>
+
+  <main id="main"></main>
+
+  <footer>
+    <span class="net" id="net"><span class="dot"></span><span id="netTxt">verificando conexão…</span></span>
+  </footer>
+
+  <nav class="nav">
+    <a class="on" href="app.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Início</a>
+    <a href="mapa.html"><svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>Mapa</a>
+    <a href="roteiro.html"><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/></svg>Roteiro</a>
+    <a href="custos.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2.5-5 1.5-5 4a2.5 2 0 0 0 5 0"/></svg>Custos</a>
+  </nav>
+</div>
+
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="servicos.js"></script>
+<script src="app-shared.js"></script>
+<script>
+(function(){
+  const ROTEIROS = window.ROTEIROS;
+  let active = ROTEIROS.find(r=>r.id===localStorage.getItem('roteiroAtivo')) || ROTEIROS[0];
+  try{ localStorage.setItem('roteiroAtivo', active.id); }catch(e){}
+  const I = {
+    cal:'M3 9h18M7 3v3M17 3v3M5 5h14v15H5z',
+    wk:'M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01',
+    road:'M5 12h14M5 12a2 2 0 1 0-4 0 2 2 0 0 0 4 0zM23 12a2 2 0 1 0-4 0 2 2 0 0 0 4 0z',
+    pin:'M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01',
+  };
+  const mr = document.getElementById('metarow');
+  const pk = document.getElementById('rotpicker');
+  function renderHeader(){
+    const ac = active.accent||'#0F766E';
+    try{ document.querySelector('.hdr').style.background='linear-gradient(150deg,'+PLANNER.shade(ac,-0.82)+','+ac+' 62%,'+PLANNER.shade(ac,0.10)+')';
+      PLANNER.setActive(active.id); PLANNER.applyTheme(active); }catch(e){}
+    document.getElementById('rotName').textContent = active.nome;
+    document.getElementById('rotSub').textContent = active.tagline || (active.periodo+' \u00b7 '+active.semanas+' semanas');
+    const chips = [
+      [I.cal, active.periodo],
+      [I.wk, active.semanas+' semanas'],
+      [I.road, active.distancia_completa+' (completa)'],
+      [I.pin, active.origem],
+    ];
+    mr.innerHTML='';
+    chips.forEach(([d,v])=>{ const e=document.createElement('div'); e.className='m';
+      e.innerHTML=`<svg viewBox="0 0 24 24"><path d="${d}"/></svg><b>${v}</b>`; mr.appendChild(e); });
+    pk.innerHTML='';
+    const sel=document.createElement('select'); sel.className='rotsel'; sel.setAttribute('aria-label','Selecionar roteiro');
+    const groups={};
+    ROTEIROS.forEach(r=>{ const rg=(window.REGIOES[r.regiaoId]&&window.REGIOES[r.regiaoId].nome)||r.regiao||'Outros roteiros'; (groups[rg]=groups[rg]||[]).push(r); });
+    Object.keys(groups).forEach(gn=>{
+      const og=document.createElement('optgroup'); og.label=gn;
+      groups[gn].forEach(r=>{ const o=document.createElement('option'); o.value=r.id;
+        o.textContent=r.nome+' \u00b7 '+r.semanas+' sem'; if(r.id===active.id) o.selected=true; og.appendChild(o); });
+      sel.appendChild(og);
+    });
+    sel.value=active.id;
+    sel.onchange=()=>{ active=ROTEIROS.find(x=>x.id===sel.value)||active; PLANNER.setActive(active.id); renderHeader(); };
+    pk.appendChild(sel);
+    const nb=document.createElement('a'); nb.className='rotadd'; nb.href='novo-roteiro.html';
+    nb.title='Criar novo roteiro'; nb.setAttribute('aria-label','Criar novo roteiro');
+    nb.innerHTML='<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>';
+    pk.appendChild(nb);
+    applyRegionGate();
+  }
+
+  // recursos universais (sempre aparecem) — o resto é gateado pela região
+  const UNIVERSAL = ['mapa.html','roteiro.html','roteiros.html','novo-roteiro.html','servicos.html','custos.html','checklist.html'];
+  function applyRegionGate(){
+    const reg = (window.REGIOES||{})[active.regiaoId] || {};
+    const allow = reg.recursos || [];
+    document.querySelectorAll('.tile').forEach(t=>{
+      const href = (t.getAttribute('href')||'').split('/').pop();
+      const ok = UNIVERSAL.indexOf(href)>-1 || allow.indexOf(href)>-1;
+      t.dataset.region = ok ? '1' : '0';
+      t.style.display = ok ? '' : 'none';
+    });
+    document.querySelectorAll('.grp').forEach(g=>{
+      const vis=[...g.querySelectorAll('.tile')].some(t=>t.dataset.region==='1');
+      g.style.display = vis ? '' : 'none';
+    });
+    const rt=document.querySelector('.tile[href="roteiros.html"] p'); if(rt) rt.textContent = 'Ver todos ('+ROTEIROS.length+') / criar';
+  }
+  renderHeader();
+
+  // sections
+  const GROUPS = [
+    { t:'Rota & destinos', items:[
+      { c:'#0F766E', href:'mapa.html', wide:true, t:'Mapa interativo', d:'Rota, apoio, alertas e atrações — camadas e filtros.',
+        ic:'<path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/>' },
+      { c:'#E07A3F', href:'roteiro.html', t:'Roteiro', d:'Programação do selecionado',
+        ic:'<path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/>' },
+      { c:'#E07A3F', href:'roteiros.html', t:'Trocar roteiro', d:'Ver todos / criar',
+        ic:'<path d="M4 7h11M4 7l3-3M4 7l3 3M20 17H9M20 17l-3-3M20 17l-3 3"/>' },
+      { c:'#0EA5C0', href:'catalogo.html', t:'Pontos turísticos', d:'Fichas + fotos',
+        ic:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="9" r="1.5"/>' },
+      { c:'#16A34A', href:'novo-roteiro.html', t:'Novo roteiro', d:'Criar do zero',
+        ic:'<path d="M12 5v14M5 12h14"/>' },
+      { c:'#2E9E5B', href:'servicos.html', t:'Indicações', d:'Parques, campings, pernoite, comer',
+        ic:'<path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/>' },
+    ]},
+    { t:'Pernoite & combustível', items:[
+      { c:'#0EA5C0', href:'camping.html', t:'Wild camping', d:'Pernoite livre por tipo',
+        ic:'<path d="M3 20h18M12 4 5 20M12 4l7 16M9 13l3-2 3 2"/>' },
+      { c:'#B45309', href:'postos.html', t:'Postos de diesel', d:'AR & CL · trechos críticos',
+        ic:'<path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0z"/>' },
+    ]},
+    { t:'Apoio & fronteiras', items:[
+      { c:'#1D4ED8', href:'oficinas.html', t:'Oficinas', d:'Renault & overland',
+        ic:'<path d="M14.7 6.3a4 4 0 0 0-5.2 5.2L4 17l3 3 5.5-5.5a4 4 0 0 0 5.2-5.2l-2.4 2.4-2.1-2.1 2.5-2.3z"/>' },
+      { c:'#64748B', href:'fronteiras.html', t:'Passos fronteiriços', d:'BR/AR/CL · TIP & SAG',
+        ic:'<path d="M5 3v18M5 4h11l-2 4 2 4H5"/>' },
+      { c:'#D97706', href:'senasa.html', t:'Postos SENASA', d:'Barreira · o que levar',
+        ic:'<path d="M5 3v18M5 5h12l-2 3 2 3H5"/>' },
+      { c:'#DC2626', href:'documentacao.html', t:'Documentação', d:'Veículo, pet & fronteiras',
+        ic:'<path d="M14 3v5h5M14 3l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M9 13l2 2 4-4"/>' },
+    ]},
+    { t:'Custos & preparo', items:[
+      { c:'#2E9E5B', href:'custos.html', t:'Custos', d:'Por roteiro · 2 rotas',
+        ic:'<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2.5-5 1.5-5 4a2.5 2 0 0 0 5 0"/>' },
+      { c:'#2563EB', href:'logistica.html', t:'Logística', d:'Ferries & tanque',
+        ic:'<path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0z"/>' },
+      { c:'#7C3AED', href:'checklist.html', t:'Checklist', d:'Master 2022 · salva',
+        ic:'<path d="M9 11l3 3 8-8M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/>' },
+    ]},
+  ];
+
+  const main = document.getElementById('main');
+  GROUPS.forEach(g=>{
+    const sec = document.createElement('section'); sec.className='grp';
+    const h = document.createElement('div'); h.className='grp-h';
+    h.innerHTML = `<span class="gt">${g.t}</span><span class="gl"></span>`;
+    sec.appendChild(h);
+    const tiles = document.createElement('div'); tiles.className='tiles';
+    g.items.forEach(it=>{
+      const a = document.createElement('a'); a.className='tile'+(it.wide?' wide':''); a.href=it.href;
+      a.style.setProperty('--c',it.c); a.dataset.s=(it.t+' '+it.d).toLowerCase();
+      if(it.wide){
+        a.innerHTML = `<div class="ic"><svg viewBox="0 0 24 24">${it.ic}</svg></div>
+          <div class="bd"><h3>${it.t}</h3><p>${it.d}</p></div>
+          <span class="go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>`;
+      } else {
+        a.innerHTML = `<div class="ic"><svg viewBox="0 0 24 24">${it.ic}</svg></div>
+          <h3>${it.t}</h3><p>${it.d}</p>`;
+      }
+      tiles.appendChild(a);
+    });
+    sec.appendChild(tiles); main.appendChild(sec);
+  });
+  applyRegionGate();
+  const empty = document.createElement('div'); empty.className='empty'; empty.id='empty';
+  empty.textContent='Nenhuma seção encontrada.'; main.appendChild(empty);
+
+  // search filter
+  const q = document.getElementById('q');
+  q.addEventListener('input', ()=>{
+    const v = q.value.trim().toLowerCase();
+    let any = false;
+    document.querySelectorAll('.tile').forEach(t=>{
+      if(t.dataset.region==='0'){ t.style.display='none'; return; }
+      const hit = !v || t.dataset.s.indexOf(v)>-1;
+      t.style.display = hit ? '' : 'none'; if(hit) any=true;
+    });
+    document.querySelectorAll('.grp').forEach(g=>{
+      const vis = [...g.querySelectorAll('.tile')].some(t=>t.style.display!=='none');
+      g.style.display = vis ? '' : 'none';
+    });
+    document.getElementById('empty').classList.toggle('show', !any);
+  });
+
+  // online/offline indicator
+  const net = document.getElementById('net'), netTxt = document.getElementById('netTxt');
+  function upNet(){ const on=navigator.onLine; net.classList.toggle('on',on);
+    netTxt.textContent = on ? 'online · conteúdo salvo p/ offline' : 'offline · usando dados salvos'; }
+  window.addEventListener('online',upNet); window.addEventListener('offline',upNet); upNet();
+
+  // PWA install
+  let deferred=null;
+  const banner=document.getElementById('install'), btn=document.getElementById('installBtn'), x=document.getElementById('installX');
+  if(!sessionStorage.getItem('inst_dismiss')){
+    window.addEventListener('beforeinstallprompt',(e)=>{ e.preventDefault(); deferred=e; banner.classList.add('show'); });
+  }
+  btn.addEventListener('click', async ()=>{ if(!deferred) return; deferred.prompt(); await deferred.userChoice; deferred=null; banner.classList.remove('show'); });
+  x.addEventListener('click', ()=>{ banner.classList.remove('show'); sessionStorage.setItem('inst_dismiss','1'); });
+
+  // service worker
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
+  }
+})();
+</script>
+</body>
+</html>

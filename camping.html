@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wild camping · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+<style>
+  .wrap{max-width:1080px}
+  .filters{position:sticky;top:14px;z-index:10;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border:1px solid var(--line);
+    border-radius:13px;padding:11px 14px;margin:22px 0 8px;box-shadow:var(--shadow)}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:7px 13px;cursor:pointer;transition:all .16s;white-space:nowrap}
+  .chip:hover{border-color:#cfd5de}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .fl{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .wcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 18px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;border-left:3px solid var(--wc,var(--line));
+    transition:transform .16s,box-shadow .16s}
+  .wcard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -18px rgba(22,32,44,.26)}
+  .wcard.hidden{display:none}
+  .wcard .top{display:flex;align-items:flex-start;gap:11px}
+  .wcard .ic{width:32px;height:32px;flex-shrink:0;border-radius:9px;display:grid;place-items:center;
+    background:color-mix(in srgb,var(--wc) 14%,#fff);border:1px solid color-mix(in srgb,var(--wc) 30%,#fff)}
+  .wcard .ic svg{width:17px;height:17px;stroke:var(--wc);fill:none;stroke-width:2}
+  .wcard h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.15}
+  .wcard .road{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--faint);
+    text-transform:uppercase;margin-top:2px}
+  .wcard .flag{margin-left:auto;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:10px;
+    letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--wc);border-radius:20px;
+    padding:4px 9px;white-space:nowrap;flex-shrink:0;align-self:flex-start}
+  .wcard .note{font-size:12.5px;color:var(--slate);line-height:1.45}
+  .wcard .note b{color:var(--ink)}
+  .wcard .care{display:flex;gap:8px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);
+    border-radius:9px;padding:9px 11px}
+  .wcard .care svg{width:14px;height:14px;stroke:var(--amber);fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+  .wcard .care span{font-size:11.8px;color:var(--ink);line-height:1.4}
+  .wcard .foot{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--line-soft)}
+  .wcard .gps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .wcard .gps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .wcard .gps .cp{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+  .corr{margin-top:34px}
+  .corr-h{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+  .corr-h .fg{width:11px;height:11px;border-radius:3px;align-self:center;flex-shrink:0}
+  .corr-h h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .corr-h .cc{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>pernoite livre · relatos de overlanders · patagônia</div>
+  <h1>Sugestões de <span class="hl">wild camping</span></h1>
+  <p class="lead">Pontos de <b>pernoite livre</b> ao longo da rota, citados por quem já rodou a Patagônia de casa rodante. A região é <b>muito segura</b> e cheia de lugares vazios para dormir sob as estrelas — basta respeitar o vento, a propriedade privada e o <b>Leave No Trace</b>.</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><path d="M3 21h18M12 3l9 18H3z"/><path d="M12 9v6"/></svg>
+    <div><h4>Wild camping com consciência</h4><p>A Patagônia é segura, mas vale o básico: <b>não deixe objetos de valor à vista</b> e tranque o veículo. Acampe longe de cidades grandes (Coyhaique/P. Montt têm os únicos relatos ruins), <b>leve todo o lixo de volta</b>, não faça fogo onde for proibido e <b>cuidado com o vento</b> ao abrir portas/toldo.</p></div>
+  </div>
+
+  <div class="filters">
+    <div class="chips" id="chips" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div id="corrs"></div>
+
+  <footer>
+    <span>PLANEJADOR DE ROTEIROS · WILD CAMPING</span>
+    <span>Pontos aproximados · confirme acesso, legalidade e avaliações no iOverlander antes de pernoitar</span>
+  </footer>
+</div>
+
+<script>
+  const TIPOS = {
+    costa: { cor:'#0EA5C0', label:'Praia / costa', ic:'<path d="M2 18h20M2 18c3-2 5-2 8 0M12 4v8M12 12c-3 0-6-2-6-5 4 0 6 2 6 5zM12 12c3 0 6-2 6-5-4 0-6 2-6 5z"/>' },
+    lago:  { cor:'#2563EB', label:'Beira-lago', ic:'<path d="M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0M8 7l4-4 4 4"/>' },
+    rio:   { cor:'#0F766E', label:'Beira-rio', ic:'<path d="M4 6c4 4 12-4 16 0M4 12c4 4 12-4 16 0M4 18c4 4 12-4 16 0"/>' },
+    estepe:{ cor:'#D97706', label:'Estepe / mirante', ic:'<path d="M3 20h18M5 20l5-9 4 5 2-3 3 7M9 6a2 2 0 1 0 0-.1"/>' },
+    parque:{ cor:'#2E9E5B', label:'Parque / bosque', ic:'<path d="M12 2 6 11h3l-3 5h12l-3-5h3L12 2zM12 16v5"/>' },
+  };
+  const CORRS = [
+    { id:'r3',   fg:'#0EA5C0', nome:'Ruta 3 — costa atlântica' },
+    { id:'gl',   fg:'#0F766E', nome:'Glaciares & Ruta 40' },
+    { id:'tdf',  fg:'#7C3AED', nome:'Terra do Fogo' },
+    { id:'cl',   fg:'#D97706', nome:'Carretera Austral' },
+    { id:'ret',  fg:'#2E9E5B', nome:'Retorno — região dos Lagos' },
+  ];
+  const SPOTS = [
+    // Ruta 3
+    { c:'r3', n:'Bahía Creek / Las Grutas', tipo:'costa', road:'AR · RN3 (desvio costeiro)', gps:[-41.13,-64.95],
+      nota:'Dunas e praia ampla no golfo. Pernoite tranquilo de transição para a Patagônia, com pôr do sol sobre o mar.',
+      care:'Areia fofa em alguns acessos — não atole o motorhome. Vento de tarde.' },
+    { c:'r3', n:'Camarones / Cabo Dos Bahías', tipo:'costa', road:'AR · RP30 (desvio da RN3)', gps:[-44.80,-65.71],
+      nota:'Vila de pescadores e reserva de pinguins. Wild camping à beira-mar, bem isolado e estrelado.',
+      care:'Estrada de ripio até o cabo. Leve água — serviços mínimos na vila.' },
+    { c:'r3', n:'Isla Pavón (Piedra Buena)', tipo:'rio', road:'AR · RN3 · Rio Santa Cruz', gps:[-49.99,-68.91],
+      nota:'Ilhota no Rio Santa Cruz, clássico e seguro ponto de parada na descida. Pesca de truta e área arborizada.',
+      care:'Pode ter taxa simbólica. Lota em feriados.' },
+    // glaciares / ruta 40
+    { c:'gl', n:'Lago Roca (El Calafate)', tipo:'lago', road:'AR · RP15 · sul do Lago Argentino', gps:[-50.46,-72.40],
+      nota:'Margem tranquila longe do movimento de Calafate, com vista de montanhas. Base alternativa ao Perito Moreno.',
+      care:'Acesso de ripio. Frio à noite mesmo no verão.' },
+    { c:'gl', n:'El Chaltén — Camping Madsen', tipo:'parque', road:'AR · entrada das trilhas', gps:[-49.33,-72.89],
+      nota:'Acampamento histórico e gratuito na entrada das trilhas do Fitz Roy. Caminha-se às lagunas direto daqui.',
+      care:'Estrutura mínima (sem energia). Respeite as regras do parque e o silêncio.' },
+    { c:'gl', n:'Lago Cardiel (RN40)', tipo:'lago', road:'AR · RN40 (vão central)', gps:[-48.93,-71.25],
+      nota:'Lago turquesa isolado no meio da Ruta 40, parada lendária de overlanders. Águas intensas e céu enorme.',
+      care:'<b>Vento extremo</b> e exposto. Posicione o veículo contra o vento; nada solto do lado de fora.' },
+    // terra do fogo
+    { c:'tdf', n:'Tolhuin / Lago Fagnano', tipo:'lago', road:'AR · RN3 · Terra do Fogo', gps:[-54.51,-67.19],
+      nota:'Pernoite clássico na margem do Fagnano, perto da famosa padaria La Unión (que acolhe viajantes). Pôr do sol no lago.',
+      care:'Movimentado nos fins de semana. Solo úmido — escolha piso firme.' },
+    { c:'tdf', n:'PN Tierra del Fuego — Lago Roca', tipo:'parque', road:'AR · fim da RN3', gps:[-54.85,-68.57],
+      nota:'Camping no parque (pago via ingresso) junto ao lago e às trilhas Costera/Hito XXIV. Fim da estrada mais austral.',
+      care:'Pago/regrado pela administração do parque. Reserve no pico de temporada.' },
+    // carretera
+    { c:'cl', n:'Puerto Río Tranquilo (margem)', tipo:'lago', road:'CL · Ruta 7 · Lago Gral. Carrera', gps:[-46.63,-72.67],
+      nota:'Beira do lago de águas turquesa, base das <b>Capillas de Mármol</b>. Wild camping com vista — saída de barco logo ali.',
+      care:'Vento do lago forte. Confirme acesso público vs. privado no ponto exato.' },
+    { c:'cl', n:'Confluencia Baker / Lago Bertrand', tipo:'rio', road:'CL · Ruta 7 · sul de Cochrane', gps:[-47.10,-72.80],
+      nota:'Encontro turquesa do Rio Baker — um dos cenários mais bonitos da Carretera. Pontos ribeirinhos para pernoitar.',
+      care:'Ripio e curvas. Margem pode ser instável; afaste-se da água com chuva.' },
+    { c:'cl', n:'Villa Cerro Castillo', tipo:'estepe', road:'CL · Ruta 7 · trailhead', gps:[-46.12,-72.16],
+      nota:'Vila ao pé do maciço Cerro Castillo, com áreas pensadas para casas rodantes e início do trekking ao mirante.',
+      care:'Noites frias de montanha. Para serviço pesado, Coyhaique fica a ~1h30.' },
+    { c:'cl', n:'Parque Pumalín (Caleta Gonzalo)', tipo:'parque', road:'CL · Ruta 7 · norte', gps:[-42.58,-72.60],
+      nota:'Campings da CONAF entre alerces e vulcões — citados como dos melhores da Austral. Trilhas e cascatas no acesso.',
+      care:'Sítios designados (não é solta). Leve todo o lixo; "deixe com sorte as pegadas".' },
+    { c:'cl', n:'La Junta (beira-rio)', tipo:'rio', road:'CL · Ruta 7 · cruzamento Futaleufú', gps:[-43.97,-72.41],
+      nota:'Rios cor de turquesa no cruzamento para Futaleufú. Margens calmas e arborizadas para pernoitar.',
+      care:'Mosquitos no verão. Cheque o nível do rio antes de acampar baixo.' },
+    // retorno
+    { c:'ret', n:'Lago Espejo / Sete Lagos', tipo:'lago', road:'AR · RN40 · Villa La Angostura', gps:[-40.66,-71.62],
+      nota:'Espelhos de água entre bosques andinos na Rota dos Sete Lagos. Vários recantos de pernoite no retorno.',
+      care:'Áreas protegidas (APN) com regras — respeite sinalização de acampamento.' },
+  ];
+
+  window.WCcopy = function(txt, el){
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const cp = el.querySelector('.cp'); if(cp){ const o=cp.textContent; cp.textContent='copiado!'; setTimeout(()=>cp.textContent=o,1200); }
+  };
+
+  const corrsEl = document.getElementById('corrs');
+  CORRS.forEach(co=>{
+    const group = SPOTS.filter(p=>p.c===co.id);
+    if(!group.length) return;
+    const sec = document.createElement('section'); sec.className='corr'; sec.dataset.c=co.id;
+    const h = document.createElement('div'); h.className='corr-h';
+    h.innerHTML = `<span class="fg" style="background:${co.fg}"></span><h2>${co.nome}</h2><span class="cc">${group.length} pontos</span>`;
+    sec.appendChild(h);
+    const grid = document.createElement('div'); grid.className='grid3';
+    group.forEach(p=>{
+      const tp = TIPOS[p.tipo];
+      const coord = `${p.gps[0].toFixed(4)}, ${p.gps[1].toFixed(4)}`;
+      const card = document.createElement('div');
+      card.className='wcard'; card.dataset.tipo=p.tipo; card.style.setProperty('--wc', tp.cor);
+      card.innerHTML = `
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24">${tp.ic}</svg></span>
+          <div style="min-width:0"><h3>${p.n}</h3><div class="road">${p.road}</div></div>
+          <span class="flag">${tp.label}</span>
+        </div>
+        <p class="note">${p.nota}</p>
+        <div class="care"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 4.3 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/></svg><span>${p.care}</span></div>
+        <div class="foot">
+          <span class="gps" title="copiar coordenadas" onclick="WCcopy('${coord}', this)">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            ${coord} <span style="color:var(--faint)">aprox</span><span class="cp">copiar</span></span>
+        </div>`;
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+    corrsEl.appendChild(sec);
+  });
+
+  // filters
+  const chipsEl = document.getElementById('chips');
+  const filters = [
+    { k:'all', label:'Todos' },
+    { k:'costa', label:'Praia / costa', cor:'#0EA5C0' },
+    { k:'lago', label:'Beira-lago', cor:'#2563EB' },
+    { k:'rio', label:'Beira-rio', cor:'#0F766E' },
+    { k:'estepe', label:'Estepe / mirante', cor:'#D97706' },
+    { k:'parque', label:'Parque / bosque', cor:'#2E9E5B' },
+  ];
+  let active='all';
+  filters.forEach(ft=>{
+    const c=document.createElement('div'); c.className='chip'+(ft.k==='all'?' on':''); c.dataset.k=ft.k;
+    c.innerHTML=(ft.cor?`<span class="fl" style="background:${ft.cor}"></span>`:'')+ft.label;
+    c.onclick=()=>{ active=ft.k; chipsEl.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x.dataset.k===active)); apply(); };
+    chipsEl.appendChild(c);
+  });
+  function apply(){
+    document.querySelectorAll('.wcard').forEach(card=>{
+      const show = active==='all' || card.dataset.tipo===active;
+      card.classList.toggle('hidden', !show);
+    });
+    document.querySelectorAll('.corr').forEach(sec=>{
+      const any=[...sec.querySelectorAll('.wcard')].some(c=>!c.classList.contains('hidden'));
+      sec.style.display = any?'':'none';
+    });
+  }
+</script>
+  <script src="geo.js"></script>
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>

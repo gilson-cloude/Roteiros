@@ -1,0 +1,17 @@
+{
+  "name": "Planejador de Roteiros",
+  "short_name": "Roteiros",
+  "description": "Base de planejamento de roteiros de viagem — selecione um roteiro e tenha mapa, programação semanal, custos e recursos da região num só lugar.",
+  "start_url": "app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c2a2a",
+  "theme_color": "#0F766E",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

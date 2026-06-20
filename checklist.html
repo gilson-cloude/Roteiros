@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>preparação · renault master 2022</div>
+  <h1>Checklist do <span class="hl">motorhome</span></h1>
+  <p class="lead">Tudo o que revisar e levar antes de partir. <b>Toque para marcar</b> — o progresso fica salvo neste navegador.</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><path d="M3 7h18M5 7l1 13h12l1-13M9 7V4h6v3"/></svg>
+    <div><h4>Foco austral</h4><p>A Patagônia castiga com <b>frio, vento e ripio</b>. Prioridade total para aquecimento, pneus e suspensão da Master.</p></div>
+  </div>
+
+  <div class="progress-wrap">
+    <span class="ptxt"><b id="pdone">0</b>/<span id="ptot">0</span> itens</span>
+    <div class="bar-track"><div class="bar-fill" id="pfill"></div></div>
+    <span class="ptxt mono" id="ppct">0%</span>
+  </div>
+
+  <div id="lists"></div>
+
+  <div style="margin-top:26px;text-align:center">
+    <button id="reset" style="font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:var(--slate);
+      background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 16px;cursor:pointer">
+      Limpar marcações</button>
+  </div>
+
+  <footer>
+    <span>// planejador de roteiros · checklist</span>
+    <span>progresso salvo localmente</span>
+  </footer>
+
+</div>
+
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>
+const GROUPS = [
+  { t:"Mecânica & rodagem", c:"#2563EB", items:[
+    ["Revisão geral + troca de óleo e filtros","feita o mais perto possível da partida"],
+    ["Pneus: estado, calibragem e DOT","ripio da Carretera desgasta muito"],
+    ["Estepe(s) cheio(s) e macaco/chave reforçados","2 estepes é o ideal para a Patagônia"],
+    ["Freios, pastilhas e fluido","conferir antes das descidas andinas"],
+    ["Suspensão e amortecedores","reforço ajuda no ripio"],
+    ["Correias, mangueiras e arrefecimento",""],
+    ["Bateria do motor + aditivo/anticongelante","frio extremo no sul"],
+  ]},
+  { t:"Elétrica & energia", c:"#D97706", items:[
+    ["Bateria(s) auxiliar(es) testada(s)",""],
+    ["Painel solar e controlador funcionando",""],
+    ["Inversor e tomadas 12V/USB",""],
+    ["Iluminação interna e externa",""],
+    ["Cabo de força externo (camping) + adaptadores AR/CL",""],
+    ["Lanternas, headlamps e pilhas reserva",""],
+  ]},
+  { t:"Água, gás & aquecimento", c:"#0EA5C0", items:[
+    ["Tanques de água limpos e cheios",""],
+    ["Bomba d'água e filtro",""],
+    ["Botijão(ões) de gás + adaptador chileno/argentino","bicos diferem entre países"],
+    ["Aquecedor / calefação testado","essencial no extremo sul"],
+    ["Chuveiro e aquecedor de água",""],
+    ["Cobertor térmico e isolamento das janelas",""],
+  ]},
+  { t:"Conforto, pet & interior", c:"#DB2777", items:[
+    ["Caixa/cama e cinto de segurança do pet",""],
+    ["Ração para toda a viagem + comedouros","marca do pet pode faltar fora do BR"],
+    ["Coleira, guia, sacos e kit de higiene do pet",""],
+    ["Roupa de cama e sacos de dormir para frio","-5 °C ou menos"],
+    ["Roupas em camadas, capa de chuva e calçado de trilha",""],
+    ["Cortinas/blackout e ventilação anti-condensação",""],
+  ]},
+  { t:"Ferramentas & peças", c:"#475569", items:[
+    ["Kit de ferramentas básico + chaves do veículo",""],
+    ["Compressor de ar e kit de reparo de pneu",""],
+    ["Cabo de chupeta / partida e cabo de reboque",""],
+    ["Fusíveis, lâmpadas, correias e fluidos reserva",""],
+    ["Fita, abraçadeiras, arame e vedante",""],
+    ["Pá, calços e esteira de tração (areia/lama)",""],
+  ]},
+  { t:"Segurança & documentos", c:"#DC2626", items:[
+    ["Extintor, triângulo e coletes refletivos","obrigatórios na Argentina"],
+    ["Kit de primeiros socorros completo",""],
+    ["GPS offline + mapas baixados (iOverlander, maps.me)",""],
+    ["Cópias físicas e digitais de todos os documentos",""],
+    ["Dinheiro em espécie (USD + pesos AR/CL)",""],
+    ["Carta Verde (seguro Mercosul) impressa",""],
+  ]},
+  { t:"Cozinha & despensa", c:"#2E9E5B", items:[
+    ["Fogão/cooktop e botijão testados",""],
+    ["Geladeira/cooler funcionando",""],
+    ["Despensa não-perecível para trechos remotos",""],
+    ["Água potável reserva (galões)",""],
+    ["Utensílios, panelas e itens de limpeza",""],
+    ["Sacos de lixo e estratégia de descarte","leve tudo de volta no wild camping"],
+  ]},
+];
+
+const KEY = "eraustral_checklist_v1_" + ((window.PLANNER && PLANNER.active() && PLANNER.active().id) || "default");
+const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+const lists = document.getElementById('lists');
+let total = 0;
+
+GROUPS.forEach((g,gi)=>{
+  const sub = document.createElement('div'); sub.className='subh';
+  sub.innerHTML = `<span style="display:inline-flex;width:11px;height:11px;border-radius:3px;background:${g.c}"></span>${g.t}<span class="l"></span>`;
+  lists.appendChild(sub);
+  const box = document.createElement('div'); box.className='checks';
+  g.items.forEach((it,ii)=>{
+    total++;
+    const id = `g${gi}i${ii}`;
+    const done = !!saved[id];
+    const row = document.createElement('div');
+    row.className = 'chk'+(done?' done':''); row.dataset.id=id;
+    row.innerHTML = `<span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span>
+      <span class="ctxt">${it[0]}${it[1]?`<small>${it[1]}</small>`:''}</span>`;
+    row.onclick = ()=>{
+      row.classList.toggle('done');
+      saved[id] = row.classList.contains('done');
+      localStorage.setItem(KEY, JSON.stringify(saved));
+      updateProgress();
+    };
+    box.appendChild(row);
+  });
+  lists.appendChild(box);
+});
+
+function updateProgress(){
+  const done = document.querySelectorAll('.chk.done').length;
+  document.getElementById('pdone').textContent = done;
+  document.getElementById('ptot').textContent = total;
+  const pct = Math.round(done/total*100);
+  document.getElementById('pfill').style.width = pct+'%';
+  document.getElementById('ppct').textContent = pct+'%';
+}
+document.getElementById('reset').onclick = ()=>{
+  for(const k in saved) delete saved[k];
+  localStorage.setItem(KEY, JSON.stringify(saved));
+  document.querySelectorAll('.chk').forEach(c=>c.classList.remove('done'));
+  updateProgress();
+};
+updateProgress();
+</script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>

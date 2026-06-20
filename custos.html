@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custos · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+<style>
+  .rotpick{display:flex;align-items:center;gap:10px;margin:18px 0 26px}
+  .rotpick .rplab{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.07em;
+    text-transform:uppercase;color:#8B93A1}
+  .rotpick select{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#16202C;
+    background:#fff;border:1px solid #E6E9EE;border-radius:10px;padding:9px 32px 9px 13px;cursor:pointer;
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6472' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;background-size:15px}
+  .rotpick select:focus{outline:none;border-color:#0F766E}
+  .editwrap{margin-left:auto;display:flex;gap:8px}
+  .editbtn{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:12px;color:var(--accent,#0F766E);
+    background:#fff;border:1px solid color-mix(in srgb,var(--accent,#0F766E) 30%,#fff);border-radius:9px;padding:6px 12px;cursor:pointer}
+  .editbtn.on{background:var(--accent,#0F766E);color:#fff;border-color:var(--accent,#0F766E)}
+  input.ce{width:92px;font-family:"JetBrains Mono",monospace;font-size:13px;text-align:right;padding:5px 7px;
+    border:1px solid #E6E9EE;border-radius:7px;background:#fff;color:#16202C}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>orçamento de planejamento</div>
+  <h1>Estimativa de <span class="hl">custos</span></h1>
+  <p class="lead" id="lead"></p>
+
+  <div class="rotpick">
+    <span class="rplab">Roteiro</span>
+    <select id="rotsel" aria-label="Selecionar roteiro"></select>
+  </div>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div><h4>Como ler</h4><p>São estimativas de <b>planejamento</b>, não cotações. Cozinhar a bordo e priorizar wild camping reduz bastante o total. Reserve sempre uma margem de imprevistos.</p></div>
+  </div>
+
+  <!-- ===== TABELA ===== -->
+  <div class="section">
+    <div class="section-h"><span class="sn">01</span><h2>Por categoria</h2><span class="note" id="tblNote"></span><span class="editwrap"><button class="editbtn" id="resetBtn" type="button" style="display:none">Restaurar</button><button class="editbtn" id="editBtn" type="button">Editar valores</button></span></div>
+    <table class="tbl">
+      <thead><tr><th>Categoria</th><th class="num">Mínimo</th><th class="num">Máximo</th><th>Observação</th></tr></thead>
+      <tbody id="tblBody"></tbody>
+    </table>
+  </div>
+
+  <!-- ===== RESUMO ===== -->
+  <div class="section">
+    <div class="section-h"><span class="sn">02</span><h2>Resumo & comparação</h2></div>
+    <div class="grid2">
+      <div class="card acc" style="--ac:var(--teal)">
+        <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/></svg></span>Rota Completa</h3>
+        <p id="sumCompleta"></p>
+      </div>
+      <div class="card acc" style="--ac:var(--terra)">
+        <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Rota Essencial</h3>
+        <p id="sumEssencial"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ECONOMIA ===== -->
+  <div class="section">
+    <div class="section-h"><span class="sn">03</span><h2>Onde economizar</h2></div>
+    <div class="grid2">
+      <div class="card"><h3><span class="ic" style="--ac:var(--amber)"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11"/></svg></span>Wild camping</h3><p>Priorizar pernoites livres (Wolf) no lugar de campings pagos pode poupar <b>R$ 3–4 mil</b>.</p></div>
+      <div class="card"><h3><span class="ic" style="--ac:var(--green)"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></span>Cozinhar a bordo</h3><p>Comer fora na Patagônia é caro. Mercado + cozinha do motorhome derruba a conta de alimentação.</p></div>
+      <div class="card"><h3><span class="ic" style="--ac:var(--blue)"><svg viewBox="0 0 24 24"><path d="M5 12l5-8 4 6 5-4v10z"/></svg></span>Diesel no Chile</h3><p>Combustível costuma sair mais barato no <b>Chile</b> que na Argentina — planeje abastecer ao cruzar.</p></div>
+      <div class="card"><h3><span class="ic" style="--ac:var(--rose)"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/></svg></span>Cortar desvios</h3><p id="ecoCortar">A Rota Essencial corta desvios opcionais — menos km, menos diesel.</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>// planejador de roteiros · custos</span>
+    <span>valores aproximados · revise perto da viagem</span>
+  </footer>
+
+</div>
+
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(location.search);
+  let current = window.ROTEIROS.find(r=>r.id===(params.get('r')||localStorage.getItem('roteiroAtivo'))) || window.ROTEIROS[0];
+  try{ localStorage.setItem('roteiroAtivo', current.id); }catch(e){}
+  try{ if(window.PLANNER) PLANNER.applyTheme(current); }catch(e){}
+  const fmt = n => n.toLocaleString('pt-BR');
+  const mil = n => 'R$ '+Math.round(n/1000)+' mil';
+
+  /* seletor */
+  const sel = document.getElementById('rotsel');
+  window.ROTEIROS.forEach(r=>{
+    const o=document.createElement('option'); o.value=r.id;
+    o.textContent=`${r.nome} · ${r.semanas} sem`; if(r.id===current.id) o.selected=true;
+    sel.appendChild(o);
+  });
+  sel.value = current.id;
+  sel.addEventListener('change', ()=>{
+    const url=new URL(location.href); url.searchParams.set('r', sel.value); location.href=url.toString();
+  });
+
+  const OVRKEY = 'custos_ovr_'+current.id;
+  function loadOvr(){ try{ return JSON.parse(localStorage.getItem(OVRKEY)||'{}'); }catch(e){ return {}; } }
+  function saveOvr(o){ try{ localStorage.setItem(OVRKEY, JSON.stringify(o)); }catch(e){} }
+  let edit=false;
+  function cats(){ const o=loadOvr(); return current.custos.categorias.map(c=>({ nome:c.nome, obs:c.obs,
+    min:(o[c.nome]&&o[c.nome].min!=null)?o[c.nome].min:c.min,
+    max:(o[c.nome]&&o[c.nome].max!=null)?o[c.nome].max:c.max })); }
+  function dias(){ const o=loadOvr(); return o.__dias||current.custos.dias; }
+  function hasOvr(){ const o=loadOvr(); return Object.keys(o).length>0; }
+
+  function render(){
+    const list=cats(), d=dias();
+    document.getElementById('lead').innerHTML =
+      `Orçamento de referência para <b>≈${d} dias</b> (${current.nome}), em faixas de <b>planejamento</b>. Ajuste os valores conforme sua realidade — eles ficam salvos por roteiro neste dispositivo.`;
+    document.getElementById('tblNote').textContent = `rota completa · ${d} dias`;
+    let totMin=0, totMax=0, rows='';
+    list.forEach((cat,i)=>{
+      totMin+=cat.min; totMax+=cat.max;
+      const minC = edit? `<input class="ce" data-i="${i}" data-k="min" type="number" min="0" value="${cat.min}">` : fmt(cat.min);
+      const maxC = edit? `<input class="ce" data-i="${i}" data-k="max" type="number" min="0" value="${cat.max}">` : fmt(cat.max);
+      rows += `<tr><td><b>${cat.nome}</b></td><td class="num">${minC}</td><td class="num">${maxC}</td><td class="muted">${cat.obs}</td></tr>`;
+    });
+    const media = Math.round((totMin+totMax)/2);
+    rows += `<tr class="total"><td>Total estimado · Rota Completa</td><td class="num">${fmt(totMin)}</td><td class="num">${fmt(totMax)}</td><td class="muted">média ≈ R$ ${fmt(media)}</td></tr>`;
+    document.getElementById('tblBody').innerHTML = rows;
+    if(edit) document.querySelectorAll('.ce').forEach(inp=> inp.addEventListener('input', onEdit));
+    document.getElementById('resetBtn').style.display = hasOvr()? '' : 'none';
+
+    const porDia = Math.round(media/d);
+    document.getElementById('sumCompleta').innerHTML =
+      `<b>≈ R$ ${(totMin/1000).toFixed(0)}–${(totMax/1000).toFixed(0)} mil</b> no total · média <b>${mil(media)}</b><br>Por dia: ≈ <b>R$ ${fmt(porDia)}</b>`;
+    const e = current.custos.essencial;
+    document.getElementById('sumEssencial').innerHTML = (e&&e.media)?
+      `<b>≈ R$ ${(e.min/1000).toFixed(0)}–${(e.max/1000).toFixed(0)} mil</b> no total · média <b>${mil(e.media)}</b><br>Economia de <b>${e.economia}</b> cortando ${e.corteKm}.`
+      : 'Marque trechos opcionais no roteiro para estimar a rota essencial.';
+    document.getElementById('ecoCortar').innerHTML =
+      `A Rota Essencial ${e?e.corteNote:'corta os trechos opcionais'} — menos km, menos diesel.`;
+  }
+  function onEdit(ev){
+    const i=+ev.target.dataset.i, k=ev.target.dataset.k, v=Math.max(0,+ev.target.value||0);
+    const o=loadOvr(); const name=current.custos.categorias[i].nome; o[name]=o[name]||{}; o[name][k]=v; saveOvr(o);
+    liveTotals();
+  }
+  function liveTotals(){
+    const list=cats(), d=dias(); let totMin=0,totMax=0; list.forEach(c=>{totMin+=c.min;totMax+=c.max;});
+    const media=Math.round((totMin+totMax)/2);
+    const totRow=document.querySelector('#tblBody tr.total');
+    if(totRow){ totRow.children[1].textContent=fmt(totMin); totRow.children[2].textContent=fmt(totMax); totRow.children[3].textContent='média ≈ R$ '+fmt(media); }
+    const porDia=Math.round(media/d);
+    document.getElementById('sumCompleta').innerHTML =
+      `<b>≈ R$ ${(totMin/1000).toFixed(0)}–${(totMax/1000).toFixed(0)} mil</b> no total · média <b>${mil(media)}</b><br>Por dia: ≈ <b>R$ ${fmt(porDia)}</b>`;
+    document.getElementById('resetBtn').style.display='';
+  }
+  const eb=document.getElementById('editBtn'), rb=document.getElementById('resetBtn');
+  eb.onclick=()=>{ edit=!edit; eb.textContent=edit?'Concluir':'Editar valores'; eb.classList.toggle('on',edit); render(); };
+  rb.onclick=()=>{ try{ localStorage.removeItem(OVRKEY); }catch(e){}; render(); };
+  render();
+})();
+</script>
+</body>
+</html>

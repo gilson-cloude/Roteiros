@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Novo roteiro · Planejador de Roteiros</title>
+<meta name="theme-color" content="#0F766E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F9; --panel:#FFFFFF; --ink:#16202C; --slate:#5B6472; --faint:#8B93A1;
+    --line:#E6E9EE; --teal:#0F766E; --terra:#E07A3F; --accent:#0F766E;
+    --shadow:0 10px 30px -16px rgba(22,32,44,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink);
+    background:radial-gradient(900px 460px at 100% -5%, color-mix(in srgb,var(--accent) 7%,transparent), transparent 60%), var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.5;padding:40px 20px 60px}
+  .wrap{max-width:880px;margin:0 auto}
+  a{color:var(--accent)}
+  .backlink{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--slate);
+    text-decoration:none;margin-bottom:18px}
+  .backlink svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+  .brandline{display:flex;align-items:center;gap:9px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .brandline .dot{width:7px;height:7px;border-radius:50%;background:var(--terra)}
+  h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(26px,4.4vw,38px);letter-spacing:-.025em;line-height:1.04}
+  .lead{color:var(--slate);font-size:15px;margin-top:12px;max-width:620px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:22px;box-shadow:var(--shadow)}
+  .card > h2{font-family:"Space Grotesk",sans-serif;font-size:17px;display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .card > h2 .n{font-family:"JetBrains Mono",monospace;font-size:12px;color:#fff;background:var(--accent);
+    width:24px;height:24px;border-radius:7px;display:grid;place-items:center;flex-shrink:0}
+  .card > .hint{font-size:12.5px;color:var(--faint);margin-bottom:16px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid.three{grid-template-columns:1fr 1fr 1fr}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  label{font-size:11px;font-family:"JetBrains Mono",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
+  input,select,textarea{font-family:"IBM Plex Sans",sans-serif;font-size:14px;color:var(--ink);background:var(--bg);
+    border:1px solid var(--line);border-radius:9px;padding:10px 12px;width:100%;outline:none;transition:border-color .15s}
+  input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+  textarea{resize:vertical;min-height:62px;line-height:1.45}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6472' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 10px center;background-size:15px;padding-right:30px}
+
+  .swatches{display:flex;gap:8px;flex-wrap:wrap}
+  .sw{width:30px;height:30px;border-radius:8px;cursor:pointer;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);transition:transform .12s}
+  .sw.on{box-shadow:0 0 0 2px var(--ink);transform:scale(1.08)}
+
+  .rows{display:flex;flex-direction:column;gap:12px}
+  .row{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fcfdfe;position:relative}
+  .row .rhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .row .rhead .ri{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;color:var(--accent)}
+  .row .del{font-size:11.5px;font-weight:600;color:#DC2626;background:#FEF2F2;border:1px solid #FCD7D4;
+    border-radius:8px;padding:5px 10px;cursor:pointer}
+  .addbtn{margin-top:12px;display:inline-flex;align-items:center;gap:7px;font-family:"Space Grotesk",sans-serif;
+    font-weight:600;font-size:13px;color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,#fff);
+    border:1px dashed color-mix(in srgb,var(--accent) 40%,#fff);border-radius:10px;padding:10px 14px;cursor:pointer}
+  .addbtn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.4}
+
+  .actions{display:flex;gap:12px;align-items:center;margin-top:26px;flex-wrap:wrap}
+  .btn{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;border:0;border-radius:11px;
+    padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2}
+  .btn.primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}
+  .btn.ghost{background:var(--panel);color:var(--slate);border:1px solid var(--line)}
+  .msg{font-size:13px;color:#DC2626;font-weight:600}
+  .msg.ok{color:#15803D}
+  .sm{font-size:11.5px;color:var(--faint)}
+  @media(max-width:640px){ .grid,.grid.three{grid-template-columns:1fr} body{padding:28px 14px 50px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+  <div class="brandline"><span class="dot"></span>criar roteiro</div>
+  <h1>Novo roteiro</h1>
+  <p class="lead">Preencha as informações da viagem. Tudo que você cadastrar aqui alimenta automaticamente o <b>home</b>, o <b>mapa</b>, a <b>programação semanal</b> e os <b>custos</b> — o app inteiro passa a refletir este roteiro.</p>
+
+  <!-- 1. IDENTIDADE -->
+  <div class="card">
+    <h2><span class="n">1</span>Identidade</h2>
+    <div class="hint">O essencial que aparece no topo do app e nos cards.</div>
+    <div class="grid">
+      <div class="field full"><label>Nome do roteiro *</label><input id="f_nome" placeholder="Ex.: Travessia dos Andes"></div>
+      <div class="field"><label>Período</label><input id="f_periodo" placeholder="Ex.: Jan–Mar 2027"></div>
+      <div class="field"><label>Origem / base</label><input id="f_origem" placeholder="Ex.: Curitiba · PR"></div>
+      <div class="field"><label>Região (recursos)</label><select id="f_regiao"></select></div>
+      <div class="field"><label>Região (rótulo livre)</label><input id="f_regiaoTxt" placeholder="Ex.: Andes · AR & CL"></div>
+      <div class="field full"><label>Resumo curto</label><textarea id="f_resumo" placeholder="Uma ou duas frases sobre o foco da viagem."></textarea></div>
+      <div class="field full"><label>Subtítulo (tagline)</label><input id="f_tagline" placeholder="Ex.: Só os passos de montanha, de ponta a ponta"></div>
+      <div class="field"><label>Distância — rota completa</label><input id="f_distc" placeholder="Ex.: ≈ 8.000 km"></div>
+      <div class="field"><label>Distância — rota essencial</label><input id="f_diste" placeholder="Ex.: ≈ 6.500 km"></div>
+      <div class="field full"><label>Cor do roteiro</label><div class="swatches" id="f_accent"></div></div>
+    </div>
+  </div>
+
+  <!-- 2. ETAPAS -->
+  <div class="card">
+    <h2><span class="n">2</span>Etapas (fases)</h2>
+    <div class="hint">Blocos da viagem (ex.: "Travessia", "Cordilheira", "Retorno"). Cada semana e parada pertence a uma etapa. Mínimo 1.</div>
+    <div class="rows" id="etapas"></div>
+    <button class="addbtn" data-add="etapa"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar etapa</button>
+  </div>
+
+  <!-- 3. SEMANAS -->
+  <div class="card">
+    <h2><span class="n">3</span>Programação semanal</h2>
+    <div class="hint">Cada linha vira uma semana na tela de Roteiro. Marque "opcional" para trechos que só entram na Rota Completa.</div>
+    <div class="rows" id="semanas"></div>
+    <button class="addbtn" data-add="semana"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar semana</button>
+  </div>
+
+  <!-- 4. PARADAS NO MAPA -->
+  <div class="card">
+    <h2><span class="n">4</span>Paradas no mapa</h2>
+    <div class="hint">Pontos georreferenciados (em ordem) que desenham a rota e os marcadores. Cole as coordenadas do Google Maps (lat, lng).</div>
+    <div class="rows" id="paradas"></div>
+    <button class="addbtn" data-add="parada"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar parada</button>
+  </div>
+
+  <!-- 5. CUSTOS -->
+  <div class="card">
+    <h2><span class="n">5</span>Custos (estimativa)</h2>
+    <div class="hint">Faixas de planejamento por categoria. A Rota Essencial é estimada automaticamente a partir do total.</div>
+    <div class="grid three" style="margin-bottom:14px">
+      <div class="field"><label>Duração (dias)</label><input id="f_dias" type="number" min="1" placeholder="Ex.: 60"></div>
+    </div>
+    <div class="rows" id="custos"></div>
+    <button class="addbtn" data-add="custo"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar categoria</button>
+  </div>
+
+  <!-- 6. INDICAÇÕES -->
+  <div class="card">
+    <h2><span class="n">6</span>Indicações (serviços)</h2>
+    <div class="hint">Parques, campings, pontos de pernoite e onde comer. Aparecem na tela <b>Indicações</b> e como marcadores no <b>mapa</b>. As coordenadas são opcionais — sem elas, o ponto é posicionado perto da cidade-base.</div>
+    <div class="rows" id="servicos"></div>
+    <button class="addbtn" data-add="servico"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar indicação</button>
+  </div>
+
+  <div class="actions">
+    <button class="btn primary" id="save"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Salvar roteiro</button>
+    <button class="btn ghost" id="example">Preencher exemplo</button>
+    <span class="msg" id="msg"></span>
+  </div>
+  <p class="sm" style="margin-top:14px">Os roteiros criados ficam salvos neste dispositivo (navegador). Você pode editar/excluir depois na tela de Roteiros.</p>
+</div>
+
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>
+(function(){
+  const TIPOS = window.EXP.tipos;
+  const PERN = { camping:"Camping organizado", wild:"Wild camping", apoio:"Ponto de apoio", cidade:"Apoio urbano" };
+  const ACCENTS = ['#0F766E','#D97706','#2563EB','#7C3AED','#DC2626','#2E9E5B','#0EA5C0','#B45309'];
+  let accent = ACCENTS[0];
+
+  /* região select */
+  const regSel = document.getElementById('f_regiao');
+  Object.values(window.REGIOES||{}).forEach(r=>{
+    const o=document.createElement('option'); o.value=r.id; o.textContent=r.nome; regSel.appendChild(o);
+  });
+  const oc=document.createElement('option'); oc.value='custom'; oc.textContent='Outra região (personalizada)'; regSel.appendChild(oc);
+
+  /* swatches */
+  const accEl = document.getElementById('f_accent');
+  ACCENTS.forEach((c,i)=>{ const s=document.createElement('div'); s.className='sw'+(i===0?' on':''); s.style.background=c;
+    s.onclick=()=>{ accent=c; document.querySelectorAll('#f_accent .sw').forEach(x=>x.classList.remove('on')); s.classList.add('on');
+      document.documentElement.style.setProperty('--accent',c); };
+    accEl.appendChild(s); });
+
+  /* helpers de linha */
+  function opts(map, sel){ return Object.keys(map).map(k=>`<option value="${k}"${k===sel?' selected':''}>${map[k].label||map[k]}</option>`).join(''); }
+  function etapaOpts(){ return [...document.querySelectorAll('#etapas .row')].map((r,i)=>`<option value="${i}">${i+1}. ${r.querySelector('.e_nome').value||'Etapa '+(i+1)}</option>`).join(''); }
+  function refreshEtapaSelects(){ document.querySelectorAll('.fase-sel').forEach(s=>{ const v=s.value; s.innerHTML=etapaOpts(); if(v) s.value=v; }); }
+
+  const tpl = {
+    etapa(){ return `<div class="row" data-row="etapa">
+      <div class="rhead"><span class="ri">Etapa</span><button class="del">remover</button></div>
+      <div class="grid three">
+        <div class="field"><label>Nome</label><input class="e_nome" placeholder="Ex.: Cordilheira"></div>
+        <div class="field"><label>Mês / período</label><input class="e_mes" placeholder="Ex.: Fevereiro"></div>
+        <div class="field"><label>Cor</label><input class="e_cor" type="color" value="${accent}" style="height:42px;padding:4px"></div>
+      </div></div>`; },
+    semana(){ return `<div class="row" data-row="semana">
+      <div class="rhead"><span class="ri">Semana</span><button class="del">remover</button></div>
+      <div class="grid three">
+        <div class="field"><label>Datas</label><input class="s_datas" placeholder="01–07 fev"></div>
+        <div class="field"><label>Etapa</label><select class="fase-sel s_fase"></select></div>
+        <div class="field"><label>Quilometragem</label><input class="s_km" placeholder="≈ 600 km"></div>
+        <div class="field"><label>De</label><input class="s_from" placeholder="Origem do trecho"></div>
+        <div class="field"><label>Para</label><input class="s_to" placeholder="Destino do trecho"></div>
+        <div class="field"><label>Região do trecho</label><input class="s_reg" placeholder="Ex.: Vale central"></div>
+        <div class="field full"><label>Descrição</label><textarea class="s_desc" placeholder="O que acontece nesta semana."></textarea></div>
+        <div class="field"><label>Pernoite — tipo</label><select class="s_ptipo">${Object.keys(PERN).map(k=>`<option value="${k}">${PERN[k]}</option>`).join('')}</select></div>
+        <div class="field"><label>Pernoite — local</label><input class="s_plocal" placeholder="Ex.: Camping municipal"></div>
+        <div class="field full"><label>Parques (opcional)</label><input class="s_parque" placeholder="Parques/reservas no trecho"></div>
+        <div class="field full"><label>Comer & beber (opcional)</label><input class="s_comer" placeholder="Bares, restaurantes, campings"></div>
+        <div class="field full"><label>Dica</label><input class="s_dica" placeholder="Aviso prático do trecho"></div>
+        <div class="field full"><label style="text-transform:none;letter-spacing:0"><input class="s_opt" type="checkbox" style="width:auto;margin-right:7px;vertical-align:middle">Trecho opcional (só na Rota Completa)</label></div>
+      </div></div>`; },
+    parada(){ return `<div class="row" data-row="parada">
+      <div class="rhead"><span class="ri">Parada</span><button class="del">remover</button></div>
+      <div class="grid three">
+        <div class="field"><label>Nome</label><input class="p_nome" placeholder="Ex.: Passo da Montanha"></div>
+        <div class="field"><label>Latitude</label><input class="p_lat" placeholder="-41.135"></div>
+        <div class="field"><label>Longitude</label><input class="p_lng" placeholder="-71.310"></div>
+        <div class="field"><label>Tipo</label><select class="p_tipo">${opts(TIPOS,'cidade')}</select></div>
+        <div class="field"><label>Etapa</label><select class="fase-sel p_fase"></select></div>
+        <div class="field"><label style="text-transform:none;letter-spacing:0"><input class="p_hl" type="checkbox" style="width:auto;margin-right:7px;vertical-align:middle">Destaque ★</label></div>
+        <div class="field full"><label>Nota</label><input class="p_nota" placeholder="Descrição curta do ponto"></div>
+        <div class="field full"><label style="text-transform:none;letter-spacing:0"><input class="p_opt" type="checkbox" style="width:auto;margin-right:7px;vertical-align:middle">Parada opcional (só na Rota Completa)</label></div>
+      </div></div>`; },
+    custo(){ return `<div class="row" data-row="custo">
+      <div class="rhead"><span class="ri">Categoria</span><button class="del">remover</button></div>
+      <div class="grid three">
+        <div class="field"><label>Categoria</label><input class="c_nome" placeholder="Ex.: Combustível"></div>
+        <div class="field"><label>Mínimo (R$)</label><input class="c_min" type="number" min="0" placeholder="0"></div>
+        <div class="field"><label>Máximo (R$)</label><input class="c_max" type="number" min="0" placeholder="0"></div>
+        <div class="field full"><label>Observação</label><input class="c_obs" placeholder="Detalhe da estimativa"></div>
+      </div></div>`; },
+    servico(){ return `<div class="row" data-row="servico">
+      <div class="rhead"><span class="ri">Indicação</span><button class="del">remover</button></div>
+      <div class="grid three">
+        <div class="field"><label>Categoria</label><select class="v_cat"><option value="parques">Parque &amp; natureza</option><option value="igrejas">Igreja / patrimônio</option><option value="museus">Museu / cultura</option><option value="campings">Camping</option><option value="pernoite">Pernoite de motorhome</option><option value="comer">Restaurante / bar</option><option value="eventos">Evento / festival</option></select></div>
+        <div class="field"><label>Nome</label><input class="v_nome" placeholder="Ex.: Camping do Lago"></div>
+        <div class="field"><label>Cidade-base</label><input class="v_base" placeholder="Ex.: Urubici"></div>
+        <div class="field full"><label>Nota</label><input class="v_nota" placeholder="Dica curta sobre o ponto"></div>
+        <div class="field"><label>Latitude (opc.)</label><input class="v_lat" placeholder="-28.015"></div>
+        <div class="field"><label>Longitude (opc.)</label><input class="v_lng" placeholder="-49.592"></div>
+      </div></div>`; },
+  };
+
+  function addRow(kind, container){
+    const wrap=document.createElement('div'); wrap.innerHTML=tpl[kind]().trim();
+    const row=wrap.firstChild;
+    row.querySelector('.del').onclick=()=>{ row.remove(); renumber(); refreshEtapaSelects(); };
+    (container||document.getElementById(kind+'s')).appendChild(row);
+    if(kind==='semana'||kind==='parada') row.querySelector('.fase-sel').innerHTML=etapaOpts();
+    if(kind==='etapa'){ row.querySelector('.e_nome').addEventListener('input',refreshEtapaSelects); }
+    renumber();
+    return row;
+  }
+  function renumber(){
+    ['etapa','semana','parada','custo','servico'].forEach(k=>{
+      document.querySelectorAll('#'+k+'s .row').forEach((r,i)=>{
+        const ri=r.querySelector('.ri');
+        const base={etapa:'Etapa',semana:'Semana',parada:'Parada',custo:'Categoria',servico:'Indicação'}[k];
+        ri.textContent = base+' '+(i+1);
+      });
+    });
+  }
+  document.querySelectorAll('[data-add]').forEach(b=> b.onclick=()=> addRow(b.dataset.add) );
+
+  /* slug + id */
+  function slug(s){ return (s||'roteiro').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40) || 'roteiro'; }
+
+  function val(row,cls){ const el=row.querySelector('.'+cls); return el? (el.type==='checkbox'? el.checked : el.value.trim()) : ''; }
+
+  function build(){
+    const nome=document.getElementById('f_nome').value.trim();
+    if(!nome) return {err:'Dê um nome ao roteiro.'};
+    const etapaRows=[...document.querySelectorAll('#etapas .row')];
+    if(!etapaRows.length) return {err:'Adicione pelo menos uma etapa.'};
+
+    const fasesList=etapaRows.map((r,i)=>({ id:'e'+i, nome:val(r,'e_nome')||('Etapa '+(i+1)), mes:val(r,'e_mes')||'', cor:val(r,'e_cor')||accent }));
+    const fases={}; fasesList.forEach(f=>fases[f.id]=f);
+    const order=[]; fasesList.forEach(f=>{ const m=f.mes||'Etapas'; if(order.indexOf(m)<0) order.push(m); });
+    const phaseMes={}; order.forEach(m=>{ phaseMes[m]=fasesList.filter(f=>(f.mes||'Etapas')===m).map(f=>f.nome).join(' · '); });
+
+    const weeks=[...document.querySelectorAll('#semanas .row')].map((r,i)=>{
+      const fi=+val(r,'s_fase')||0; const fa=fasesList[fi]||fasesList[0];
+      const opt=val(r,'s_opt');
+      const w={ n:i+1, datas:val(r,'s_datas'), mes:fa.mes||'Etapas', fase:fa.id,
+        from:val(r,'s_from'), to:val(r,'s_to'), km:val(r,'s_km'), reg:val(r,'s_reg'),
+        desc:val(r,'s_desc'), focos:[[PERN[val(r,'s_ptipo')]||'Trecho', val(r,'s_ptipo')]],
+        pernoite:[val(r,'s_ptipo')||'apoio', val(r,'s_plocal')||'—'], dica:val(r,'s_dica')||'—' };
+      if(val(r,'s_parque')) w.parque=val(r,'s_parque');
+      if(val(r,'s_comer')) w.comer=val(r,'s_comer');
+      if(opt){ w.completaOnly=true; w.optEss='Essencial: trecho opcional — pode ser cortado para encurtar a viagem.'; }
+      return w;
+    });
+
+    const wp=[...document.querySelectorAll('#paradas .row')].map((r,i)=>{
+      const lat=parseFloat(val(r,'p_lat')), lng=parseFloat(val(r,'p_lng'));
+      if(isNaN(lat)||isNaN(lng)) return null;
+      const fi=+val(r,'p_fase')||0; const fa=fasesList[fi]||fasesList[0];
+      return { id:slug(val(r,'p_nome'))+'-'+i, n:val(r,'p_nome')||('Parada '+(i+1)),
+        lat, lng, t:val(r,'p_tipo')||'cidade', f:fa.id, sem:fi+1,
+        var:val(r,'p_opt')?'completa':'both', hl:val(r,'p_hl'), d:val(r,'p_nota')||'' };
+    }).filter(Boolean);
+
+    const cats=[...document.querySelectorAll('#custos .row')].map(r=>({
+      nome:val(r,'c_nome')||'Categoria', min:+val(r,'c_min')||0, max:+val(r,'c_max')||0, obs:val(r,'c_obs')||''
+    })).filter(c=>c.min||c.max);
+    const dias=+document.getElementById('f_dias').value||Math.max(1, weeks.length*7);
+    let totMin=0,totMax=0; cats.forEach(c=>{totMin+=c.min;totMax+=c.max;});
+    const custos = cats.length ? {
+      dias, categorias:cats,
+      essencial:{ min:Math.round(totMin*0.85), max:Math.round(totMax*0.85), media:Math.round((totMin+totMax)/2*0.85),
+        economia:'~15%', corteKm:'os trechos opcionais', corteNote:'corta os trechos marcados como opcionais' }
+    } : { dias, categorias:[], essencial:{min:0,max:0,media:0,economia:'—',corteKm:'—',corteNote:'corta os trechos opcionais'} };
+
+    const regiaoId=document.getElementById('f_regiao').value;
+    const regiaoTxt=document.getElementById('f_regiaoTxt').value.trim();
+    const distc=document.getElementById('f_distc').value.trim()||'—';
+    const diste=document.getElementById('f_diste').value.trim()||distc;
+
+    // indicações (serviços)
+    const servicos={parques:[],igrejas:[],museus:[],campings:[],pernoite:[],comer:[],eventos:[]};
+    [...document.querySelectorAll('#servicos .row')].forEach(r=>{
+      const cat=val(r,'v_cat')||'parques'; const nome=val(r,'v_nome');
+      if(!nome) return;
+      const item={ n:nome, base:val(r,'v_base')||'', nota:val(r,'v_nota')||'' };
+      const la=parseFloat(val(r,'v_lat')), lo=parseFloat(val(r,'v_lng'));
+      if(!isNaN(la)&&!isNaN(lo)){ item.lat=la; item.lng=lo; }
+      (servicos[cat]||servicos.parques).push(item);
+    });
+    const temServicos = servicos.parques.length||servicos.igrejas.length||servicos.museus.length||servicos.campings.length||servicos.pernoite.length||servicos.comer.length||servicos.eventos.length;
+
+    return { roteiro:{
+      id: slug(nome)+'-'+Math.random().toString(36).slice(2,6),
+      custom:true,
+      nome, tagline:document.getElementById('f_tagline').value.trim()||'',
+      accent, regiao: regiaoTxt || (window.REGIOES[regiaoId]? window.REGIOES[regiaoId].nome : 'Região personalizada'),
+      regiaoId: regiaoId,
+      origem: document.getElementById('f_origem').value.trim()||'—',
+      periodo: document.getElementById('f_periodo').value.trim()||'—',
+      semanas: weeks.length, distancia_completa:distc, distancia_essencial:diste,
+      resumo: document.getElementById('f_resumo').value.trim()||'Roteiro personalizado.',
+      seasonTip:{ h:'Sobre este roteiro', p: document.getElementById('f_resumo').value.trim()||'Roteiro criado no planejador.' },
+      order, phaseMes, fases, fasesList, weeks,
+      mapa:{ fases:fasesList, atracoes:{}, wp },
+      custos,
+      servicos: temServicos ? servicos : null
+    }};
+  }
+
+  document.getElementById('save').onclick=()=>{
+    const msg=document.getElementById('msg'); msg.className='msg'; msg.textContent='';
+    const out=build();
+    if(out.err){ msg.textContent=out.err; return; }
+    let arr=[]; try{ arr=JSON.parse(localStorage.getItem('roteirosCustom')||'[]'); }catch(e){}
+    arr.push(out.roteiro);
+    try{ localStorage.setItem('roteirosCustom', JSON.stringify(arr)); }catch(e){ msg.textContent='Não foi possível salvar (armazenamento cheio).'; return; }
+    localStorage.setItem('roteiroAtivo', out.roteiro.id);
+    msg.className='msg ok'; msg.textContent='Roteiro salvo! Abrindo…';
+    setTimeout(()=>{ location.href='roteiro.html?r='+encodeURIComponent(out.roteiro.id); }, 700);
+  };
+
+  /* exemplo rápido */
+  document.getElementById('example').onclick=()=>{
+    document.getElementById('f_nome').value='Litoral Sul Express';
+    document.getElementById('f_periodo').value='Jan 2027';
+    document.getElementById('f_origem').value='Curitiba · PR';
+    document.getElementById('f_regiaoTxt').value='Litoral · BR Sul';
+    document.getElementById('f_resumo').value='Uma semana costeira de Curitiba a Florianópolis, focada em praias e gastronomia.';
+    document.getElementById('f_tagline').value='Praias e frutos do mar, sem pressa';
+    document.getElementById('f_distc').value='≈ 900 km';
+    document.getElementById('f_diste').value='≈ 700 km';
+    document.getElementById('f_dias').value='9';
+    const e=addRow('etapa'); e.querySelector('.e_nome').value='Costa catarinense'; e.querySelector('.e_mes').value='Janeiro'; e.querySelector('.e_cor').value='#0EA5C0';
+    refreshEtapaSelects();
+    const s=addRow('semana'); s.querySelector('.s_datas').value='01–07 jan'; s.querySelector('.s_from').value='Curitiba'; s.querySelector('.s_to').value='Florianópolis';
+    s.querySelector('.s_km').value='≈ 350 km'; s.querySelector('.s_reg').value='Litoral SC'; s.querySelector('.s_desc').value='Descida pela costa com paradas em praias e vilas de pescadores.';
+    s.querySelector('.s_plocal').value='Camping à beira-mar'; s.querySelector('.s_comer').value='Ostras em Florianópolis';
+    s.querySelector('.s_dica').value='Reserve camping no verão — lota.';
+    const p1=addRow('parada'); p1.querySelector('.p_nome').value='Curitiba'; p1.querySelector('.p_lat').value='-25.428'; p1.querySelector('.p_lng').value='-49.273'; p1.querySelector('.p_tipo').value='origem'; p1.querySelector('.p_hl').checked=true;
+    const p2=addRow('parada'); p2.querySelector('.p_nome').value='Florianópolis'; p2.querySelector('.p_lat').value='-27.595'; p2.querySelector('.p_lng').value='-48.548'; p2.querySelector('.p_tipo').value='cidade'; p2.querySelector('.p_hl').checked=true;
+    const c1=addRow('custo'); c1.querySelector('.c_nome').value='Combustível'; c1.querySelector('.c_min').value='600'; c1.querySelector('.c_max').value='900';
+    const c2=addRow('custo'); c2.querySelector('.c_nome').value='Alimentação'; c2.querySelector('.c_min').value='800'; c2.querySelector('.c_max').value='1400';
+    const v1=addRow('servico'); v1.querySelector('.v_cat').value='parques'; v1.querySelector('.v_nome').value='Parque da Lagoa do Peri'; v1.querySelector('.v_base').value='Florianópolis'; v1.querySelector('.v_nota').value='Lagoa de água doce e trilhas na mata.';
+    const v2=addRow('servico'); v2.querySelector('.v_cat').value='comer'; v2.querySelector('.v_nome').value='Ostradamus'; v2.querySelector('.v_base').value='Florianópolis'; v2.querySelector('.v_nota').value='Ostras do Ribeirão da Ilha.';
+    document.getElementById('msg').className='msg ok'; document.getElementById('msg').textContent='Exemplo preenchido — ajuste e salve.';
+  };
+
+  /* estado inicial: 1 etapa, 1 semana, 2 paradas, 1 indicação */
+  addRow('etapa'); refreshEtapaSelects();
+  addRow('semana'); addRow('parada'); addRow('parada'); addRow('servico');
+})();
+</script>
+</body>
+</html>

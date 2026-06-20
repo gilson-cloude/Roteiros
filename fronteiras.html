@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passos fronteiriços · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+<style>
+  .wrap{max-width:1080px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:18px 2px 30px;font-size:12.5px;color:var(--slate)}
+  .legend .a{display:flex;align-items:center;gap:8px}
+  .legend .a b{color:var(--ink);font-weight:600}
+  .legend .a .ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex-shrink:0;
+    background:color-mix(in srgb,var(--c) 13%,#fff);border:1px solid color-mix(in srgb,var(--c) 28%,#fff)}
+  .legend .a .ic svg{width:15px;height:15px;stroke:var(--c);fill:none;stroke-width:2}
+
+  .xgrid{display:flex;flex-direction:column;gap:16px}
+  .xcard{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden;
+    box-shadow:var(--shadow)}
+  .xhead{display:flex;align-items:center;gap:14px;padding:18px 20px;border-bottom:1px solid var(--line-soft);
+    background:linear-gradient(180deg,#FBFCFD,#fff)}
+  .xnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15px;color:#fff;background:var(--xc,var(--teal));
+    width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex-shrink:0}
+  .xhead .ht{min-width:0;flex:1}
+  .xhead h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:18.5px;letter-spacing:-.01em;line-height:1.15}
+  .xhead .sub{font-size:12.5px;color:var(--slate);margin-top:2px}
+  .flag2{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:12px;
+    font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:20px;
+    padding:6px 12px;flex-shrink:0;white-space:nowrap}
+  .flag2 .ar{color:var(--faint);font-weight:700}
+  .xbody{display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:720px){.xbody{grid-template-columns:1.35fr 1fr}}
+  .xmain{padding:17px 20px}
+  .xmain .road{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--faint);margin-bottom:9px}
+  .xmain p{font-size:13.5px;color:var(--slate);line-height:1.5}
+  .xmain p b{color:var(--ink)}
+  .xmain .dica{display:flex;gap:9px;align-items:flex-start;margin-top:13px;background:var(--bg);
+    border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:10px;padding:11px 13px}
+  .xmain .dica svg{width:16px;height:16px;stroke:var(--terra);fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+  .xmain .dica span{font-size:12.5px;color:var(--ink);line-height:1.4}
+  .xside{padding:17px 20px;border-top:1px solid var(--line-soft);background:#FBFCFD}
+  @media(min-width:720px){.xside{border-top:none;border-left:1px solid var(--line-soft)}}
+  .xside .lbl{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:11px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--slate);margin-bottom:10px}
+  .ctrls{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+  .ctrl{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--ink)}
+  .ctrl .ic{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;flex-shrink:0;
+    background:color-mix(in srgb,var(--c) 13%,#fff);border:1px solid color-mix(in srgb,var(--c) 28%,#fff)}
+  .ctrl .ic svg{width:13px;height:13px;stroke:var(--c);fill:none;stroke-width:2}
+  .ctrl b{font-weight:600}
+  .ctrl small{color:var(--faint);display:block;font-size:11px}
+  .xgps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);cursor:pointer;
+    display:flex;align-items:center;gap:6px;padding-top:11px;border-top:1px solid var(--line-soft)}
+  .xgps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .xgps .cp{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>brasil ⇄ argentina ⇄ chile · na ordem da rota</div>
+  <h1>Passos <span class="hl">fronteiriços</span></h1>
+  <p class="lead">As fronteiras que a expedição cruza, em ordem. Cada passo mostra <b>direção</b>, o que se controla — <b>migração, aduana (TIP do veículo) e fito-zoossanitário</b> — e a dica de quem já passou. A Terra do Fogo e a Carretera exigem <b>cruzamentos duplos</b> AR↔CL.</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div><h4>Antes de cada passo</h4><p>Chegue cedo (filas menores), com <b>tanque cheio</b>, documentos numa pasta única e a <b>despensa sem frescos</b> (o SAG chileno e o SENASA são rígidos). Guarde TODOS os comprovantes de <b>TIP</b> até reentrar no Brasil.</p></div>
+  </div>
+
+  <div class="legend">
+    <div class="a" style="--c:#2563EB"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM4 20a5 5 0 0 1 10 0M17 11l2 2 4-4"/></svg></span><b>Migração</b> — pessoas + pet</div>
+    <div class="a" style="--c:#D97706"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg></span><b>Aduana</b> — TIP do veículo</div>
+    <div class="a" style="--c:#2E9E5B"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><path d="M9 9l2 2 4-4"/></svg></span><b>Fito-zoo</b> — SAG / SENASA (alimentos)</div>
+  </div>
+
+  <div class="xgrid" id="xgrid"></div>
+
+  <footer>
+    <span>PLANEJADOR DE ROTEIROS · PASSOS FRONTEIRIÇOS</span>
+    <span>Horários e exigências mudam · confirme em fontes oficiais (PF, Gendarmería, Carabineros, SAG) na viagem</span>
+  </footer>
+</div>
+
+<script>
+  const ICONS = {
+    mig:'<path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM4 20a5 5 0 0 1 10 0M17 11l2 2 4-4"/>',
+    adu:'<path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>',
+    fito:'<path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><path d="M9 9l2 2 4-4"/>',
+  };
+  const CTRL_META = {
+    mig:  { c:'#2563EB', t:'Migração',  s:'carimbo + pet' },
+    adu:  { c:'#D97706', t:'Aduana (TIP)', s:'importação temp. do veículo' },
+    fito: { c:'#2E9E5B', t:'Fito-zoo', s:'sem frutas/carnes/laticínios' },
+  };
+  const PASSOS = [
+    { de:'BR', para:'AR', nome:'Uruguaiana → Paso de los Libres', road:'BR-290 / RN117 · Rio Uruguai',
+      fase:'Fase 1 · Agosto · ida', gps:[-29.755,-57.088], xc:'#64748B', ctrls:['mig','adu','fito'],
+      txt:'Entrada na Argentina e <b>marco zero</b> da papelada internacional: carimbo de migração, emissão da <b>TIP</b> do veículo, checagem da <b>Carta Verde</b> e do <b>CVI do pet</b> (SENASA). Faça tudo no mesmo complexo.',
+      dica:'Complexo movimentado — chegue cedo. Tenha cópias do CRLV, seguro Mercosul e CVI à mão.' },
+    { de:'AR', para:'CL', nome:'Integración Austral (Monte Aymond)', road:'RN3 · rumo ao Estreito de Magalhães',
+      fase:'Fase 4 · Setembro · à Terra do Fogo', gps:[-52.138,-69.521], xc:'#7C3AED', ctrls:['mig','adu','fito'],
+      txt:'Para chegar à Terra do Fogo cruza-se ao <b>Chile</b> aqui, pega-se o <b>ferry Primera Angostura</b> e volta-se à Argentina em San Sebastián. <b>Fecha a TIP argentina</b> e abre a chilena — guarde os dois comprovantes.',
+      dica:'Vento forte e exposto. O SAG chileno revista a despensa: consuma frescos antes de chegar.' },
+    { de:'CL', para:'AR', nome:'San Sebastián (Terra do Fogo)', road:'CH-257 / RN3 · ilha da TdF',
+      fase:'Fase 4 · Setembro · à Terra do Fogo', gps:[-53.318,-68.610], xc:'#7C3AED', ctrls:['mig','adu','fito'],
+      txt:'Reentrada na <b>Argentina</b> já na ilha, rumo a Río Grande, Tolhuin e <b>Ushuaia</b>. Fecha a TIP chilena e reabre a argentina. Na volta, o caminho é o inverso (San Sebastián → ferry → Monte Aymond).',
+      dica:'Dois postos com poucos km entre si (CL e AR). Some o tempo de fila + ferry ao planejar o dia.' },
+    { de:'AR', para:'CL', nome:'Cerro Castillo / Río Don Guillermo', road:'RP7 · Cancha Carrera → Puerto Natales',
+      fase:'Fase 5 · Outubro · Torres del Paine', gps:[-51.247,-72.363], xc:'#0F766E', ctrls:['mig','adu','fito'],
+      txt:'Cruzamento de El Calafate rumo a <b>Puerto Natales</b> e <b>Torres del Paine</b>. Posto tranquilo, mas com <b>controle SAG rígido</b> — é a porta de entrada do Chile pelo sul.',
+      dica:'Zere a despensa de frescos antes. Natales é o reabastecimento (caro) já no Chile.' },
+    { de:'AR', para:'CL', nome:'Chile Chico / Río Jeinimeni', road:'RN40 (AR) → Ruta 265 (CL)',
+      fase:'Fase 6 · Out/Nov · início da Carretera', gps:[-46.542,-71.724], xc:'#D97706', ctrls:['mig','adu','fito'],
+      txt:'Subida pela <b>Ruta 40</b> e cruzamento à beira do <b>Lago General Carrera</b> para iniciar a <b>Carretera Austral</b>. Perito Moreno / Los Antiguos são os últimos postos argentinos antes daqui.',
+      dica:'Há a opção de balsa no lago (Chile Chico) para encurtar. Encha o tanque do lado argentino.' },
+    { de:'CL', para:'AR', nome:'Cardenal Samoré', road:'Ruta 215 (CL) → RN231 (AR) · Sete Lagos',
+      fase:'Fase 7 · Novembro · retorno', gps:[-40.717,-71.917], xc:'#2E9E5B', ctrls:['mig','adu','fito'],
+      txt:'Saída do Chile (região dos lagos / Puerto Montt) de volta à <b>Argentina</b> rumo a <b>Villa La Angostura e Bariloche</b>, iniciando a longa volta ao Brasil. Fecha a TIP chilena.',
+      dica:'Passo movimentado e cênico. Confirme se está nevando (altitude) fora do verão.' },
+    { de:'AR', para:'BR', nome:'Paso de los Libres → Uruguaiana', road:'RN117 / BR-290 · Rio Uruguai',
+      fase:'Fase 7 · Novembro · fim da viagem', gps:[-29.755,-57.088], xc:'#64748B', ctrls:['mig','adu','fito'],
+      txt:'<b>Reentrada no Brasil</b>. Encerra a <b>TIP</b> do veículo (não esqueça — pendência trava futuras viagens) e a reentrada do <b>pet</b>, que pode exigir atestado emitido na Argentina. Fim da expedição.',
+      dica:'Guarde todos os comprovantes de TIP da viagem. Verifique a exigência atual para reentrada do pet.' },
+  ];
+
+  window.FXcopy = function(txt, el){
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const cp = el.querySelector('.cp'); if(cp){ const o=cp.textContent; cp.textContent='copiado!'; setTimeout(()=>cp.textContent=o,1200); }
+  };
+  const flagTxt = { BR:'🇧🇷 Brasil', AR:'🇦🇷 Argentina', CL:'🇨🇱 Chile' };
+
+  const grid = document.getElementById('xgrid');
+  PASSOS.forEach((p,i)=>{
+    const coord = `${p.gps[0].toFixed(4)}, ${p.gps[1].toFixed(4)}`;
+    const ctrls = p.ctrls.map(k=>{ const m=CTRL_META[k];
+      return `<div class="ctrl" style="--c:${m.c}"><span class="ic"><svg viewBox="0 0 24 24">${ICONS[k]}</svg></span>
+        <span><b>${m.t}</b><small>${m.s}</small></span></div>`; }).join('');
+    const card = document.createElement('div'); card.className='xcard';
+    card.innerHTML = `
+      <div class="xhead">
+        <span class="xnum" style="--xc:${p.xc}">${i+1}</span>
+        <div class="ht"><h3>${p.nome}</h3><div class="sub">${p.fase}</div></div>
+        <span class="flag2">${flagTxt[p.de]}<span class="ar">→</span>${flagTxt[p.para]}</span>
+      </div>
+      <div class="xbody">
+        <div class="xmain">
+          <div class="road">${p.road}</div>
+          <p>${p.txt}</p>
+          <div class="dica"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg><span>${p.dica}</span></div>
+        </div>
+        <div class="xside">
+          <div class="lbl">Controles neste passo</div>
+          <div class="ctrls">${ctrls}</div>
+          <div class="xgps" title="copiar coordenadas" onclick="FXcopy('${coord}', this)">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            ${coord}<span class="cp">copiar</span></div>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+</script>
+  <script src="geo.js"></script>
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>

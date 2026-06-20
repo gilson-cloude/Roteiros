@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Roteiros · Planejador de Roteiros</title>
+<meta name="theme-color" content="#0F766E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F9; --panel:#FFFFFF; --ink:#16202C; --slate:#5B6472; --faint:#8B93A1;
+    --line:#E6E9EE; --teal:#0F766E; --terra:#E07A3F;
+    --shadow:0 10px 30px -16px rgba(22,32,44,.18);
+    --navh:64px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.5}
+  .app{max-width:480px;margin:0 auto;min-height:100%;background:var(--bg);position:relative;
+    box-shadow:0 0 60px -20px rgba(0,0,0,.2);padding-bottom:calc(var(--navh) + env(safe-area-inset-bottom))}
+
+  .hdr{position:sticky;top:0;z-index:30;color:#fff;
+    background:linear-gradient(150deg,#0c2a2a,#0F766E 60%,#15807a);
+    padding:calc(18px + env(safe-area-inset-top)) 18px 18px}
+  .hdr::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background:radial-gradient(360px 180px at 92% -20%, rgba(224,122,63,.5), transparent 60%)}
+  .hdr a.back{position:relative;z-index:2;display:inline-flex;align-items:center;gap:7px;
+    font-size:13px;font-weight:600;color:#cdeee9;text-decoration:none;margin-bottom:14px}
+  .hdr a.back svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+  .hdr h1{position:relative;z-index:2;font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:24px;letter-spacing:-.02em;line-height:1}
+  .hdr .sub{position:relative;z-index:2;font-size:12px;color:#bfe7e2;font-family:"JetBrains Mono",monospace;
+    margin-top:6px;letter-spacing:.04em}
+
+  main{padding:18px 16px 26px}
+  .intro{font-size:13px;color:var(--slate);margin:2px 2px 16px;line-height:1.5}
+
+  .cards{display:flex;flex-direction:column;gap:14px}
+  .rcard{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);
+    border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .14s,box-shadow .14s}
+  .rcard:active{transform:scale(.985)}
+  .rcard .top{padding:16px 17px 14px;position:relative}
+  .rcard .top::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}
+  .rcard .kicker{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:10px;
+    letter-spacing:.07em;text-transform:uppercase;color:var(--c);font-weight:600;margin-bottom:8px}
+  .rcard .kicker .pin{width:8px;height:8px;border-radius:50%;background:var(--c)}
+  .rcard h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:19px;letter-spacing:-.02em;line-height:1.08}
+  .rcard .tag{font-size:12.5px;color:var(--slate);margin-top:5px;line-height:1.4}
+  .rcard .resumo{font-size:12.5px;color:var(--ink);margin-top:10px;line-height:1.5}
+
+  .rcard .stats{display:flex;gap:9px;flex-wrap:wrap;padding:0 17px 14px}
+  .rcard .st{display:flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--line);
+    border-radius:9px;padding:7px 10px;font-size:11.5px;color:var(--slate)}
+  .rcard .st svg{width:14px;height:14px;stroke:var(--c);fill:none;stroke-width:1.9;flex-shrink:0}
+  .rcard .st b{color:var(--ink);font-weight:600;font-family:"JetBrains Mono",monospace;font-size:11px}
+
+  .rcard .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:13px 17px;border-top:1px solid var(--line);background:linear-gradient(180deg,#fff,#fcfdfe)}
+  .rcard .vars{display:flex;gap:6px;flex-wrap:wrap}
+  .rcard .vpill{font-size:10.5px;font-weight:600;color:var(--slate);background:var(--bg);
+    border:1px solid var(--line);border-radius:20px;padding:4px 10px}
+  .rcard .open{display:inline-flex;align-items:center;gap:6px;font-family:"Space Grotesk",sans-serif;
+    font-weight:600;font-size:13px;color:var(--c)}
+  .rcard .open svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2}
+  .rcard .rdel{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;color:#DC2626;
+    background:#FEF2F2;border:1px solid #FCD7D4;border-radius:20px;padding:5px 12px;cursor:pointer}
+  .cbadge{margin-left:8px;font-family:"JetBrains Mono",monospace;font-size:9px;color:#fff;background:var(--c);
+    border-radius:20px;padding:2px 8px;text-transform:uppercase;letter-spacing:.04em}
+  .rcard.novo{border-style:dashed;text-decoration:none}
+  .rcard.novo .novo-in{display:flex;align-items:center;gap:14px;padding:20px 18px}
+  .rcard.novo .plus{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex-shrink:0;
+    background:color-mix(in srgb,var(--accent,#0F766E) 12%,#fff);border:1px solid color-mix(in srgb,var(--accent,#0F766E) 26%,#fff);color:var(--accent,#0F766E)}
+  .rcard.novo .plus svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.4}
+  .rcard.novo .nt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px;color:#16202C}
+  .rcard.novo .nd{font-size:12px;color:#5B6472;margin-top:2px}
+
+  .nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:40;
+    height:calc(var(--navh) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+    background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;align-items:stretch}
+  .nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    text-decoration:none;color:var(--faint);font-size:10.5px;font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .nav a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2}
+  .nav a.on{color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="hdr">
+    <a class="back" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Início</a>
+    <h1>Roteiros</h1>
+    <div class="sub">ESCOLHA UMA EXPEDIÇÃO</div>
+  </header>
+
+  <main>
+    <p class="intro">Cada roteiro abre com a programação semanal, mapa de fases e a opção <b>Rota Completa × Essencial</b>.</p>
+    <div class="cards" id="cards"></div>
+  </main>
+
+  <nav class="nav">
+    <a href="app.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Início</a>
+    <a href="mapa.html"><svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>Mapa</a>
+    <a href="roteiro.html"><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/></svg>Roteiro</a>
+    <a class="on" href="roteiros.html"><svg viewBox="0 0 24 24"><path d="M4 7h11M4 7l3-3M4 7l3 3M20 17H9M20 17l-3-3M20 17l-3 3"/></svg>Trocar</a>
+    <a href="custos.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2.5-5 1.5-5 4a2.5 2 0 0 0 5 0"/></svg>Custos</a>
+  </nav>
+</div>
+
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>
+(function(){
+  const cards = document.getElementById('cards');
+  window.ROTEIROS.forEach(r=>{
+    const a = document.createElement('a');
+    a.className='rcard'; a.href='roteiro.html?r='+r.id; a.style.setProperty('--c', r.accent);
+    const del = r.custom ? `<button class="rdel" data-id="${r.id}" title="Excluir roteiro">excluir</button>` : '';
+    const badge = r.custom ? `<span class="cbadge">criado por você</span>` : '';
+    a.innerHTML = `
+      <div class="top">
+        <div class="kicker"><span class="pin"></span>${r.periodo}${badge}</div>
+        <h2>${r.nome}</h2>
+        <div class="tag">${r.tagline||''}</div>
+        <div class="resumo">${r.resumo||''}</div>
+      </div>
+      <div class="stats">
+        <span class="st"><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/></svg><b>${r.semanas} semanas</b></span>
+        <span class="st"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h10"/></svg>Completa <b>${r.distancia_completa}</b></span>
+        <span class="st"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h10"/></svg>Essencial <b>${r.distancia_essencial}</b></span>
+      </div>
+      <div class="foot">
+        <div class="vars">${del||'<span class="vpill">Rota Completa</span><span class="vpill">Rota Essencial</span>'}</div>
+        <span class="open">Abrir<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </div>`;
+    cards.appendChild(a);
+  });
+
+  // excluir roteiros custom
+  cards.addEventListener('click', (ev)=>{
+    const b = ev.target.closest('.rdel'); if(!b) return;
+    ev.preventDefault(); ev.stopPropagation();
+    if(!confirm('Excluir este roteiro criado por você?')) return;
+    let arr=[]; try{ arr=JSON.parse(localStorage.getItem('roteirosCustom')||'[]'); }catch(e){}
+    arr = arr.filter(x=>x.id!==b.dataset.id);
+    try{ localStorage.setItem('roteirosCustom', JSON.stringify(arr)); }catch(e){}
+    if(localStorage.getItem('roteiroAtivo')===b.dataset.id && window.ROTEIROS[0]) localStorage.setItem('roteiroAtivo', window.ROTEIROS[0].id);
+    location.reload();
+  });
+
+  // card de criar novo
+  const novo = document.createElement('a');
+  novo.className='rcard novo'; novo.href='novo-roteiro.html';
+  novo.innerHTML = `<div class="novo-in"><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+    <div><div class="nt">Criar novo roteiro</div><div class="nd">Monte uma viagem do zero — mapa, semanas e custos próprios</div></div></div>`;
+  cards.appendChild(novo);
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
+  }
+})();
+</script>
+</body>
+</html>

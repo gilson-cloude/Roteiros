@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficinas & concessionárias · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+<style>
+  .wrap{max-width:1080px}
+  .filters{position:sticky;top:14px;z-index:10;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border:1px solid var(--line);
+    border-radius:13px;padding:11px 14px;margin:22px 0 8px;box-shadow:var(--shadow)}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:7px 13px;cursor:pointer;transition:all .16s;white-space:nowrap}
+  .chip:hover{border-color:#cfd5de}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .fl{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .ocard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 18px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;border-left:3px solid var(--oc,var(--line));
+    transition:transform .16s,box-shadow .16s}
+  .ocard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -18px rgba(22,32,44,.26)}
+  .ocard.hidden{display:none}
+  .ocard .top{display:flex;align-items:flex-start;gap:11px}
+  .ocard .ic{width:32px;height:32px;flex-shrink:0;border-radius:9px;display:grid;place-items:center;
+    background:color-mix(in srgb,var(--oc) 14%,#fff);border:1px solid color-mix(in srgb,var(--oc) 30%,#fff)}
+  .ocard .ic svg{width:17px;height:17px;stroke:var(--oc);fill:none;stroke-width:2}
+  .ocard h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-.01em;line-height:1.15}
+  .ocard .road{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--faint);
+    text-transform:uppercase;margin-top:2px}
+  .ocard .flag{margin-left:auto;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:10px;
+    letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--oc);border-radius:20px;
+    padding:4px 9px;white-space:nowrap;flex-shrink:0;align-self:flex-start}
+  .ocard .addr{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--ink)}
+  .ocard .addr svg{width:13px;height:13px;stroke:var(--oc);fill:none;stroke-width:1.9;flex-shrink:0;margin-top:2px}
+  .ocard .addr b{font-weight:600}
+  .ocard .note{font-size:12.5px;color:var(--slate);line-height:1.45}
+  .ocard .note b{color:var(--ink)}
+  .ocard .foot{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--line-soft)}
+  .ocard .gps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .ocard .gps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .ocard .gps .cp{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+  .corr{margin-top:36px}
+  .corr-h{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+  .corr-h .fg{width:11px;height:11px;border-radius:3px;align-self:center;flex-shrink:0}
+  .corr-h h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .corr-h .cc{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>renault master · argentina &amp; chile · relatos de viajantes</div>
+  <h1>Oficinas &amp; <span class="hl">concessionárias</span></h1>
+  <p class="lead">Onde encontrar <b>assistência ao motorhome</b> fora do Brasil. Inclui a rede <b>Renault oficial</b> (Autosur, na Patagônia) e os hubs de oficina citados por overlanders — além das <b>zonas críticas</b> onde simplesmente não há socorro: ali, leva-se peça.</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2L4 17l3 3 5.5-5.5a4 4 0 0 0 5.2-5.2l-2.4 2.4-2.1-2.1 2.5-2.3z"/></svg>
+    <div><h4>Kit de peças a bordo</h4><p>Relatos de viajantes recomendam levar <b>correias, filtros (óleo/ar/combustível/separador de água), fusíveis, fluido/água de radiador, óleo</b> e um <b>pneu extra</b> — em boa parte da Ruta 40 e da Carretera sul não há oficina por centenas de km.</p></div>
+  </div>
+
+  <div class="filters">
+    <div class="chips" id="chips" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div id="corrs"></div>
+
+  <footer>
+    <span>PLANEJADOR DE ROTEIROS · OFICINAS &amp; CONCESSIONÁRIAS</span>
+    <span>Endereços/telefones mudam · confirme em iOverlander, Google Maps e nos sites oficiais antes de ir</span>
+  </footer>
+</div>
+
+<script>
+  const TIPOS = {
+    oficial:  { cor:'#2563EB', label:'Renault oficial', ic:'<path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>' },
+    overland: { cor:'#2E9E5B', label:'Oficina / overland', ic:'<path d="M14.7 6.3a4 4 0 0 0-5.2 5.2L4 17l3 3 5.5-5.5a4 4 0 0 0 5.2-5.2l-2.4 2.4-2.1-2.1 2.5-2.3z"/>' },
+    critica:  { cor:'#DC2626', label:'Zona crítica', ic:'<path d="M12 9v4M12 17h.01M10.3 4.3 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/>' },
+  };
+  const CORRS = [
+    { id:'norte', fg:'#64748B', nome:'Entrada & norte da Patagônia' },
+    { id:'r3',    fg:'#2563EB', nome:'Ruta 3 — costa atlântica (Chubut/Santa Cruz)' },
+    { id:'sul',   fg:'#7C3AED', nome:'Extremo sul & Terra do Fogo' },
+    { id:'r40',   fg:'#0F766E', nome:'Ruta 40 & Glaciares (zona crítica)' },
+    { id:'cl',    fg:'#D97706', nome:'Chile — Carretera Austral' },
+    { id:'ret',   fg:'#2E9E5B', nome:'Retorno (Lagos & norte)' },
+  ];
+  const OFICINAS = [
+    // norte / entrada
+    { c:'norte', n:'Neuquén', tipo:'oficial', road:'AR · RN22', gps:[-38.951,-68.059],
+      addr:'Concessionária oficial Renault na cidade (confirmar endereço).',
+      nota:'Grande cidade na entrada/saída norte da Patagônia. Bom ponto para revisão antes ou depois do trecho duro.' },
+    { c:'norte', n:'Bahía Blanca', tipo:'oficial', road:'AR · RN3 / RN22', gps:[-38.7196,-62.2724],
+      addr:'Concessionárias Renault na cidade (confirmar endereço).',
+      nota:'Última grande cidade antes da Patagônia. Ideal para a <b>revisão pré-Patagônia</b> e troca de óleo.' },
+    // ruta 3
+    { c:'r3', n:'Puerto Madryn — Autosur', tipo:'oficial', road:'AR · RN3 (desvio)', gps:[-42.769,-65.038],
+      addr:'Gral. Mosconi 135 · Autosur (Renault oficial).',
+      nota:'Concessionária oficial Renault. Apoio confiável já na base da Península Valdés.' },
+    { c:'r3', n:'Trelew — Autosur', tipo:'oficial', road:'AR · RN3', gps:[-43.249,-65.305],
+      addr:'H. Yrigoyen 1403 · Autosur (Renault oficial).',
+      nota:'Matriz histórica da rede Autosur. Peças e pós-venda Renault.' },
+    { c:'r3', n:'Comodoro Rivadavia — Autosur', tipo:'oficial', road:'AR · RN3 km 1830', gps:[-45.864,-67.496],
+      addr:'Ruta 3 Km 1830.1 · Autosur (Renault oficial).',
+      nota:'Maior hub do trecho, sobre a própria RN3. <b>Atenção</b>: zona com histórico de piquetes — resolva e siga.' },
+    { c:'r3', n:'Río Gallegos — Austral', tipo:'oficial', road:'AR · RN3 / RN40', gps:[-51.623,-69.216],
+      addr:'Sarmiento 99 · Austral (Renault oficial).',
+      nota:'Última concessionária oficial Renault antes da Terra do Fogo e do extremo sul. Revisão estratégica.' },
+    // extremo sul
+    { c:'sul', n:'Río Grande / Ushuaia', tipo:'overland', road:'AR · RN3 (Terra do Fogo)', gps:[-53.787,-67.710],
+      addr:'Oficinas multimarca nas duas cidades (Renault sem rede própria na ilha).',
+      nota:'Única assistência da Terra do Fogo. Fora delas, no interior da ilha, <b>não há socorro</b>.' },
+    { c:'sul', n:'Esquel — Autosur', tipo:'oficial', road:'AR · RN40 (cordilheira)', gps:[-42.910,-71.319],
+      addr:'Belgrano 738 · Autosur (Renault oficial).',
+      nota:'Concessionária oficial Renault na cordilheira — útil se a rota subir pela RN40 ao norte da Carretera.' },
+    // ruta 40
+    { c:'r40', n:'El Calafate', tipo:'overland', road:'AR · RP11 / RN40', gps:[-50.339,-72.275],
+      addr:'Oficinas/gomerías na cidade (sem Renault oficial).',
+      nota:'Base dos glaciares. Resolve emergência e pneu, mas para serviço pesado o oficial mais próximo é Río Gallegos.' },
+    { c:'r40', n:'Tres Lagos → Bajo Caracoles', tipo:'critica', road:'AR · RN40 (vão central)', gps:[-48.5,-71.0],
+      addr:'Sem oficina confiável por centenas de km.',
+      nota:'<b>Zona crítica.</b> Trecho isolado da RN40. Leve peças, pneu extra e ferramentas; não conte com socorro.' },
+    // chile
+    { c:'cl', n:'Coyhaique', tipo:'overland', road:'CL · Ruta 7 (Aysén)', gps:[-45.572,-72.068],
+      addr:'Talleres especializados em veículos overland (citados por viajantes).',
+      nota:'<b>O principal — e quase único — hub de oficina de toda a Carretera.</b> Melhor lugar para peças, pneus e serviço no Chile remoto.' },
+    { c:'cl', n:'Cochrane → Villa O\'Higgins', tipo:'critica', road:'CL · Ruta 7 (sul)', gps:[-47.6,-72.6],
+      addr:'Mínima assistência; estrada sem saída e ripio pesado.',
+      nota:'<b>Zona crítica.</b> Trecho que mais exige o veículo. Chegue revisado de Coyhaique/Cochrane; leve reserva e ferramentas.' },
+    { c:'cl', n:'Puerto Montt', tipo:'oficial', road:'CL · Ruta 5 / Ruta 7', gps:[-41.469,-72.942],
+      addr:'Concessionária Renault Chile na região (confirmar endereço).',
+      nota:'Reentrada na malha asfaltada e maior hub do sul do Chile. Revisão completa após a Carretera.' },
+    // retorno
+    { c:'ret', n:'Bariloche', tipo:'oficial', road:'AR · RN40 / Sete Lagos', gps:[-41.135,-71.310],
+      addr:'Concessionária oficial Renault na cidade (confirmar endereço).',
+      nota:'De volta à Argentina. Última grande revisão antes da longa reta de volta ao Brasil.' },
+    { c:'ret', n:'Neuquén (retorno)', tipo:'oficial', road:'AR · RN22', gps:[-38.951,-68.059],
+      addr:'Concessionária oficial Renault (mesma da ida).',
+      nota:'Reforço final de assistência antes de deixar a Patagônia rumo ao norte.' },
+  ];
+
+  window.OFcopy = function(txt, el){
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const cp = el.querySelector('.cp'); if(cp){ const o=cp.textContent; cp.textContent='copiado!'; setTimeout(()=>cp.textContent=o,1200); }
+  };
+
+  const corrsEl = document.getElementById('corrs');
+  CORRS.forEach(co=>{
+    const group = OFICINAS.filter(p=>p.c===co.id);
+    if(!group.length) return;
+    const sec = document.createElement('section'); sec.className='corr'; sec.dataset.c=co.id;
+    const h = document.createElement('div'); h.className='corr-h';
+    h.innerHTML = `<span class="fg" style="background:${co.fg}"></span><h2>${co.nome}</h2><span class="cc">${group.length} pontos</span>`;
+    sec.appendChild(h);
+    const grid = document.createElement('div'); grid.className='grid3';
+    group.forEach(p=>{
+      const tp = TIPOS[p.tipo];
+      const coord = `${p.gps[0].toFixed(4)}, ${p.gps[1].toFixed(4)}`;
+      const card = document.createElement('div');
+      card.className='ocard'; card.dataset.tipo=p.tipo; card.style.setProperty('--oc', tp.cor);
+      card.innerHTML = `
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24">${tp.ic}</svg></span>
+          <div style="min-width:0"><h3>${p.n}</h3><div class="road">${p.road}</div></div>
+          <span class="flag">${tp.label}</span>
+        </div>
+        <div class="addr"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span>${p.addr}</span></div>
+        <p class="note">${p.nota}</p>
+        <div class="foot">
+          <span class="gps" title="copiar coordenadas" onclick="OFcopy('${coord}', this)">
+            <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            ${coord}<span class="cp">copiar</span></span>
+        </div>`;
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+    corrsEl.appendChild(sec);
+  });
+
+  // filters
+  const chipsEl = document.getElementById('chips');
+  const filters = [
+    { k:'all', label:'Todas' },
+    { k:'oficial', label:'Renault oficial', cor:'#2563EB' },
+    { k:'overland', label:'Oficina / overland', cor:'#2E9E5B' },
+    { k:'critica', label:'Zonas críticas', cor:'#DC2626' },
+  ];
+  let active='all';
+  filters.forEach(ft=>{
+    const c=document.createElement('div'); c.className='chip'+(ft.k==='all'?' on':''); c.dataset.k=ft.k;
+    c.innerHTML=(ft.cor?`<span class="fl" style="background:${ft.cor}"></span>`:'')+ft.label;
+    c.onclick=()=>{ active=ft.k; chipsEl.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x.dataset.k===active)); apply(); };
+    chipsEl.appendChild(c);
+  });
+  function apply(){
+    document.querySelectorAll('.ocard').forEach(card=>{
+      const show = active==='all' || card.dataset.tipo===active;
+      card.classList.toggle('hidden', !show);
+    });
+    document.querySelectorAll('.corr').forEach(sec=>{
+      const any=[...sec.querySelectorAll('.ocard')].some(c=>!c.classList.contains('hidden'));
+      sec.style.display = any?'':'none';
+    });
+  }
+</script>
+  <script src="geo.js"></script>
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>

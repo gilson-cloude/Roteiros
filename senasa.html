@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postos SENASA · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+<style>
+  .wrap{max-width:1080px}
+  .filters{position:sticky;top:14px;z-index:10;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border:1px solid var(--line);
+    border-radius:13px;padding:11px 14px;margin:22px 0 8px;box-shadow:var(--shadow)}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:7px 13px;cursor:pointer;transition:all .16s;white-space:nowrap}
+  .chip:hover{border-color:#cfd5de}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .fl{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+  /* permitido / proibido */
+  .ppwrap{display:grid;grid-template-columns:1fr;gap:14px;margin:6px 0 8px}
+  @media(min-width:680px){.ppwrap{grid-template-columns:1fr 1fr}}
+  .ppcard{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px 18px;box-shadow:var(--shadow)}
+  .ppcard.sim{border-left:3px solid var(--green)}
+  .ppcard.nao{border-left:3px solid var(--red)}
+  .ppcard h4{font-family:"Space Grotesk",sans-serif;font-size:14px;display:flex;align-items:center;gap:9px;margin-bottom:11px}
+  .ppcard h4 .ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex-shrink:0}
+  .ppcard.sim h4 .ic{background:color-mix(in srgb,var(--green) 14%,#fff);border:1px solid color-mix(in srgb,var(--green) 30%,#fff)}
+  .ppcard.nao h4 .ic{background:color-mix(in srgb,var(--red) 14%,#fff);border:1px solid color-mix(in srgb,var(--red) 30%,#fff)}
+  .ppcard.sim h4 .ic svg{stroke:var(--green)}
+  .ppcard.nao h4 .ic svg{stroke:var(--red)}
+  .ppcard h4 .ic svg{width:15px;height:15px;fill:none;stroke-width:2.4}
+  .ppcard ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .ppcard li{font-size:12.8px;color:var(--slate);line-height:1.4;padding-left:16px;position:relative}
+  .ppcard li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:2px}
+  .ppcard.sim li::before{background:var(--green)}
+  .ppcard.nao li::before{background:var(--red)}
+  .ppcard li b{color:var(--ink)}
+
+  .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .scard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 18px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;border-left:3px solid var(--sc,var(--line));
+    transition:transform .16s,box-shadow .16s}
+  .scard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -18px rgba(22,32,44,.26)}
+  .scard.hidden{display:none}
+  .scard .top{display:flex;align-items:flex-start;gap:11px}
+  .scard .ic{width:32px;height:32px;flex-shrink:0;border-radius:9px;display:grid;place-items:center;
+    background:color-mix(in srgb,var(--sc) 14%,#fff);border:1px solid color-mix(in srgb,var(--sc) 30%,#fff)}
+  .scard .ic svg{width:17px;height:17px;stroke:var(--sc);fill:none;stroke-width:2}
+  .scard h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.15}
+  .scard .road{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--faint);
+    text-transform:uppercase;margin-top:2px}
+  .scard .flag{margin-left:auto;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:10px;
+    letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--sc);border-radius:20px;
+    padding:4px 9px;white-space:nowrap;flex-shrink:0;align-self:flex-start}
+  .scard .note{font-size:12.5px;color:var(--slate);line-height:1.45}
+  .scard .note b{color:var(--ink)}
+  .scard .foot{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--line-soft)}
+  .scard .gps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .scard .gps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .scard .gps .cp{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+  .corr{margin-top:34px}
+  .corr-h{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+  .corr-h .fg{width:11px;height:11px;border-radius:3px;align-self:center;flex-shrink:0}
+  .corr-h h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .corr-h .cc{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint)}
+  .sectitle{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15px;color:var(--slate);margin:30px 0 12px;
+    display:flex;align-items:center;gap:10px}
+  .sectitle .l{flex:1;height:1px;background:var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>barreira zoofitossanitária patagônica · sanidade animal &amp; vegetal</div>
+  <h1>Postos <span class="hl">SENASA</span></h1>
+  <p class="lead">A Patagônia é <b>região protegida</b> (livre de mosca-dos-frutos e de febre aftosa sem vacinação). Ao entrar e ao sair, o motorhome passa por <b>Puestos de Control Interno (PCI)</b> que revistam alimentos. Some-se a isso o SENASA nas <b>fronteiras internacionais</b> (alimentos + CVI do pet).</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div><h4>Antes de chegar a um posto</h4><p>Planeje a despensa: <b>consuma os frutos/verduras hospedeiros e a carne com osso antes do controle</b>. Declarar é sempre melhor que ser multado — e a fiscalização inclui fumigação do veículo quando indicado.</p></div>
+  </div>
+
+  <div class="sectitle">O que pode e o que não pode levar<span class="l"></span></div>
+  <div class="ppwrap">
+    <div class="ppcard sim">
+      <h4><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Pode passar</h4>
+      <ul>
+        <li><b>Secos:</b> arroz, macarrão, erva-mate, açúcar, farinha</li>
+        <li><b>Comida cozida</b> pronta para consumo</li>
+        <li>Frutas/verduras <b>não hospedeiras</b> da mosca</li>
+        <li><b>Cortes de carne sem osso</b></li>
+        <li>Embutidos frescos <b>a vácuo e rotulados</b>; salgados sem osso com rótulo de origem</li>
+      </ul>
+    </div>
+    <div class="ppcard nao">
+      <h4><span class="ic"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Não pode (veículo particular)</h4>
+      <ul>
+        <li><b>Frutos hospedeiros:</b> cítricos, maçã, pera, pêssego, uva, manga, mamão, figo, kiwi…</li>
+        <li><b>Carne com osso</b> e animais em pé</li>
+        <li>Ovos e laticínios sem amparo sanitário</li>
+        <li>Produtos caseiros <b>sem rótulo</b> de origem</li>
+        <li>Mudas / partes de plantas sem documentação</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="chips" id="chips" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div id="corrs"></div>
+
+  <footer>
+    <span>PLANEJADOR DE ROTEIROS · POSTOS SENASA</span>
+    <span>Listas e localizações mudam (Res. SENASA recentes) · confirme em argentina.gob.ar/senasa antes de viajar</span>
+  </footer>
+</div>
+
+<script>
+  const TIPOS = {
+    barreira: { cor:'#D97706', label:'Barreira (PCI)', ic:'<path d="M5 3v18M5 5h12l-2 3 2 3H5"/>' },
+    fronteira:{ cor:'#DC2626', label:'Fronteira', ic:'<path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><path d="M9 9l2 2 4-4"/>' },
+    escritorio:{ cor:'#2563EB', label:'Escritório', ic:'<path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01"/>' },
+  };
+  const CORRS = [
+    { id:'entrada', fg:'#D97706', nome:'Entrada na Patagônia (ida)' },
+    { id:'intl',    fg:'#DC2626', nome:'Fronteiras internacionais (lado argentino)' },
+    { id:'tdf',     fg:'#7C3AED', nome:'Terra do Fogo (zona diferenciada)' },
+    { id:'saida',   fg:'#0F766E', nome:'Saída da Patagônia (retorno)' },
+    { id:'pet',     fg:'#2563EB', nome:'Escritórios SENASA (papelada do pet)' },
+  ];
+  const POSTOS = [
+    // entrada
+    { c:'entrada', n:'PCI Ruta 3 km 714 — Gral. Cerri', tipo:'barreira', road:'AR · RN3 · ~27 km de Bahía Blanca', gps:[-38.82,-62.40], aprox:true,
+      nota:'<b>O principal posto da barreira patagônica</b> na descida pela Ruta 3. Revista frutas/verduras (mosca-dos-frutos), carne com osso e animais (aftosa). Chegue com a despensa "limpa".' },
+    { c:'entrada', n:'PCI Río Colorado / La Adela', tipo:'barreira', road:'AR · RN22 / RN3 · limite RN–La Pampa', gps:[-38.99,-64.09], aprox:true,
+      nota:'Posto da barreira zoossanitária para quem entra/sai pelo corredor oeste (RN22). Mesmo controle de alimentos hospedeiros e produtos de origem animal.' },
+    // internacionais
+    { c:'intl', n:'SENASA — Paso de los Libres', tipo:'fronteira', road:'BR→AR · entrada internacional', gps:[-29.755,-57.088], aprox:false,
+      nota:'Na entrada na Argentina o SENASA confere o <b>CVI do pet</b> e os alimentos. Atua junto à aduana e à migração no mesmo complexo.' },
+    { c:'intl', n:'SENASA — Integración Austral / San Sebastián', tipo:'fronteira', road:'AR↔CL · rumo à Terra do Fogo', gps:[-52.138,-69.521], aprox:false,
+      nota:'No cruzamento ao Chile (e na volta à Argentina) o SENASA atua ao lado do <b>SAG</b> chileno: alimentos e, se houver, o pet. Sem frescos.' },
+    { c:'intl', n:'SENASA — Cerro Castillo / Chile Chico', tipo:'fronteira', road:'AR→CL · Paine e Carretera', gps:[-51.247,-72.363], aprox:false,
+      nota:'Saída da Argentina rumo ao Chile. Controle sanitário argentino no egresso; do lado chileno, o SAG é rígido com alimentos.' },
+    { c:'intl', n:'SENASA — Cardenal Samoré', tipo:'fronteira', road:'CL→AR · retorno (Sete Lagos)', gps:[-40.717,-71.917], aprox:false,
+      nota:'Reentrada na Argentina no retorno. Reapresentação do pet e controle de alimentos no lado argentino.' },
+    // terra do fogo
+    { c:'tdf', n:'Controle sanitário — Terra do Fogo', tipo:'barreira', road:'ilha da TdF · status diferenciado', gps:[-53.318,-68.610], aprox:true,
+      nota:'A Terra do Fogo tem <b>status sanitário próprio</b>. Há controle de produtos no acesso à ilha (junto ao cruzamento). Vale a mesma regra: sem frescos hospedeiros nem carne com osso.' },
+    // saida
+    { c:'saida', n:'PCI Catriel (Río Negro)', tipo:'barreira', road:'AR · RN151 · corredor a Neuquén', gps:[-37.88,-67.79], aprox:true,
+      nota:'No retorno rumo ao norte por Neuquén, posto da barreira no egresso da região protegida. Verificação de documentação e alimentos.' },
+    { c:'saida', n:'PCI Río Colorado (egresso)', tipo:'barreira', road:'AR · RN22 · saída da Patagônia', gps:[-38.99,-64.09], aprox:true,
+      nota:'Mesmo posto do corredor oeste, agora no sentido de saída. Sem frutos hospedeiros mesmo deixando a região — o controle vale nos dois sentidos.' },
+    // pet / escritórios
+    { c:'pet', n:'Escritório SENASA — Río Gallegos', tipo:'escritorio', road:'AR · Santa Cruz', gps:[-51.623,-69.216], aprox:false,
+      nota:'Útil para resolver/validar a <b>documentação do pet</b> no extremo sul, antes da Terra do Fogo ou no caminho de volta.' },
+    { c:'pet', n:'Escritório SENASA — Bariloche', tipo:'escritorio', road:'AR · Río Negro', gps:[-41.135,-71.310], aprox:false,
+      nota:'No retorno, ponto de apoio para o <b>certificado do pet</b> — inclusive o exigido para a reentrada no Brasil. Confirme a exigência atual antes de cruzar.' },
+  ];
+
+  window.SNcopy = function(txt, el){
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const cp = el.querySelector('.cp'); if(cp){ const o=cp.textContent; cp.textContent='copiado!'; setTimeout(()=>cp.textContent=o,1200); }
+  };
+
+  const corrsEl = document.getElementById('corrs');
+  CORRS.forEach(co=>{
+    const group = POSTOS.filter(p=>p.c===co.id);
+    if(!group.length) return;
+    const sec = document.createElement('section'); sec.className='corr'; sec.dataset.c=co.id;
+    const h = document.createElement('div'); h.className='corr-h';
+    h.innerHTML = `<span class="fg" style="background:${co.fg}"></span><h2>${co.nome}</h2><span class="cc">${group.length} postos</span>`;
+    sec.appendChild(h);
+    const grid = document.createElement('div'); grid.className='grid3';
+    group.forEach(p=>{
+      const tp = TIPOS[p.tipo];
+      const coord = `${p.gps[0].toFixed(4)}, ${p.gps[1].toFixed(4)}`;
+      const card = document.createElement('div');
+      card.className='scard'; card.dataset.tipo=p.tipo; card.style.setProperty('--sc', tp.cor);
+      card.innerHTML = `
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24">${tp.ic}</svg></span>
+          <div style="min-width:0"><h3>${p.n}</h3><div class="road">${p.road}</div></div>
+          <span class="flag">${tp.label}</span>
+        </div>
+        <p class="note">${p.nota}</p>
+        <div class="foot">
+          <span class="gps" title="copiar coordenadas" onclick="SNcopy('${coord}', this)">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            ${coord}${p.aprox?' <span style="color:var(--faint)">aprox</span>':''}<span class="cp">copiar</span></span>
+        </div>`;
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+    corrsEl.appendChild(sec);
+  });
+
+  // filters
+  const chipsEl = document.getElementById('chips');
+  const filters = [
+    { k:'all', label:'Todos' },
+    { k:'barreira', label:'Barreira (PCI)', cor:'#D97706' },
+    { k:'fronteira', label:'Fronteiras', cor:'#DC2626' },
+    { k:'escritorio', label:'Escritórios (pet)', cor:'#2563EB' },
+  ];
+  let active='all';
+  filters.forEach(ft=>{
+    const c=document.createElement('div'); c.className='chip'+(ft.k==='all'?' on':''); c.dataset.k=ft.k;
+    c.innerHTML=(ft.cor?`<span class="fl" style="background:${ft.cor}"></span>`:'')+ft.label;
+    c.onclick=()=>{ active=ft.k; chipsEl.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x.dataset.k===active)); apply(); };
+    chipsEl.appendChild(c);
+  });
+  function apply(){
+    document.querySelectorAll('.scard').forEach(card=>{
+      const show = active==='all' || card.dataset.tipo===active;
+      card.classList.toggle('hidden', !show);
+    });
+    document.querySelectorAll('.corr').forEach(sec=>{
+      const any=[...sec.querySelectorAll('.scard')].some(c=>!c.classList.contains('hidden'));
+      sec.style.display = any?'':'none';
+    });
+  }
+</script>
+  <script src="geo.js"></script>
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>

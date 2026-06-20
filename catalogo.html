@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Pontos Turísticos · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F9; --panel:#FFFFFF; --ink:#16202C; --slate:#5B6472; --faint:#8B93A1;
+    --line:#E6E9EE; --line-soft:#EEF1F5; --teal:#0F766E; --terra:#E07A3F;
+    --shadow:0 10px 30px -14px rgba(22,32,44,.16);
+    --acc-sim:#2E9E5B; --acc-parcial:#D97706; --acc-nao:#DC2626;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink);
+    background:radial-gradient(1100px 520px at 100% -5%, rgba(15,118,110,.05), transparent 60%), var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.55;padding:46px 22px 90px}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  .wrap{max-width:1120px;margin:0 auto}
+  a{color:var(--teal)}
+
+  /* HEADER */
+  .brandline{display:flex;align-items:center;gap:9px;font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .brandline .dot{width:7px;height:7px;border-radius:50%;background:var(--terra)}
+  h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,44px);
+    letter-spacing:-.025em;line-height:1.03}
+  h1 .hl{color:var(--teal)}
+  .sub{color:var(--slate);font-size:16px;margin-top:13px;max-width:680px}
+  .sub b{color:var(--ink)}
+
+  /* filter bar */
+  .bar{position:sticky;top:14px;z-index:20;display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+    justify-content:space-between;background:rgba(255,255,255,.86);backdrop-filter:blur(8px);
+    border:1px solid var(--line);border-radius:14px;padding:11px 14px;margin:26px 0 8px;box-shadow:var(--shadow)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:7px 13px;cursor:pointer;transition:all .16s;white-space:nowrap}
+  .chip:hover{border-color:#cfd5de}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .ct{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .barlink{font-size:12.5px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+    white-space:nowrap;padding-left:6px}
+  .barlink svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+
+  /* access legend */
+  .acclegend{display:flex;flex-wrap:wrap;gap:16px;margin:16px 2px 30px;font-size:12.5px;color:var(--slate)}
+  .acclegend .a{display:flex;align-items:center;gap:7px}
+  .acclegend .a .sw{width:14px;height:14px;border-radius:4px;display:grid;place-items:center;flex-shrink:0}
+  .acclegend .a .sw svg{width:9px;height:9px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .acclegend .a b{color:var(--ink);font-weight:600}
+  .hinttag{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--faint);
+    margin-left:auto;font-style:italic}
+  .hinttag svg{width:14px;height:14px;stroke:var(--faint);fill:none;stroke-width:1.8}
+
+  /* phase section */
+  .psec{margin-top:34px}
+  .psec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:11px;
+    border-bottom:1.5px solid var(--ink)}
+  .psec-h .pc{width:11px;height:11px;border-radius:50%;flex-shrink:0;align-self:center}
+  .psec-h .pn{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;letter-spacing:-.01em}
+  .psec-h .pm{font-size:12.5px;color:var(--faint);font-family:"JetBrains Mono",monospace}
+  .psec-h .pcount{margin-left:auto;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(22,32,44,.28)}
+  .card.hidden{display:none}
+  .card .ph{position:relative;width:100%;aspect-ratio:4/3;background:var(--line-soft)}
+  .card image-slot{width:100%;height:100%;display:block}
+  .card .star{position:absolute;top:11px;left:11px;z-index:3;display:flex;align-items:center;gap:5px;
+    background:rgba(255,255,255,.94);border-radius:20px;padding:5px 10px 5px 9px;
+    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;color:#B7791F;
+    box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  .card .star svg{width:13px;height:13px;fill:#F59E0B}
+  .card .acc{position:absolute;top:11px;right:11px;z-index:3;display:flex;align-items:center;gap:5px;
+    border-radius:20px;padding:5px 11px;font-size:11px;font-weight:600;color:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.22)}
+  .card .acc svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .card .body{padding:16px 17px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .card .ptag{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--slate)}
+  .card .ptag .d{width:7px;height:7px;border-radius:50%}
+  .card h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:18.5px;letter-spacing:-.01em;
+    line-height:1.15}
+  .card .desc{font-size:13.5px;color:var(--slate);line-height:1.5}
+  .card .note{font-size:12.5px;color:var(--ink);background:var(--bg);border:1px solid var(--line);
+    border-left:3px solid var(--ac);border-radius:9px;padding:10px 12px;line-height:1.45}
+  .card .note b{color:var(--ac);font-weight:600}
+  .card .foot{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:11px;
+    border-top:1px solid var(--line-soft)}
+  .card .gps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .card .gps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .card .gps .cp{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+  .card .wk{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--faint)}
+
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--faint);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+  footer b{color:var(--slate)}
+
+  @media(max-width:560px){ body{padding:34px 14px 70px} .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brandline"><span class="dot"></span>Expedição · Patagônia 2026</div>
+      <h1>Catálogo de <span class="hl">Pontos Turísticos</span></h1>
+      <p class="sub">As paradas imperdíveis de toda a rota — <b>Argentina, Chile</b> e, com destaque, a
+      <b>Carretera Austral</b> — na ordem da viagem. Cada ficha indica o <b>acesso de motorhome</b>,
+      o que explorar e as coordenadas. <b>Arraste sua foto</b> sobre cada imagem — ela fica salva.</p>
+    </header>
+
+    <div class="bar">
+      <div class="chips" id="chips"></div>
+      <a class="barlink" href="app.html">
+        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+        Início · ver tudo</a>
+    </div>
+
+    <div class="acclegend">
+      <div class="a"><span class="sw" style="background:var(--acc-sim)"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><b>Acesso direto</b> de motorhome</div>
+      <div class="a"><span class="sw" style="background:var(--acc-parcial)"><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M10.3 4.3 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/></svg></span><b>Chega de MH</b>; atração a pé / barco</div>
+      <div class="a"><span class="sw" style="background:var(--acc-nao)"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><b>Deixar o MH</b>; ir de tour / transporte</div>
+      <span class="hinttag"><svg viewBox="0 0 24 24"><path d="M21 15l-5-5L5 21"/><path d="M3 3h18v18H3z"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>arraste fotos nas imagens</span>
+    </div>
+
+    <div id="sections"></div>
+
+    <footer>
+      <b>Carretera Austral</b> · Agosto–Novembro 2026 · Motorhome Renault Master 2022 · 2 pessoas + pet
+      &nbsp;·&nbsp; <a href="roteiro.html">Roteiro semanal</a>
+      · <a href="mapa.html">Mapa interativo</a>
+    </footer>
+  </div>
+
+  <script src="image-slot.js"></script>
+  <script src="dados.js?v=2"></script>
+  <script>
+  (function(){
+    const E = window.EXP;
+    const accMeta = {
+      sim:     { cor:'var(--acc-sim)',     label:'Acesso direto',  short:'MH', svg:'<path d="M5 13l4 4L19 7"/>' },
+      parcial: { cor:'var(--acc-parcial)', label:'MH + a pé/barco', short:'MH + pé', svg:'<path d="M12 9v4"/><path d="M10.3 4.3 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/>' },
+      nao:     { cor:'var(--acc-nao)',     label:'Sem motorhome',  short:'Tour', svg:'<path d="M18 6 6 18M6 6l12 12"/>' },
+    };
+    const regMeta = {
+      AR: { label:'Argentina', cor:'#6C8FB8' },
+      CL: { label:'Chile', cor:'#C2564E' },
+    };
+    // cena ilustrativa padrão por ponto (substituível arrastando uma foto)
+    const CENA = {
+      valdes:'costa', puntatombo:'costa', puntaloma:'costa', gaiman:'vila',
+      cabodosbahias:'costa', deseado:'costa', bosquepetrificado:'estepe', monteleon:'costa',
+      ushuaia:'vila', beagle:'costa', martial:'glaciar', pntdf:'bosque', lagofagnano:'lago',
+      perito:'glaciar', upsala:'glaciar', chalten:'picos', lagunatorre:'picos',
+      lagodeldesierto:'lago', paine:'picos', basetorres:'picos', glaciargrey:'glaciar', milodon:'estepe',
+      lagogeneralcarrera:'lago', riotranquilo:'marmore', confluenciabaker:'rio', puertobertrand:'rio',
+      caletatortel:'vila', villaohiggins:'glaciar', pnpatagonia:'estepe', saltoibanez:'cascata',
+      cerrocastillo:'picos', reservacoyhaique:'bosque', queulat:'glaciar', bosqueencantado:'bosque',
+      puyuhuapi:'termas', termasventisquero:'termas', futaleufu:'rio', pumalin:'bosque',
+      puertovaras:'vulcao', petrohue:'cascata', chiloe:'vila', sietelagos:'lago',
+      arrayanes:'bosque', cerrocatedral:'picos', sanmartin:'lago',
+    };
+    // pontos com foto real (Pixabay, licença livre) baixada em fotos/<id>.jpg
+    const FOTO = new Set([
+      'valdes','puntatombo','cabodosbahias','ushuaia','beagle','martial','pntdf',
+      'lagofagnano','perito','upsala','chalten','lagunatorre','lagodeldesierto',
+      'paine','basetorres','glaciargrey','lagogeneralcarrera','villaohiggins',
+      'pnpatagonia','cerrocastillo','reservacoyhaique','queulat','puyuhuapi',
+      'sietelagos','cerrocatedral','sanmartin',
+      'confluenciabaker','puertobertrand','bosqueencantado','termasventisquero'
+    ]);
+    const items = E.pois;
+
+    // copy helper
+    window.CATcopy = function(txt, el){
+      if(navigator.clipboard) navigator.clipboard.writeText(txt);
+      const cp = el.querySelector('.cp'); if(cp){ const o=cp.textContent; cp.textContent='copiado!'; setTimeout(()=>cp.textContent=o,1200); }
+    };
+
+    // group by phase, preserving phase order
+    const secEl = document.getElementById('sections');
+    E.fases.forEach(f=>{
+      const group = items.filter(p=>p.f===f.id);
+      if(!group.length) return;
+      const isCarretera = f.id==='f6';
+      const sec = document.createElement('section'); sec.className='psec'; sec.dataset.f=f.id;
+      const h = document.createElement('div'); h.className='psec-h';
+      h.innerHTML = `<span class="pc" style="background:${f.cor}"></span>
+        <span class="pn">${f.nome}</span><span class="pm">${f.mes}</span>
+        <span class="pcount">${group.length} ${group.length>1?'pontos':'ponto'}</span>`;
+      sec.appendChild(h);
+      const grid = document.createElement('div'); grid.className='grid';
+      group.forEach(p=>{
+        const am = accMeta[p.acc];
+        const rm = regMeta[p.reg];
+        const coord = `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}`;
+        const card = document.createElement('div');
+        card.className='card'; card.dataset.f=f.id; card.dataset.acc=p.acc;
+        card.dataset.star=p.estrela?1:0; card.dataset.reg=p.reg; card.dataset.carretera=isCarretera?1:0;
+        card.innerHTML = `
+          <div class="ph">
+            ${p.estrela?`<span class="star"><svg viewBox="0 0 24 24"><path d="M12 2.2l2.92 5.92 6.53.95-4.72 4.6 1.11 6.5L12 17.7 6.16 20.77l1.11-6.5L2.55 9.09l6.53-.95z"/></svg>Imperdível</span>`:''}
+            <span class="acc" style="background:${am.cor}"><svg viewBox="0 0 24 24">${am.svg}</svg>${am.short}</span>
+            <image-slot id="cat-${p.id}" shape="rect" fit="cover" src="${FOTO.has(p.id)?`fotos/${p.id}.jpg`:`scenes/${CENA[p.id]||'lago'}.svg`}" placeholder="Arraste uma foto de ${p.n}"></image-slot>
+          </div>
+          <div class="body">
+            <span class="ptag"><span class="d" style="background:${f.cor}"></span>${f.nome}</span>
+            <h3>${p.n}</h3>
+            <p class="desc">${p.d}</p>
+            <div class="note" style="--ac:${am.cor}"><b>${am.label}.</b> ${p.nota}</div>
+            <div class="foot">
+              <span class="gps" title="copiar coordenadas" onclick="CATcopy('${coord}', this)">
+                <svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+                ${coord}<span class="cp">copiar</span></span>
+              <span class="reg" style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:${rm.cor};font-weight:500">${rm.label}</span>
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+      sec.appendChild(grid);
+      secEl.appendChild(sec);
+    });
+
+    // filter chips
+    const chipsEl = document.getElementById('chips');
+    const filters = [
+      { key:'all',     label:'Todos' },
+      { key:'star',    label:'★ Imperdíveis' },
+      { key:'AR',      label:'Argentina', cor:'#6C8FB8' },
+      { key:'CL',      label:'Chile', cor:'#C2564E' },
+      { key:'carretera', label:'Carretera Austral', cor:'#D97706' },
+      { key:'sim',     label:'Acesso direto', cor:'var(--acc-sim)' },
+      { key:'parcial', label:'MH + a pé', cor:'var(--acc-parcial)' },
+      { key:'nao',     label:'Só de tour', cor:'var(--acc-nao)' },
+    ];
+    let active = 'all';
+    filters.forEach(ft=>{
+      const c = document.createElement('div'); c.className='chip'+(ft.key==='all'?' on':''); c.dataset.k=ft.key;
+      c.innerHTML = (ft.cor?`<span class="ct" style="background:${ft.cor}"></span>`:'')+ft.label;
+      c.onclick = ()=>{ active=ft.key;
+        chipsEl.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on', x.dataset.k===active));
+        applyFilter(); };
+      chipsEl.appendChild(c);
+    });
+    function applyFilter(){
+      document.querySelectorAll('.card').forEach(card=>{
+        let show = true;
+        if(active==='star') show = card.dataset.star==='1';
+        else if(active==='AR'||active==='CL') show = card.dataset.reg===active;
+        else if(active==='carretera') show = card.dataset.carretera==='1';
+        else if(active!=='all') show = card.dataset.acc===active;
+        card.classList.toggle('hidden', !show);
+      });
+      document.querySelectorAll('.psec').forEach(sec=>{
+        const any = [...sec.querySelectorAll('.card')].some(c=>!c.classList.contains('hidden'));
+        sec.style.display = any ? '' : 'none';
+      });
+    }
+  })();
+  </script>
+  <script src="geo.js"></script>
+</body>
+</html>
