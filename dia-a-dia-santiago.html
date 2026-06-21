@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santiago — Roteiro dia a dia (7 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14202e; --slate:#51606f; --faint:#8896a6;
+    --paper:#eef2f7; --card:#ffffff; --line:#d8e0ea;
+    --terra:#1d4ed8; --amber:#b45309; --sky:#2563c4; --sky-d:#1c3f7a;
+    --andes:#3a5a78;
+    --shadow:0 14px 34px -20px rgba(20,30,50,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(37,99,196,.08), transparent 38%),radial-gradient(circle at 88% 0%, rgba(180,83,9,.06), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#1d4ed8 0%,#1c3f7a 55%,#162d52 110%);
+    color:#eaf1fb;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(180,83,9,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a8c6f0;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#f0a868}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d4e2f5;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sky-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(20,30,50,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--sky);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--sky);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--sky),var(--sky-d));
+    color:#eaf1fb;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.coast .rail{background:linear-gradient(165deg,var(--amber),#7c3a09)}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--sky-d);text-transform:uppercase;font-weight:500}
+  .day.coast .loc{color:#7c3a09}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#39434f}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--sky-d);
+    background:rgba(37,99,196,.09);border:1px solid rgba(37,99,196,.2);border-radius:999px;padding:4px 10px}
+  .day.coast .chip{color:#7c3a09;background:rgba(180,83,9,.1);border-color:rgba(180,83,9,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--sky);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#eef3f9);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(37,99,196,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--sky);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:32px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Chile · Santiago &amp; Cordilheira · roteiro dia a dia</div>
+    <h1>Santiago em 7 dias</h1>
+    <p class="sub">A capital chilena a fundo: bairros e mirantes, os vinhedos do Maipo, os Andes de Valle Nevado e do Cajón del Maipo, a vila oleira de Pomaire e o litoral de Pablo Neruda em Isla Negra e Valparaíso.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>7 dias</b></span>
+      <span class="fact">🏔️ Andes a <b>1h30</b></span>
+      <span class="fact">☀️ <b>O ano todo</b> (ski jun–set)</span>
+      <span class="fact">🍷 <b>Vinho &amp; mar</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Santiago</span><i>→</i><span>Cajón del Maipo</span><i>→</i><span>Valle Nevado</span><i>→</i><span>Vinhedos do Maipo</span><i>→</i><span>Pomaire</span><i>→</i><span>Isla Negra</span><i>→</i><span>Valparaíso</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Bom saber</h4>
+      <p>Santiago é <b>fácil de circular de metrô</b>; reserve um carro só para os arredores (cordilheira e litoral). A <b>subida a Valle Nevado</b> tem curvas fechadas (caracoles) e exige correntes no inverno — vá cedo. O litoral é <b>fresco e ventoso</b> pela manhã; a casa de Neruda em Isla Negra pede ingresso por horário.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">A capital &amp; os Andes</span><span class="lk">dias 1–4 · cidade, montanha &amp; vinho</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santiago<span class="move">chegada</span></div>
+      <h3>O centro histórico e os mirantes</h3>
+      <p>Instalação em <b>Lastarria</b> ou Providencia. Caminhada pela <b>Plaza de Armas</b>, a Catedral e o <b>Palácio de La Moneda</b>; subida ao <b>Cerro Santa Lucía</b> e fim de tarde no <b>Sky Costanera</b>, o mirante mais alto da América do Sul.</p>
+      <div class="chips"><span class="chip">Plaza de Armas</span><span class="chip">Cerro Santa Lucía</span><span class="chip">Sky Costanera</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> Mercado Central (mariscos)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lastarria / Providencia</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santiago<span class="move">bairros</span></div>
+      <h3>Bellavista, San Cristóbal e a boemia</h3>
+      <p>Manhã no <b>Cerro San Cristóbal</b> (funicular e vista dos Andes) e na <b>La Chascona</b>, casa de Neruda. Tarde nos bairros <b>Bellavista</b> e <b>Barrio Italia</b> (design e cafés), e à noite o <b>terremoto</b> num bar histórico.</p>
+      <div class="chips"><span class="chip">San Cristóbal</span><span class="chip">La Chascona</span><span class="chip">Bellavista</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> casa-museu La Chascona</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Beber:</b> terremoto (vinho + sorvete)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cajón del Maipo<span class="move">≈ 2 h · 100 km</span></div>
+      <h3>Montanha: o Embalse El Yeso</h3>
+      <p>Dia nos Andes pelo <b>Cajón del Maipo</b>: a estrada de montanha até o turquesa <b>Embalse El Yeso</b> (2.500 m), as termas e o vilarejo de San José de Maipo. No inverno, alternativa de <b>ski em Valle Nevado/Farellones</b>.</p>
+      <div class="chips"><span class="chip">El Yeso</span><span class="chip">termas</span><span class="chip">ski (inverno)</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> a água turquesa do El Yeso</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santiago</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Vinhedos do Maipo<span class="move">≈ 1 h · arredores</span></div>
+      <h3>O berço do Carménère</h3>
+      <p>Dia de enoturismo no <b>Valle del Maipo</b>: a histórica <b>Concha y Toro</b> (Casillero del Diablo) e bodegas de Pirque e Buin, berço do <b>Carménère</b> chileno. Almoço harmonizado entre as parreiras, com os Andes ao fundo.</p>
+      <div class="chips"><span class="chip">Concha y Toro</span><span class="chip">Carménère</span><span class="chip">enoturismo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> almoço na vinícola (reserve)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> defina motorista ou faça tour com transporte</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Litoral &amp; os poetas</span><span class="lk">dias 5–7 · Pomaire, Isla Negra &amp; Valparaíso</span><span class="lr"></span></div>
+
+  <article class="day coast">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santiago → Isla Negra<span class="move">≈ 1,5 h · via Pomaire</span></div>
+      <h3>Pomaire e a casa do mar de Neruda</h3>
+      <p>Parada na vila oleira de <b>Pomaire</b> (cerâmica e a lendária <b>empanada gigante</b>) a caminho do litoral. Tarde na <b>Isla Negra</b>, a mais querida das três casas de <b>Pablo Neruda</b>, debruçada sobre o Pacífico, com seus mascarões de proa.</p>
+      <div class="chips"><span class="chip">Pomaire</span><span class="chip">Isla Negra</span><span class="chip">Neruda</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Casa-Museu Isla Negra (ingresso c/ hora)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Isla Negra ou Algarrobo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coast">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Valparaíso &amp; Viña del Mar<span class="move">≈ 1 h pela costa</span></div>
+      <h3>Os cerros coloridos de Valparaíso</h3>
+      <p>Subida pela costa à boêmia <b>Valparaíso</b> (UNESCO): os <b>cerros Alegre e Concepción</b>, os <b>ascensores</b> centenários, os murais de arte urbana e <b>La Sebastiana</b>, a casa de Neruda com vista da baía. À tarde, os jardins de <b>Viña del Mar</b>.</p>
+      <div class="chips"><span class="chip">Cerro Alegre</span><span class="chip">ascensores</span><span class="chip">La Sebastiana</span><span class="chip">Viña del Mar</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixe fresco e chorrillana no porto</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> cerro de Valparaíso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coast">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Valparaíso → Santiago<span class="move">partida · ≈ 1,5 h</span></div>
+      <h3>Casablanca e despedida</h3>
+      <p>Retorno a Santiago pelo <b>Valle de Casablanca</b>, parando numa vinícola de <b>vinhos brancos</b> (Sauvignon Blanc, Chardonnay). Últimas compras e transfer ao aeroporto. <i>¡Hasta pronto, Chile!</i></p>
+      <div class="chips"><span class="chip">Casablanca</span><span class="chip">vinho branco</span><span class="chip">retorno</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Conexão:</b> emenda com o roteiro Atacama ou Patagônia</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para Santiago e arredores.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>O ano todo. <b>Ski</b> de jun a set; primavera/outono têm o melhor ar (evite a inversão do inverno).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="6" rx="1"/><path d="M7 11V8a5 5 0 0 1 10 0v3M9 17v3M15 17v3"/></svg></div><div><h5>Transporte</h5><p>Metrô eficiente na cidade; alugue carro só para cordilheira e litoral. Caracoles exigem correntes no inverno.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></div><div><h5>Casas de Neruda</h5><p>La Chascona (Santiago), La Sebastiana (Valparaíso) e Isla Negra — todas com ingresso por horário.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Mariscos, pastel de choclo, empanada de Pomaire, chorrillana e o terremoto. Vinhos do Maipo e Casablanca.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Pesos chilenos; cartões aceitos na cidade. Leve espécie para Pomaire e barracas de praia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Segurança</h5><p>Em Valparaíso, ande pelos cerros Alegre/Concepción de dia e atenção aos pertences.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Santiago em 7 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
