@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uruguai — Roteiro dia a dia (10 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241a22; --slate:#5f5360; --faint:#998c97;
+    --paper:#f7f0f3; --card:#ffffff; --line:#e6d8df;
+    --terra:#9f1239; --amber:#b45309; --sea:#0891b2; --sea-d:#155e75;
+    --wine:#881337;
+    --shadow:0 14px 34px -20px rgba(70,30,50,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(180,83,9,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(8,145,178,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#9f1239 0%,#881337 50%,#0891b2 140%);
+    color:#fdeef3;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(180,83,9,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffd0a3;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffb060}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#f7dbe4;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sea-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(70,30,50,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--wine));
+    color:#fdeef3;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sea .rail{background:linear-gradient(165deg,var(--sea),var(--sea-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--wine);text-transform:uppercase;font-weight:500}
+  .day.sea .loc{color:var(--sea-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#3c2f37}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--wine);
+    background:rgba(159,18,57,.08);border:1px solid rgba(159,18,57,.2);border-radius:999px;padding:4px 10px}
+  .day.sea .chip{color:var(--sea-d);background:rgba(8,145,178,.1);border-color:rgba(8,145,178,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f7eff2);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(159,18,57,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1f2530;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2a3340;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:31px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Uruguai · Prata &amp; Atlântico · roteiro dia a dia</div>
+    <h1>Uruguai em 10 dias</h1>
+    <p class="sub">Da histórica Colonia del Sacramento à capital Montevidéu e seus vinhos Tannat, ao glamour de Punta del Este e José Ignacio, ao mágico Cabo Polonio sem energia elétrica e à rústica Punta del Diablo — do Rio da Prata ao Atlântico.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>10 dias</b></span>
+      <span class="fact">🍷 <b>Tannat</b></span>
+      <span class="fact">☀️ Melhor época: <b>dez–mar</b></span>
+      <span class="fact">🌅 Prata → Atlântico</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Colonia</span><i>→</i><span>Montevidéu</span><i>→</i><span>Punta del Este</span><i>→</i><span>José Ignacio</span><i>→</i><span>Cabo Polonio</span><i>→</i><span>Punta del Diablo</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Tranquilidade &amp; preços</h4>
+      <p>O <b>verão (dez–mar)</b> é a temporada de praia — Punta del Este e José Ignacio fervem (e ficam caros) em janeiro. Para tranquilidade e bons preços, vá no <b>fim da primavera ou início do outono</b>. Combustível e pedágios são caros; leve <b>pesos uruguaios</b> e cartão. A maioria chega por <b>balsa Buenos Aires–Colonia</b> ou voo a Montevidéu.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Colonia, Montevidéu &amp; o Tannat</span><span class="lk">dias 1–5 · Rio da Prata</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Colonia del Sacramento<span class="move">chegada</span></div>
+      <h3>O Barrio Histórico ao pôr do sol</h3>
+      <p>Chegada a <b>Colonia del Sacramento</b> (de balsa de Buenos Aires ou de carro). Tarde pelo <b>Barrio Histórico</b> (UNESCO): ruas de pedra portuguesas, o Farol e a Calle de los Suspiros, com o pôr do sol dourado sobre o Rio da Prata.</p>
+      <div class="chips"><span class="chip">Barrio Histórico</span><span class="chip">Farol</span><span class="chip">Rio da Prata</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol na Calle de los Suspiros</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Barrio Histórico (Colonia)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Carmelo<span class="move">≈ 1 h · bodegas</span></div>
+      <h3>Os vinhedos de Carmelo</h3>
+      <p>Bate-volta a <b>Carmelo</b>, terra de bodegas-boutique do <b>Tannat</b> — a uva-símbolo do Uruguai. Visita e almoço harmonizado numa vinícola (Narbona, Cordano), e a charmosa ponte giratória da cidade. Volta a Colonia.</p>
+      <div class="chips"><span class="chip">Carmelo</span><span class="chip">Tannat</span><span class="chip">bodegas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Reserve:</b> almoço numa bodega de Carmelo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Colonia ou bodega em Carmelo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Colonia → Montevidéu<span class="move">≈ 2,5 h · 180 km</span></div>
+      <h3>A capital à beira do Prata</h3>
+      <p>Travessia a <b>Montevidéu</b>. Tarde na <b>Ciudad Vieja</b>: a Plaza Independencia, o Palácio Salvo e o <b>Mercado del Puerto</b>, templo da parrilla. Fim de tarde na <b>Rambla</b>, a orla mais longa do mundo, com mate na mão.</p>
+      <div class="chips"><span class="chip">Ciudad Vieja</span><span class="chip">Mercado del Puerto</span><span class="chip">Rambla</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> parrilla no Mercado del Puerto</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Ciudad Vieja ou Pocitos</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Montevidéu</div>
+      <h3>Bairros, mercado e tango</h3>
+      <p>Dia na capital: o <b>Mercado Agrícola</b>, os bairros de Pocitos e Punta Carretas, o Teatro Solís e o Museo del Carnaval. À noite, uma casa de <b>tango/candombe</b> — a alma musical uruguaia.</p>
+      <div class="chips"><span class="chip">Teatro Solís</span><span class="chip">candombe</span><span class="chip">Pocitos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Teatro Solís e Museo del Carnaval</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Montevidéu</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Montevidéu → Punta del Este<span class="move">≈ 1,5 h · 130 km</span></div>
+      <h3>Casapueblo e o glamour de Punta</h3>
+      <p>A caminho da costa, o pôr do sol em <b>Casapueblo</b> (Punta Ballena), a casa-ateliê de Páez Vilaró. Chegada a <b>Punta del Este</b>: a escultura <b>Los Dedos</b> na Playa Brava, o porto e a península entre as praias Mansa e Brava.</p>
+      <div class="chips"><span class="chip">Casapueblo</span><span class="chip">Los Dedos</span><span class="chip">Punta del Este</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol em Casapueblo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Punta del Este</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">A costa atlântica</span><span class="lk">dias 6–10 · balneários &amp; vilas</span><span class="lr"></span></div>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>José Ignacio<span class="move">≈ 40 min</span></div>
+      <h3>O vilarejo chique e seu farol</h3>
+      <p>Dia em <b>José Ignacio</b>, o vilarejo mais cobiçado da costa: o <b>farol</b>, praias tranquilas e a gastronomia de praia (La Huella). Atmosfera de luxo descalço, entre dunas e casas de design. Volta a Punta para a noite.</p>
+      <div class="chips"><span class="chip">José Ignacio</span><span class="chip">farol</span><span class="chip">La Huella</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> frutos do mar em parador de praia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Punta del Este ou José Ignacio</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>La Paloma &amp; La Pedrera<span class="move">≈ 1,5 h</span></div>
+      <h3>Balneários de surf e clima roots</h3>
+      <p>Subida pela costa aos balneários de <b>La Paloma</b> (faróis e praias de surf) e <b>La Pedrera</b>, de clima descontraído e mirantes sobre o Atlântico. Tarde de praia e o ritmo lento da costa de Rocha.</p>
+      <div class="chips"><span class="chip">La Paloma</span><span class="chip">La Pedrera</span><span class="chip">surf</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Clima:</b> praias roots e tranquilas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> La Pedrera ou La Paloma</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cabo Polonio<span class="move">jardineira 4x4</span></div>
+      <h3>A vila mágica sem energia elétrica</h3>
+      <p>Deixe o carro no acesso e entre na <b>jardineira 4x4</b> oficial que cruza as dunas até <b>Cabo Polonio</b> — uma vila sem luz elétrica, à luz de velas e estrelas, com uma colônia de <b>lobos-marinhos</b> junto ao farol. Pernoite rústico inesquecível.</p>
+      <div class="chips"><span class="chip">Cabo Polonio</span><span class="chip">lobos-marinhos</span><span class="chip">dunas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Leve:</b> dinheiro e lanterna (não há energia)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> posada rústica em Cabo Polonio</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Punta del Diablo &amp; Santa Teresa<span class="move">≈ 1 h</span></div>
+      <h3>A vila de pescadores e o forte</h3>
+      <p>A rústica <b>Punta del Diablo</b>, vila de pescadores e surfistas, e o vizinho <b>Parque Nacional Santa Teresa</b>, com seu forte colonial, mata e praias selvagens quase desertas. O fim mais bravo e bonito da costa.</p>
+      <div class="chips"><span class="chip">Punta del Diablo</span><span class="chip">Santa Teresa</span><span class="chip">forte</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> Fortaleza de Santa Teresa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Punta del Diablo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Punta del Diablo → partida<span class="move">Chuí ou Montevidéu</span></div>
+      <h3>Despedida do Uruguai</h3>
+      <p>Manhã de praia e retorno: cruzar a fronteira do <b>Chuí</b> rumo ao Brasil, ou voltar a Montevidéu para o voo. Última parrilla e o mate de despedida. <i>¡Hasta luego, Uruguay!</i></p>
+      <div class="chips"><span class="chip">Chuí</span><span class="chip">parrilla</span><span class="chip">mate</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Conexão:</b> Chuí (Brasil) fica a ~1h de Punta del Diablo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o Uruguai do Prata ao Atlântico.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><div><h5>Como chegar</h5><p>Balsa Buenos Aires–Colonia (1–3h) ou voo a Montevidéu. De carro pelo Brasil, entra-se pelo Chuí.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Verão (dez–mar) para praia; fim da primavera/início do outono para preços e tranquilidade.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M5 17h-1v-4l2-5h9l4 5v4h-2M7 17h10"/></svg></div><div><h5>Cabo Polonio</h5><p>Sem energia elétrica e sem carros: deixe o veículo no acesso e use a jardineira 4x4 oficial.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Parrilla, chivito, frutos do mar e o vinho Tannat. Mate por toda parte.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Pesos uruguaios; combustível e pedágios são caros. Cartões aceitos nas cidades.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg></div><div><h5>Tannat</h5><p>A uva-símbolo do Uruguai. Reserve uma visita às bodegas de Carmelo ou Canelones.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Uruguai em 10 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
