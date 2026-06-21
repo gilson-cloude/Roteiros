@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atacama — Roteiro dia a dia (6 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a1c14; --slate:#6f5d4e; --faint:#a08d79;
+    --paper:#fbf3e9; --card:#ffffff; --line:#ecdcc6;
+    --terra:#9a3412; --amber:#c2620c; --night:#3b3568; --night-d:#272253;
+    --rum:#7c2d12;
+    --shadow:0 14px 34px -20px rgba(70,40,20,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(194,98,12,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(59,53,104,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#9a3412 0%,#7c2d12 50%,#3b3568 130%);
+    color:#fdeede;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,98,12,.5),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffc99e;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffae54}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#fbddc6;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--night-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(70,40,20,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--amber),var(--rum));
+    color:#fdeede;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.night .rail{background:linear-gradient(165deg,var(--night),var(--night-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--rum);text-transform:uppercase;font-weight:500}
+  .day.night .loc{color:var(--night-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#43382c}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--rum);
+    background:rgba(194,98,12,.1);border:1px solid rgba(194,98,12,.22);border-radius:999px;padding:4px 10px}
+  .day.night .chip{color:var(--night-d);background:rgba(59,53,104,.1);border-color:rgba(59,53,104,.22)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#fdf2e6);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(154,52,18,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:32px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Chile · Deserto do Atacama · roteiro dia a dia</div>
+    <h1>Atacama em 6 dias</h1>
+    <p class="sub">O deserto mais árido do mundo a partir de San Pedro: o Valle de la Luna ao pôr do sol, as lagunas de sal, o Salar de Atacama com flamingos, as lagunas altiplânicas e os gêiseres do Tatio ao amanhecer — sob o céu mais estrelado do planeta.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>6 dias</b></span>
+      <span class="fact">⛰️ Tatio a <b>4.300 m</b></span>
+      <span class="fact">☀️ Seco <b>o ano todo</b></span>
+      <span class="fact">🌌 <b>Astroturismo</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Calama</span><i>→</i><span>San Pedro de Atacama</span><i>→</i><span>Valle de la Luna</span><i>→</i><span>Salar &amp; Lagunas</span><i>→</i><span>Gêiseres del Tatio</span><i>→</i><span>Calama</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Altitude, sol e frio</h4>
+      <p>San Pedro fica a <b>2.400 m</b> e os passeios sobem a <b>4.000–4.300 m</b> — aclimate-se e hidrate-se muito. O sol é intenso de dia (protetor, chapéu) e as <b>noites são geladas</b>; o Tatio ao amanhecer fica abaixo de zero. Reserve os passeios com operadora local; cada um tem seu horário.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">San Pedro &amp; os vales</span><span class="lk">dias 1–3 · deserto &amp; salar</span><span class="lr"></span></div>
+
+  <article class="day night">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Calama → San Pedro<span class="move">≈ 1,5 h · 100 km</span></div>
+      <h3>Chegada e pôr do sol no Valle de la Luna</h3>
+      <p>Transfer de <b>Calama</b> ao oásis de <b>San Pedro de Atacama</b> e instalação. No fim da tarde, o clássico <b>Valle de la Luna</b>: dunas, a Cordillera de la Sal e o <b>pôr do sol</b> tingindo as montanhas de laranja e violeta.</p>
+      <div class="chips"><span class="chip">San Pedro</span><span class="chip">Valle de la Luna</span><span class="chip">pôr do sol</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> entardecer na Duna Mayor</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> pousada em San Pedro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>San Pedro · lagunas de sal</div>
+      <h3>Boiar na Laguna Cejar</h3>
+      <p>Manhã nas lagunas do salar: a salgadíssima <b>Laguna Cejar</b> (onde se <b>flutua</b> como no Mar Morto) e os <b>Ojos del Salar</b>. Ao entardecer, os reflexos espelhados da <b>Laguna Tebinquiche</b>. À noite, opção de <b>tour astronômico</b>.</p>
+      <div class="chips"><span class="chip">Laguna Cejar</span><span class="chip">Tebinquiche</span><span class="chip">estrelas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Leve:</b> traje de banho e água doce p/ enxaguar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></span><span><b>À noite:</b> astroturismo (céu mais limpo do mundo)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Salar &amp; Altiplano<span class="move">dia inteiro</span></div>
+      <h3>Flamingos, lagunas altiplânicas e Piedras Rojas</h3>
+      <p>Dia grande pelo sul: o <b>Salar de Atacama</b> e a <b>Laguna Chaxa</b>, com seus <b>flamingos</b> rosa; as <b>Lagunas Miscanti e Miñiques</b>, de azul profundo a 4.100 m; e as <b>Piedras Rojas</b> do Salar de Aguas Calientes. Almoço no povoado de Socaire.</p>
+      <div class="chips"><span class="chip">Laguna Chaxa</span><span class="chip">Miscanti &amp; Miñiques</span><span class="chip">Piedras Rojas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> flamingos ao meio-dia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> sobe a 4.100 m — vá com calma</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Gêiseres, arco-íris &amp; despedida</span><span class="lk">dias 4–6 · altiplano &amp; cor</span><span class="lr"></span></div>
+
+  <article class="day night">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Gêiseres del Tatio<span class="move">madrugada</span></div>
+      <h3>Os gêiseres ao amanhecer</h3>
+      <p>Saída de madrugada (frio extremo) ao campo de <b>Gêiseres del Tatio</b> a <b>4.300 m</b>, com as fumarolas mais ativas ao nascer do sol. Banho nas <b>termas</b> e parada no vilarejo de <b>Machuca</b> na volta. Tarde de descanso em San Pedro.</p>
+      <div class="chips"><span class="chip">Tatio</span><span class="chip">termas</span><span class="chip">Machuca</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Leve:</b> roupa térmica e traje de banho</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> fumarolas no nascer do sol</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>San Pedro · arredores</div>
+      <h3>Valle del Arcoíris e o povo atacamenho</h3>
+      <p>Manhã no colorido <b>Valle del Arcoíris</b>, com montanhas de minerais multicoloridos, e os <b>petroglifos de Yerbas Buenas</b>. Tarde livre em San Pedro: a igreja de adobe, o museu e a rua Caracoles. Última noite sob as estrelas.</p>
+      <div class="chips"><span class="chip">Valle del Arcoíris</span><span class="chip">petroglifos</span><span class="chip">San Pedro</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> igreja de adobe e museu do meteorito</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cozinha atacamenha na Caracoles</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day night">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>San Pedro → Calama<span class="move">partida</span></div>
+      <h3>Despedida do deserto</h3>
+      <p>Manhã livre e transfer a <b>Calama</b> para o voo. <b>Alternativa de aventura:</b> em vez de voltar, cruzar a fronteira do <b>Hito Cajón</b> rumo ao <b>Sud Lípez</b> boliviano e ao Salar de Uyuni. <i>¡Hasta siempre, Atacama!</i></p>
+      <div class="chips"><span class="chip">transfer</span><span class="chip">Hito Cajón (opcional)</span><span class="chip">Uyuni</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Conexão:</b> daqui se emenda o roteiro da Bolívia</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o deserto de altitude.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><div><h5>Sol &amp; frio</h5><p>Protetor solar forte, óculos e chapéu de dia; casaco térmico para as madrugadas geladas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Altitude</h5><p>Hidrate-se muito; suba ao Tatio e às lagunas com calma e nada de álcool no 1º dia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></div><div><h5>Astroturismo</h5><p>Um dos céus mais limpos do planeta. Reserve um tour astronômico em noite sem lua.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Passeios</h5><p>Reserve com operadora local; cada saída tem horário (Luna ao pôr do sol, Tatio de madrugada).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Leve pesos chilenos em espécie; em San Pedro nem tudo aceita cartão.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M5 17h-1v-4l2-5h9l4 5v4h-2M7 17h10"/></svg></div><div><h5>Transporte</h5><p>Voe até Calama; em San Pedro, os passeios são em vans de operadora (sem necessidade de carro).</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Atacama em 6 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

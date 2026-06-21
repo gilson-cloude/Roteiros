@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peru — Roteiro dia a dia (11 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241a12; --slate:#6b5d4f; --faint:#9c8e7d;
+    --paper:#fbf4ea; --card:#ffffff; --line:#e8dcc8;
+    --terra:#a8401a; --amber:#b8730c; --sky:#2f6d86; --sky-d:#1f5066;
+    --rum:#7c3f12;
+    --shadow:0 14px 34px -20px rgba(60,40,20,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(184,115,12,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(47,109,134,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#a8401a 0%,#8a3414 55%,#6e2a10 100%);
+    color:#fdf0e2;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,115,12,.5),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffce9e;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffb454}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#fbe2d0;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sky-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(60,40,20,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--sky),var(--sky-d));
+    color:#f0f7fa;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.8}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.amber .rail{background:linear-gradient(165deg,var(--amber),var(--rum))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--sky-d);text-transform:uppercase;font-weight:500}
+  .day.amber .loc{color:var(--rum)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#43382c}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--sky-d);
+    background:rgba(47,109,134,.09);border:1px solid rgba(47,109,134,.2);border-radius:999px;padding:4px 10px}
+  .day.amber .chip{color:var(--rum);background:rgba(184,115,12,.1);border-color:rgba(184,115,12,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#fdf3e7);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(47,109,134,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--sky);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:32px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Peru · Andes &amp; Inca · roteiro dia a dia</div>
+    <h1>Peru em 11 dias</h1>
+    <p class="sub">Da Lima costeira à branca Arequipa e ao voo dos condores no Colca, pelo Lago Titicaca e Puno, à capital inca de Cusco, ao Vale Sagrado e à cidadela de Machu Picchu. Uma volta andina completa, dia a dia.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>11 dias</b></span>
+      <span class="fact">⛰️ Altitude até <b>4.910 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>mai–set</b></span>
+      <span class="fact">🎟️ <b>Machu Picchu: reserve antes</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Lima</span><i>→</i><span>Arequipa</span><i>→</i><span>Colca</span><i>→</i><span>Puno / Titicaca</span><i>→</i><span>Cusco</span><i>→</i><span>Vale Sagrado</span><i>→</i><span>Machu Picchu</span><i>→</i><span>Lima</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg>
+    <div>
+      <h4>Atenção à altitude</h4>
+      <p>Cusco fica a <b>3.400 m</b>, Colca e Puno acima de <b>3.800 m</b>. <b>Aclimate-se</b> com calma, beba bastante água e <b>chá de coca</b>, e evite esforço no primeiro dia em altitude. Compre o <b>ingresso de Machu Picchu</b> (e o trem) com semanas de antecedência.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Costa &amp; Sul andino</span><span class="lk">dias 1–5 · Lima, Arequipa, Colca &amp; Titicaca</span><span class="lr"></span></div>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lima<span class="move">chegada</span></div>
+      <h3>Chegada a Lima e o Pacífico</h3>
+      <p>Instalação em <b>Miraflores</b>, à beira-mar. Caminhada pelo <b>Malecón</b> e o Parque del Amor, e fim de tarde no boêmio <b>Barranco</b> (Puente de los Suspiros, murais). Primeiro <b>ceviche</b> com pisco sour.</p>
+      <div class="chips"><span class="chip">Miraflores</span><span class="chip">Barranco</span><span class="chip">ceviche</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cevicheria em Miraflores</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Miraflores ou Barranco</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lima → Arequipa<span class="move">voo ≈ 1h40</span></div>
+      <h3>A cidade branca de sillar</h3>
+      <p>Voo a <b>Arequipa</b> (2.300 m). Tarde no <b>Mosteiro de Santa Catalina</b>, uma cidadela colorida dentro da cidade, e na <b>Plaza de Armas</b> de sillar branco, com o vulcão Misti ao fundo. Mirante de <b>Yanahuara</b> ao pôr do sol.</p>
+      <div class="chips"><span class="chip">Santa Catalina</span><span class="chip">Plaza de Armas</span><span class="chip">Yanahuara</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> rocoto relleno em picantería</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Arequipa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Arequipa → Colca<span class="move">≈ 4 h · 160 km</span></div>
+      <h3>Subida ao Cânion do Colca</h3>
+      <p>Estrada de altitude cruzando a reserva de <b>Aguada Blanca</b> (vicunhas) e o mirante de <b>Patapampa</b> (4.910 m). Chegada a <b>Chivay</b>; fim de tarde relaxando nas <b>termas de La Calera</b>.</p>
+      <div class="chips"><span class="chip">vicunhas</span><span class="chip">Patapampa</span><span class="chip">termas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> ponto mais alto da viagem</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Chivay (Valle del Colca)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Colca → Puno<span class="move">≈ 6 h · 380 km</span></div>
+      <h3>O voo dos condores e o altiplano</h3>
+      <p>Madrugada na <b>Cruz del Cóndor</b> para ver os <b>condores</b> planando sobre um dos cânions mais profundos do mundo. À tarde, longa travessia pelo altiplano até <b>Puno</b>, às margens do <b>Lago Titicaca</b>.</p>
+      <div class="chips"><span class="chip">Cruz del Cóndor</span><span class="chip">cânion</span><span class="chip">altiplano</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> condores ao amanhecer</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Puno (orla do Titicaca)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Puno · Lago Titicaca</div>
+      <h3>As ilhas dos Uros e Taquile</h3>
+      <p>Dia de barco pelo <b>Lago Titicaca</b>, o mais alto navegável do mundo: as <b>ilhas flutuantes dos Uros</b> (feitas de totora) e a <b>ilha de Taquile</b>, de cultura têxtil reconhecida pela UNESCO. Almoço com vista do lago.</p>
+      <div class="chips"><span class="chip">Uros</span><span class="chip">Taquile</span><span class="chip">Titicaca</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Passeio:</b> barco de dia inteiro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> trucha do Titicaca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Cusco, Vale Sagrado &amp; Machu Picchu</span><span class="lk">dias 6–11 · coração inca</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Puno → Cusco<span class="move">≈ 7 h · 390 km · rota do sol</span></div>
+      <h3>A Ruta del Sol até Cusco</h3>
+      <p>Travessia panorâmica com paradas na <b>capela de Andahuaylillas</b> (a "Sistina andina"), no templo de <b>Raqchi</b> e no passo de <b>La Raya</b> (4.335 m). Chegada à <b>Cusco</b>, a capital inca.</p>
+      <div class="chips"><span class="chip">Andahuaylillas</span><span class="chip">Raqchi</span><span class="chip">La Raya</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> dia de translado com paradas guiadas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cusco (centro / San Blas)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cusco</div>
+      <h3>O umbigo do mundo inca</h3>
+      <p>Dia na cidade: a <b>Plaza de Armas</b> e a Catedral, o templo do sol <b>Qorikancha</b>, o bairro de artesãos de <b>San Blas</b> e o <b>Mercado de San Pedro</b>. Acima da cidade, a fortaleza de <b>Sacsayhuamán</b>.</p>
+      <div class="chips"><span class="chip">Qorikancha</span><span class="chip">Sacsayhuamán</span><span class="chip">San Blas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> lomo saltado e cuy</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> aclimatação ideal antes de trilhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Vale Sagrado<span class="move">Pisac · Ollantaytambo</span></div>
+      <h3>Pisac, Ollantaytambo e o Vale Sagrado</h3>
+      <p>As ruínas e o <b>mercado de Pisac</b>, as salinas de <b>Maras</b> e os terraços circulares de <b>Moray</b>, e a fortaleza inca de <b>Ollantaytambo</b> — onde se pega o trem a Machu Picchu. Pernoite no vale, em altitude mais baixa.</p>
+      <div class="chips"><span class="chip">Pisac</span><span class="chip">Maras &amp; Moray</span><span class="chip">Ollantaytambo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> salinas de Maras</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Ollantaytambo ou Urubamba</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Machu Picchu<span class="move">trem + ônibus</span></div>
+      <h3>A cidadela suspensa</h3>
+      <p>Trem panorâmico até <b>Aguas Calientes</b> e subida de ônibus à <b>Machu Picchu</b> — a cidadela inca entre montanhas, uma das maravilhas do mundo. Visita guiada pelos templos e terraços; pernoite ao pé da montanha.</p>
+      <div class="chips"><span class="chip">Machu Picchu</span><span class="chip">trem</span><span class="chip">UNESCO</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Reserve:</b> ingresso por horário + trem</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Aguas Calientes</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Machu Picchu → Cusco<span class="move">trem ≈ 4 h</span></div>
+      <h3>Segunda visita e retorno</h3>
+      <p>Opção de subir cedo de novo para a montanha <b>Huayna Picchu</b> (com reserva) ou curtir a cidadela com menos gente. À tarde, trem de volta ao Vale Sagrado e a <b>Cusco</b>. Noite de despedida andina.</p>
+      <div class="chips"><span class="chip">Huayna Picchu</span><span class="chip">retorno</span><span class="chip">Cusco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Opcional:</b> trilha Huayna Picchu (vagas limitadas)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cusco</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cusco → Lima<span class="move">partida</span></div>
+      <h3>Despedida dos Andes</h3>
+      <p>Manhã livre para compras de <b>têxteis de alpaca</b> e prata em San Blas, e voo a <b>Lima</b> para a conexão internacional. <i>¡Hasta pronto, Perú!</i></p>
+      <div class="chips"><span class="chip">alpaca</span><span class="chip">prata</span><span class="chip">voo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Dica:</b> reserve o voo Cusco–Lima cedo (lota)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para uma viagem andina tranquila.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg></div><div><h5>Altitude</h5><p>Aclimate-se em Cusco/Arequipa antes de trilhas. Chá de coca, hidratação e calma nos primeiros dias.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div><div><h5>Machu Picchu</h5><p>Ingresso por horário + trem se esgotam. Compre com <b>semanas</b> de antecedência.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Estação seca de <b>mai a set</b>: sol nas trilhas e em Machu Picchu.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Transporte</h5><p>Voos internos (Lima–Arequipa, Cusco–Lima) poupam dias; o resto por van/trem.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Ceviche, lomo saltado, cuy, rocoto relleno e o pisco sour. Trucha no Titicaca.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Soles em espécie para mercados e gorjetas; cartões nas cidades grandes.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Peru em 11 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

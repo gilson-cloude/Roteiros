@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patagônia — Roteiro dia a dia (9 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16242b; --slate:#536069; --faint:#8a99a1;
+    --paper:#eef4f5; --card:#ffffff; --line:#d7e2e4;
+    --terra:#0e6f7a; --amber:#3d7e63; --ice:#2f6d86; --ice-d:#1f4f63;
+    --granite:#4a5b66;
+    --shadow:0 14px 34px -20px rgba(20,40,50,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(47,109,134,.08), transparent 38%),radial-gradient(circle at 88% 0%, rgba(14,111,122,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0e6f7a 0%,#1f5066 55%,#28405a 110%);
+    color:#eaf6f7;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(120,200,210,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a8e6ee;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#7fd8e4}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d6eef0;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--ice-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(20,40,50,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--ice);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--ice);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--ice),var(--ice-d));
+    color:#eaf6f7;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.green .rail{background:linear-gradient(165deg,var(--amber),#2c5e48)}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--ice-d);text-transform:uppercase;font-weight:500}
+  .day.green .loc{color:#2c5e48}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#3a474e}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--ice-d);
+    background:rgba(47,109,134,.09);border:1px solid rgba(47,109,134,.2);border-radius:999px;padding:4px 10px}
+  .day.green .chip{color:#2c5e48;background:rgba(61,126,99,.1);border-color:rgba(61,126,99,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--ice);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#eef6f7);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(47,109,134,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--ice);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:32px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Patagônia · Argentina &amp; Chile · roteiro dia a dia</div>
+    <h1>Patagônia em 9 dias</h1>
+    <p class="sub">O melhor da Patagônia austral: o glaciar Perito Moreno em El Calafate, as trilhas do Monte Fitz Roy em El Chaltén e o maciço das Torres del Paine, no Chile. Gelo, granito e vento no fim do mundo, dia a dia.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>9 dias</b></span>
+      <span class="fact">🥾 <b>Trekking</b></span>
+      <span class="fact">☀️ Melhor época: <b>nov–mar</b></span>
+      <span class="fact">🧥 <b>Vento &amp; camadas</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>El Calafate</span><i>→</i><span>Perito Moreno</span><i>→</i><span>El Chaltén</span><i>→</i><span>Fitz Roy</span><i>→</i><span>Torres del Paine</span><i>→</i><span>Puerto Natales</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Vento, clima e fronteira</h4>
+      <p>O <b>verão austral (nov–mar)</b> tem dias longos e trilhas abertas, mas o <b>vento patagônico</b> é forte e o tempo muda rápido — leve corta-vento e <b>camadas</b>. Há <b>travessia de fronteira</b> Argentina–Chile (leve passaporte e não cruze com alimentos frescos). Reserve hospedagem e ônibus com antecedência na alta.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Gelo &amp; granito argentino</span><span class="lk">dias 1–5 · Calafate &amp; Chaltén</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>El Calafate<span class="move">chegada</span></div>
+      <h3>Chegada à porta dos glaciares</h3>
+      <p>Instalação em <b>El Calafate</b>, às margens do Lago Argentino. Tarde leve pela Avenida del Libertador e a reserva da <b>Laguna Nimez</b> (flamingos e aves). Primeiro <b>cordeiro patagônico</b> e cerveja artesanal.</p>
+      <div class="chips"><span class="chip">Lago Argentino</span><span class="chip">Laguna Nimez</span><span class="chip">cordeiro</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cordeiro ao palito</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> El Calafate</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Perito Moreno<span class="move">≈ 1,5 h · 80 km</span></div>
+      <h3>A muralha de gelo</h3>
+      <p>Dia no <b>Parque Nacional Los Glaciares</b>: as passarelas de frente para o <b>Glaciar Perito Moreno</b>, com sua parede de 60 m e o estrondo dos blocos que desabam. Opção de <b>minitrekking</b> sobre o gelo ou navegação até a parede.</p>
+      <div class="chips"><span class="chip">Perito Moreno</span><span class="chip">passarelas</span><span class="chip">minitrekking</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os desabamentos de gelo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Opcional:</b> minitrekking ou náutico</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>El Calafate → El Chaltén<span class="move">≈ 3 h · 220 km</span></div>
+      <h3>Rumo à capital do trekking</h3>
+      <p>Estrada cênica pela estepe até <b>El Chaltén</b>, aos pés do <b>Monte Fitz Roy</b>. Chegada e caminhada curta ao <b>Mirador de los Cóndores</b> e <b>de las Águilas</b> para a primeira vista do maciço ao entardecer.</p>
+      <div class="chips"><span class="chip">El Chaltén</span><span class="chip">Fitz Roy</span><span class="chip">miradores</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Não perca:</b> Fitz Roy ao pôr do sol</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> El Chaltén</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>El Chaltén<span class="move">trilha · 8 h ida/volta</span></div>
+      <h3>Laguna de los Tres, sob o Fitz Roy</h3>
+      <p>A trilha-rainha: ~20 km até a <b>Laguna de los Tres</b>, com o último km íngreme premiado pela vista-postal do <b>Fitz Roy</b> refletido na laguna glacial. Saída cedo, lanche na mochila e atenção ao vento.</p>
+      <div class="chips"><span class="chip">Laguna de los Tres</span><span class="chip">trekking</span><span class="chip">vista-postal</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Dificuldade:</b> exigente no trecho final</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cervejaria artesanal na volta</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>El Chaltén → El Calafate<span class="move">tarde · 3 h</span></div>
+      <h3>Laguna Torre e retorno</h3>
+      <p>Manhã na trilha mais suave à <b>Laguna Torre</b>, de frente para o agulhado <b>Cerro Torre</b> e seu glaciar. À tarde, retorno a <b>El Calafate</b> para a travessia ao Chile no dia seguinte.</p>
+      <div class="chips"><span class="chip">Laguna Torre</span><span class="chip">Cerro Torre</span><span class="chip">retorno</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Trilha:</b> mais leve (~18 km, plana)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> El Calafate</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Torres del Paine · Chile</span><span class="lk">dias 6–9 · maciço &amp; despedida</span><span class="lr"></span></div>
+
+  <article class="day green">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>El Calafate → Torres del Paine<span class="move">≈ 5–6 h · fronteira CL</span></div>
+      <h3>Travessia ao maciço chileno</h3>
+      <p>Cruzamento da <b>fronteira Argentina–Chile</b> rumo a <b>Puerto Natales</b> e ao <b>Parque Nacional Torres del Paine</b>. Tarde com os <b>Cuernos del Paine</b>, o Lago Pehoé e o <b>Glaciar Grey</b> ao longe. Fauna: guanacos e, com sorte, um condor.</p>
+      <div class="chips"><span class="chip">fronteira</span><span class="chip">Cuernos del Paine</span><span class="chip">Lago Pehoé</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Leve:</b> passaporte; sem alimentos frescos na fronteira</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> dentro do parque ou em Natales</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day green">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Torres del Paine<span class="move">trilha · 8–9 h</span></div>
+      <h3>Base Torres, o ícone</h3>
+      <p>A trilha clássica até a <b>Base de las Torres</b>: ~19 km por vale, bosque e morena até o mirante das três torres de granito sobre a laguna turquesa. É a caminhada-símbolo da Patagônia — exigente e inesquecível.</p>
+      <div class="chips"><span class="chip">Base Torres</span><span class="chip">granito</span><span class="chip">laguna</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Dificuldade:</b> longa; saída cedo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Dica:</b> reserve refúgio/camping com antecedência</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day green">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Torres del Paine</div>
+      <h3>Glaciar Grey ou Vale do Francês</h3>
+      <p>Dia de escolha: navegação ao <b>Glaciar Grey</b> entre icebergs azuis, ou a trilha ao <b>Valle del Francés</b>, no coração do circuito W. Fim de tarde com o <b>Salto Grande</b> e os miradores do Pehoé.</p>
+      <div class="chips"><span class="chip">Glaciar Grey</span><span class="chip">Valle del Francés</span><span class="chip">Salto Grande</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Opcional:</b> navegação entre icebergs</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> parque ou Puerto Natales</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day green">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Puerto Natales / Punta Arenas<span class="move">partida</span></div>
+      <h3>Despedida da Patagônia</h3>
+      <p>Manhã em <b>Puerto Natales</b> (orla e o Milodón) e transfer a <b>Punta Arenas</b> para o voo. <b>Alternativa:</b> seguir ao norte pela <b>Carretera Austral</b>, do outro lado da cordilheira. <i>¡Adiós, Patagonia!</i></p>
+      <div class="chips"><span class="chip">Puerto Natales</span><span class="chip">Punta Arenas</span><span class="chip">Carretera Austral</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Conexão:</b> emenda com a Carretera Austral</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o fim do mundo.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 17l6-10 4 6 3-4 5 8z"/></svg></div><div><h5>Vento &amp; clima</h5><p>Quatro estações num dia. Corta-vento, camadas, capa de chuva e calçado de trilha firme.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Fronteira</h5><p>Passaporte sempre à mão; não cruze com frutas, carnes ou laticínios frescos.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Verão austral de <b>nov a mar</b>: dias longos e trilhas abertas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></div><div><h5>Reservas</h5><p>Refúgios, campings e ônibus esgotam na alta. Reserve Torres del Paine com meses de antecedência.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Cordeiro patagônico, centolla (caranguejo-real) e cervejas artesanais.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Pesos argentinos e chilenos em espécie; conectividade é limitada dentro dos parques.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Patagônia em 9 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
