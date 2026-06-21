@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colômbia — Roteiro dia a dia (12 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13261a; --slate:#4f6253; --faint:#86988a;
+    --paper:#eef6ee; --card:#ffffff; --line:#d3e6d6;
+    --terra:#15803d; --amber:#ca8a04; --sea:#0e7490; --sea-d:#155e75;
+    --jungle:#166534;
+    --shadow:0 14px 34px -20px rgba(20,60,30,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(202,138,4,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(14,116,144,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#15803d 0%,#166534 50%,#0e7490 135%);
+    color:#eafaef;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(202,138,4,.45),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffe39e;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffd24d}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d6f2dd;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sea-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(20,60,30,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--jungle));
+    color:#eafaef;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sea .rail{background:linear-gradient(165deg,var(--sea),var(--sea-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--jungle);text-transform:uppercase;font-weight:500}
+  .day.sea .loc{color:var(--sea-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#32402f}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--jungle);
+    background:rgba(21,128,61,.09);border:1px solid rgba(21,128,61,.2);border-radius:999px;padding:4px 10px}
+  .day.sea .chip{color:var(--sea-d);background:rgba(14,116,144,.1);border-color:rgba(14,116,144,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#eef7ef);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(21,128,61,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1f2530;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2a3340;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:31px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Colômbia · Andes &amp; Caribe · roteiro dia a dia</div>
+    <h1>Colômbia em 12 dias</h1>
+    <p class="sub">Da fria Bogotá e a Catedral de Sal ao verde Eixo Cafeeiro do Valle de Cocora, à renascida Medellín e o colorido Guatapé, até o Caribe quente da muralhada Cartagena das Índias e as Islas del Rosario.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>12 dias</b></span>
+      <span class="fact">🏔️ Bogotá a <b>2.600 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>dez–mar / jul–ago</b></span>
+      <span class="fact">☕ <b>Eixo Cafeeiro</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Bogotá</span><i>→</i><span>Zipaquirá</span><i>→</i><span>Salento / Cocora</span><i>→</i><span>Medellín</span><i>→</i><span>Guatapé</span><i>→</i><span>Cartagena</span><i>→</i><span>Rosario</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Três climas numa viagem</h4>
+      <p>Bogotá é <b>fria</b> (2.600 m, leve casaco), Medellín e o Eixo Cafeeiro são <b>amenos</b>, e Cartagena é <b>quente e úmida</b> (roupa leve, protetor). Os trechos longos entre regiões se fazem melhor de <b>voo interno</b> — baratos e frequentes. Leve pesos colombianos em espécie para mercados e jipes.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Bogotá &amp; o Eixo Cafeeiro</span><span class="lk">dias 1–6 · Andes &amp; café</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Bogotá<span class="move">chegada</span></div>
+      <h3>A capital andina</h3>
+      <p>Chegada a <b>Bogotá</b> e tarde no bairro histórico de <b>La Candelaria</b>: praças coloniais, murais e o imperdível <b>Museu do Ouro</b>, com o maior acervo de ourivesaria pré-colombiana do mundo.</p>
+      <div class="chips"><span class="chip">La Candelaria</span><span class="chip">Museu do Ouro</span><span class="chip">murais</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Museu do Ouro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> La Candelaria ou Chapinero</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Bogotá<span class="move">Monserrate</span></div>
+      <h3>Monserrate e a cidade do alto</h3>
+      <p>Subida de funicular ao <b>Cerro de Monserrate</b> (3.150 m) para a vista panorâmica de Bogotá. Tarde no bairro boêmio de <b>Usaquén</b> ou nos cafés de Zona G, provando o café colombiano na origem.</p>
+      <div class="chips"><span class="chip">Monserrate</span><span class="chip">mirante</span><span class="chip">café</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol de Monserrate</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> ajiaco bogotano</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Zipaquirá → Eixo Cafeeiro<span class="move">voo p/ Pereira/Armenia</span></div>
+      <h3>A Catedral de Sal e o salto ao café</h3>
+      <p>Manhã na <b>Catedral de Sal de Zipaquirá</b>, uma igreja monumental esculpida 180 m dentro de uma mina. À tarde, voo ao <b>Eixo Cafeeiro</b> e transfer à colorida vila de <b>Salento</b>.</p>
+      <div class="chips"><span class="chip">Catedral de Sal</span><span class="chip">Salento</span><span class="chip">Eixo Cafeeiro</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> voe a Pereira/Armênia (poupa horas)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Salento</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Valle de Cocora<span class="move">jipe Willys</span></div>
+      <h3>As palmeiras gigantes de Cocora</h3>
+      <p>De jipe <b>Willys</b> desde a praça de Salento ao <b>Valle de Cocora</b>, onde se ergue a <b>palmeira-de-cera</b> — a árvore nacional, a mais alta do mundo. Caminhada pelo vale verde entre as palmeiras na neblina.</p>
+      <div class="chips"><span class="chip">Valle de Cocora</span><span class="chip">palmeira-de-cera</span><span class="chip">trilha</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Vá cedo:</b> a tarde fecha com neblina</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Salento</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Eixo Cafeeiro<span class="move">fazenda de café</span></div>
+      <h3>Da semente à xícara</h3>
+      <p>Dia numa <b>fazenda de café</b> (finca) tradicional: a colheita, a torra e a degustação de cafés especiais, entendendo por que a região é Patrimônio da Humanidade. Tarde nas vilas de <b>Filandia</b> ou nas termas de Santa Rosa.</p>
+      <div class="chips"><span class="chip">finca cafeeira</span><span class="chip">Filandia</span><span class="chip">degustação</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Não perca:</b> tour do café na origem</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> finca ou Salento</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Eixo Cafeeiro → Medellín<span class="move">voo ≈ 50 min</span></div>
+      <h3>Rumo à cidade da eterna primavera</h3>
+      <p>Voo a <b>Medellín</b>, a cidade que se reinventou. Tarde de aclimatação ao clima ameno: a Plaza Botero com as esculturas gordinhas do mestre, e um passeio pelo eficiente <b>metrô</b> que orgulha a cidade.</p>
+      <div class="chips"><span class="chip">Medellín</span><span class="chip">Plaza Botero</span><span class="chip">metrô</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> voo curto e barato do Eixo Cafeeiro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> El Poblado (Medellín)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Medellín, Guatapé &amp; o Caribe</span><span class="lk">dias 7–12 · cor &amp; mar</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Medellín<span class="move">Comuna 13</span></div>
+      <h3>A virada da Comuna 13</h3>
+      <p>Tour pela <b>Comuna 13</b>, símbolo da transformação da cidade: escadas rolantes ao ar livre, grafite, hip-hop e a história contada por quem viveu a virada social. Tarde no <b>Pueblito Paisa</b> e nos miradouros.</p>
+      <div class="chips"><span class="chip">Comuna 13</span><span class="chip">grafite</span><span class="chip">Pueblito Paisa</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> tour guiado da Comuna 13</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> bandeja paisa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Guatapé<span class="move">≈ 2 h ida</span></div>
+      <h3>A Piedra del Peñol e a vila colorida</h3>
+      <p>Bate-volta a <b>Guatapé</b>: subir os 740 degraus da <b>Piedra del Peñol</b> para a vista das represas, e perder-se nas ruas da vila mais colorida da Colômbia, com seus <b>zócalos</b> (frisos pintados).</p>
+      <div class="chips"><span class="chip">Piedra del Peñol</span><span class="chip">Guatapé</span><span class="chip">zócalos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> vista do topo da Piedra</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Medellín (volta à noite)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Medellín → Cartagena<span class="move">voo ≈ 1h15</span></div>
+      <h3>Chegada ao Caribe colonial</h3>
+      <p>Voo a <b>Cartagena das Índias</b>. Primeiro mergulho na <b>Cidade Amuralhada</b> (UNESCO): ruas coloridas, balcões floridos, a Torre do Relógio e o pôr do sol nas muralhas com uma limonada de coco.</p>
+      <div class="chips"><span class="chip">Cidade Amuralhada</span><span class="chip">muralhas</span><span class="chip">Caribe</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol nas muralhas (Café del Mar)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cidade Amuralhada ou Getsemaní</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cartagena<span class="move">Getsemaní</span></div>
+      <h3>Forte, Getsemaní e a noite caribenha</h3>
+      <p>O <b>Castillo San Felipe de Barajas</b>, a maior fortaleza espanhola das Américas, e o bairro <b>Getsemaní</b> — murais, becos boêmios e a Plaza de la Trinidad à noite, com música e dança na rua.</p>
+      <div class="chips"><span class="chip">San Felipe</span><span class="chip">Getsemaní</span><span class="chip">vida noturna</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Castillo San Felipe</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> ceviche e arepa de huevo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Islas del Rosario<span class="move">barco</span></div>
+      <h3>Praias turquesa do Caribe</h3>
+      <p>Dia de barco às <b>Islas del Rosario</b>, um arquipélago de coral com águas transparentes — mergulho com snorkel, praia e almoço de frutos do mar numa ilha. Volta ao fim da tarde a Cartagena.</p>
+      <div class="chips"><span class="chip">Islas del Rosario</span><span class="chip">snorkel</span><span class="chip">praia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Passeio:</b> lancha de dia inteiro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cartagena</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sea">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">12</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cartagena<span class="move">partida</span></div>
+      <h3>Despedida caribenha</h3>
+      <p>Manhã livre para compras de <b>café</b>, esmeraldas e artesanato, e um último café gelado nas muralhas antes do voo de retorno. <i>¡Hasta luego, Colombia!</i></p>
+      <div class="chips"><span class="chip">café</span><span class="chip">esmeraldas</span><span class="chip">voo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Dica:</b> Cartagena conecta com voos internacionais</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Colômbia dos Andes ao Caribe.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Transporte</h5><p>Voos internos (Avianca, LATAM, Wingo) ligam as regiões em ~1h e poupam dias de estrada.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div><h5>Três climas</h5><p>Casaco em Bogotá (frio), roupa amena em Medellín/café, roupa leve no calor de Cartagena.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Estações secas: <b>dez–mar</b> e <b>jul–ago</b>. Cocora rende mais de manhã, com céu limpo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Ajiaco, bandeja paisa, arepa de huevo, ceviche e, claro, o melhor café de origem.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Pesos colombianos em espécie para jipes, mercados e ilhas; cartões nas cidades.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg></div><div><h5>Segurança</h5><p>Use táxis por app, evite ostentar e prefira tours guiados em bairros como a Comuna 13.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Colômbia em 12 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
