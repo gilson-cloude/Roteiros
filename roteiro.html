@@ -168,7 +168,7 @@
       <span>distância <b id="stKm">≈16.500 km</b></span>
     </div>
     <a class="barlink" href="mapa.html"><svg viewBox="0 0 24 24"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>Ver no mapa</a>
-    <a class="barlink" id="diaadiaBtn" href="#" style="display:none"><svg viewBox="0 0 24 24"><path d="M8 2v3M16 2v3M3 9h18M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM8 13h2M8 17h2M14 13h2"/></svg>Roteiro dia a dia</a>
+    <a class="barlink" id="diaadiaBtn" href="#" target="_blank" rel="noopener" style="display:none"><svg viewBox="0 0 24 24"><path d="M8 2v3M16 2v3M3 9h18M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM8 13h2M8 17h2M14 13h2"/></svg>Roteiro dia a dia</a>
     <button class="barlink" id="exportBtn" type="button"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg>Exportar PDF</button>
   </div>
 
@@ -245,7 +245,7 @@
     document.getElementById('tipH').textContent = current.seasonTip.h;
     document.getElementById('tipP').innerHTML = current.seasonTip.p;
     // guia "dia a dia" (para roteiros que têm um documento dedicado)
-    var DIAADIA = { 'cu-havana-trinidad':'dia-a-dia-cuba.html', 'pe-cusco-machupicchu':'dia-a-dia-peru.html', 'cl-atacama':'dia-a-dia-atacama.html', 'patagonia-completa':'dia-a-dia-patagonia.html', 'cl-santiago-cordilheira':'dia-a-dia-santiago.html' };
+    var DIAADIA = { 'cu-havana-trinidad':'dia-a-dia-cuba.html', 'pe-cusco-machupicchu':'dia-a-dia-peru.html', 'cl-atacama':'dia-a-dia-atacama.html', 'patagonia-completa':'dia-a-dia-patagonia.html', 'cl-santiago-cordilheira':'dia-a-dia-santiago.html', 'bo-altiplano-uyuni':'dia-a-dia-bolivia.html' };
     var dd = document.getElementById('diaadiaBtn');
     if(dd){ if(DIAADIA[current.id]){ dd.href = DIAADIA[current.id]; dd.style.display=''; } else { dd.style.display='none'; } }
   }

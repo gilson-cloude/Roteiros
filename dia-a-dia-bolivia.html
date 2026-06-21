@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bolívia — Roteiro dia a dia (12 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a2e; --slate:#585673; --faint:#8a87a3;
+    --paper:#f2f1fb; --card:#ffffff; --line:#dcdaf0;
+    --terra:#4338ca; --amber:#6d28d9; --salt:#0e7490; --salt-d:#155e75;
+    --deep:#312e81;
+    --shadow:0 14px 34px -20px rgba(40,35,90,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(109,40,217,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(14,116,144,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#4338ca 0%,#312e81 55%,#0e7490 135%);
+    color:#eef0fe;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(109,40,217,.5),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#bcd9e6;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#5ece9e}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:43px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#dcdef8;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--salt-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(40,35,90,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--deep));
+    color:#eef0fe;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.salt .rail{background:linear-gradient(165deg,var(--salt),var(--salt-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--deep);text-transform:uppercase;font-weight:500}
+  .day.salt .loc{color:var(--salt-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#39354c}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--deep);
+    background:rgba(67,56,202,.09);border:1px solid rgba(67,56,202,.2);border-radius:999px;padding:4px 10px}
+  .day.salt .chip{color:var(--salt-d);background:rgba(14,116,144,.1);border-color:rgba(14,116,144,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f1f0fb);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(67,56,202,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:31px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Bolívia · Altiplano &amp; Uyuni · roteiro dia a dia</div>
+    <h1>Bolívia em 12 dias</h1>
+    <p class="sub">Da vertiginosa La Paz e seus teleféricos ao Lago Titicaca e à Isla del Sol, ao sul colonial de Sucre e Potosí, até o ápice: o espelho infinito do Salar de Uyuni e o deserto de lagunas do Sud Lípez, na fronteira do Atacama.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>12 dias</b></span>
+      <span class="fact">⛰️ Até <b>4.900 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>mai–out</b></span>
+      <span class="fact">🧂 <b>Salar de Uyuni</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>La Paz</span><i>→</i><span>Tiwanaku</span><i>→</i><span>Copacabana / Titicaca</span><i>→</i><span>Sucre</span><i>→</i><span>Potosí</span><i>→</i><span>Uyuni</span><i>→</i><span>Sud Lípez</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Altitude é coisa séria aqui</h4>
+      <p>La Paz fica a <b>3.600 m</b>, Potosí a <b>4.000 m</b> e o Sud Lípez passa de <b>4.900 m</b>. Reserve o 1º dia para <b>aclimatar</b>, beba muita água e chá de coca, evite álcool e esforço no começo. O Salar e o Sud Lípez se fazem em <b>jeep 4x4 com guia</b>; as noites são geladas.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">La Paz &amp; o Titicaca</span><span class="lk">dias 1–5 · altiplano &amp; lago sagrado</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>La Paz<span class="move">chegada</span></div>
+      <h3>Chegada e aclimatação</h3>
+      <p>Chegada à <b>La Paz</b>, a capital mais alta do mundo. Dia tranquilo para aclimatar: um passeio de <b>Mi Teleférico</b> para ver a cidade encravada no vale e a vizinha El Alto, e um café com vista. Sem esforço hoje.</p>
+      <div class="chips"><span class="chip">La Paz</span><span class="chip">teleférico</span><span class="chip">aclimatação</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> beba água, vá devagar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Sopocachi ou centro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>La Paz</div>
+      <h3>Mercados, teleféricos e Valle de la Luna</h3>
+      <p>Dia na cidade: o <b>Mercado das Bruxas</b>, a Calle Jaén colonial e a Plaza Murillo; um circuito pelos <b>teleféricos</b> coloridos e o <b>Valle de la Luna</b>, de formações de argila erodida, na borda da cidade.</p>
+      <div class="chips"><span class="chip">Mercado das Bruxas</span><span class="chip">Calle Jaén</span><span class="chip">Valle de la Luna</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> salteñas e silpancho</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Museo de la Coca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day salt">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>La Paz → Copacabana<span class="move">≈ 3,5 h · 150 km</span></div>
+      <h3>Ruínas de Tiwanaku e o Titicaca</h3>
+      <p>A caminho do lago, as ruínas pré-incaicas de <b>Tiwanaku</b> (Portal do Sol, Kalasasaya). Chegada a <b>Copacabana</b>, à beira do <b>Lago Titicaca</b>, e o pôr do sol do Cerro Calvario sobre as águas.</p>
+      <div class="chips"><span class="chip">Tiwanaku</span><span class="chip">Copacabana</span><span class="chip">Titicaca</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> Portal do Sol em Tiwanaku</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Copacabana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day salt">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Isla del Sol<span class="move">barco</span></div>
+      <h3>A ilha sagrada dos incas</h3>
+      <p>Travessia de barco à <b>Isla del Sol</b>, berço da lenda inca: trilhas entre ruínas, terraços e aldeias com vista dos nevados da Cordillera Real do outro lado do lago. Volta a Copacabana ao entardecer.</p>
+      <div class="chips"><span class="chip">Isla del Sol</span><span class="chip">trilhas</span><span class="chip">ruínas incas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Passeio:</b> barco + caminhada na ilha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> trucha do Titicaca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Copacabana → La Paz → Sucre<span class="move">voo ≈ 1 h</span></div>
+      <h3>Rumo ao sul colonial</h3>
+      <p>Retorno a La Paz e voo a <b>Sucre</b>, a capital constitucional — a "cidade branca", de clima ameno. Tarde pelas igrejas e praças coloniais, o casario branco e os mirantes da Recoleta.</p>
+      <div class="chips"><span class="chip">Sucre</span><span class="chip">cidade branca</span><span class="chip">UNESCO</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Dica:</b> voe (estrada é longa); clima ameno em Sucre</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Sucre</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Sucre, Potosí &amp; o Salar</span><span class="lk">dias 6–12 · prata, sal &amp; lagunas</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Sucre</div>
+      <h3>A cidade branca e os dinossauros</h3>
+      <p>Dia em <b>Sucre</b>: a Casa de la Libertad (onde nasceu a Bolívia), o Mercado Central e o <b>Parque Cretácico</b>, com milhares de pegadas de dinossauros num paredão. Cafés e vida tranquila na cidade mais charmosa do país.</p>
+      <div class="chips"><span class="chip">Casa de la Libertad</span><span class="chip">Parque Cretácico</span><span class="chip">mercado</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Casa de la Libertad</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> mercado central (sucos e salteñas)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Sucre → Potosí<span class="move">≈ 3 h · 150 km</span></div>
+      <h3>A cidade da prata, a 4.000 m</h3>
+      <p>Subida a <b>Potosí</b>, no sopé do <b>Cerro Rico</b> — a montanha de prata que financiou impérios. Visita à <b>Casa Nacional de la Moneda</b>, um dos maiores museus da América do Sul, e ao casario colonial (UNESCO).</p>
+      <div class="chips"><span class="chip">Cerro Rico</span><span class="chip">Casa de la Moneda</span><span class="chip">4.000 m</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> cidade mais alta — vá devagar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Potosí</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Potosí → Uyuni<span class="move">≈ 3,5 h · 200 km</span></div>
+      <h3>A caminho do salar</h3>
+      <p>Travessia ao altiplano sul até <b>Uyuni</b>. Tarde no <b>cemitério de trens</b>, com locomotivas enferrujadas no deserto, e preparativos para o circuito do salar. Pôr do sol no horizonte branco.</p>
+      <div class="chips"><span class="chip">Uyuni</span><span class="chip">cemitério de trens</span><span class="chip">altiplano</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> feche o jeep 4x4 com operadora confiável</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Uyuni</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day salt">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Salar de Uyuni<span class="move">jeep 4x4</span></div>
+      <h3>O espelho infinito</h3>
+      <p>O dia mais esperado: o <b>Salar de Uyuni</b>, 10.000 km² de sal. As fotos de perspectiva, a <b>Isla Incahuasi</b> de cactos gigantes e — se houver lâmina d'água — o famoso <b>efeito espelho</b>. Pôr do sol mágico sobre o branco infinito.</p>
+      <div class="chips"><span class="chip">Salar de Uyuni</span><span class="chip">Isla Incahuasi</span><span class="chip">efeito espelho</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol no salar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> hotel de sal na borda</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day salt">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Sud Lípez<span class="move">jeep · altiplano</span></div>
+      <h3>Lagunas, vulcões e flamingos</h3>
+      <p>Sul rumo ao deserto de <b>Sud Lípez</b>: a <b>Laguna Colorada</b>, vermelha e coberta de flamingos, a <b>Árbol de Piedra</b> esculpida pelo vento e as lagunas altiplânicas com vulcões ao fundo. Pernoite simples no deserto.</p>
+      <div class="chips"><span class="chip">Laguna Colorada</span><span class="chip">Árbol de Piedra</span><span class="chip">flamingos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> frio extremo à noite (leve térmica)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> refúgio no deserto</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day salt">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Sud Lípez<span class="move">amanhecer 4.900 m</span></div>
+      <h3>Gêiseres e a Laguna Verde</h3>
+      <p>Madrugada nos <b>gêiseres do Sol de Mañana</b> (4.900 m) e banho nas <b>termas de Polques</b> ao nascer do sol. A turquesa <b>Laguna Verde</b> ao pé do vulcão Licancabur. Retorno a Uyuni (ou cruzar ao Atacama, no Chile).</p>
+      <div class="chips"><span class="chip">Sol de Mañana</span><span class="chip">termas</span><span class="chip">Laguna Verde</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Conexão:</b> daqui se cruza ao Atacama (Hito Cajón)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Uyuni (retorno)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">12</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Uyuni → La Paz<span class="move">voo / partida</span></div>
+      <h3>Despedida do altiplano</h3>
+      <p>Manhã livre e voo de <b>Uyuni a La Paz</b> para a conexão. Última chance de comprar <b>têxteis andinos</b> e artesanato de sal. <i>¡Jallalla Bolivia!</i></p>
+      <div class="chips"><span class="chip">têxteis</span><span class="chip">artesanato de sal</span><span class="chip">voo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> reserve o voo Uyuni–La Paz cedo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Bolívia de altitude.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Altitude</h5><p>Aclimate-se em La Paz; chá de coca, hidratação e nada de esforço/álcool nos primeiros dias.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Salar &amp; Sud Lípez</h5><p>Só em jeep 4x4 com operadora. Para o efeito espelho, vá na transição com a chuva (jan–mar).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div><h5>Frio &amp; sol</h5><p>Roupa térmica para as madrugadas do Sud Lípez; protetor e óculos para o sol do altiplano.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Transporte</h5><p>Voos internos (La Paz–Sucre, Uyuni–La Paz) poupam dias em estradas longas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Salteñas, silpancho, api, quinoa e a trucha do Titicaca. Singani (destilado nacional).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Bolivianos em espécie; fora das cidades grandes o cartão raramente funciona.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Bolívia em 12 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
