@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argentina — Salta &amp; Norte — Roteiro dia a dia (9 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a2233; --slate:#54607a; --faint:#8b95ab;
+    --paper:#eef2fb; --card:#ffffff; --line:#d6deee;
+    --terra:#2563eb; --amber:#c2410c; --wine:#9d174d; --wine-d:#831843;
+    --deep:#1d4ed8;
+    --shadow:0 14px 34px -20px rgba(30,45,90,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(194,65,12,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(157,23,77,.06), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 50%,#9d174d 135%);
+    color:#eef3fe;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,65,12,.45),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffc6a3;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ff9d5c}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:41px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#dde6fb;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--wine-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(30,45,90,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--deep));
+    color:#eef3fe;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.wine .rail{background:linear-gradient(165deg,var(--wine),var(--wine-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--deep);text-transform:uppercase;font-weight:500}
+  .day.wine .loc{color:var(--wine-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#37404f}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--deep);
+    background:rgba(37,99,235,.09);border:1px solid rgba(37,99,235,.2);border-radius:999px;padding:4px 10px}
+  .day.wine .chip{color:var(--wine-d);background:rgba(157,23,77,.1);border-color:rgba(157,23,77,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#eef2fb);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(37,99,235,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1f2530;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2a3340;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:30px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Argentina · Noroeste (NOA) · roteiro dia a dia</div>
+    <h1>Salta &amp; Norte em 9 dias</h1>
+    <p class="sub">A colonial Salta, os Valles Calchaquíes de Cachi e os vinhedos de altitude de Cafayate, e a colorida Quebrada de Humahuaca — Purmamarca, Tilcara e Humahuaca — com as Salinas Grandes no alto da puna.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>9 dias</b></span>
+      <span class="fact">⛰️ Salinas a <b>4.170 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>abr–nov</b></span>
+      <span class="fact">🍷 <b>Torrontés de altitude</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Salta</span><i>→</i><span>Cachi</span><i>→</i><span>Cafayate</span><i>→</i><span>Purmamarca</span><i>→</i><span>Salinas Grandes</span><i>→</i><span>Tilcara</span><i>→</i><span>Humahuaca</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Altitude e amplitude térmica</h4>
+      <p>As <b>Salinas Grandes</b> e a Cuesta de Lipán passam de <b>4.000 m</b> — suba devagar e proteja-se do sol. A amplitude térmica é grande: dias quentes, noites frias (leve agasalho). Estradas de ripio nos Valles Calchaquíes; abasteça o carro e leve <b>pesos em espécie</b> para vilas pequenas.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Salta &amp; os Valles Calchaquíes</span><span class="lk">dias 1–5 · cidade, ripio &amp; vinho</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Salta<span class="move">chegada</span></div>
+      <h3>'Salta la linda'</h3>
+      <p>Chegada à colonial <b>Salta</b>. Tarde na <b>Plaza 9 de Julio</b>, na Catedral e no Cabildo, e subida de teleférico ao <b>Cerro San Bernardo</b> para a vista da cidade. À noite, uma <b>peña</b> folclórica com empanadas e violões.</p>
+      <div class="chips"><span class="chip">Plaza 9 de Julio</span><span class="chip">Cerro San Bernardo</span><span class="chip">peña</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> empanadas salteñas e locro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Salta</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Salta → Cachi<span class="move">≈ 3,5 h · 160 km</span></div>
+      <h3>A Cuesta del Obispo e a Recta de Tin Tin</h3>
+      <p>Subida pela cênica <b>Cuesta del Obispo</b> ao Parque Los Cardones, com seus cactos gigantes e a longa <b>Recta de Tin Tin</b>. Chegada ao branco povoado de <b>Cachi</b>, nos Valles Calchaquíes, ao pé do Nevado.</p>
+      <div class="chips"><span class="chip">Cuesta del Obispo</span><span class="chip">Los Cardones</span><span class="chip">Cachi</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> cactos do Parque Los Cardones</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cachi</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day wine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cachi → Cafayate<span class="move">≈ 4 h · 160 km · ripio</span></div>
+      <h3>A Ruta 40 dos vinhedos</h3>
+      <p>A mítica <b>Ruta 40</b> de ripio pelos Valles Calchaquíes até <b>Cafayate</b>, capital do <b>torrontés</b> — o vinho branco de altitude. Tarde de degustação nas bodegas e o sorvete de vinho, tradição local.</p>
+      <div class="chips"><span class="chip">Ruta 40</span><span class="chip">Cafayate</span><span class="chip">torrontés</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Não perca:</b> sorvete de torrontés/cabernet</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cafayate</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day wine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cafayate</div>
+      <h3>Bodegas e o vale</h3>
+      <p>Manhã de visita guiada a uma <b>bodega</b> familiar com almoço harmonizado entre as parreiras, e tarde nas vinícolas-boutique ou no museu da vinha. Cafayate é para desacelerar, taça na mão e os Andes ao fundo.</p>
+      <div class="chips"><span class="chip">bodegas</span><span class="chip">enoturismo</span><span class="chip">vinhedos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Reserve:</b> almoço numa bodega</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cafayate</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cafayate → Salta<span class="move">≈ 3 h · Quebrada de las Conchas</span></div>
+      <h3>A Quebrada de las Conchas</h3>
+      <p>Volta a Salta pela espetacular <b>Quebrada de las Conchas</b>, com formações vermelhas como a <b>Garganta del Diablo</b> e o Anfiteatro. Tarde livre em Salta para o <b>MAAM</b> (Museu de Arqueologia de Alta Montanha).</p>
+      <div class="chips"><span class="chip">Garganta del Diablo</span><span class="chip">Anfiteatro</span><span class="chip">MAAM</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> múmias incas do MAAM</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Salta</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">A Quebrada de Humahuaca &amp; a puna</span><span class="lk">dias 6–9 · cor &amp; altiplano</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Salta → Purmamarca<span class="move">≈ 3 h · 200 km</span></div>
+      <h3>O Cerro de los Siete Colores</h3>
+      <p>Travessia a Jujuy e à vila de <b>Purmamarca</b>, aos pés do deslumbrante <b>Cerro de los Siete Colores</b>. Caminhada pelo Paseo de los Colorados ao entardecer e a feira de artesanato andino na praça.</p>
+      <div class="chips"><span class="chip">Purmamarca</span><span class="chip">Siete Colores</span><span class="chip">feira andina</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> Siete Colores ao amanhecer</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Purmamarca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day wine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Salinas Grandes<span class="move">Cuesta de Lipán · 4.170 m</span></div>
+      <h3>O salar branco do altiplano</h3>
+      <p>Subida pela <b>Cuesta de Lipán</b> até o passo de 4.170 m e descida ao imenso e branco <b>Salinas Grandes</b>, um salar deslumbrante entre Salta e Jujuy. Fotos de perspectiva e os poços de salmoura. Volta a Purmamarca/Tilcara.</p>
+      <div class="chips"><span class="chip">Salinas Grandes</span><span class="chip">Cuesta de Lipán</span><span class="chip">puna</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> 4.170 m — vá devagar e proteja-se do sol</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tilcara</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Tilcara &amp; Humahuaca<span class="move">≈ 1 h entre vilas</span></div>
+      <h3>Pucará, Humahuaca e os 14 Colores</h3>
+      <p>O <b>Pucará de Tilcara</b> (fortaleza pré-inca) e a vila boêmia; depois <b>Humahuaca</b>, com seu casario andino, e o espetacular <b>Cerro de los 14 Colores</b> (Hornocal), a 4.350 m — o mirante mais impressionante da Quebrada.</p>
+      <div class="chips"><span class="chip">Pucará de Tilcara</span><span class="chip">Humahuaca</span><span class="chip">Hornocal</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> mirante do Hornocal à tarde</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tilcara</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Tilcara → Salta<span class="move">partida</span></div>
+      <h3>Despedida do norte</h3>
+      <p>Descida da Quebrada de volta a <b>Salta</b> para o voo. Última parada para comprar <b>têxteis andinos</b>, queijos de cabra e o vinho torrontés que sobrou na mala. <i>¡Hasta luego, Norte!</i></p>
+      <div class="chips"><span class="chip">têxteis</span><span class="chip">torrontés</span><span class="chip">voo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Dica:</b> Salta tem voos diretos a Buenos Aires</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o noroeste andino.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Altitude</h5><p>Salinas e Hornocal passam de 4.000 m. Aclimate em Salta (1.150 m) e suba aos poucos.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M5 17h-1v-4l2-5h9l4 5v4h-2M7 17h10"/></svg></div><div><h5>Carro</h5><p>Aluguel é ideal; há ripio nos Valles Calchaquíes. Abasteça sempre que puder.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca de <b>abr a nov</b>: céu limpo e estradas firmes. Evite o verão chuvoso.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Empanadas salteñas, locro, humita, llama e quinoa — regados a torrontés.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Pesos em espécie para vilas e feiras; cartões só nas cidades maiores.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div><h5>Roupa</h5><p>Camadas: dia quente, noite fria. Protetor, óculos e chapéu para o sol da puna.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Salta &amp; Norte em 9 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
