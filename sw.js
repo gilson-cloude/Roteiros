@@ -1,5 +1,5 @@
 /* Service worker — Expedição Carretera Austral (offline-first) */
-const CACHE = 'carretera-austral-v62';
+const CACHE = 'carretera-austral-v63';
 const ASSETS = [
   'app.html', 'index.html',
   'mapa.html', 'roteiro.html', 'dia-a-dia-cuba.html', 'dia-a-dia-peru.html', 'dia-a-dia-atacama.html', 'dia-a-dia-patagonia.html', 'dia-a-dia-santiago.html', 'dia-a-dia-bolivia.html', 'roteiros.html', 'novo-roteiro.html', 'custos.html', 'logistica.html',
