@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equador — Avenida dos Vulcões — Roteiro dia a dia (10 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#221c10; --slate:#5e553f; --faint:#968b6f;
+    --paper:#f8f3e8; --card:#ffffff; --line:#e7dcc3;
+    --terra:#b45309; --amber:#ca8a04; --vulc:#0e7490; --vulc-d:#155e75;
+    --gold:#a16207;
+    --shadow:0 14px 34px -20px rgba(70,50,15,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(202,138,4,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(14,116,144,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#b45309 0%,#a16207 50%,#0e7490 140%);
+    color:#fdf2dd;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(202,138,4,.5),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffe0a3;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffc94d}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#f7e6c8;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--vulc-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(70,50,15,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--amber),var(--gold));
+    color:#fdf2dd;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.vulc .rail{background:linear-gradient(165deg,var(--vulc),var(--vulc-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--gold);text-transform:uppercase;font-weight:500}
+  .day.vulc .loc{color:var(--vulc-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#3a3324}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--gold);
+    background:rgba(161,98,7,.09);border:1px solid rgba(161,98,7,.2);border-radius:999px;padding:4px 10px}
+  .day.vulc .chip{color:var(--vulc-d);background:rgba(14,116,144,.1);border-color:rgba(14,116,144,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f8f1e3);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(180,83,9,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1f2530;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2a3340;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Equador · Avenida dos Vulcões · roteiro dia a dia</div>
+    <h1>Equador em 10 dias</h1>
+    <p class="sub">A espinha andina do Equador: a colonial Quito e a Mitad del Mundo, o vulcão nevado Cotopaxi, o mercado indígena de Otavalo, a aventura de Baños, a cratera turquesa de Quilotoa e a elegante Cuenca, Patrimônio da Humanidade.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>10 dias</b></span>
+      <span class="fact">🌋 Cotopaxi <b>5.897 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>jun–set</b></span>
+      <span class="fact">🧭 Linha do Equador</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Quito</span><i>→</i><span>Otavalo</span><i>→</i><span>Cotopaxi</span><i>→</i><span>Baños</span><i>→</i><span>Quilotoa</span><i>→</i><span>Cuenca</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Altitude e clima de montanha</h4>
+      <p>Quito fica a <b>2.850 m</b>, Quilotoa a <b>3.900 m</b> e o Cotopaxi acima de <b>4.000 m</b> — <b>aclimate-se</b> em Quito antes das trilhas e suba com calma. Nos Andes chove o ano todo: leve <b>capa e camadas</b>. As manhãs costumam ser mais limpas para ver os vulcões; saia cedo.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Quito, Otavalo &amp; os vulcões</span><span class="lk">dias 1–5 · capital &amp; Avenida dos Vulcões</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Quito<span class="move">chegada</span></div>
+      <h3>O maior centro histórico das Américas</h3>
+      <p>Chegada a <b>Quito</b> e dia de aclimatação no <b>centro histórico</b> (UNESCO): a Plaza Grande, a igreja barroca de La Compañía e o mirante de <b>El Panecillo</b>. Fim de tarde com um <b>canelazo</b> quente na Ronda.</p>
+      <div class="chips"><span class="chip">Centro Histórico</span><span class="chip">La Compañía</span><span class="chip">El Panecillo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> igreja de La Compañía (ouro)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro histórico de Quito</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Quito · Mitad del Mundo<span class="move">≈ 1 h</span></div>
+      <h3>Os dois hemisférios e o teleférico</h3>
+      <p>De manhã, a <b>Mitad del Mundo</b> e o museu Intiñan, sobre a linha do <b>Equador</b> (um pé em cada hemisfério). À tarde, o <b>TelefériQo</b> sobe ao Pichincha (4.100 m) para uma vista aérea da cidade entre montanhas.</p>
+      <div class="chips"><span class="chip">Mitad del Mundo</span><span class="chip">linha do Equador</span><span class="chip">TelefériQo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Curiosidade:</b> experimentos da linha do Equador</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Quito</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Otavalo<span class="move">≈ 2 h · 110 km</span></div>
+      <h3>O mercado indígena dos Andes</h3>
+      <p>Bate-volta ao norte, ao maior <b>mercado indígena</b> dos Andes, em <b>Otavalo</b> — têxteis, redes e artesanato na Plaza de los Ponchos. Nos arredores, a cachoeira de Peguche e a laguna de Cuicocha. Volta a Quito.</p>
+      <div class="chips"><span class="chip">Otavalo</span><span class="chip">Plaza de los Ponchos</span><span class="chip">Cuicocha</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Dica:</b> sábado é o maior dia de feira</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Quito (ou hacienda em Otavalo)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day vulc">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Parque Nacional Cotopaxi<span class="move">≈ 2 h · 70 km</span></div>
+      <h3>O vulcão nevado perfeito</h3>
+      <p>Dia no <b>Parque Nacional Cotopaxi</b>, com seu cone nevado quase simétrico a 5.897 m. Caminhada pela <b>Laguna Limpiopungo</b> e subida (de carro + trilha curta) ao refúgio José Rivas, a 4.800 m, para a vista do glaciar.</p>
+      <div class="chips"><span class="chip">Cotopaxi</span><span class="chip">Limpiopungo</span><span class="chip">refúgio 4.800 m</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> refúgio a 4.800 m — suba devagar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> hacienda perto do Cotopaxi</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day vulc">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Baños<span class="move">≈ 2 h · 130 km</span></div>
+      <h3>A capital da aventura</h3>
+      <p><b>Baños de Agua Santa</b>, ao pé do vulcão Tungurahua: a <b>Casa del Árbol</b> com o famoso balanço sobre o abismo, a Rota das Cascatas (Pailón del Diablo) e as <b>termas</b> da cidade. Adrenalina e relaxamento no mesmo dia.</p>
+      <div class="chips"><span class="chip">Casa del Árbol</span><span class="chip">Pailón del Diablo</span><span class="chip">termas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> balanço da Casa del Árbol</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Baños</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Quilotoa &amp; a colonial Cuenca</span><span class="lk">dias 6–10 · cratera &amp; sul andino</span><span class="lr"></span></div>
+
+  <article class="day vulc">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Laguna Quilotoa<span class="move">≈ 3 h · 170 km</span></div>
+      <h3>A cratera turquesa</h3>
+      <p>Subida à borda da <b>Laguna Quilotoa</b> (3.900 m), uma cratera vulcânica preenchida por uma laguna de água turquesa. Descida íngreme até a margem (e a subida de fôlego de volta, ou de mula) e o mirante do Shalalá.</p>
+      <div class="chips"><span class="chip">Quilotoa</span><span class="chip">cratera</span><span class="chip">mirante Shalalá</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> a subida de volta é puxada (3.900 m)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> borda de Quilotoa ou Latacunga</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Quilotoa → Cuenca<span class="move">≈ 5 h · 250 km</span></div>
+      <h3>Descida ao sul andino</h3>
+      <p>Longa e bela travessia pela serra até <b>Cuenca</b>, cruzando paisagens de páramo. Chegada à elegante cidade colonial à beira do <b>rio Tomebamba</b>; primeira caminhada pelo centro histórico ao entardecer.</p>
+      <div class="chips"><span class="chip">páramo</span><span class="chip">Cuenca</span><span class="chip">rio Tomebamba</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> dia de estrada cênica; saia cedo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Cuenca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cuenca</div>
+      <h3>Catedrais, panamás e o Tomebamba</h3>
+      <p>Dia na <b>Cuenca</b> (UNESCO): a Catedral Nova de cúpulas azuis, o mercado de flores, as margens floridas do Tomebamba e a fábrica de <b>chapéus-panamá</b> (que, na verdade, são equatorianos). Cafés e ateliês pela cidade.</p>
+      <div class="chips"><span class="chip">Catedral Nova</span><span class="chip">chapéu-panamá</span><span class="chip">El Barranco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Museo del Sombrero (panamá)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> hornado e mote pillo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day vulc">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Parque Nacional Cajas<span class="move">≈ 45 min</span></div>
+      <h3>O páramo das lagunas</h3>
+      <p>Bate-volta ao <b>Parque Nacional Cajas</b>, um páramo de altitude com centenas de <b>lagunas</b> glaciais, bosques de polylepis e trilhas entre 3.100 e 4.400 m. Paisagem lunar e silenciosa a um passo de Cuenca. Volta para a última noite.</p>
+      <div class="chips"><span class="chip">Cajas</span><span class="chip">lagunas glaciais</span><span class="chip">páramo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Leve:</b> capa de chuva (clima muda rápido)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cuenca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cuenca → partida<span class="move">voo a Quito/Guayaquil</span></div>
+      <h3>Despedida dos Andes</h3>
+      <p>Manhã livre para os últimos cafés e compras de artesanato, e voo de <b>Cuenca</b> (a Quito ou Guayaquil) para a conexão. <i>¡Hasta pronto, Ecuador!</i> — e fica a deixa para uma futura ida a Galápagos.</p>
+      <div class="chips"><span class="chip">artesanato</span><span class="chip">voo</span><span class="chip">Galápagos (futuro)</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Dica:</b> Cuenca tem voos diretos a Quito e Guayaquil</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Avenida dos Vulcões.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Altitude</h5><p>Aclimate-se em Quito (2.850 m) antes de Cotopaxi e Quilotoa. Suba devagar e hidrate-se.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div><h5>Clima</h5><p>Chove o ano todo nos Andes; manhãs mais limpas para os vulcões. Leve capa e camadas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>A moeda é o <b>dólar americano</b>. Leve notas pequenas; cartões nas cidades.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M5 17h-1v-4l2-5h9l4 5v4h-2M7 17h10"/></svg></div><div><h5>Transporte</h5><p>Distâncias curtas; aluguel de carro ou tours com motorista facilitam a serra.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Locro de papa, hornado, mote pillo, fritada e o ceviche serrano. Canelazo para o frio.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg></div><div><h5>Estenda</h5><p>De Guayaquil partem voos a <b>Galápagos</b> — uma extensão dos sonhos para o roteiro.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Equador em 10 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
