@@ -245,7 +245,7 @@
     document.getElementById('tipH').textContent = current.seasonTip.h;
     document.getElementById('tipP').innerHTML = current.seasonTip.p;
     // guia "dia a dia" (para roteiros que têm um documento dedicado)
-    var DIAADIA = { 'cu-havana-trinidad':'dia-a-dia-cuba.html', 'pe-cusco-machupicchu':'dia-a-dia-peru.html', 'cl-atacama':'dia-a-dia-atacama.html', 'patagonia-completa':'dia-a-dia-patagonia.html', 'cl-santiago-cordilheira':'dia-a-dia-santiago.html', 'bo-altiplano-uyuni':'dia-a-dia-bolivia.html', 'co-cafe-caribe':'dia-a-dia-colombia.html', 'ar-norte-salta':'dia-a-dia-argentina-salta.html', 'uy-costeiro':'dia-a-dia-uruguai.html', 'uy-colonia-vinhos':'dia-a-dia-uruguai.html', 'ec-andes-vulcoes':'dia-a-dia-equador.html', 've-gran-sabana':'dia-a-dia-venezuela.html', 've-andes-llanos':'dia-a-dia-venezuela.html' };
+    var DIAADIA = { 'cu-havana-trinidad':'dia-a-dia-cuba.html', 'pe-cusco-machupicchu':'dia-a-dia-peru.html', 'cl-atacama':'dia-a-dia-atacama.html', 'patagonia-completa':'dia-a-dia-patagonia.html', 'cl-santiago-cordilheira':'dia-a-dia-santiago.html', 'bo-altiplano-uyuni':'dia-a-dia-bolivia.html', 'co-cafe-caribe':'dia-a-dia-colombia.html', 'ar-norte-salta':'dia-a-dia-argentina-salta.html', 'uy-costeiro':'dia-a-dia-uruguai.html', 'uy-colonia-vinhos':'dia-a-dia-uruguai.html', 'ec-andes-vulcoes':'dia-a-dia-equador.html', 've-gran-sabana':'dia-a-dia-venezuela.html', 've-andes-llanos':'dia-a-dia-venezuela.html', 'py-missoes-asuncion':'dia-a-dia-paraguai.html', 'py-chaco-menonitas':'dia-a-dia-paraguai.html' };
     var dd = document.getElementById('diaadiaBtn');
     if(dd){ if(DIAADIA[current.id]){ dd.href = DIAADIA[current.id]; dd.style.display=''; } else { dd.style.display='none'; } }
   }
