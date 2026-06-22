@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cidades Históricas de Minas — Roteiro dia a dia (9 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b1f12; --slate:#6c5a44; --faint:#a08a6c;
+    --paper:#faf3e6; --card:#fffdf8; --line:#e9d9bd;
+    --terra:#a86010; --amber:#b8860b; --green:#4d6b2f; --green-d:#3a5223;
+    --gold:#8a5a0c;
+    --shadow:0 14px 34px -20px rgba(80,55,20,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(184,134,11,.08), transparent 38%),radial-gradient(circle at 88% 0%, rgba(77,107,47,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#a86010 0%,#8a5a0c 52%,#4d6b2f 145%);
+    color:#fdf4e3;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,134,11,.45),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#ffe0a8;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#ffca5e}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#f6e6cb;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--green-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(80,55,20,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--gold));
+    color:#fdf4e3;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.green .rail{background:linear-gradient(165deg,var(--green),var(--green-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--gold);text-transform:uppercase;font-weight:500}
+  .day.green .loc{color:var(--green-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#3e3122}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--gold);
+    background:rgba(184,134,11,.1);border:1px solid rgba(184,134,11,.24);border-radius:999px;padding:4px 10px}
+  .day.green .chip{color:var(--green-d);background:rgba(77,107,47,.1);border-color:rgba(77,107,47,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#faf2e2);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(168,96,16,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#2a2017;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#3a2c1e;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Minas Gerais · Estrada Real · roteiro dia a dia</div>
+    <h1>Cidades Históricas de Minas em 9 dias</h1>
+    <p class="sub">O coração do barroco mineiro pela Estrada Real: o ouro colonial de Ouro Preto e Mariana, os Profetas de Aleijadinho em Congonhas, a charmosa Tiradentes e São João del-Rei, e o Caminho dos Diamantes até Diamantina, o Serro e Milho Verde.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>9 dias</b></span>
+      <span class="fact">⛪ <b>Barroco &amp; Aleijadinho</b></span>
+      <span class="fact">☀️ Melhor época: <b>abr–set</b></span>
+      <span class="fact">🧀 Queijo &amp; cachaça</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Belo Horizonte</span><i>→</i><span>Ouro Preto</span><i>→</i><span>Mariana</span><i>→</i><span>Congonhas</span><i>→</i><span>Tiradentes</span><i>→</i><span>São João del-Rei</span><i>→</i><span>Diamantina</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg>
+    <div>
+      <h4>Ladeiras, pedra e museus</h4>
+      <p>Prefira a <b>estação seca (abr–set)</b>: as ladeiras de pedra e as estradas de terra para os distritos ficam mais seguras. As cidades se exploram <b>a pé</b> — deixe o carro no estacionamento e use <b>calçado firme</b>. Muitas igrejas-museu fecham na hora do almoço e às segundas; comece cedo.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Ouro &amp; Barroco</span><span class="lk">dias 1–4 · Ouro Preto, Mariana &amp; Congonhas</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>BH → Sabará → Ouro Preto<span class="move">≈ 2,5 h · 130 km</span></div>
+      <h3>Do ouro de Sabará às ladeiras de Ouro Preto</h3>
+      <p>Saída de <b>Belo Horizonte</b> com parada em <b>Sabará</b> (a Igreja de Nossa Senhora do Ó, joia barroca às portas de BH). Chegada a <b>Ouro Preto</b> e primeiro passeio pela Praça Tiradentes ao entardecer.</p>
+      <div class="chips"><span class="chip">Sabará</span><span class="chip">Igreja do Ó</span><span class="chip">Praça Tiradentes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Igreja de N. S. do Ó (Sabará)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro histórico de Ouro Preto</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Ouro Preto</div>
+      <h3>Aleijadinho, Ataíde e as minas de ouro</h3>
+      <p>Dia inteiro a pé: a <b>Igreja de São Francisco de Assis</b> (obra-prima de Aleijadinho e Mestre Ataíde), a <b>Matriz do Pilar</b> dourada, o Museu da Inconfidência na Praça Tiradentes e a <b>Mina do Chico Rei</b>. Fim de tarde na ladeira para o pôr do sol.</p>
+      <div class="chips"><span class="chip">São Francisco de Assis</span><span class="chip">Matriz do Pilar</span><span class="chip">Mina do Chico Rei</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> São Francisco de Assis</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> O Passo ou Forno de Barro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Mariana<span class="move">≈ 30 min</span></div>
+      <h3>A primeira capital e o órgão alemão</h3>
+      <p>Bate-volta a <b>Mariana</b>: a <b>Catedral da Sé</b> e seu raro <b>órgão alemão Arp Schnitger</b> (com concertos), a Praça Minas Gerais e as igrejas gêmeas. Opção do <b>trem turístico</b> Ouro Preto–Mariana pela serra. Volta a Ouro Preto.</p>
+      <div class="chips"><span class="chip">Catedral da Sé</span><span class="chip">órgão Arp Schnitger</span><span class="chip">trem turístico</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Não perca:</b> concerto de órgão na Sé</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Ouro Preto</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Ouro Preto → Congonhas → Tiradentes<span class="move">≈ 3 h · 190 km</span></div>
+      <h3>Os Doze Profetas de Aleijadinho</h3>
+      <p>A caminho do sul, o <b>Santuário do Bom Jesus de Matosinhos</b> em <b>Congonhas</b>, com os monumentais <b>Doze Profetas</b> em pedra-sabão de Aleijadinho (Patrimônio da Humanidade). Chegada a <b>Tiradentes</b> ao fim do dia.</p>
+      <div class="chips"><span class="chip">Congonhas</span><span class="chip">Doze Profetas</span><span class="chip">UNESCO</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os Profetas no adro do santuário</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tiradentes</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Campo das Vertentes</span><span class="lk">dias 5–6 · Tiradentes &amp; São João del-Rei</span><span class="lr"></span></div>
+
+  <article class="day green">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Tiradentes</div>
+      <h3>Ateliês, gastronomia e a Serra de São José</h3>
+      <p>Dia em <b>Tiradentes</b>: a <b>Matriz de Santo Antônio</b> (uma das mais ricas em ouro do país), o Largo das Forras, os ateliês e antiquários. Trilha leve na <b>Serra de São José</b> ou o chafariz colonial. Cidade de alta gastronomia.</p>
+      <div class="chips"><span class="chip">Matriz de Santo Antônio</span><span class="chip">ateliês</span><span class="chip">Serra de São José</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> alta gastronomia mineira</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tiradentes</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day green">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São João del-Rei<span class="move">Maria-Fumaça</span></div>
+      <h3>A Maria-Fumaça e o carrilhão</h3>
+      <p>O histórico <b>passeio de Maria-Fumaça</b> de Tiradentes a <b>São João del-Rei</b> (em dias específicos). Na cidade, a <b>Igreja de São Francisco de Assis</b> (com projeto atribuído a Aleijadinho), o carrilhão e o Museu Ferroviário. Volta a Tiradentes ou pernoite local.</p>
+      <div class="chips"><span class="chip">Maria-Fumaça</span><span class="chip">São Francisco</span><span class="chip">carrilhão</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Reserve:</b> a Maria-Fumaça só roda em dias certos</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tiradentes ou São João del-Rei</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 3 -->
+  <div class="leg"><span class="lt">Caminho dos Diamantes</span><span class="lk">dias 7–9 · Diamantina, Serro &amp; Milho Verde</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São João del-Rei → Diamantina<span class="move">≈ 6 h · 470 km</span></div>
+      <h3>Subida ao Vale do Jequitinhonha</h3>
+      <p>Longo dia de estrada rumo ao norte, cruzando BH, até a <b>Diamantina</b> de casarões coloniais (Patrimônio da Humanidade). Chegada e primeira caminhada pelo casario, a <b>Casa de Chica da Silva</b> e os mercados.</p>
+      <div class="chips"><span class="chip">Diamantina</span><span class="chip">UNESCO</span><span class="chip">Chica da Silva</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> dia de translado longo — saia cedo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Diamantina</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Diamantina</div>
+      <h3>Casa de JK, Vesperata e Biribiri</h3>
+      <p>Dia em <b>Diamantina</b>: a <b>Casa de Juscelino Kubitschek</b>, a Igreja do Carmo, o Mercado Velho e o Caminho dos Escravos. Se for quarta ou sábado, não perca a <b>Vesperata</b> — músicos tocam das sacadas. Tarde nas cachoeiras do <b>Parque do Biribiri</b>.</p>
+      <div class="chips"><span class="chip">Casa de JK</span><span class="chip">Vesperata</span><span class="chip">Biribiri</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 13l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span><b>Não perca:</b> Vesperata (qua e sáb)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> comida mineira de raiz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Serro &amp; Milho Verde<span class="move">≈ 1,5 h · terra</span></div>
+      <h3>O queijo do Serro e os distritos de pedra</h3>
+      <p>Despedida pelos distritos: o <b>Serro</b>, terra do célebre <b>queijo</b> (IG), e as vilas bucólicas de <b>Milho Verde</b> e São Gonçalo do Rio das Pedras, de ruas de pedra e cachoeiras. Retorno a BH ou pernoite final na serra.</p>
+      <div class="chips"><span class="chip">Serro</span><span class="chip">queijo IG</span><span class="chip">Milho Verde</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> estrada de terra — vá de dia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> queijo Serro na fazenda</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o circuito do barroco mineiro.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (abr–set) para ladeiras e estradas de terra. Semana Santa é o ápice cultural (mas lota).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></div><div><h5>Igrejas-museu</h5><p>Muitas fecham ao meio-dia e às segundas, e cobram ingresso. Comece cedo e leve dinheiro.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 18V5l12-2v13"/></svg></div><div><h5>Maria-Fumaça</h5><p>Tiradentes↔São João del-Rei só roda em dias específicos. Confira o calendário e reserve.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>A pé</h5><p>As cidades são de ladeira e pedra: estacione e caminhe, com calçado firme e confortável.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Comida mineira no forno de barro, queijo do Serro, doces e cachaça de alambique.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M5 17h-1v-4l2-5h9l4 5v4h-2M7 17h10"/></svg></div><div><h5>Estradas</h5><p>O trecho Diamantina–Milho Verde é de terra; vá de dia e cheque a previsão na seca.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Cidades Históricas de Minas em 9 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
