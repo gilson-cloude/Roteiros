@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venezuela — Gran Sabana & Roraima — Roteiro dia a dia (11 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16241c; --slate:#4d6155; --faint:#7f9486;
+    --paper:#eef5ef; --card:#ffffff; --line:#d4e3d7;
+    --terra:#0f766e; --amber:#b45309; --tepui:#92400e; --tepui-d:#7c2d12;
+    --jungle:#15803d; --jungle-d:#166534;
+    --shadow:0 14px 34px -20px rgba(20,50,35,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(21,128,61,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(146,64,14,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#15803d 0%,#166534 50%,#92400e 140%);
+    color:#ecf7ee;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(146,64,14,.45),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#bff0cb;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#5ece8a}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.04;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#dcefe0;max-width:570px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--jungle-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(20,50,35,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--tepui)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--jungle),var(--jungle-d));
+    color:#ecf7ee;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.tepui .rail{background:linear-gradient(165deg,var(--tepui),var(--tepui-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--jungle-d);text-transform:uppercase;font-weight:500}
+  .day.tepui .loc{color:var(--tepui)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#35443b}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--jungle-d);
+    background:rgba(21,128,61,.09);border:1px solid rgba(21,128,61,.2);border-radius:999px;padding:4px 10px}
+  .day.tepui .chip{color:var(--tepui);background:rgba(146,64,14,.1);border-color:rgba(146,64,14,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#eef5ef);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--tepui);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(21,128,61,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--jungle);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--tepui)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1f2530;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2a3340;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:28px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Venezuela · Gran Sabana &amp; Roraima · roteiro dia a dia</div>
+    <h1>Venezuela: Gran Sabana &amp; Roraima em 11 dias</h1>
+    <p class="sub">A savana de tepuis do sudeste venezuelano: entrando por Santa Elena de Uairén, as quedas da Gran Sabana e a mítica travessia de 6 dias ao Monte Roraima — o platô de paisagem pré-histórica que inspirou "O Mundo Perdido".</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>11 dias</b></span>
+      <span class="fact">⛰️ Roraima a <b>2.810 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>dez–abr</b></span>
+      <span class="fact">🧭 <b>Guia pemón</b></span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Santa Elena de Uairén</span><i>→</i><span>Gran Sabana</span><i>→</i><span>Paraitepui</span><i>→</i><span>Monte Roraima</span><i>→</i><span>Gran Sabana</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Região remota — planeje bem</h4>
+      <p>Vá na <b>seca (dez–abr)</b>: os rios da travessia ao Roraima ficam vadeáveis e as pistas firmes. A travessia é obrigatoriamente com <b>guia pemón credenciado</b> e porteadores. <b>Confirme as condições de entrada e segurança do país antes</b>; leve combustível, provisões e <b>dinheiro em espécie</b> — serviços são escassos.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">A Gran Sabana</span><span class="lk">dias 1–3 · savana &amp; quedas d'água</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santa Elena de Uairén<span class="move">fronteira · chegada</span></div>
+      <h3>Entrada pela fronteira</h3>
+      <p>Travessia por <b>Santa Elena de Uairén</b>, vinda de Pacaraima (RR). Dia para resolver papelada, câmbio em espécie, e organizar a logística da viagem com a operadora local. Primeiro contato com a cultura <b>pemón</b> e o ritmo da fronteira.</p>
+      <div class="chips"><span class="chip">Santa Elena</span><span class="chip">fronteira</span><span class="chip">logística</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Atenção:</b> leve dinheiro em espécie e combustível</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> pousada em Santa Elena</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Gran Sabana<span class="move">Troncal 10</span></div>
+      <h3>Quebrada de Jaspe e as cachoeiras</h3>
+      <p>Dia pela <b>Troncal 10</b> na <b>Gran Sabana</b>: a <b>Quebrada de Jaspe</b>, um riacho que corre sobre uma rocha inteira de jaspe vermelho, e as quedas de <b>Kamá Merú</b> e <b>Salto Aponwao</b>, em meio à savana de tepuis no horizonte.</p>
+      <div class="chips"><span class="chip">Quebrada de Jaspe</span><span class="chip">Kamá Merú</span><span class="chip">Aponwao</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a rocha de jaspe vermelho</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santa Elena ou camping na savana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Gran Sabana → Paraitepui<span class="move">briefing</span></div>
+      <h3>Poços, miradouros e o briefing do Roraima</h3>
+      <p>Manhã nos <b>poços de banho</b> (Pozo Esmeralda, Soroape) e nos miradouros dos tepuis. À tarde, deslocamento à vila pemón de <b>Paraitepui</b>, ponto de partida da travessia, e o <b>briefing</b> com guia e porteadores. Última noite com cama de verdade.</p>
+      <div class="chips"><span class="chip">Pozo Esmeralda</span><span class="chip">Paraitepui</span><span class="chip">briefing</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Prepare:</b> mochila de trilha e equipamento</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Paraitepui (vila pemón)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">A travessia do Monte Roraima</span><span class="lk">dias 4–9 · trekking de 6 dias</span><span class="lr"></span></div>
+
+  <article class="day tepui">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20l5-9 4 5 2-3 3 7"/></svg>Paraitepui → Rio Ték<span class="move">trekking · dia 1</span></div>
+      <h3>Primeiros passos pela savana</h3>
+      <p>Início da travessia cruzando a savana ondulada, com o <b>Roraima</b> e o vizinho <b>Kukenán</b> crescendo no horizonte. Travessia dos rios <b>Ték</b> e <b>Kukenán</b> e primeiro acampamento à beira d'água. Caminhada de aproximação, relativamente plana.</p>
+      <div class="chips"><span class="chip">savana</span><span class="chip">Rio Ték</span><span class="chip">acampamento</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Vista:</b> os tepuis Roraima e Kukenán ao fundo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-6l5-4 5 4v6"/></svg></span><span><b>Dormir:</b> acampamento Rio Ték/Kukenán</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day tepui">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20l5-9 4 5 2-3 3 7"/></svg>Acampamento Base<span class="move">trekking · dia 2</span></div>
+      <h3>Ao pé do paredão</h3>
+      <p>Caminhada até o <b>Campamento Base</b>, no sopé da imponente parede de rocha do Roraima. A vegetação muda para a mata; à tarde, descanso contemplando a <b>cortina d'água</b> que desce do platô a 1.000 m de altura.</p>
+      <div class="chips"><span class="chip">Campamento Base</span><span class="chip">paredão</span><span class="chip">mata</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> umidade crescente; proteja o equipamento</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-6l5-4 5 4v6"/></svg></span><span><b>Dormir:</b> Campamento Base</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day tepui">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20l5-9 4 5 2-3 3 7"/></svg>Subida ao platô<span class="move">trekking · dia 3</span></div>
+      <h3>A rampa até o topo</h3>
+      <p>O dia mais desafiador: a subida pela <b>"rampa"</b>, a única via natural ao topo, por trilha íngreme, úmida e cheia de cachoeiras, atravessando a cortina d'água. Chegada ao <b>platô do Roraima</b> (2.810 m) e instalação num dos "hotéis" — abrigos sob a rocha.</p>
+      <div class="chips"><span class="chip">a rampa</span><span class="chip">platô</span><span class="chip">2.810 m</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Atenção:</b> subida exigente; capa de chuva sempre à mão</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-6l5-4 5 4v6"/></svg></span><span><b>Dormir:</b> "hotel" sob a rocha no platô</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day tepui">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20l5-9 4 5 2-3 3 7"/></svg>Platô do Roraima<span class="move">trekking · dia 4</span></div>
+      <h3>O mundo perdido lá em cima</h3>
+      <p>Dia explorando o <b>platô</b>: paisagens de rocha negra esculpida, <b>jardins de cristais de quartzo</b>, lagoas, os miradouros <b>La Ventana</b> e <b>El Foso</b>, e o <b>Triple Ponto</b> — a tríplice fronteira Venezuela–Brasil–Guiana. Fauna endêmica como o sapinho-negro do Roraima.</p>
+      <div class="chips"><span class="chip">jardins de cristais</span><span class="chip">La Ventana</span><span class="chip">Triple Ponto</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os cristais e o Triple Ponto</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-6l5-4 5 4v6"/></svg></span><span><b>Dormir:</b> acampamento no platô</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day tepui">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20l5-9 4 5 2-3 3 7"/></svg>Descida à savana<span class="move">trekking · dia 5</span></div>
+      <h3>De volta ao pé do gigante</h3>
+      <p>Despedida do platô e <b>descida pela rampa</b> de volta à savana, refazendo a cortina d'água. Caminhada até o acampamento próximo ao Rio Kukenán. As pernas pesam, mas a vista do tepui ficando para trás é inesquecível.</p>
+      <div class="chips"><span class="chip">descida</span><span class="chip">savana</span><span class="chip">Kukenán</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> rampa escorregadia na descida</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-6l5-4 5 4v6"/></svg></span><span><b>Dormir:</b> acampamento na savana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day tepui">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20l5-9 4 5 2-3 3 7"/></svg>Rio Ték → Paraitepui<span class="move">trekking · dia 6</span></div>
+      <h3>Fim da travessia</h3>
+      <p>Último trecho de caminhada pela savana de volta a <b>Paraitepui</b>, encerrando a travessia de 6 dias. Transfer a <b>Santa Elena</b>, primeira ducha quente e a celebração de ter conquistado o Roraima.</p>
+      <div class="chips"><span class="chip">Paraitepui</span><span class="chip">Santa Elena</span><span class="chip">celebração</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Conquista:</b> travessia completa do Roraima</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santa Elena de Uairén</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 3 -->
+  <div class="leg"><span class="lt">Descanso &amp; despedida</span><span class="lk">dias 10–11 · savana &amp; retorno</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santa Elena &amp; arredores<span class="move">descanso</span></div>
+      <h3>Recuperação e cultura pemón</h3>
+      <p>Dia de descanso após a travessia: o mercado de <b>Santa Elena</b>, artesanato pemón, e um passeio leve a uma queda d'água próxima (Salto Chinak ou as minas de Las Claritas, conforme o guia). Boa comida e relaxamento.</p>
+      <div class="chips"><span class="chip">artesanato pemón</span><span class="chip">descanso</span><span class="chip">cachoeira</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cozinha pemón e venezuelana (arepas)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santa Elena</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santa Elena → partida<span class="move">fronteira / Canaima</span></div>
+      <h3>Despedida da Gran Sabana</h3>
+      <p>Retorno pela fronteira de <b>Pacaraima</b> rumo ao Brasil. <b>Extensão de aventura:</b> quem tiver mais dias pode voar a <b>Canaima</b> para ver o <b>Salto Ángel</b> — a maior queda d'água do mundo (979 m). <i>¡Hasta pronto, Gran Sabana!</i></p>
+      <div class="chips"><span class="chip">Pacaraima</span><span class="chip">Canaima (opcional)</span><span class="chip">Salto Ángel</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Extensão:</b> fly-in a Canaima &amp; Salto Ángel</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Gran Sabana e o Roraima.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-6l5-4 5 4v6"/></svg></div><div><h5>Guia obrigatório</h5><p>A travessia ao Roraima só pode ser feita com <b>guia pemón credenciado</b> e porteadores, via operadora local.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca de <b>dez a abr</b>: rios vadeáveis e trilhas firmes. Mesmo então, chove no platô — leve capa.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Preparo físico</h5><p>6 dias de trekking com subida íngreme e umidade. Boas botas, capa de chuva e saco impermeável.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro &amp; logística</h5><p>Leve <b>dinheiro em espécie</b>, combustível e provisões. Cartões e caixas raramente funcionam.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Segurança</h5><p>Confirme as condições do país e da fronteira <b>antes de viajar</b>; vá com operadora de confiança.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Extensão Canaima</h5><p>Salto Ángel só por <b>fly-in</b> a Canaima; melhor na cheia (jun–nov), com pacote separado.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Venezuela: Gran Sabana &amp; Roraima em 11 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
