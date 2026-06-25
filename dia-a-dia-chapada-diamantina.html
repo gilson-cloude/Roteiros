@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapada Diamantina — Roteiro dia a dia (10 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#172019; --slate:#4f5a52; --faint:#869388;
+    --paper:#eef5ee; --card:#ffffff; --line:#d4e3d6;
+    --terra:#c2410c; --amber:#b45309; --jade:#0f766e; --jade-d:#115e54;
+    --moss:#3f6212;
+    --shadow:0 14px 34px -20px rgba(20,50,35,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(15,118,110,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(194,65,12,.06), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0f766e 0%,#115e54 52%,#c2410c 150%);
+    color:#e9f6f2;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,65,12,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a7e3d6;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#5ed7bf}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:41px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d4efe7;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--jade-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(20,50,35,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--jade),var(--jade-d));
+    color:#e9f6f2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.moss .rail{background:linear-gradient(165deg,var(--moss),#2f4a0d)}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--jade-d);text-transform:uppercase;font-weight:500}
+  .day.moss .loc{color:var(--moss)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#2c352e}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--jade-d);
+    background:rgba(15,118,110,.1);border:1px solid rgba(15,118,110,.22);border-radius:999px;padding:4px 10px}
+  .day.moss .chip{color:var(--moss);background:rgba(63,98,18,.1);border-color:rgba(63,98,18,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#edf5ee);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(15,118,110,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--jade);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1a241c;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#26342a;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Bahia · Chapada Diamantina · roteiro dia a dia</div>
+    <h1>Chapada Diamantina em 10 dias</h1>
+    <p class="sub">O coração de trekking da Bahia: a vila garimpeira de Lençóis, a Cachoeira da Fumaça de 340 m, a mítica travessia do Vale do Pati, as grutas e os poços de água azul translúcida de Mucugê e Andaraí, com a histórica Igatu de pedra.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>10 dias</b></span>
+      <span class="fact">🥾 <b>Trekking &amp; cachoeiras</b></span>
+      <span class="fact">☀️ Melhor época: <b>abr–out</b></span>
+      <span class="fact">💧 Poços azuis</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Lençóis</span><i>→</i><span>Vale do Capão</span><i>→</i><span>Cachoeira da Fumaça</span><i>→</i><span>Vale do Pati</span><i>→</i><span>Andaraí &amp; Igatu</span><i>→</i><span>Mucugê</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg>
+    <div>
+      <h4>Guias, seca e cabeça-d'água</h4>
+      <p>A <b>seca (abr–out)</b> é ideal: rios baixos e seguros, e os poços brilham mais entre abr e set (sol a pino ao meio-dia). As trilhas longas (Fumaça, Pati) só com <b>guia local credenciado</b> — contrate em Lençóis ou no Capão. Nunca entre na água sob chuva: risco de <b>cabeça-d'água</b>. Leve calçado de trilha, repelente e dinheiro em espécie.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Lençóis &amp; os Vales</span><span class="lk">dias 1–5 · cachoeiras &amp; a Fumaça</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lençóis<span class="move">chegada</span></div>
+      <h3>Chegada à vila garimpeira</h3>
+      <p>Chegada a <b>Lençóis</b> (voo de Salvador ou estrada), a charmosa base da Chapada. Tarde pelo centro histórico de casario colorido, o Mercado e a Rua das Pedras, fechando os guias e passeios dos próximos dias.</p>
+      <div class="chips"><span class="chip">Lençóis</span><span class="chip">centro histórico</span><span class="chip">planejamento</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> comida baiana na Rua das Pedras</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> pousada em Lençóis</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Arredores de Lençóis</div>
+      <h3>Poços, tobogã e o Serrano</h3>
+      <p>Dia leve perto da vila: o <b>circuito do Serrano</b> (Salão de Areias Coloridas, Cachoeirinha), o <b>Poço do Diabo</b> e o tobogã natural do <b>Ribeirão do Meio</b>. Banho nas piscinas naturais e aclimatação às trilhas.</p>
+      <div class="chips"><span class="chip">Serrano</span><span class="chip">Ribeirão do Meio</span><span class="chip">Poço do Diabo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Leve:</b> traje de banho e calçado aquático</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lençóis</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Volta ao mundo<span class="move">bate-volta de jipe</span></div>
+      <h3>O "Volta ao Mundo": Mosquito, Pratinha e Pai Inácio</h3>
+      <p>Passeio clássico de jipe pelos arredores: a dourada <b>Cachoeira do Mosquito</b>, a flutuação no rio cristalino da <b>Pratinha</b> e da Gruta Azul, e o <b>pôr do sol do Morro do Pai Inácio</b>, o cartão-postal da Chapada.</p>
+      <div class="chips"><span class="chip">Mosquito</span><span class="chip">Pratinha</span><span class="chip">Pai Inácio</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol no Pai Inácio</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lençóis</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lençóis → Vale do Capão<span class="move">≈ 1,5 h</span></div>
+      <h3>O Vale do Capão e a Cachoeira da Fumaça</h3>
+      <p>Transfer ao <b>Vale do Capão</b>, vila alternativa de trilheiros. A grande <b>trilha à Cachoeira da Fumaça</b> — 340 m de queda livre, vista do alto, num mirante de tirar o fôlego (~6h ida e volta). Noite no clima zen do Capão.</p>
+      <div class="chips"><span class="chip">Vale do Capão</span><span class="chip">Cachoeira da Fumaça</span><span class="chip">340 m</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Trilha:</b> ~6h com guia; saia cedo, leve água</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Vale do Capão</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Vale do Capão<span class="move">descanso / feira</span></div>
+      <h3>Cachoeiras do Capão e descanso</h3>
+      <p>Dia mais leve no <b>Capão</b>: as cachoeiras próximas (Angélica, Purificação, Riachinho), a <b>feira de orgânicos</b> (qui e dom) e a gastronomia vegetariana da vila. Preparação para a travessia do Pati no dia seguinte.</p>
+      <div class="chips"><span class="chip">cachoeiras</span><span class="chip">feira orgânica</span><span class="chip">descanso</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cozinha vegetariana do Capão</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Vale do Capão</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Vale do Pati &amp; o Sul da Chapada</span><span class="lk">dias 6–10 · travessia &amp; poços azuis</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Travessia do Pati<span class="move">dia 1 de 3</span></div>
+      <h3>Entrada no vale mais bonito do Brasil</h3>
+      <p>Início da <b>travessia do Vale do Pati</b> (a partir do Capão ou de Guiné). Descida ao vale entre serras, com pernoite em <b>casa de nativos</b>. A noite estrelada e o silêncio do Pati são parte da magia.</p>
+      <div class="chips"><span class="chip">Vale do Pati</span><span class="chip">casa de nativos</span><span class="chip">trekking</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Obrigatório:</b> guia credenciado e reserva</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa de nativo no Pati</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Coração do Pati<span class="move">dia 2 de 3</span></div>
+      <h3>Mirante do Pati e a Cachoeirão</h3>
+      <p>Dia pleno no vale: a subida ao <b>Morro do Castelo</b> ou ao mirante do <b>Funil</b>, com vistas vertiginosas, e a imponente <b>Cachoeira do Cachoeirão</b>. Trilhas entre as serras com o guia nativo contando a história do lugar.</p>
+      <div class="chips"><span class="chip">Morro do Castelo</span><span class="chip">Cachoeirão</span><span class="chip">mirantes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> nascer do sol do Morro do Castelo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa de nativo no Pati</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pati → Andaraí<span class="move">dia 3 · saída</span></div>
+      <h3>Saída do vale e o sul da Chapada</h3>
+      <p>Última caminhada do Pati com saída por <b>Andaraí</b>, no sul da Chapada. Banho e descanso merecidos, e troca do clima de trilha pelo das cidades históricas do garimpo. Noite tranquila em Andaraí ou Mucugê.</p>
+      <div class="chips"><span class="chip">saída do Pati</span><span class="chip">Andaraí</span><span class="chip">descanso</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> alternativa essencial pula o Pati (3 dias)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Andaraí ou Mucugê</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Poço Encantado &amp; Igatu</div>
+      <h3>Água azul translúcida e a "Machu Picchu baiana"</h3>
+      <p>O deslumbrante <b>Poço Encantado</b>, caverna com lago de água azul de até 60 m de profundidade (luz a pino entre abr e set), e a histórica <b>Igatu</b> — ruínas de pedra do garimpo, apelidada de "Machu Picchu baiana", com ateliês e mirantes.</p>
+      <div class="chips"><span class="chip">Poço Encantado</span><span class="chip">Igatu</span><span class="chip">ruínas de pedra</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Melhor luz:</b> meio-dia, entre abr e set</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Mucugê</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Mucugê → partida<span class="move">Poço Azul</span></div>
+      <h3>Mucugê e o Poço Azul</h3>
+      <p>A cidade histórica de <b>Mucugê</b> (o Projeto Sempre-Viva e o cemitério bizantino) e a flutuação no <b>Poço Azul</b>, de águas igualmente cristalinas. Retorno a Lençóis ou Salvador para a partida. <i>Até a próxima trilha!</i></p>
+      <div class="chips"><span class="chip">Mucugê</span><span class="chip">Poço Azul</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Não perca:</b> flutuação no Poço Azul</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> a Lençóis ou Salvador</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o trekking da Chapada.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (abr–out): rios seguros e trilhas firmes. Poços azuis brilham mais entre abr e set.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Guias</h5><p>Fumaça e Pati só com guia credenciado. Contrate em Lençóis ou no Capão; reserve o Pati antes.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 17l-5.7 2.5 1.1-6.3L3 8.9 9 8z"/></svg></div><div><h5>Segurança</h5><p>Nunca entre na água sob chuva (cabeça-d'água). Informe-se sempre com o guia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Como chegar</h5><p>Voo a Lençóis (de Salvador) ou ~6h de carro. No destino, os passeios usam transfers/jipe 4x4.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Comida baiana, godó de banana e a forte cena vegetariana do Vale do Capão.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Leve espécie: nos distritos e casas do Pati não há caixa nem sinal. Calçado de trilha é essencial.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Chapada Diamantina em 10 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
