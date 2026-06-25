@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vale Europeu — Roteiro dia a dia (7 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a1a0f; --slate:#65503f; --faint:#9c8068;
+    --paper:#f8efe3; --card:#fffdf9; --line:#ecd9bf;
+    --terra:#c2410c; --amber:#b45309; --timber:#7c5e3b; --timber-d:#5e4527;
+    --rust:#9a3412;
+    --shadow:0 14px 34px -20px rgba(90,50,20,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(194,65,12,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(124,94,59,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#c2410c 0%,#9a3412 52%,#7c5e3b 150%);
+    color:#fbeede;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(180,83,9,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#f4c79c;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#f0a868}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:42px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#f6e0c9;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--timber-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(90,50,20,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--rust));
+    color:#fbeede;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.timber .rail{background:linear-gradient(165deg,var(--timber),var(--timber-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--rust);text-transform:uppercase;font-weight:500}
+  .day.timber .loc{color:var(--timber-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#3a2a1c}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--rust);
+    background:rgba(194,65,12,.09);border:1px solid rgba(194,65,12,.2);border-radius:999px;padding:4px 10px}
+  .day.timber .chip{color:var(--timber-d);background:rgba(124,94,59,.1);border-color:rgba(124,94,59,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f7ebda);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(194,65,12,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#2c1c10;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#3d2817;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:30px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Santa Catarina · Vale Europeu · roteiro dia a dia</div>
+    <h1>Vale Europeu em 7 dias</h1>
+    <p class="sub">A herança alemã do Vale do Itajaí: o enxaimel de Pomerode, a Oktoberfest e as cervejarias de Blumenau, as vilas de Timbó e Rodeio, com extensão à colônia austríaca-tirolesa de Treze Tílias, no meio-oeste.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>7 dias</b></span>
+      <span class="fact">🍺 <b>Cervejas &amp; enxaimel</b></span>
+      <span class="fact">🍂 Auge: <b>Oktoberfest (out)</b></span>
+      <span class="fact">🏡 Colônia germânica</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Blumenau</span><i>→</i><span>Pomerode</span><i>→</i><span>Timbó</span><i>→</i><span>Rodeio</span><i>→</i><span>Treze Tílias</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg>
+    <div>
+      <h4>Oktoberfest, cervejas e o motorista</h4>
+      <p><b>Outubro</b> é o auge, com a <b>Oktoberfest de Blumenau</b> — reserve a hospedagem com <b>meses de antecedência</b> e use transporte por app à noite. Fora isso, primavera e outono são amenos e ótimos o ano todo. Nas degustações de cervejaria, combine o <b>motorista da rodada</b>. <b>Treze Tílias</b> fica a ~3 h do vale — vale dormir lá.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Blumenau &amp; Pomerode</span><span class="lk">dias 1–4 · o coração germânico</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Blumenau<span class="move">chegada</span></div>
+      <h3>A Vila Germânica e o centro</h3>
+      <p>Chegada a <b>Blumenau</b>, a capital da Oktoberfest. Tarde na <b>Vila Germânica</b>, na rua XV de Novembro de fachadas enxaimel e no <b>Castelinho da Moellmann</b>. Jantar de cozinha alemã (marreco recheado, eisbein) com chope.</p>
+      <div class="chips"><span class="chip">Vila Germânica</span><span class="chip">Rua XV</span><span class="chip">cozinha alemã</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> marreco recheado e eisbein</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de Blumenau</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Blumenau · rota da cerveja</div>
+      <h3>Cervejarias artesanais e o Museu da Cerveja</h3>
+      <p>Dia dedicado à <b>cerveja</b>: o roteiro das cervejarias artesanais de Blumenau (uma das maiores cenas do país), com visitas e degustações, e o <b>Museu da Cerveja</b>. Se for outubro, a noite é na <b>Oktoberfest</b>, a maior festa alemã das Américas.</p>
+      <div class="chips"><span class="chip">cervejarias artesanais</span><span class="chip">Museu da Cerveja</span><span class="chip">Oktoberfest</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Combine:</b> motorista da rodada / transporte por app</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Blumenau</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day timber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pomerode<span class="move">≈ 40 min</span></div>
+      <h3>A cidade mais alemã do Brasil</h3>
+      <p><b>Pomerode</b>, a cidade mais alemã do país: a <b>Rota do Enxaimel</b> (a maior concentração dessas casas fora da Alemanha), o <b>Zoo de Pomerode</b>, as tradições do tiro ao alvo e a gastronomia teuto-pomerana. Vila bucólica e preservada.</p>
+      <div class="chips"><span class="chip">Rota do Enxaimel</span><span class="chip">Zoo de Pomerode</span><span class="chip">tradições</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Não perca:</b> a Rota do Enxaimel de carro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Pomerode ou Blumenau</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day timber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Timbó<span class="move">≈ 30 min</span></div>
+      <h3>Parques, ciclovias e a vila germano-italiana</h3>
+      <p><b>Timbó</b>, vila germano-italiana de ruas floridas: o <b>Parque Central</b>, os museus do imigrante e da família Colonial, e as <b>ciclovias</b> que cruzam o vale. Cidade tranquila e arborizada, boa para um dia de ritmo lento.</p>
+      <div class="chips"><span class="chip">Timbó</span><span class="chip">Parque Central</span><span class="chip">ciclovias</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-7h5l3 7M10 10l2-4"/></svg></span><span><b>Faça:</b> pedalar as ciclovias do vale</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Timbó</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Colônias &amp; Treze Tílias</span><span class="lk">dias 5–7 · a alma alpina</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Rodeio → Treze Tílias<span class="move">≈ 3 h · 230 km</span></div>
+      <h3>Da colônia italiana ao Tirol catarinense</h3>
+      <p>Manhã em <b>Rodeio</b>, colônia italiana de tradição vinícola e religiosa. À tarde, a longa, mas recompensadora, viagem ao meio-oeste rumo a <b>Treze Tílias</b>, a colônia <b>austríaca-tirolesa</b>. Chegada ao "Tirol brasileiro".</p>
+      <div class="chips"><span class="chip">Rodeio</span><span class="chip">colônia italiana</span><span class="chip">Treze Tílias</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> vinhos coloniais e cucas em Rodeio</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Treze Tílias</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Treze Tílias</div>
+      <h3>Esculturas em madeira e arquitetura alpina</h3>
+      <p>Dia na <b>Treze Tílias</b>: os ateliês de <b>escultura em madeira</b> (a tradição tirolesa mais viva do Brasil), a arquitetura alpina, o Museu do Imigrante e a gastronomia austríaca. Compras de artesanato e laticínios da colônia.</p>
+      <div class="chips"><span class="chip">escultura em madeira</span><span class="chip">arquitetura alpina</span><span class="chip">cozinha tirolesa</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os ateliês de escultura</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Treze Tílias</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Treze Tílias → partida<span class="move">retorno</span></div>
+      <h3>Despedida do Vale Europeu</h3>
+      <p>Manhã para últimas compras de <b>artesanato em madeira</b>, queijos e embutidos coloniais, e o retorno — a Blumenau e ao litoral (~3 h) ou seguindo viagem. <i>Auf Wiedersehen!</i></p>
+      <div class="chips"><span class="chip">artesanato</span><span class="chip">laticínios</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> ~3 h a Blumenau / litoral</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Treze Tílias, foco em Blumenau/Pomerode/Timbó</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o vale da herança alemã.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Outubro é o auge (Oktoberfest); primavera e outono são amenos e ótimos o ano todo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13"/></svg></div><div><h5>Oktoberfest</h5><p>Hospede-se com meses de antecedência e use transporte por app à noite — a cidade lota.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Cervejas</h5><p>Roteiro de cervejarias artesanais em Blumenau. Combine o motorista da rodada nas degustações.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Treze Tílias</h5><p>Fica no meio-oeste, a ~3 h do vale. Vale dormir lá para curtir o "Tirol brasileiro" sem pressa.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6z"/></svg></div><div><h5>Sabores</h5><p>Marreco recheado, eisbein e cucas no vale; cozinha tirolesa e laticínios em Treze Tílias.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div><h5>Compras</h5><p>Cervejas, esculturas em madeira (Treze Tílias), cristais e artesanato germânico.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Vale Europeu em 7 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
