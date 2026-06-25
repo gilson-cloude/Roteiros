@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serra Catarinense — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101826; --slate:#46546b; --faint:#7e8da6;
+    --paper:#eef2f8; --card:#ffffff; --line:#d3deed;
+    --terra:#1d4ed8; --amber:#b45309; --ice:#0e7490; --ice-d:#155e75;
+    --navy:#1e3a8a;
+    --shadow:0 14px 34px -20px rgba(20,40,80,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(29,78,216,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(14,116,144,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#1d4ed8 0%,#1e3a8a 52%,#0e7490 150%);
+    color:#e8f0fb;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(14,116,144,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a8c8f2;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#6aa6f0}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:41px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d6e4f7;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--ice-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(20,40,80,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--navy));
+    color:#e8f0fb;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.ice .rail{background:linear-gradient(165deg,var(--ice),var(--ice-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--navy);text-transform:uppercase;font-weight:500}
+  .day.ice .loc{color:var(--ice-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#283242}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--navy);
+    background:rgba(29,78,216,.08);border:1px solid rgba(29,78,216,.2);border-radius:999px;padding:4px 10px}
+  .day.ice .chip{color:var(--ice-d);background:rgba(14,116,144,.1);border-color:rgba(14,116,144,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#eaf0f8);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(29,78,216,.08);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#15203a;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#1f2e4f;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Santa Catarina · Serra Catarinense · roteiro dia a dia</div>
+    <h1>Serra Catarinense em 8 dias</h1>
+    <p class="sub">O ponto mais alto e frio do Sul: Urubici e o Morro da Igreja, a vertiginosa Serra do Rio do Rastro de curvas em ferradura, as macieiras e vinhos de altitude de São Joaquim e a chance de geada — ou neve — no inverno catarinense.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">🏔️ <b>Cânions &amp; altitude</b></span>
+      <span class="fact">❄️ Melhor época: <b>mai–ago</b></span>
+      <span class="fact">🍎 Maçã &amp; vinho</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Florianópolis</span><i>→</i><span>Urubici</span><i>→</i><span>Morro da Igreja</span><i>→</i><span>Serra do Rio do Rastro</span><i>→</i><span>Bom Jardim da Serra</span><i>→</i><span>São Joaquim</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Frio extremo, neblina e gelo na pista</h4>
+      <p>Vá no <b>inverno (mai–ago)</b> para geadas e a rara neve. Leve <b>roupa térmica</b> de verdade. O acesso ao <b>Morro da Igreja</b> exige autorização do ICMBio e abre cedo — vá de manhã, antes da neblina. A <b>Serra do Rio do Rastro</b> fecha com névoa densa e amanhece com gelo: dirija devagar e <b>evite a serra à noite</b>.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Urubici, Morro da Igreja &amp; Rio do Rastro</span><span class="lk">dias 1–4 · cânions &amp; altitude</span><span class="lr"></span></div>
+
+  <article class="day ice">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Florianópolis → Urubici<span class="move">≈ 3,5 h · 200 km</span></div>
+      <h3>Da costa à serra</h3>
+      <p>Saída de <b>Florianópolis</b> e subida à serra rumo a <b>Urubici</b>, a base da viagem. Chegada e primeiro contato com o ar gelado, as cachoeiras próximas (Véu de Noiva) e o Morro da Igreja ao fundo. Jantar de fondue serrano.</p>
+      <div class="chips"><span class="chip">Urubici</span><span class="chip">Véu de Noiva</span><span class="chip">fondue</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> truta, pinhão e fondue serrano</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> pousada em Urubici</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day ice">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Morro da Igreja<span class="move">manhã cedo</span></div>
+      <h3>Pedra Furada e o topo do Sul</h3>
+      <p>Bem cedo ao <b>Morro da Igreja</b> (1.822 m), um dos pontos habitados mais altos do Sul, e a icônica <b>Pedra Furada</b> — onde se registram as menores temperaturas do país. Tarde nas cachoeiras e cânions de Urubici.</p>
+      <div class="chips"><span class="chip">Morro da Igreja</span><span class="chip">Pedra Furada</span><span class="chip">mirantes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Obrigatório:</b> autorização ICMBio · vá de manhã</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Urubici</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day ice">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Urubici · arqueologia &amp; céu</div>
+      <h3>Inscrições rupestres e o céu de Urubici</h3>
+      <p>Dia para os arredores: as <b>inscrições rupestres</b> e formações de pedra de Urubici, a cachoeira do Avencal e seus paredões. À noite, Urubici é um dos melhores lugares do país para <b>observação de estrelas</b> — céu limpo e seco.</p>
+      <div class="chips"><span class="chip">inscrições rupestres</span><span class="chip">Cascata do Avencal</span><span class="chip">astroturismo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></span><span><b>Não perca:</b> céu estrelado de Urubici</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Urubici</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Serra do Rio do Rastro<span class="move">estrada cênica</span></div>
+      <h3>As curvas em ferradura mais famosas do Brasil</h3>
+      <p>O dia da estrada-mirante: a descida (e subida) da <b>Serra do Rio do Rastro</b>, com suas curvas fechadas talhadas no paredão e o <b>mirante do topo</b> a 1.460 m. Base em <b>Bom Jardim da Serra</b> para o pôr do sol e o amanhecer no alto.</p>
+      <div class="chips"><span class="chip">Serra do Rio do Rastro</span><span class="chip">mirante</span><span class="chip">Bom Jardim da Serra</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> mirante do topo ao amanhecer</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Bom Jardim da Serra</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">São Joaquim &amp; a Terra do Frio</span><span class="lk">dias 5–8 · vinho de altitude &amp; geada</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Bom Jardim → São Joaquim<span class="move">≈ 1 h · 60 km</span></div>
+      <h3>A cidade mais fria do Brasil</h3>
+      <p>Chegada a <b>São Joaquim</b>, recordista de frio e geadas do país. Passeio pela cidade serrana, os pomares de <b>maçã</b> e os primeiros contatos com a cultura do vinho de altitude. Se houver neve, é aqui que ela cai.</p>
+      <div class="chips"><span class="chip">São Joaquim</span><span class="chip">maçã</span><span class="chip">geada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></span><span><b>Atenção:</b> manhãs de gelo na pista</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Joaquim</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Vinhos de altitude</div>
+      <h3>Vinícolas de altitude e degustação</h3>
+      <p>Dia de enoturismo de altitude: as <b>vinícolas de São Joaquim</b> — entre as mais altas do Brasil — com vinhos finos de clima frio. Visitas guiadas, degustações e almoço harmonizado com vista dos parreirais a 1.300 m.</p>
+      <div class="chips"><span class="chip">vinhos de altitude</span><span class="chip">degustação</span><span class="chip">parreirais</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Reserve:</b> visitas guiadas às vinícolas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Joaquim</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Parque Nacional de São Joaquim</div>
+      <h3>Araucárias e os campos de altitude</h3>
+      <p>Dia no <b>Parque Nacional de São Joaquim</b>: as florestas de <b>araucária</b>, os campos de altitude e os cânions do parque. Trilhas leves entre a flora típica da serra e mirantes sobre os vales. Tarde de descanso ou compras de malhas e produtos da serra.</p>
+      <div class="chips"><span class="chip">PARNA São Joaquim</span><span class="chip">araucárias</span><span class="chip">campos de altitude</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Leve:</b> agasalho e calçado de trilha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Joaquim</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Joaquim → Florianópolis<span class="move">≈ 4 h · 230 km</span></div>
+      <h3>Descida e retorno à costa</h3>
+      <p>Manhã para últimas compras de <b>vinho e maçã</b> e a despedida da serra. Descida tranquila de volta a <b>Florianópolis</b>, fechando o circuito da terra do frio. <i>Até a próxima geada!</i></p>
+      <div class="chips"><span class="chip">compras</span><span class="chip">retorno</span><span class="chip">Florianópolis</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> ≈ 4 h à capital</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem São Joaquim, foco em Urubici + Rio do Rastro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a terra do frio catarinense.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Inverno (mai–ago) para geada e a rara neve. Leve roupa térmica de verdade.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Morro da Igreja</h5><p>Acesso com autorização do ICMBio e horário de abertura. Vá de manhã, antes da neblina.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Dirigir na serra</h5><p>Rio do Rastro fecha com névoa e amanhece com gelo. Devagar; evite a serra à noite.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Truta, pinhão, fondue serrano e os vinhos finos de altitude de São Joaquim.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></div><div><h5>Astroturismo</h5><p>Urubici tem um dos céus mais limpos do país; leve agasalho para a observação noturna.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></div><div><h5>Enoturismo</h5><p>Reserve as visitas às vinícolas de altitude e combine o motorista da rodada.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Serra Catarinense em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
