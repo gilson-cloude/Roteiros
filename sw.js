@@ -1,8 +1,8 @@
 /* Service worker — Expedição Carretera Austral (offline-first) */
-const CACHE = 'carretera-austral-v74';
+const CACHE = 'carretera-austral-v75';
 const ASSETS = [
   'app.html', 'index.html',
-  'mapa.html', 'roteiro.html', 'dia-a-dia-cuba.html', 'dia-a-dia-peru.html', 'dia-a-dia-atacama.html', 'dia-a-dia-patagonia.html', 'dia-a-dia-santiago.html', 'dia-a-dia-bolivia.html', 'dia-a-dia-colombia.html', 'dia-a-dia-argentina-salta.html', 'dia-a-dia-uruguai.html', 'dia-a-dia-equador.html', 'dia-a-dia-venezuela.html', 'dia-a-dia-paraguai.html', 'dia-a-dia-minas-historicas.html', 'dia-a-dia-chapada-diamantina.html', 'dia-a-dia-serra-gaucha.html', 'dia-a-dia-serra-catarinense.html', 'dia-a-dia-litoral-catarinense.html', 'roteiros.html', 'novo-roteiro.html', 'custos.html', 'logistica.html',
+  'mapa.html', 'roteiro.html', 'dia-a-dia-cuba.html', 'dia-a-dia-peru.html', 'dia-a-dia-atacama.html', 'dia-a-dia-patagonia.html', 'dia-a-dia-santiago.html', 'dia-a-dia-bolivia.html', 'dia-a-dia-colombia.html', 'dia-a-dia-argentina-salta.html', 'dia-a-dia-uruguai.html', 'dia-a-dia-equador.html', 'dia-a-dia-venezuela.html', 'dia-a-dia-paraguai.html', 'dia-a-dia-minas-historicas.html', 'dia-a-dia-chapada-diamantina.html', 'dia-a-dia-serra-gaucha.html', 'dia-a-dia-serra-catarinense.html', 'dia-a-dia-litoral-catarinense.html', 'dia-a-dia-canions-serra-geral.html', 'roteiros.html', 'novo-roteiro.html', 'custos.html', 'logistica.html',
   'postos.html', 'oficinas.html', 'senasa.html', 'fronteiras.html',
   'documentacao.html', 'checklist.html', 'camping.html', 'catalogo.html',
   'estilo-doc.css', 'dados.js', 'roteiros.js', 'servicos.js', 'app-shared.js', 'image-slot.js', 'geo.js',

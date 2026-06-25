@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caminhos dos Cânions — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13211b; --slate:#445349; --faint:#7e9184;
+    --paper:#eaf3ed; --card:#ffffff; --line:#cfe2d6;
+    --terra:#047857; --amber:#b45309; --stone:#78716c; --stone-d:#57534e;
+    --pine:#065f46;
+    --shadow:0 14px 34px -20px rgba(15,50,35,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(4,120,87,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(120,113,108,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#047857 0%,#065f46 52%,#57534e 150%);
+    color:#e7f4ee;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(120,113,108,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3dcc8;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#54c79e}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:41px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeadf;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--stone-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(15,50,35,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--pine));
+    color:#e7f4ee;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.stone .rail{background:linear-gradient(165deg,var(--stone),var(--stone-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--pine);text-transform:uppercase;font-weight:500}
+  .day.stone .loc{color:var(--stone-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#243029}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--pine);
+    background:rgba(4,120,87,.09);border:1px solid rgba(4,120,87,.2);border-radius:999px;padding:4px 10px}
+  .day.stone .chip{color:var(--stone-d);background:rgba(120,113,108,.12);border-color:rgba(120,113,108,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e8f2eb);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(4,120,87,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#152019;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#1f2f25;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>RS · SC · Serra Geral · roteiro dia a dia</div>
+    <h1>Caminhos dos Cânions em 8 dias</h1>
+    <p class="sub">Os grandes cânions do Sul, na fronteira RS–SC: o Itaimbezinho e o Fortaleza nos parques de Aparados da Serra e Serra Geral, os Campos de Cima da Serra de São José dos Ausentes e a descida dramática ao litoral pela Serra do Faxinal.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">🏞️ <b>Cânions de 700 m</b></span>
+      <span class="fact">☀️ Melhor época: <b>abr–set</b></span>
+      <span class="fact">❄️ Geada nos campos</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Porto Alegre</span><i>→</i><span>Cambará do Sul</span><i>→</i><span>Itaimbezinho</span><i>→</i><span>Cânion Fortaleza</span><i>→</i><span>S. José dos Ausentes</span><i>→</i><span>Praia Grande</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, neblina e estradas de chão</h4>
+      <p>Vá na <b>seca (abr–set)</b>: chuva e neblina fecham os mirantes dos cânions com frequência no verão. O <b>inverno</b> traz céu limpo e geada nos Campos de Cima da Serra (leve agasalho). Os parques têm <b>horário</b> e exigem condutor em algumas trilhas — chegue cedo. A <b>Serra do Faxinal</b> (RS→SC) é de chão e fecha com chuva: confirme as condições antes de descer.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Cambará do Sul &amp; o Itaimbezinho</span><span class="lk">dias 1–4 · Aparados da Serra</span><span class="lr"></span></div>
+
+  <article class="day stone">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Porto Alegre → Cambará do Sul<span class="move">≈ 3,5 h · 190 km</span></div>
+      <h3>Subida aos Campos de Cima da Serra</h3>
+      <p>Saída de <b>Porto Alegre</b> rumo a <b>Cambará do Sul</b>, a base dos parques. Subida aos Campos de Cima da Serra, com araucárias e ar frio. Chegada e jantar campeiro de galeto e ovelha; preparação para os cânions.</p>
+      <div class="chips"><span class="chip">Cambará do Sul</span><span class="chip">Campos de Cima da Serra</span><span class="chip">galeto</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> galeto, ovelha e pinhão</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cambará do Sul</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cânion Itaimbezinho<span class="move">PARNA Aparados</span></div>
+      <h3>O cânion-símbolo e a Cascata das Andorinhas</h3>
+      <p>Dia no <b>Parque Nacional dos Aparados da Serra</b>: o <b>Cânion Itaimbezinho</b>, com paredões de até 700 m. As <b>trilhas do Vértice</b> (mirantes) e <b>do Cotovelo</b>, e a Cascata das Andorinhas despencando no abismo.</p>
+      <div class="chips"><span class="chip">Itaimbezinho</span><span class="chip">Trilha do Vértice</span><span class="chip">Cascata das Andorinhas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Chegue cedo:</b> horário do parque e condutor</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cambará do Sul</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cachoeiras &amp; campos</div>
+      <h3>Cachoeiras dos Venâncios e a vida campeira</h3>
+      <p>Dia mais leve nos arredores de Cambará: as <b>Cachoeiras dos Venâncios</b> e do Tigre Preto, com poços e trilhas pelos campos, e o contato com a cultura campeira da serra (fazendas, cucas, queijos). Pôr do sol nos campos de araucárias.</p>
+      <div class="chips"><span class="chip">Cachoeiras dos Venâncios</span><span class="chip">campos</span><span class="chip">cultura campeira</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Leve:</b> traje de banho e calçado de trilha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cambará do Sul</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day stone">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cânion Fortaleza<span class="move">PARNA Serra Geral</span></div>
+      <h3>O colosso Fortaleza e o Pedra do Segredo</h3>
+      <p>O dia mais grandioso: o <b>Cânion Fortaleza</b>, no Parque Nacional da Serra Geral — o maior da região, com vista até o litoral em dias claros. O mirante do <b>Pedra do Segredo</b>, a pedra equilibrada, é o lugar do <b>pôr do sol</b>.</p>
+      <div class="chips"><span class="chip">Cânion Fortaleza</span><span class="chip">Pedra do Segredo</span><span class="chip">pôr do sol</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> pôr do sol no Pedra do Segredo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cambará do Sul</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Ausentes, a Serra Geral &amp; o Mar</span><span class="lk">dias 5–8 · campos altos &amp; descida</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São José dos Ausentes<span class="move">≈ 1,5 h</span></div>
+      <h3>O ponto mais alto do Rio Grande do Sul</h3>
+      <p>Subida a <b>São José dos Ausentes</b>, nos <b>Campos de Cima da Serra</b> — o RS mais alto, com o Monte Negro e a Pedra das Torres. Cavalgadas campeiras, cachoeiras e os pousos rurais. No inverno, geada e céu cristalino.</p>
+      <div class="chips"><span class="chip">São José dos Ausentes</span><span class="chip">Monte Negro</span><span class="chip">cavalgada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> truta e cozinha campeira · cucas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São José dos Ausentes</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day stone">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Serra do Faxinal → Praia Grande<span class="move">descida de chão</span></div>
+      <h3>A descida espetacular ao litoral</h3>
+      <p>A travessia mais cênica: a descida da <b>Serra do Faxinal</b> (estrada de chão pelos paredões) do alto da serra gaúcha até <b>Praia Grande</b>, já em Santa Catarina, ao pé dos cânions. Vistas vertiginosas a cada curva.</p>
+      <div class="chips"><span class="chip">Serra do Faxinal</span><span class="chip">estrada cênica</span><span class="chip">Praia Grande</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Atenção:</b> chão · fecha com chuva · confirme antes</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Praia Grande (SC)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia Grande &amp; arredores</div>
+      <h3>Os cânions vistos de baixo</h3>
+      <p>Dia em <b>Praia Grande</b>: os cânions vistos <b>de baixo</b>, o cânion do Malacara e suas cachoeiras, o rafting/bote no rio e as cachoeiras escondidas no vale. Outra perspectiva — monumental — das mesmas paredes.</p>
+      <div class="chips"><span class="chip">Cânion do Malacara</span><span class="chip">cachoeiras</span><span class="chip">rafting</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Aventura:</b> trilhas e bote com operador local</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Praia Grande</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia Grande → partida<span class="move">retorno</span></div>
+      <h3>Despedida dos cânions</h3>
+      <p>Manhã livre para uma última trilha ou cachoeira e a despedida da Serra Geral. Retorno a Porto Alegre (ou descida ao litoral catarinense, a ~1,5 h do mar). <i>Até a próxima borda de cânion!</i></p>
+      <div class="chips"><span class="chip">última trilha</span><span class="chip">retorno</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> a POA ou desça ao litoral de SC</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> só Itaimbezinho + Fortaleza (poupa ~2 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para os grandes cânions do Sul.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (abr–set): mirantes abertos. Verão fecha com neblina; inverno traz geada e céu limpo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Parques</h5><p>Aparados e Serra Geral têm horário e exigem condutor em trilhas. Chegue cedo e cheque o tempo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Serra do Faxinal</h5><p>Descida RS→SC de chão; fecha com chuva. Confirme as condições e o tipo de carro antes.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Galeto, ovelha e pinhão na serra gaúcha; truta e cucas dos Campos de Cima da Serra.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Equipamento</h5><p>Calçado de trilha, agasalho (frio cortante no alto) e proteção solar. Leve água e lanche.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div><h5>Dois pontos de vista</h5><p>Veja os cânions de cima (Cambará) e de baixo (Praia Grande) — experiências bem diferentes.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Caminhos dos Cânions em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
