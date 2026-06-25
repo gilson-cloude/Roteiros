@@ -475,6 +475,9 @@
       {n:"Festa Pomerana", base:"Pomerode", nota:"Janeiro; tradições e gastronomia pomeranas."},
       {n:"Osterfest (Páscoa)", base:"Pomerode", nota:"Maior festa de Páscoa do país; ovos gigantes decorados."},
       {n:"Festa do Imigrante", base:"Timbó", nota:"Julho; celebra a colonização alemã e italiana do vale."},
+      {n:"Festa Nacional do Marreco (Fenarreco)", base:"Brusque", nota:"Out; o marreco recheado com repolho roxo e chope, prato germânico símbolo do vale."},
+      {n:"Tirolerfest", base:"Treze Tílias", nota:"Out; herança austríaca-tirolesa, danças folclóricas e gastronomia alpina."},
+      {n:"Festa do Porco no Rolete", base:"Oeste catarinense", nota:"Tradição colonial de assar o porco inteiro no rolete (ex.: Modelo, a 'capital catarinense'); festas pela região."},
     ],
   },
 
@@ -566,6 +569,7 @@
     ],
     eventos:[
       {n:"Festa Nacional do Pinhão", base:"Lages (região)", nota:"Maio–jun; cultura serrana, araucária e pinhão."},
+      {n:"Festa Nacional da Maçã", base:"São Joaquim", nota:"Capital nacional da maçã (IG); shows, feira de produtos serranos e gastronomia."},
       {n:"Cavalgadas e rodeios campeiros", base:"São José dos Ausentes", nota:"Tradição gauchesca dos Campos de Cima da Serra."},
     ],
   },
@@ -841,6 +845,7 @@
       {n:"FLIB — Feira Literária", base:"Bonito", nota:"Junho; encontros literários e cultura."},
       {n:"Festival da Guavira", base:"Bonito", nota:"Novembro; celebra o fruto típico do cerrado."},
       {n:"Festival da Pesca", base:"Bonito", nota:"Março/abril; tradição ribeirinha no Rio Formoso."},
+      {n:"Festa da Linguiça de Maracaju", base:"Maracaju", nota:"Abr–mai; a maior festa gastronômica de MS — linguiça artesanal (IG, com laranja azeda), no caminho a Bonito."},
     ],
   },
 
