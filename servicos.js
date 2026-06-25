@@ -385,6 +385,11 @@
       {n:"Guardião do Avencal Bar e Café", base:"Urubici", nota:"Truta e café colonial com vista da Cascata do Avencal."},
       {n:"Restaurantes de truta/fondue", base:"Urubici", nota:"Truta, pinhão e fondue na serra."},
     ],
+    eventos:[
+      {n:"Festa Nacional da Maçã", base:"São Joaquim", nota:"Capital nacional da maçã (IG); shows, feira de produtos serranos e gastronomia."},
+      {n:"Festa Nacional do Pinhão", base:"Lages (região)", nota:"Maio–jun; cultura serrana, araucária e pinhão assado."},
+      {n:"Festival de Inverno", base:"Urubici", nota:"Inverno; gastronomia da serra, vinhos de altitude e astroturismo nas noites frias."},
+    ],
   },
   "sc-litoral": {
     transporte:[
@@ -569,7 +574,6 @@
     ],
     eventos:[
       {n:"Festa Nacional do Pinhão", base:"Lages (região)", nota:"Maio–jun; cultura serrana, araucária e pinhão."},
-      {n:"Festa Nacional da Maçã", base:"São Joaquim", nota:"Capital nacional da maçã (IG); shows, feira de produtos serranos e gastronomia."},
       {n:"Cavalgadas e rodeios campeiros", base:"São José dos Ausentes", nota:"Tradição gauchesca dos Campos de Cima da Serra."},
     ],
   },
