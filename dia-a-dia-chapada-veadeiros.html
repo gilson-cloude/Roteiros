@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapada dos Veadeiros — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2110; --slate:#52573c; --faint:#8a8f६e;--faint:#8a8f6e;
+    --paper:#f3f4e7; --card:#fffef9; --line:#e0e2c4;
+    --terra:#4d7c0f; --amber:#b45309; --gold:#ca8a04; --gold-d:#a16207;
+    --moss:#3f6212;
+    --shadow:0 14px 34px -20px rgba(60,70,20,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(77,124,15,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(202,138,4,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#4d7c0f 0%,#3f6212 52%,#ca8a04 155%);
+    color:#f3f7e3;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(202,138,4,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#d7e6a8;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#a3cc54}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#e7f0cd;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--gold-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(60,70,20,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--moss));
+    color:#f3f7e3;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.gold .rail{background:linear-gradient(165deg,var(--gold),var(--gold-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--moss);text-transform:uppercase;font-weight:500}
+  .day.gold .loc{color:var(--gold-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#2e3320}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--moss);
+    background:rgba(77,124,15,.09);border:1px solid rgba(77,124,15,.2);border-radius:999px;padding:4px 10px}
+  .day.gold .chip{color:var(--gold-d);background:rgba(202,138,4,.1);border-color:rgba(202,138,4,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f1f3e2);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(77,124,15,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1d220f;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2b3219;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Goiás · Chapada dos Veadeiros · roteiro dia a dia</div>
+    <h1>Chapada dos Veadeiros em 8 dias</h1>
+    <p class="sub">O cerrado de altitude mais antigo do planeta: Alto Paraíso e a vila de São Jorge como bases do Parque Nacional, o surreal Vale da Lua e os Saltos do Rio Preto, com extensão a Cavalcante e às cachoeiras azul-turquesa das comunidades kalungas.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">💎 <b>Cerrado &amp; cachoeiras</b></span>
+      <span class="fact">☀️ Melhor época: <b>mai–set</b></span>
+      <span class="fact">🌌 Céu &amp; cristais</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Brasília</span><i>→</i><span>Alto Paraíso</span><i>→</i><span>São Jorge</span><i>→</i><span>PARNA &amp; Vale da Lua</span><i>→</i><span>Cavalcante</span><i>→</i><span>Engenho II (Kalunga)</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, cota e cabeça-d'água</h4>
+      <p>Vá na <b>seca (mai–set)</b>: céu limpo, trilhas firmes e o cerrado florido no fim da estação. As trilhas do Parque têm <b>cota diária e entrada cedo</b> — chegue com antecedência. O <b>Vale da Lua</b> fica fora do parque (acesso pago à parte) e <b>não pode ser visitado sob risco de chuva</b> (cabeça-d'água). As cachoeiras kalungas exigem <b>condutor local</b> da comunidade, por estradas de terra — vá de dia.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Alto Paraíso, São Jorge &amp; o Parque</span><span class="lk">dias 1–5 · cerrado &amp; cachoeiras</span><span class="lr"></span></div>
+
+  <article class="day gold">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Brasília → Alto Paraíso<span class="move">≈ 3,5 h · 230 km</span></div>
+      <h3>Subida ao planalto dos cristais</h3>
+      <p>Saída de <b>Brasília</b> por São João d'Aliança até <b>Alto Paraíso de Goiás</b>, a cidade-base assentada sobre quartzo e cristais. Chegada, primeiro contato com o cerrado de altitude e a cena mística e vegetariana da cidade. Pôr do sol no Mirante da Janela.</p>
+      <div class="chips"><span class="chip">Alto Paraíso</span><span class="chip">cristais</span><span class="chip">Mirante da Janela</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> cozinha do cerrado e vegetariana</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Alto Paraíso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Jorge<span class="move">≈ 40 min</span></div>
+      <h3>A vila na porta do Parque</h3>
+      <p>Transfer à charmosa vila de <b>São Jorge</b>, na entrada do Parque Nacional. Tarde leve nas trilhas curtas do entorno e nas cachoeiras de acesso fácil (Cachoeira do Segredo, Morada do Sol). Vida noturna boêmia e estrelada da vila.</p>
+      <div class="chips"><span class="chip">São Jorge</span><span class="chip">vila</span><span class="chip">céu estrelado</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></span><span><b>Não perca:</b> o céu noturno de São Jorge</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Jorge</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>PARNA · Saltos do Rio Preto</div>
+      <h3>Os Saltos de 120 m no Parque Nacional</h3>
+      <p>Dia no <b>Parque Nacional da Chapada dos Veadeiros</b>: a trilha dos <b>Saltos do Rio Preto</b> (a queda de 120 m e o poço), e as <b>Cariocas</b>. Cerrado de altitude, formações de quartzo e mirantes. Entrada cedo pela cota diária.</p>
+      <div class="chips"><span class="chip">Saltos do Rio Preto</span><span class="chip">Cariocas</span><span class="chip">PARNA</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Chegue cedo:</b> cota diária do parque</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Jorge</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Vale da Lua</div>
+      <h3>As rochas lunares do rio São Miguel</h3>
+      <p>O surreal <b>Vale da Lua</b>: rochas de quartzo esculpidas por milênios pelo <b>rio São Miguel</b> em formas lunares, com piscinas naturais. Tarde em outras cachoeiras do entorno (Loquinhas, Macaquinhos). Atenção ao risco de chuva — nunca entre sob ameaça de cabeça-d'água.</p>
+      <div class="chips"><span class="chip">Vale da Lua</span><span class="chip">rio São Miguel</span><span class="chip">piscinas naturais</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Atenção:</b> não visitar sob risco de chuva</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Jorge ou Alto Paraíso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cachoeiras de Alto Paraíso</div>
+      <h3>Cataratas dos Couros e cânions</h3>
+      <p>Dia pelas cachoeiras fora do parque, na região de Alto Paraíso: as <b>Cataratas dos Couros</b> (sequência de quedas e poços no cerrado), o Morro da Baleia e os mirantes. Tarde livre para banhos, descanso ou compras de cristais e artesanato.</p>
+      <div class="chips"><span class="chip">Cataratas dos Couros</span><span class="chip">cânions</span><span class="chip">cristais</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Leve:</b> traje de banho e calçado de trilha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Alto Paraíso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Cavalcante &amp; as Cachoeiras Kalungas</span><span class="lk">dias 6–8 · território quilombola</span><span class="lr"></span></div>
+
+  <article class="day gold">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Alto Paraíso → Cavalcante<span class="move">≈ 2,5 h · 90 km</span></div>
+      <h3>O portal do território kalunga</h3>
+      <p>Viagem a <b>Cavalcante</b>, portal das cachoeiras kalungas e do maior território quilombola do país. Chegada e tarde na cachoeira mais próxima da cidade (Santa Maria ou Veredas). Contato com a cultura e a comida <b>kalunga</b>.</p>
+      <div class="chips"><span class="chip">Cavalcante</span><span class="chip">cultura kalunga</span><span class="chip">quilombo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> comida kalunga e do cerrado</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cavalcante</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day gold">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Engenho II · Santa Bárbara</div>
+      <h3>A cachoeira azul-turquesa dos Kalungas</h3>
+      <p>Dia no quilombo <b>Engenho II</b>: a deslumbrante <b>Cachoeira Santa Bárbara</b>, de águas azul-turquesa entre paredões — uma das mais belas do cerrado — e as vizinhas Capivara e Candaru. Condutor local da comunidade obrigatório. Imersão na vida kalunga.</p>
+      <div class="chips"><span class="chip">Engenho II</span><span class="chip">Santa Bárbara</span><span class="chip">azul-turquesa</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Obrigatório:</b> condutor local kalunga</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cavalcante</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cavalcante → Brasília<span class="move">≈ 5 h · 320 km</span></div>
+      <h3>Despedida do cerrado</h3>
+      <p>Manhã para uma última cachoeira ou compras de artesanato kalunga e cristais, e o retorno a <b>Brasília</b> para a partida. O cerrado mais antigo do planeta fica para trás — com o brilho dos cristais na bagagem. <i>Até a próxima trilha!</i></p>
+      <div class="chips"><span class="chip">artesanato kalunga</span><span class="chip">cristais</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> ≈ 5 h a Brasília</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Cavalcante, fique pelas bases de Alto Paraíso/São Jorge</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o cerrado de altitude.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (mai–set): céu limpo e trilhas firmes; cerrado florido no fim da seca. Chuva fecha trilhas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Parque Nacional</h5><p>Trilhas com cota diária e entrada cedo. Algumas exigem condutor. Cheque a abertura no dia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Cabeça-d'água</h5><p>Vale da Lua e cachoeiras de rio não se visitam sob risco de chuva. Siga sempre o guia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Cachoeiras kalungas</h5><p>Engenho II/Cavalcante exigem condutor da comunidade; acessos de terra. Vá de dia, leve dinheiro.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Cozinha do cerrado, forte cena vegetariana em Alto Paraíso/São Jorge e a comida kalunga.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></div><div><h5>Céu &amp; cristais</h5><p>Um dos melhores céus do país para observação. Leve lanterna, água e proteção solar para as trilhas.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Chapada dos Veadeiros em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
