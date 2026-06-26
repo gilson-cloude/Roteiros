@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canastra & Triângulo — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241c08; --slate:#5c4f30; --faint:#9b8a60;
+    --paper:#f8f2e2; --card:#fffdf7; --line:#ecdebc;
+    --terra:#ca8a04; --amber:#a16207; --leaf:#4d7c0f; --leaf-d:#3f6212;
+    --gold-d:#854d0e;
+    --shadow:0 14px 34px -20px rgba(90,65,10,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(202,138,4,.08), transparent 38%),radial-gradient(circle at 88% 0%, rgba(77,124,15,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#ca8a04 0%,#854d0e 52%,#4d7c0f 155%);
+    color:#fbf3df;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(77,124,15,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#f0d49a;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#e6b455}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#f5e6c6;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--leaf-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(90,65,10,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--gold-d));
+    color:#fbf3df;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.leaf .rail{background:linear-gradient(165deg,var(--leaf),var(--leaf-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--gold-d);text-transform:uppercase;font-weight:500}
+  .day.leaf .loc{color:var(--leaf-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#33290f}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--gold-d);
+    background:rgba(202,138,4,.1);border:1px solid rgba(202,138,4,.24);border-radius:999px;padding:4px 10px}
+  .day.leaf .chip{color:var(--leaf-d);background:rgba(77,124,15,.1);border-color:rgba(77,124,15,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f6eeda);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(202,138,4,.1);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#241c0a;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#352a13;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Minas Gerais · Serra da Canastra · roteiro dia a dia</div>
+    <h1>Canastra &amp; Triângulo em 8 dias</h1>
+    <p class="sub">O Parque Nacional da Serra da Canastra: a nascente histórica do Rio São Francisco, a cachoeira Casca d'Anta, os chapadões de lobos-guará e tamanduás, e os produtores do célebre queijo Canastra — com extensão ao lago de Furnas em Delfinópolis e ao cerrado do Triângulo.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">🏞️ <b>Chapadão &amp; fauna</b></span>
+      <span class="fact">☀️ Melhor época: <b>abr–out</b></span>
+      <span class="fact">🧀 Queijo Canastra</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Passos</span><i>→</i><span>São Roque de Minas</span><i>→</i><span>Nascente do São Francisco</span><i>→</i><span>Casca d'Anta</span><i>→</i><span>Vargem Bonita</span><i>→</i><span>Delfinópolis</span><i>→</i><span>Sacramento</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, ripio e porteiras</h4>
+      <p>A <b>seca (abr–out)</b> firma as estradas de terra do chapadão e melhora a visita à nascente e à Casca d'Anta; o fim da seca favorece <b>avistar o lobo-guará</b> ao entardecer. Dentro do parque a estrada é de <b>terra e há porteiras</b> — <b>abasteça antes</b> e leve <b>dinheiro</b> para comprar queijo dos produtores. Evite o verão: ripio escorregadio e travessias de água.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">A Serra da Canastra</span><span class="lk">dias 1–5 · nascente, Casca d'Anta &amp; queijo</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Passos → São Roque de Minas<span class="move">≈ 2 h · 120 km</span></div>
+      <h3>Chegada ao portal da Canastra</h3>
+      <p>Chegada por <b>Passos</b> e subida a <b>São Roque de Minas</b>, a principal entrada do parque. Tarde de reconhecimento na cidade, acerto do <b>condutor</b> e do roteiro do chapadão, e o primeiro contato com a cultura do queijo e a comida de tropeiro.</p>
+      <div class="chips"><span class="chip">São Roque de Minas</span><span class="chip">portal do PARNA</span><span class="chip">queijo Canastra</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> queijo Canastra (IG) e comida de tropeiro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Roque de Minas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Nascente do São Francisco<span class="move">alto chapadão</span></div>
+      <h3>Onde nasce o Velho Chico</h3>
+      <p>Subida ao alto do chapadão até a <b>nascente histórica do Rio São Francisco</b>, marcada por um monumento. A imensidão dos campos de altitude da Canastra, com a chance de avistar <b>lobo-guará, tamanduá-bandeira e seriemas</b>. Pôr do sol no chapadão.</p>
+      <div class="chips"><span class="chip">Nascente do São Francisco</span><span class="chip">chapadão</span><span class="chip">lobo-guará</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a fauna do chapadão ao entardecer</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Roque de Minas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Casca d'Anta · topo</div>
+      <h3>A primeira grande queda do São Francisco</h3>
+      <p>O alto da <b>Casca d'Anta</b>, a primeira grande cachoeira do Velho Chico (<b>186 m</b>), vista do <b>mirante no topo</b> do chapadão. As trilhas e os outros saltos do parque (Saltos do rio dos Cândidos). Paisagem grandiosa de borda de planalto.</p>
+      <div class="chips"><span class="chip">Casca d'Anta</span><span class="chip">186 m</span><span class="chip">mirante do topo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Atenção:</b> estradas de terra e porteiras no parque</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Roque de Minas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day leaf">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Casca d'Anta · base (Vargem Bonita)<span class="move">trilha</span></div>
+      <h3>A cachoeira vista de baixo</h3>
+      <p>A base da <b>Casca d'Anta</b>, acessada por <b>Vargem Bonita</b>: a trilha pela mata até o poço, com a queda monumental despencando dos paredões. Banho e a outra perspectiva — colossal — da mesma cachoeira. Tarde nas <b>queijarias</b> da rota.</p>
+      <div class="chips"><span class="chip">Vargem Bonita</span><span class="chip">base da Casca d'Anta</span><span class="chip">queijarias</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Leve:</b> traje de banho e calçado de trilha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Roque ou Vargem Bonita</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day leaf">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Rota do Queijo Canastra</div>
+      <h3>Nas fazendas do queijo premiado</h3>
+      <p>Dia dedicado à <b>Rota do Queijo Canastra</b>: visita às fazendas produtoras do célebre queijo de <b>Indicação Geográfica</b> (campeão mundial), com a história da meia-cura, degustação e compra direta do produtor. Imersão na cultura queijeira da serra.</p>
+      <div class="chips"><span class="chip">Rota do Queijo</span><span class="chip">Indicação Geográfica</span><span class="chip">fazendas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Compre:</b> queijo Canastra direto na fazenda</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Roque de Minas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Cânions, Furnas &amp; o Triângulo</span><span class="lk">dias 6–8 · Delfinópolis &amp; Sacramento</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Roque → Delfinópolis<span class="move">≈ 3 h · 180 km</span></div>
+      <h3>Os cânions do Lago de Furnas</h3>
+      <p>Travessia a <b>Delfinópolis</b>, às margens do <b>Lago de Furnas</b>. Tarde de <b>passeio de barco</b> pelos cânions e paredões alagados, com cachoeiras que caem no lago e mirantes. Paisagem grandiosa do "mar de Minas". (Depende do nível de Furnas.)</p>
+      <div class="chips"><span class="chip">Delfinópolis</span><span class="chip">cânions de Furnas</span><span class="chip">passeio de barco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Confirme:</b> barco depende do nível de Furnas e do tempo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Delfinópolis</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Delfinópolis → Sacramento<span class="move">≈ 2,5 h · 160 km</span></div>
+      <h3>O cerrado do Triângulo</h3>
+      <p>Subida ao cerrado do <b>Triângulo Mineiro</b> por <b>Sacramento</b>, portal das chapadas e da rota do queijo do Triângulo. A cultura sertaneja, as fazendas históricas e os mirantes do cerrado. Última noite no interior mineiro.</p>
+      <div class="chips"><span class="chip">Sacramento</span><span class="chip">cerrado</span><span class="chip">Triângulo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixes do Lago de Furnas e queijos do Triângulo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Sacramento</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Sacramento → partida<span class="move">retorno</span></div>
+      <h3>Despedida da Canastra</h3>
+      <p>Manhã para últimas compras de <b>queijo e doces</b> e o retorno — a Passos/Uberaba ou seguindo viagem pelo Triângulo. Da nascente do Velho Chico ao mar de Furnas, a Canastra fica para trás. <i>Até a próxima estrada de chão!</i></p>
+      <div class="chips"><span class="chip">compras</span><span class="chip">retorno</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> a Passos / Uberaba ou segue o Triângulo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Delfinópolis/Sacramento, encerre na Canastra</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Serra da Canastra.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (abr–out): estradas firmes e melhor visita à nascente e à Casca d'Anta. Fauna no fim da seca.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Dentro do parque</h5><p>Estrada de terra e porteiras. Abasteça antes, veículo alto ajuda, e leve dinheiro para o queijo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Casca d'Anta</h5><p>Veja-a de cima (chapadão) e de baixo (Vargem Bonita) — duas trilhas, duas perspectivas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Furnas</h5><p>O passeio de barco em Delfinópolis depende do nível do lago e do tempo. Confirme na chegada.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Queijo Canastra (IG) das fazendas, comida de tropeiro e os peixes do Lago de Furnas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Fauna</h5><p>Lobo-guará, tamanduá-bandeira, seriema e ema vivem no chapadão. Observe à distância, ao entardecer.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Canastra &amp; Triângulo em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

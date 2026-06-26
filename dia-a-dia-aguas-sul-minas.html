@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Águas do Sul de Minas — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1330; --slate:#4f4368; --faint:#8579a3;
+    --paper:#f1edf9; --card:#fffdff; --line:#ddd2ef;
+    --terra:#7c3aed; --amber:#b45309; --plum:#6d28d9; --plum-d:#5b21b6;
+    --violet-d:#4c1d95;
+    --shadow:0 14px 34px -20px rgba(50,25,90,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(124,58,237,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(180,83,9,.06), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#7c3aed 0%,#5b21b6 52%,#b45309 155%);
+    color:#f1eafe;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(180,83,9,.35),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#cdb6f6;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#a883ee}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#e4d8f9;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--violet-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(50,25,90,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--violet-d));
+    color:#f1eafe;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.amber .rail{background:linear-gradient(165deg,#b45309,#92400e)}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--violet-d);text-transform:uppercase;font-weight:500}
+  .day.amber .loc{color:#92400e}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#2c2240}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--violet-d);
+    background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.2);border-radius:999px;padding:4px 10px}
+  .day.amber .chip{color:#92400e;background:rgba(180,83,9,.1);border-color:rgba(180,83,9,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f0eafa);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(124,58,237,.08);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1d1330;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#2a1d45;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Minas Gerais · Circuito das Águas · roteiro dia a dia</div>
+    <h1>Águas do Sul de Minas em 8 dias</h1>
+    <p class="sub">As estâncias hidrominerais do Sul de Minas — São Lourenço, Caxambu, Cambuquira e Lambari, com seus parques de águas e balneários da Belle Époque — coroadas pela quartzítica e mística São Thomé das Letras, a 1.430 m.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">💧 <b>Águas &amp; Belle Époque</b></span>
+      <span class="fact">☀️ Melhor época: <b>mar–out</b></span>
+      <span class="fact">🔮 Serra mística</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>São Lourenço</span><i>→</i><span>Caxambu</span><i>→</i><span>Cambuquira</span><i>→</i><span>Lambari</span><i>→</i><span>São Thomé das Letras</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Águas, ingressos e pedras de São Thomé</h4>
+      <p>O circuito é agradável o ano todo; o <b>outono e a primavera (mar–out)</b> trazem dias secos e amenos, ideais para os parques e o pôr do sol nas pedras. Cada <b>Parque das Águas</b> cobra ingresso simbólico e tem horários próprios — vá <b>pela manhã</b> para curtir as fontes com calma. As ruas de <b>São Thomé</b> são de pedra irregular: calçado firme e atenção à direção em dias de chuva. Evite feriados longos lá — lota.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">O Circuito das Águas</span><span class="lk">dias 1–5 · as quatro estâncias</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Lourenço<span class="move">chegada</span></div>
+      <h3>O Parque das Águas e a gruta do vulcão</h3>
+      <p>Chegada a <b>São Lourenço</b>, coração do circuito. Tarde no famoso <b>Parque das Águas</b>: as fontes minerais, a <b>gruta do vulcão</b> (água naturalmente gaseificada), o lago de pedalinhos e o Balneário. O charme da estância e seus hotéis históricos.</p>
+      <div class="chips"><span class="chip">São Lourenço</span><span class="chip">Parque das Águas</span><span class="chip">gruta do vulcão</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Prove:</b> as águas minerais direto na fonte</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Lourenço (hotel histórico)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Lourenço · termas</div>
+      <h3>Águas, parque e Belle Époque</h3>
+      <p>Dia completo em <b>São Lourenço</b>: as terapias das águas, os pavilhões e o casario da <b>Belle Époque</b>, a caminhada pela orla e o passeio de pedalinho. Cidade de ritmo tranquilo, cafés e doces — a essência das estâncias mineiras.</p>
+      <div class="chips"><span class="chip">terapias das águas</span><span class="chip">pavilhões</span><span class="chip">orla</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> a arquitetura da Belle Époque</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Lourenço</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Caxambu<span class="move">≈ 40 min</span></div>
+      <h3>A água gasosa e o casario imperial</h3>
+      <p><b>Caxambu</b>, a estância da <b>água gasosa natural</b>: o <b>Parque das Águas</b> com seus pavilhões coloridos e fontes, a igrejinha de Isabel (a princesa veio às águas), o teleférico ao Cristo e o casario imperial. Uma das mais charmosas do circuito.</p>
+      <div class="chips"><span class="chip">Caxambu</span><span class="chip">água gasosa</span><span class="chip">teleférico</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os pavilhões do Parque de Caxambu</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Caxambu ou São Lourenço</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cambuquira<span class="move">≈ 1 h</span></div>
+      <h3>O parque arborizado e as fontes</h3>
+      <p><b>Cambuquira</b>, a mais bucólica das estâncias: o <b>Parque das Águas</b> arborizado, as fontes ferruginosas e gasosas, e o ar pacato da pequena cidade. Caminhada pelos jardins e o contato com a tradição termal mais simples e autêntica do circuito.</p>
+      <div class="chips"><span class="chip">Cambuquira</span><span class="chip">parque arborizado</span><span class="chip">fontes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Faça:</b> caminhada tranquila pelos jardins</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lambari ou Cambuquira</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lambari<span class="move">≈ 30 min</span></div>
+      <h3>O lago Guanabara e o pavilhão das águas</h3>
+      <p><b>Lambari</b>, à beira do <b>lago Guanabara</b>: o passeio de barco ou pedalinho no lago, o <b>pavilhão das águas</b>, a Ilha dos Amores e o teleférico ao Pico do Gavião. Fecha o quarteto das estâncias com o clima de balneário lacustre.</p>
+      <div class="chips"><span class="chip">Lambari</span><span class="chip">lago Guanabara</span><span class="chip">pavilhão das águas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M16 10c2 0 3 1 3 3"/></svg></span><span><b>Faça:</b> passeio de barco no lago Guanabara</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lambari</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">A Serra Mística de São Thomé</span><span class="lk">dias 6–8 · pedra, grutas &amp; lendas</span><span class="lr"></span></div>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lambari → São Thomé das Letras<span class="move">≈ 2 h · 110 km</span></div>
+      <h3>A cidade de pedra a 1.430 m</h3>
+      <p>Subida à mística <b>São Thomé das Letras</b>, a 1.430 m: as casas de <b>pedra quartzito</b>, a Pirâmide, a Igreja Matriz e a <b>Gruta de São Thomé</b> com suas inscrições. A cidade das lendas de ufologia e energia. Pôr do sol no mirante.</p>
+      <div class="chips"><span class="chip">São Thomé das Letras</span><span class="chip">casas de pedra</span><span class="chip">grutas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Atenção:</b> ruas de pedra irregular — calçado firme</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> pousada de pedra em São Thomé</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cachoeiras &amp; mirantes</div>
+      <h3>Pedra da Bruxa, Eubiose e Véu de Noiva</h3>
+      <p>Dia entre cachoeiras e mirantes: a lendária <b>Pedra da Bruxa</b> para o pôr do sol, e as cachoeiras dos arredores — <b>Eubiose</b>, <b>Véu de Noiva</b> e do Flávio — com poços para banho. As trilhas de quartzito e a vista infinita dos vales do Sul de Minas.</p>
+      <div class="chips"><span class="chip">Pedra da Bruxa</span><span class="chip">Cachoeira Eubiose</span><span class="chip">Véu de Noiva</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o pôr do sol da Pedra da Bruxa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Thomé das Letras</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day amber">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Thomé → partida<span class="move">retorno</span></div>
+      <h3>Despedida das águas e das pedras</h3>
+      <p>Manhã para as compras de <b>cristais e pedras</b>, um último mirante e a despedida da serra mística. Retorno — a São Lourenço/Sul de Minas ou descendo a São Paulo/Rio. Das águas da Belle Époque às lendas de quartzo, fim do circuito. <i>Até a próxima fonte!</i></p>
+      <div class="chips"><span class="chip">cristais</span><span class="chip">mirante</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> Sul de Minas, São Paulo ou Rio</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Cambuquira ou São Thomé, foque nas três estâncias</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o Circuito das Águas e a serra mística.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Agradável o ano todo; outono e primavera (mar–out) são secos e amenos, ideais para os parques.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Parques das Águas</h5><p>Ingresso simbólico e horários próprios em cada cidade. Vá pela manhã para curtir as fontes com calma.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>São Thomé</h5><p>Ruas de pedra irregular; calçado firme e cuidado ao dirigir na chuva. Evite feriados longos — lota.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Águas minerais na fonte, cafés e doces de tabuleiro, trutas e as cervejas artesanais de São Thomé.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></div><div><h5>Belle Époque</h5><p>Hospede-se nos hotéis históricos de São Lourenço e Caxambu para o clima das antigas estâncias.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Cachoeiras</h5><p>Nos arredores de São Thomé há quedas e poços; leve calçado de trilha e respeite a sinalização.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Águas do Sul de Minas em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
