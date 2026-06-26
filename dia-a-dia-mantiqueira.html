@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mantiqueira Mineira — Roteiro dia a dia (9 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2417; --slate:#3f5747; --faint:#7d9583;
+    --paper:#e9f4ec; --card:#ffffff; --line:#cae3d2;
+    --terra:#15803d; --amber:#b45309; --pine:#166534; --pine-d:#14532d;
+    --moss:#3f6212;
+    --shadow:0 14px 34px -20px rgba(15,60,35,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(21,128,61,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(63,98,18,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#15803d 0%,#166534 52%,#3f6212 150%);
+    color:#e7f5ec;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(63,98,18,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a7e0bc;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56ca82}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:41px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d2eedd;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--pine-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(15,60,35,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--pine-d));
+    color:#e7f5ec;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.moss .rail{background:linear-gradient(165deg,var(--moss),#2f4a0d)}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--pine-d);text-transform:uppercase;font-weight:500}
+  .day.moss .loc{color:var(--moss)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#21342a}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--pine-d);
+    background:rgba(21,128,61,.09);border:1px solid rgba(21,128,61,.2);border-radius:999px;padding:4px 10px}
+  .day.moss .chip{color:var(--moss);background:rgba(63,98,18,.1);border-color:rgba(63,98,18,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e8f3ec);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(21,128,61,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#10241a;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#1b3527;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Minas Gerais · Serra da Mantiqueira · roteiro dia a dia</div>
+    <h1>Mantiqueira Mineira em 9 dias</h1>
+    <p class="sub">As montanhas do Sul de Minas: o Pico do Papagaio e o Vale do Matutu em Aiuruoca, os queijos premiados de Alagoa, a Serra Fina de Passa Quatro e as vilas alpinas de Gonçalves e Monte Verde — trilhas, cachoeiras e frio de serra.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>9 dias</b></span>
+      <span class="fact">⛰️ <b>Trilhas &amp; cachoeiras</b></span>
+      <span class="fact">❄️ Melhor época: <b>abr–set</b></span>
+      <span class="fact">🧀 Queijo &amp; fondue</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Itajubá</span><i>→</i><span>Aiuruoca</span><i>→</i><span>Vale do Matutu</span><i>→</i><span>Alagoa</span><i>→</i><span>Itamonte</span><i>→</i><span>Passa Quatro</span><i>→</i><span>Gonçalves</span><i>→</i><span>Monte Verde</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Inverno seco, terra e neblina</h4>
+      <p>O <b>inverno seco (abr–set)</b> traz céu limpo, geadas e os melhores dias de trilha — leve <b>agasalho de verdade</b>, pois a noite é gelada na alta serra. O verão é chuvoso e fecha as estradas de terra com neblina. Os vales internos (Matutu, Alagoa) têm <b>estradas de chão</b>: tração e cautela. <b>Monte Verde</b> lota em feriados e no inverno — reserve a pousada com antecedência.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Os Vales da Alta Mantiqueira</span><span class="lk">dias 1–5 · Aiuruoca, Matutu &amp; Alagoa</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Itajubá → Aiuruoca<span class="move">≈ 2,5 h · 130 km</span></div>
+      <h3>Subida ao portal da serra</h3>
+      <p>Chegada por <b>Itajubá</b>, cidade-portal do Sul de Minas, e subida à <b>Aiuruoca</b>, base dos vales da alta Mantiqueira. Tarde de reconhecimento na vila, o casario e a vista do <b>Pico do Papagaio</b> ao fundo. Acerto dos guias para as trilhas.</p>
+      <div class="chips"><span class="chip">Itajubá</span><span class="chip">Aiuruoca</span><span class="chip">Pico do Papagaio</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> truta e comida de montanha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Aiuruoca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Vale do Matutu<span class="move">≈ 40 min · terra</span></div>
+      <h3>Cachoeiras e o silêncio do Matutu</h3>
+      <p>Dia no <b>Vale do Matutu</b>, comunidade serrana cercada de montanhas e quedas-d'água. As cachoeiras do vale (Fundo, Deus-me-Livre), trilhas leves entre a mata atlântica e o clima de retiro. Instalação numa pousada ou camping do vale.</p>
+      <div class="chips"><span class="chip">Vale do Matutu</span><span class="chip">cachoeiras</span><span class="chip">mata atlântica</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Leve:</b> traje de banho, calçado de trilha e agasalho</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Vale do Matutu</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pico do Papagaio<span class="move">trilha · dia inteiro</span></div>
+      <h3>A trilha ao Pico do Papagaio</h3>
+      <p>O grande dia de trilha: a subida ao <b>Pico do Papagaio</b> (2.300 m), com vista de 360° sobre a Mantiqueira e, em dias claros, até o maciço do Itatiaia. Trilha exigente, melhor <b>com guia</b> e saída cedo. Pôr do sol de volta ao vale.</p>
+      <div class="chips"><span class="chip">Pico do Papagaio</span><span class="chip">2.300 m</span><span class="chip">trilha guiada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Trilha:</b> exigente · guia recomendado · saia cedo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Vale do Matutu ou Aiuruoca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Alagoa<span class="move">≈ 1,5 h · terra</span></div>
+      <h3>Os queijos premiados a 1.500 m</h3>
+      <p>Travessia ao <b>vilarejo de Alagoa</b>, a 1.500 m de altitude, terra dos <b>queijos artesanais premiados</b> (campeões mundiais). Visita às queijarias, degustação, a paisagem de montanha e o frio cortante. Imersão na produção leiteira de altitude.</p>
+      <div class="chips"><span class="chip">Alagoa</span><span class="chip">queijos premiados</span><span class="chip">queijarias</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> degustação de queijos campeões</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Alagoa ou Itamonte</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Itamonte · Serra Fina<span class="move">≈ 1 h</span></div>
+      <h3>A entrada da Serra Fina</h3>
+      <p><b>Itamonte</b>, na entrada da <b>Serra Fina</b> e do lado mineiro do maciço do Itatiaia. Mirantes, cachoeiras e a paisagem grandiosa da serra. Dia mais leve de transição, com a opção de uma trilha-mirante e descanso para a segunda parte.</p>
+      <div class="chips"><span class="chip">Itamonte</span><span class="chip">Serra Fina</span><span class="chip">Itatiaia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Vista:</b> a parede da Serra Fina ao fundo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Itamonte / Itanhandu</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">As Vilas de Montanha</span><span class="lk">dias 6–9 · Passa Quatro, Gonçalves &amp; Monte Verde</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Passa Quatro<span class="move">≈ 40 min</span></div>
+      <h3>O trem e o túnel da Mantiqueira</h3>
+      <p><b>Passa Quatro</b>, ao pé da Serra Fina: o histórico <b>passeio de trem (Maria-Fumaça)</b> até o <b>Túnel da Mantiqueira</b>, cenário de batalha da Revolução de 1932, e o centro da cidade. Truta e o clima de cidade serrana.</p>
+      <div class="chips"><span class="chip">Passa Quatro</span><span class="chip">Maria-Fumaça</span><span class="chip">Túnel da Mantiqueira</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 18V5l12-2v13"/></svg></span><span><b>Confirme:</b> dias de operação do trem</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Passa Quatro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Gonçalves<span class="move">≈ 3 h · serra</span></div>
+      <h3>Vida rural e trilhas na crista</h3>
+      <p>Travessia à bucólica <b>Gonçalves</b>, na crista da Mantiqueira: a vida rural, os ateliês de artesãos, a cozinha orgânica e as <b>trilhas</b> aos picos e cachoeiras (Pedra do Forno, Chapadão). Refúgio tranquilo de mata atlântica e céu estrelado.</p>
+      <div class="chips"><span class="chip">Gonçalves</span><span class="chip">trilhas</span><span class="chip">ateliês</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Faça:</b> trilha à Pedra do Forno ou Chapadão</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Gonçalves</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Monte Verde<span class="move">≈ 2,5 h</span></div>
+      <h3>A vila alpina de fondue e cervejas</h3>
+      <p>O destino final: <b>Monte Verde</b>, vila alpina de Camanducaia. A arquitetura de montanha, a <b>Pedra Redonda</b> e o <b>Chapéu do Bispo</b> (mirantes e trilhas), as cervejarias artesanais e o clássico <b>fondue</b> ao frio da serra. Compras de malhas e chocolates.</p>
+      <div class="chips"><span class="chip">Monte Verde</span><span class="chip">Pedra Redonda</span><span class="chip">fondue &amp; cervejas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> fondue e cervejas artesanais</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Monte Verde</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Monte Verde → partida<span class="move">retorno</span></div>
+      <h3>Despedida da serra</h3>
+      <p>Manhã para um último mirante ou trilha (Pedra Redonda ao amanhecer), as compras de queijos, malhas e cervejas, e o retorno — a Itajubá ou descendo a São Paulo (~3 h). <i>Até a próxima montanha!</i></p>
+      <div class="chips"><span class="chip">mirante</span><span class="chip">compras</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> Itajubá ou São Paulo (~3 h)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Matutu/Alagoa, foque nos picos e vilas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para as montanhas do Sul de Minas.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Inverno seco (abr–set): céu limpo, geadas e os melhores dias de trilha. Verão chuvoso fecha estradas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Estradas de terra</h5><p>Matutu e Alagoa têm acessos de chão com neblina. Tração ajuda; vá de dia e com cautela.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Trilhas</h5><p>Pico do Papagaio e Serra Fina são exigentes — vá com guia, saia cedo e leve água e lanche.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></div><div><h5>Monte Verde</h5><p>Lota em feriados e no inverno e é a hospedagem mais cara. Reserve com bastante antecedência.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Queijos premiados de Alagoa, trutas dos vales e o fondue e as cervejas de Monte Verde.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Leve</h5><p>Agasalho de verdade (noites geladas), calçado de trilha, capa de chuva e dinheiro em espécie.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Mantiqueira Mineira em 9 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
