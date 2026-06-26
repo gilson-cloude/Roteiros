@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velho Chico — Roteiro dia a dia (9 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c2126; --slate:#3f565b; --faint:#7c9499;
+    --paper:#e9f3f4; --card:#ffffff; --line:#c9e2e4;
+    --terra:#0e7490; --amber:#b45309; --sand:#a16207; --sand-d:#854d0e;
+    --teal-d:#155e75;
+    --shadow:0 14px 34px -20px rgba(10,55,65,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(14,116,144,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(161,98,7,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0e7490 0%,#155e75 52%,#a16207 155%);
+    color:#e6f4f5;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(161,98,7,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3d8e2;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56c2d6}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:42px;line-height:1.02;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeaee;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sand-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(10,55,65,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f4f5;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sand .rail{background:linear-gradient(165deg,var(--sand),var(--sand-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.sand .loc{color:var(--sand-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f3438}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(14,116,144,.09);border:1px solid rgba(14,116,144,.2);border-radius:999px;padding:4px 10px}
+  .day.sand .chip{color:var(--sand-d);background:rgba(161,98,7,.1);border-color:rgba(161,98,7,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e8f2f3);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(14,116,144,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0d2125;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#163036;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:30px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Minas Gerais · Rio São Francisco · roteiro dia a dia</div>
+    <h1>Velho Chico em 9 dias</h1>
+    <p class="sub">O Rio São Francisco mineiro: a represa de Três Marias, o vapor Benjamin Guimarães e as carrancas de Pirapora, a cultura ribeirinha de São Francisco e Januária, e o colossal Parque Nacional Cavernas do Peruaçu, com sua arte rupestre milenar.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>9 dias</b></span>
+      <span class="fact">🚣 <b>Rio &amp; cavernas</b></span>
+      <span class="fact">☀️ Melhor época: <b>mai–set</b></span>
+      <span class="fact">🥃 Cachaça &amp; carrancas</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Belo Horizonte</span><i>→</i><span>Três Marias</span><i>→</i><span>Pirapora</span><i>→</i><span>São Francisco</span><i>→</i><span>Januária</span><i>→</i><span>Peruaçu</span><i>→</i><span>Montes Claros</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, agendamento e calor do sertão</h4>
+      <p>Vá na <b>seca (mai–set)</b>: o calor é mais ameno e as estradas do norte mineiro ficam firmes. O <b>vapor Benjamin Guimarães</b> navega em dias e horários específicos — confirme a programação. O <b>Peruaçu</b> só entra com <b>agendamento e condutor credenciado</b>; marque com antecedência. Leve <b>água, chapéu e protetor</b> para o calor do sertão.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">A Represa &amp; o Vapor</span><span class="lk">dias 1–4 · Três Marias &amp; Pirapora</span><span class="lr"></span></div>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>BH → Três Marias<span class="move">≈ 4 h · 270 km</span></div>
+      <h3>Subida ao Velho Chico</h3>
+      <p>Saída de <b>Belo Horizonte</b> rumo ao norte até a <b>represa de Três Marias</b>, uma das maiores do São Francisco. Tarde no lago — pesca esportiva, barco e pôr do sol nas águas. Primeiro contato com o ritmo ribeirinho.</p>
+      <div class="chips"><span class="chip">Três Marias</span><span class="chip">represa</span><span class="chip">pesca esportiva</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixe do São Francisco no lago</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Três Marias</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Três Marias → Pirapora<span class="move">≈ 2 h · 150 km</span></div>
+      <h3>O vapor e o encontro dos rios</h3>
+      <p>Descida a <b>Pirapora</b>, no encontro do São Francisco com o <b>Rio das Velhas</b>. À tarde, o histórico <b>vapor Benjamin Guimarães</b>, um dos últimos barcos a vapor do mundo, e a orla. Travessia a Buritizeiro pela ponte.</p>
+      <div class="chips"><span class="chip">Pirapora</span><span class="chip">vapor Benjamin Guimarães</span><span class="chip">Rio das Velhas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Confirme:</b> dias/horários de navegação do vapor</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Pirapora, à beira do rio</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pirapora · as carrancas</div>
+      <h3>Carrancas, artesãos e o rio</h3>
+      <p>Dia na cultura ribeirinha de <b>Pirapora</b>: os <b>ateliês de carrancas</b> (as figuras de proa que protegiam os barqueiros), o artesanato, a feira e a vida à beira do Velho Chico. Passeio de barco ao pôr do sol e a gastronomia de peixe de rio.</p>
+      <div class="chips"><span class="chip">carrancas</span><span class="chip">artesanato</span><span class="chip">passeio de barco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os ateliês de carrancas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Pirapora</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pirapora → São Francisco<span class="move">≈ 4 h · 300 km</span></div>
+      <h3>Sertão ribeirinho adentro</h3>
+      <p>Descida pelo sertão norte-mineiro até <b>São Francisco</b>, cidade ribeirinha de cultura sertaneja viva — o artesanato, os causos do rio e a hospitalidade do povo das margens. Fim de tarde na orla, vendo o Velho Chico correr.</p>
+      <div class="chips"><span class="chip">São Francisco</span><span class="chip">cultura sertaneja</span><span class="chip">orla</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> surubim, dourado e doces de buriti</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Francisco</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Sertão, Cachaça &amp; Cavernas</span><span class="lk">dias 5–9 · Januária &amp; Peruaçu</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Francisco → Januária<span class="move">≈ 1,5 h · 100 km</span></div>
+      <h3>A capital da cachaça artesanal</h3>
+      <p>Chegada a <b>Januária</b>, a capital da <b>cachaça de alambique</b> de Minas. Visita a alambiques tradicionais, degustação e a história da bebida; o centro histórico e a orla. Portal das grutas do norte mineiro.</p>
+      <div class="chips"><span class="chip">Januária</span><span class="chip">cachaça de alambique</span><span class="chip">alambiques</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Não perca:</b> degustação de cachaça de alambique</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Januária</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Januária → Itacarambi<span class="move">≈ 1,5 h · 90 km</span></div>
+      <h3>Base para o Peruaçu</h3>
+      <p>Subida ribeirinha a <b>Itacarambi</b>, a base de apoio do Parque Nacional. Tarde de reconhecimento, acerto do <b>agendamento e do condutor credenciado</b> para o Peruaçu, e descanso para a grande visita do dia seguinte.</p>
+      <div class="chips"><span class="chip">Itacarambi</span><span class="chip">base de apoio</span><span class="chip">agendamento</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Importante:</b> confirme condutor e horário do PARNA</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Itacarambi</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cavernas do Peruaçu</div>
+      <h3>Salões colossais e arte rupestre</h3>
+      <p>O dia-joia: o <b>Parque Nacional Cavernas do Peruaçu</b>. A monumental <b>Gruta do Janelão</b>, com seus salões gigantescos, estalactites colossais e clarabóias de luz, e os painéis de <b>arte rupestre</b> milenar. Uma das maiores cavernas do continente.</p>
+      <div class="chips"><span class="chip">Gruta do Janelão</span><span class="chip">arte rupestre</span><span class="chip">PARNA Peruaçu</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Obrigatório:</b> visita guiada com condutor credenciado</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Itacarambi ou Januária</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Itacarambi → Montes Claros<span class="move">≈ 3 h · 200 km</span></div>
+      <h3>O retorno pelo norte mineiro</h3>
+      <p>Travessia a <b>Montes Claros</b>, a maior cidade do norte de Minas e apoio completo da região. Tarde para descanso, a cultura sertaneja e gerais, o comércio e a gastronomia regional. Última noite no sertão.</p>
+      <div class="chips"><span class="chip">Montes Claros</span><span class="chip">norte mineiro</span><span class="chip">apoio</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> comida sertaneja e gerais</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Montes Claros</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Montes Claros → BH<span class="move">≈ 5,5 h · 420 km</span></div>
+      <h3>Despedida do Velho Chico</h3>
+      <p>Retorno a <b>Belo Horizonte</b> pela BR-135, fechando o circuito do São Francisco mineiro — do vapor às cavernas, das carrancas à cachaça. <i>Ó, ó, ó, é o Velho Chico!</i></p>
+      <div class="chips"><span class="chip">retorno</span><span class="chip">BR-135</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> ≈ 5,5 h a Belo Horizonte</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem o Peruaçu, encerre em Januária</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o Rio São Francisco mineiro.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (mai–set): calor mais ameno e estradas firmes; melhor operação das visitas ao Peruaçu.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div><h5>Peruaçu</h5><p>Só com agendamento e condutor credenciado. Marque com antecedência; acessos de terra.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>O vapor</h5><p>O Benjamin Guimarães navega em dias e horários específicos. Confirme a programação antes.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Leve</h5><p>Água, chapéu e protetor para o calor do sertão; calçado fechado para as cavernas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Surubim, dourado e mojica do São Francisco, doces de buriti e a cachaça de Januária.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Lembranças</h5><p>Carrancas de Pirapora e cachaça artesanal de Januária — as marcas do Velho Chico.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Velho Chico em 9 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
