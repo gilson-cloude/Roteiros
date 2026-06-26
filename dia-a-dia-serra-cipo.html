@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serra do Cipó & Lapinha — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c2321; --slate:#3f5654; --faint:#7c9491;
+    --paper:#e9f4f2; --card:#ffffff; --line:#c9e3df;
+    --terra:#0d9488; --amber:#b45309; --moss:#4d7c0f; --moss-d:#3f6212;
+    --teal-d:#0f766e;
+    --shadow:0 14px 34px -20px rgba(10,55,50,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(13,148,136,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(77,124,15,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0d9488 0%,#0f766e 52%,#4d7c0f 150%);
+    color:#e6f5f2;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(77,124,15,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#9fdcd4;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56cabe}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeee9;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--moss-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(10,55,50,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f5f2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.moss .rail{background:linear-gradient(165deg,var(--moss),var(--moss-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.moss .loc{color:var(--moss-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f3331}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(13,148,136,.09);border:1px solid rgba(13,148,136,.2);border-radius:999px;padding:4px 10px}
+  .day.moss .chip{color:var(--moss-d);background:rgba(77,124,15,.1);border-color:rgba(77,124,15,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e8f3f0);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(13,148,136,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0d2321;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#163431;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Minas Gerais · Espinhaço Sul · roteiro dia a dia</div>
+    <h1>Serra do Cipó &amp; Lapinha em 8 dias</h1>
+    <p class="sub">O Espinhaço a uma hora de BH: o Parque Nacional da Serra do Cipó e suas cachoeiras e cânions, a vila bucólica de Lapinha da Serra com seu lago, e a Cachoeira do Tabuleiro — a maior queda d'água de Minas — em Conceição do Mato Dentro.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">💧 <b>Cachoeiras &amp; cânions</b></span>
+      <span class="fact">☀️ Melhor época: <b>abr–set</b></span>
+      <span class="fact">🌸 Campos rupestres</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Belo Horizonte</span><i>→</i><span>Cardeal Mota</span><i>→</i><span>PARNA Serra do Cipó</span><i>→</i><span>Lapinha da Serra</span><i>→</i><span>Cachoeira do Tabuleiro</span><i>→</i><span>Conceição do Mato Dentro</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, cota e cabeça-d'água</h4>
+      <p>A <b>seca (abr–set)</b> deixa as trilhas firmes e a água transparente; as flores do cerrado de altitude despontam no fim da seca. As entradas do parque têm <b>horário e cota</b> — contrate guia local para as trilhas longas (Bandeirinhas). No verão chuvoso há <b>risco de cabeça-d'água</b> — nunca entre na água sob chuva. O acesso a Lapinha e ao Tabuleiro tem trechos de terra, e a subida ao Tabuleiro tem <b>horário-limite</b>.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Serra do Cipó &amp; o Cerrado</span><span class="lk">dias 1–4 · PARNA &amp; Cardeal Mota</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>BH → Cardeal Mota<span class="move">≈ 1,5 h · 100 km</span></div>
+      <h3>Subida à Rota do Cipó</h3>
+      <p>Saída de <b>Belo Horizonte</b> pela <b>Rota do Cipó</b> (MG-010) até <b>Cardeal Mota</b>, a vila-base do parque. Tarde leve numa cachoeira de acesso fácil (Véu da Noiva, na beira da estrada) e instalação. Acerto de guias e dos passeios.</p>
+      <div class="chips"><span class="chip">Cardeal Mota</span><span class="chip">Rota do Cipó</span><span class="chip">Véu da Noiva</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> comida mineira e cafés de fazenda</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cardeal Mota / Serra do Cipó</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>PARNA Serra do Cipó · Farofa</div>
+      <h3>A trilha da Cachoeira da Farofa</h3>
+      <p>Dia no <b>Parque Nacional da Serra do Cipó</b>: a trilha clássica à <b>Cachoeira da Farofa</b> (cerca de 8 km por campos e mata), com poços para banho, e a Cachoeira da Capivara. Cerrado de altitude, candeias e sempre-vivas pelo caminho.</p>
+      <div class="chips"><span class="chip">Cachoeira da Farofa</span><span class="chip">campos rupestres</span><span class="chip">PARNA</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Chegue cedo:</b> horário e cota de entrada do parque</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cardeal Mota</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Canyon das Bandeirinhas<span class="move">trilha longa</span></div>
+      <h3>O cânion esculpido no quartzito</h3>
+      <p>A grande trilha (com guia): o <b>Canyon das Bandeirinhas</b>, paredões de quartzito esculpidos pelo Rio Cipó, com travessias de rio e piscinas naturais. Dia exigente e espetacular no coração do parque. Alternativa mais leve: a Cachoeira Grande e o Travessão.</p>
+      <div class="chips"><span class="chip">Canyon das Bandeirinhas</span><span class="chip">quartzito</span><span class="chip">guia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Trilha:</b> longa, com guia · leve água e lanche</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cardeal Mota</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cachoeiras da Rota do Cipó</div>
+      <h3>Poços, cânions e dia mais leve</h3>
+      <p>Dia mais leve pelas cachoeiras fora do parque, ao longo da Rota do Cipó: a <b>Cachoeira do Tombador</b>, a Cachoeira Véu da Noiva e os poços do Rio Cipó. Tarde para descanso, banho e os cafés e ateliês da estrada. Preparação para Lapinha.</p>
+      <div class="chips"><span class="chip">Cachoeira do Tombador</span><span class="chip">poços</span><span class="chip">cafés</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Leve:</b> traje de banho e calçado aquático</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cardeal Mota</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Lapinha &amp; as Grandes Quedas</span><span class="lk">dias 5–8 · vila serrana &amp; Tabuleiro</span><span class="lr"></span></div>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Serra do Cipó → Lapinha da Serra<span class="move">≈ 1,5 h · terra</span></div>
+      <h3>A vila bucólica e o lago</h3>
+      <p>Travessia à pequena <b>Lapinha da Serra</b>, vila de casas simples cercada de montanhas, com seu <b>lago</b> represado e o ritmo lento. Tarde de caminhada pela vila, banho no lago e o pôr do sol nas montanhas. Sem pressa, no melhor estilo serra.</p>
+      <div class="chips"><span class="chip">Lapinha da Serra</span><span class="chip">lago</span><span class="chip">vila bucólica</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> quitandas e cafés de Lapinha</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lapinha da Serra</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Morro da Carapuça<span class="move">trilha · nascer do sol</span></div>
+      <h3>O nascer do sol no Morro da Carapuça</h3>
+      <p>Madrugada cedo para a subida ao <b>Morro da Carapuça</b>, o mirante de Lapinha, e o <b>nascer do sol</b> com o mar de nuvens sobre os vales — um dos mais belos da Mantiqueira mineira. Tarde de descanso na vila ou banho de cachoeira.</p>
+      <div class="chips"><span class="chip">Morro da Carapuça</span><span class="chip">nascer do sol</span><span class="chip">mar de nuvens</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o nascer do sol da Carapuça</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lapinha da Serra</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day moss">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cachoeira do Tabuleiro<span class="move">≈ 2 h · terra</span></div>
+      <h3>A maior queda d'água de Minas</h3>
+      <p>O dia-joia: a colossal <b>Cachoeira do Tabuleiro</b>, com <b>273 m</b> de queda — a maior de Minas e uma das maiores do Brasil — no monumento natural perto de <b>Conceição do Mato Dentro</b>. Trilha ao poço, banho e o mirante. Suba dentro do horário-limite.</p>
+      <div class="chips"><span class="chip">Cachoeira do Tabuleiro</span><span class="chip">273 m</span><span class="chip">monumento natural</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Atenção:</b> horário-limite para subir · acesso de terra</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Conceição do Mato Dentro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Conceição do Mato Dentro → BH<span class="move">≈ 2,5 h · 170 km</span></div>
+      <h3>Cidade histórica e o retorno</h3>
+      <p>Manhã na <b>Conceição do Mato Dentro</b> histórica — o casario colonial, as igrejas e o portal das dezenas de cachoeiras da região — e o retorno a <b>Belo Horizonte</b>, fechando o circuito do Espinhaço. <i>Até a próxima trilha!</i></p>
+      <div class="chips"><span class="chip">Conceição do Mato Dentro</span><span class="chip">centro histórico</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> ≈ 2,5 h a Belo Horizonte</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem o Tabuleiro, encerre por Lapinha</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Serra do Cipó e o Espinhaço.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (abr–set): trilhas firmes e água transparente; flores do cerrado no fim da seca.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Parque Nacional</h5><p>Horário e cota de entrada; guia para as trilhas longas (Bandeirinhas). Chegue cedo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Cabeça-d'água</h5><p>Nunca entre na água sob chuva na serra. No verão o risco é alto — siga sempre o guia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Tabuleiro &amp; Lapinha</h5><p>Acessos com trechos de terra; a subida ao Tabuleiro tem horário-limite. Vá de dia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Comida mineira na Rota do Cipó, cafés de fazenda e as quitandas de Lapinha.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Equipamento</h5><p>Calçado de trilha, água, lanche, protetor e capa de chuva. Lanterna para a Carapuça antes do sol.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Serra do Cipó &amp; Lapinha em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
