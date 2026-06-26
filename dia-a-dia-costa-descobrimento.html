@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Costa do Descobrimento — Roteiro dia a dia (11 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a2320; --slate:#3c5754; --faint:#789691;
+    --paper:#e8f4f1; --card:#ffffff; --line:#c8e4dd;
+    --terra:#0d9488; --amber:#c2660c; --coral:#c2410c; --coral-d:#9a3412;
+    --teal-d:#0f766e;
+    --shadow:0 14px 34px -20px rgba(8,55,48,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(13,148,136,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(194,65,12,.06), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0d9488 0%,#0f766e 52%,#c2410c 155%);
+    color:#e6f5f1;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,65,12,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#9fdcd1;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56cabe}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeee7;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--coral-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,55,48,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f5f1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.coral .rail{background:linear-gradient(165deg,var(--coral),var(--coral-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.coral .loc{color:var(--coral-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f3330}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(13,148,136,.09);border:1px solid rgba(13,148,136,.2);border-radius:999px;padding:4px 10px}
+  .day.coral .chip{color:var(--coral-d);background:rgba(194,65,12,.09);border-color:rgba(194,65,12,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e7f3ef);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(13,148,136,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0b2320;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#15332e;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Bahia · Costa do Descobrimento · roteiro dia a dia</div>
+    <h1>Costa do Descobrimento em 11 dias</h1>
+    <p class="sub">O litoral onde o Brasil começou: o centro histórico de Porto Seguro e os recifes de Coroa Vermelha, a boêmia Arraial d'Ajuda, o Quadrado de Trancoso, a deslumbrante Praia do Espelho e a rústica Caraíva, vila sem carros à beira-rio.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>11 dias</b></span>
+      <span class="fact">🏖️ <b>Falésias &amp; vilas</b></span>
+      <span class="fact">☀️ Verão: <b>set–mar</b></span>
+      <span class="fact">🐠 Piscinas naturais</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Porto Seguro</span><i>→</i><span>Coroa Vermelha</span><i>→</i><span>Arraial d'Ajuda</span><i>→</i><span>Trancoso</span><i>→</i><span>Praia do Espelho</span><i>→</i><span>Caraíva</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Verão, maré e balsas</h4>
+      <p>O <b>verão (set–mar)</b> tem sol e mar quente — e o auge de Réveillon/Carnaval em Trancoso (lotado e caríssimo, reserve com meses). De <b>abr a jun</b> chove mais. As praias do sul (<b>Espelho, Caraíva</b>) dependem da <b>maré</b> para as piscinas naturais — cheque a tábua. As travessias de <b>balsa</b> (Buranhém) e <b>canoa</b> (Caraíva) têm fila no verão; leve dinheiro vivo.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Porto Seguro &amp; Arraial d'Ajuda</span><span class="lk">dias 1–5 · história &amp; boemia</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Porto Seguro<span class="move">chegada</span></div>
+      <h3>Onde o Brasil começou</h3>
+      <p>Chegada a <b>Porto Seguro</b> e subida à <b>Cidade Alta</b>, o centro histórico onde o Brasil começou: o marco do descobrimento, as igrejas quinhentistas e a vista do mar. Fim de tarde na <b>Passarela do Descobrimento</b> (Passarela do Álcool), com barracas e o capeta gelado.</p>
+      <div class="chips"><span class="chip">Cidade Alta</span><span class="chip">marco do descobrimento</span><span class="chip">Passarela</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> o centro histórico quinhentista</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Porto Seguro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Coroa Vermelha · Santa Cruz Cabrália</div>
+      <h3>Os recifes da primeira missa</h3>
+      <p>Dia ao norte: a reserva de <b>recifes de Coroa Vermelha</b>, em Santa Cruz Cabrália — piscinas naturais na maré baixa e o marco da primeira missa — e o charme tranquilo de <b>Cabrália</b>. Banho de recife e mergulho leve nas piscinas de coral.</p>
+      <div class="chips"><span class="chip">Coroa Vermelha</span><span class="chip">recifes</span><span class="chip">Santa Cruz Cabrália</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Maré:</b> piscinas de coral na maré baixa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Porto Seguro</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Arraial d'Ajuda<span class="move">balsa do Buranhém</span></div>
+      <h3>A vila boêmia e a Rua do Mucugê</h3>
+      <p>Travessia de <b>balsa sobre o rio Buranhém</b> à boêmia <b>Arraial d'Ajuda</b>: a <b>Rua do Mucugê</b> (uma das mais charmosas do país), a igrejinha no alto e a vista, e as praias do <b>Mucugê e Pitinga</b>, de falésias coloridas. Vida noturna animada.</p>
+      <div class="chips"><span class="chip">Arraial d'Ajuda</span><span class="chip">Rua do Mucugê</span><span class="chip">Praia Pitinga</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Acesso:</b> balsa do Buranhém · calcule a fila no verão</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Arraial d'Ajuda</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Arraial · praias &amp; Eco Parque</div>
+      <h3>Falésias, Apaga-Fogo e aventura</h3>
+      <p>Dia de praias em <b>Arraial</b>: a calma <b>Praia do Apaga-Fogo</b> (do lado do rio), as falésias de Pitinga e Taípe, e a opção do <b>Arraial d'Ajuda Eco Parque</b> (toboáguas em meio à mata) para quem viaja com a família. Pôr do sol na Rua do Mucugê.</p>
+      <div class="chips"><span class="chip">Apaga-Fogo</span><span class="chip">falésias de Taípe</span><span class="chip">Eco Parque</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> moqueca e peixe na folha de bananeira</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Arraial d'Ajuda</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praias do litoral · transição</div>
+      <h3>Dia livre entre as falésias</h3>
+      <p>Dia mais leve nas praias entre Arraial e Trancoso (Rio da Barra, Taípe), com caminhadas pelas falésias e banhos tranquilos, antes de seguir para o sul. Tarde de descanso e preparação para os destinos mais badalados e remotos da costa.</p>
+      <div class="chips"><span class="chip">Rio da Barra</span><span class="chip">falésias</span><span class="chip">dia livre</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> a caminhada pela praia até o Rio da Barra</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Arraial d'Ajuda</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Trancoso, Espelho &amp; Caraíva</span><span class="lk">dias 6–11 · o sul de charme &amp; rústico</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Trancoso<span class="move">≈ 1 h</span></div>
+      <h3>O Quadrado e a igrejinha de São João</h3>
+      <p>Chegada a <b>Trancoso</b> e o famoso <b>Quadrado</b>: o gramado histórico ladeado de casas coloridas e a <b>igrejinha de São João Batista</b> (1656) com a vista para o mar. As lojas, a gastronomia estrelada e o pôr do sol — o coração chique da Bahia.</p>
+      <div class="chips"><span class="chip">Trancoso</span><span class="chip">o Quadrado</span><span class="chip">igrejinha de São João</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Não perca:</b> o pôr do sol do Quadrado</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Trancoso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praias de Trancoso</div>
+      <h3>Praia dos Nativos, Coqueiros e Itaquena</h3>
+      <p>Dia de praias em <b>Trancoso</b>: a <b>Praia dos Nativos</b> (a principal), a dos Coqueiros e a mais isolada <b>Itaquena</b>, com seus coqueirais e piscinas na maré baixa. Os beach clubs e a tranquilidade dos coqueirais. Volta ao Quadrado à noite.</p>
+      <div class="chips"><span class="chip">Praia dos Nativos</span><span class="chip">Itaquena</span><span class="chip">coqueirais</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> gastronomia premiada do Quadrado</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Trancoso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia do Espelho<span class="move">bate-volta</span></div>
+      <h3>Uma das praias mais bonitas do Brasil</h3>
+      <p>Bate-volta à deslumbrante <b>Praia do Espelho</b>: falésias coloridas, coqueiros e <b>piscinas naturais</b> de águas cristalinas que se formam na <b>maré baixa</b> (planeje pelo horário da maré). Almoço num dos restaurantes pé na areia e tarde de paraíso.</p>
+      <div class="chips"><span class="chip">Praia do Espelho</span><span class="chip">piscinas naturais</span><span class="chip">falésias</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Maré:</b> vá na maré baixa para as piscinas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Trancoso ou Espelho</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Caraíva<span class="move">travessia de canoa</span></div>
+      <h3>A vila sem carros à beira-rio</h3>
+      <p>Chegada à rústica <b>Caraíva</b>: deixe o carro e cruze o rio de <b>canoa</b>. Vila de <b>ruas de areia, sem carros e sem energia até pouco tempo</b>, à beira do rio e do mar. O charme do fim do mundo, as caminhadas na praia e o céu estrelado.</p>
+      <div class="chips"><span class="chip">Caraíva</span><span class="chip">vila sem carros</span><span class="chip">ruas de areia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Acesso:</b> travessia de canoa · leve pouca bagagem</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Caraíva</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia do Satu · Espelho a pé</div>
+      <h3>Caminhada à Praia do Satu e forró pé na areia</h3>
+      <p>Dia em <b>Caraíva</b>: a caminhada pela praia rumo ao sul (Praia do Satu) ou ao norte rumo à Praia do Espelho, o passeio de barco à <b>foz do rio</b> e à aldeia indígena <b>Pataxó</b> de Barra Velha. À noite, o tradicional <b>forró pé na areia</b> da vila.</p>
+      <div class="chips"><span class="chip">Praia do Satu</span><span class="chip">aldeia Pataxó</span><span class="chip">forró na areia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Não perca:</b> o forró pé na areia de Caraíva</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Caraíva</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Caraíva → Porto Seguro<span class="move">≈ 2,5 h · partida</span></div>
+      <h3>Despedida da Costa do Descobrimento</h3>
+      <p>Retorno por estrada a <b>Porto Seguro</b> para a partida (aeroporto). Da Cidade Alta quinhentista às ruas de areia de Caraíva, fecha-se o circuito do litoral onde o Brasil começou. <i>Até a próxima maré!</i></p>
+      <div class="chips"><span class="chip">retorno</span><span class="chip">Porto Seguro</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de Porto Seguro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Caraíva/Espelho, encerre em Trancoso (poupa ~2 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Costa do Descobrimento.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Verão (set–mar) para sol e mar quente; Réveillon/Carnaval lotam Trancoso. Abr–jun chove mais.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Marés</h5><p>Espelho, Caraíva e Coroa Vermelha dependem da maré baixa para as piscinas naturais. Cheque a tábua.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Travessias</h5><p>Balsa do Buranhém (Porto↔Arraial) e canoa em Caraíva. Filas no verão; leve dinheiro vivo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></div><div><h5>Trancoso</h5><p>É o destino mais caro; reserve a hospedagem com bastante antecedência, sobretudo na alta.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Moqueca, peixe na folha de bananeira, acarajé, cocadas e a gastronomia premiada do Quadrado.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Compras</h5><p>Biojoias, artesanato indígena Pataxó e moda praia nas lojas de Trancoso e Arraial.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Costa do Descobrimento em 11 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

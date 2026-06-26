@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rota das Emoções — Roteiro dia a dia (12 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08222a; --slate:#3a565d; --faint:#789499;
+    --paper:#e7f4f5; --card:#ffffff; --line:#c6e4e6;
+    --terra:#0891b2; --amber:#c2660c; --sand:#ca8a04; --sand-d:#a16207;
+    --teal-d:#0e7490;
+    --shadow:0 14px 34px -20px rgba(8,55,62,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(8,145,178,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(202,138,4,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0891b2 0%,#0e7490 52%,#ca8a04 155%);
+    color:#e6f6f7;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(202,138,4,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3dde2;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56c8d4}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeef0;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sand-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,55,62,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f6f7;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sand .rail{background:linear-gradient(165deg,var(--sand),var(--sand-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.sand .loc{color:var(--sand-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f3338}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(8,145,178,.09);border:1px solid rgba(8,145,178,.2);border-radius:999px;padding:4px 10px}
+  .day.sand .chip{color:var(--sand-d);background:rgba(202,138,4,.1);border-color:rgba(202,138,4,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e7f3f4);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(8,145,178,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0a2228;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#143238;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>CE · PI · MA · Rota das Emoções · roteiro dia a dia</div>
+    <h1>Rota das Emoções em 12 dias</h1>
+    <p class="sub">A travessia litorânea por três estados: a vila de dunas de Jericoacoara no Ceará, o labirinto de manguezais do Delta do Parnaíba no Piauí, e o deserto de dunas e lagoas dos Lençóis Maranhenses, encerrando na histórica São Luís.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>12 dias</b></span>
+      <span class="fact">🏜️ <b>Dunas &amp; lagoas</b></span>
+      <span class="fact">💧 Lagoas cheias: <b>jun–set</b></span>
+      <span class="fact">🛻 Trechos só 4x4</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Jericoacoara</span><i>→</i><span>Tutóia</span><i>→</i><span>Delta do Parnaíba</span><i>→</i><span>Barreirinhas</span><i>→</i><span>Atins</span><i>→</i><span>São Luís</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Lagoas cheias, maré e 4x4</h4>
+      <p>Para as <b>lagoas cheias</b> dos Lençóis Maranhenses, vá de <b>jun a set</b> (depois das chuvas de mar–mai); fora disso, muitas secam. Jericoacoara tem vento bom para <b>kite de jul a dez</b>. Os trechos de <b>praia e dunas exigem 4x4</b> e atenção à <b>tábua de marés</b> — contrate transfers e guias locais. Leve dinheiro em espécie: vilas como Atins e Caraíva têm pouca estrutura bancária.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Jericoacoara &amp; o Delta</span><span class="lk">dias 1–6 · dunas do CE &amp; mangues do PI</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Jericoacoara<span class="move">chegada · 4x4</span></div>
+      <h3>Chegada à vila de dunas</h3>
+      <p>Chegada a <b>Jericoacoara</b> (transfer 4x4 de Jijoca pela duna, ou voo a Jeri). Instalação na vila de ruas de areia, sem asfalto. Fim de tarde na <b>Duna do Pôr do Sol</b>, o ritual diário da vila, com a roda de capoeira na areia.</p>
+      <div class="chips"><span class="chip">Jericoacoara</span><span class="chip">Duna do Pôr do Sol</span><span class="chip">vila de areia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Acesso:</b> só 4x4 pela duna · combine o transfer</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Jericoacoara</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Jeri · leste<span class="move">passeio 4x4</span></div>
+      <h3>Pedra Furada e as lagoas paradisíacas</h3>
+      <p>Passeio de <b>4x4 ao leste</b>: a icônica <b>Pedra Furada</b> (arco de pedra na praia, banho conforme a maré) e as <b>Lagoas do Paraíso e Azul</b> — águas mornas e transparentes, com as redes dentro d'água e bares à beira. Tarde de puro relaxo.</p>
+      <div class="chips"><span class="chip">Pedra Furada</span><span class="chip">Lagoa do Paraíso</span><span class="chip">redes na água</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Não perca:</b> as redes na Lagoa do Paraíso</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Jericoacoara</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Jeri · oeste &amp; mangue<span class="move">kite / Tatajuba</span></div>
+      <h3>Tatajuba, mangue e kitesurf</h3>
+      <p>Dia a oeste: a <b>Lagoa da Tatajuba</b> e a duna do funil, ou o passeio de barco pelo <b>mangue do Guriú</b> com os cavalos-marinhos. Para quem pratica, o <b>kitesurf</b> nos ventos de Jeri. Última noite na vila antes de seguir viagem.</p>
+      <div class="chips"><span class="chip">Tatajuba</span><span class="chip">mangue do Guriú</span><span class="chip">kitesurf</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> frutos do mar e caranguejo · tapioca</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Jericoacoara</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Jericoacoara → Tutóia<span class="move">≈ 4 h · travessia</span></div>
+      <h3>Travessia litorânea ao Maranhão</h3>
+      <p>A clássica <b>travessia da Rota das Emoções</b>: de Jeri rumo a oeste cruzando a divisa, com trechos de balsa e estrada, até <b>Tutóia</b> (MA), a porta dos <b>Pequenos Lençóis</b> e do Delta. Chegada e descanso na cidade ribeirinha.</p>
+      <div class="chips"><span class="chip">Tutóia</span><span class="chip">Pequenos Lençóis</span><span class="chip">travessia</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> dia de transfer longo — saia cedo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tutóia ou Paulino Neves</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Delta do Parnaíba<span class="move">barco</span></div>
+      <h3>O único delta em mar aberto das Américas</h3>
+      <p>Passeio de barco pelo <b>Delta do Parnaíba</b>, o único delta em mar aberto das Américas: o labirinto de <b>igarapés e manguezais</b>, as ilhas (Ilha do Caju), os macacos e a rica avifauna, e o pôr do sol entre os canais. Tarde de natureza pura.</p>
+      <div class="chips"><span class="chip">Delta do Parnaíba</span><span class="chip">manguezais</span><span class="chip">igarapés</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o pôr do sol entre os canais</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tutóia / Parnaíba</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Os Pequenos Lençóis<span class="move">4x4 · dunas</span></div>
+      <h3>Dunas, lagoas e povoados de Paulino Neves</h3>
+      <p>Travessia de <b>4x4 pelos Pequenos Lençóis</b>, entre <b>Tutóia e Paulino Neves</b>: o mar de dunas em miniatura, com lagoas, povoados de pescadores e a estrada que some na areia. Um aperitivo do que vem pela frente. Chegada rumo a Barreirinhas.</p>
+      <div class="chips"><span class="chip">Pequenos Lençóis</span><span class="chip">Paulino Neves</span><span class="chip">dunas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Atenção:</b> trecho de areia · só 4x4 com guia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Barreirinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Os Lençóis Maranhenses</span><span class="lk">dias 7–12 · o deserto de lagoas &amp; São Luís</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Barreirinhas · Lagoa Azul</div>
+      <h3>O circuito Lagoa Azul</h3>
+      <p>O passeio-ícone: o <b>circuito Lagoa Azul</b> em <b>4x4</b> a partir de <b>Barreirinhas</b>, entrando no <b>Parque Nacional dos Lençóis Maranhenses</b>. As dunas brancas até o horizonte e as lagoas de água doce e cristalina (Azul, da Esmeralda) para banho. Pôr do sol do alto de uma duna.</p>
+      <div class="chips"><span class="chip">Lençóis Maranhenses</span><span class="chip">Lagoa Azul</span><span class="chip">circuito 4x4</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o pôr do sol entre as dunas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Barreirinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Rio Preguiças · Mandacaru</div>
+      <h3>Descida do Preguiças e o farol</h3>
+      <p>Passeio de <b>lancha pelo Rio Preguiças</b>: os <b>Pequenos Lençóis</b> de Vassouras, os macacos de Buriti dos Tapuios e o povoado de <b>Mandacaru</b>, com a subida ao <b>farol</b> e sua vista de 360° sobre dunas, rio e mar. Banho nos balneários do rio.</p>
+      <div class="chips"><span class="chip">Rio Preguiças</span><span class="chip">Mandacaru</span><span class="chip">farol</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a vista do alto do farol de Mandacaru</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Barreirinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Barreirinhas → Atins<span class="move">lancha / 4x4</span></div>
+      <h3>A vila de Atins na foz do Preguiças</h3>
+      <p>Transfer à rústica <b>Atins</b>, na foz do Preguiças: vila de ruas de areia entre o rio, o mar e as dunas. As entradas para os Lençóis pelo lado de Atins, o kitesurf na foz e o clima descolado de fim de mundo. Jantar pé na areia.</p>
+      <div class="chips"><span class="chip">Atins</span><span class="chip">foz do Preguiças</span><span class="chip">kite</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Leve:</b> dinheiro vivo — Atins tem pouca estrutura</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Atins</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lençóis por Atins · Santo Amaro</div>
+      <h3>As lagoas mais selvagens</h3>
+      <p>Dia nas lagoas mais isoladas dos Lençóis, entrando pelo lado de <b>Atins</b> ou <b>Santo Amaro</b> — a entrada mais selvagem do parque, com a <b>Lagoa da Gaivota</b> e dunas intermináveis e menos visitadas. Caminhada e banhos no deserto de lagoas.</p>
+      <div class="chips"><span class="chip">Santo Amaro</span><span class="chip">Lagoa da Gaivota</span><span class="chip">dunas selvagens</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Não perca:</b> as lagoas isoladas de Santo Amaro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Atins</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Atins → São Luís<span class="move">≈ 4,5 h</span></div>
+      <h3>Rumo à capital do azulejo e do reggae</h3>
+      <p>Travessia a <b>São Luís</b>, capital do Maranhão e <b>Patrimônio da Humanidade</b>. Tarde no <b>centro histórico</b> de casarões de azulejos portugueses, ladeiras e becos. À noite, a cidade do <b>reggae</b> — a "Jamaica brasileira" — com sua trilha sonora própria.</p>
+      <div class="chips"><span class="chip">São Luís</span><span class="chip">azulejos</span><span class="chip">reggae</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> centro histórico (UNESCO) de azulejos</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> centro de São Luís</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">12</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Luís → partida<span class="move">voo</span></div>
+      <h3>Cuxá, artesanato e a despedida</h3>
+      <p>Manhã final em <b>São Luís</b>: o <b>arroz de cuxá</b>, o mercado e as compras de artesanato de buriti e renda. Visita ao Reviver e à Casa das Tulhas antes da partida pelo aeroporto. Da duna do pôr do sol aos azulejos — fim da Rota das Emoções. <i>Até a próxima duna!</i></p>
+      <div class="chips"><span class="chip">arroz de cuxá</span><span class="chip">artesanato de buriti</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> arroz de cuxá e doces de buriti</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de São Luís</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Rota das Emoções.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Lagoas cheias dos Lençóis de jun a set. Kite em Jeri de jul a dez. Evite o pico de chuvas (mar–mai).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>4x4 &amp; transfers</h5><p>Acessos a Jeri, Atins e às lagoas são só de 4x4. Contrate transfers e guias locais; não arrisque sozinho.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><div><h5>Marés</h5><p>Pedra Furada e trechos de praia dependem da maré. Consulte a tábua e siga sempre a orientação do guia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Leve espécie: Atins, Santo Amaro e vilas de pescadores têm pouca rede bancária e sinal.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Frutos do mar e caranguejo, tapioca e cuscuz, arroz de cuxá em São Luís e doces de buriti.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Logística</h5><p>O sentido clássico é Jeri→São Luís (voe a Fortaleza, saia de São Luís). Leve protetor, chapéu e roupa leve.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Rota das Emoções em 12 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
