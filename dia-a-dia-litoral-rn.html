@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Litoral do Rio Grande do Norte — Roteiro dia a dia (10 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a2030; --slate:#3c5366; --faint:#7a91a5;
+    --paper:#e9f2f7; --card:#ffffff; --line:#cadeeb;
+    --terra:#0284c7; --amber:#c2660c; --sand:#ca8a04; --sand-d:#a16207;
+    --blue-d:#0369a1;
+    --shadow:0 14px 34px -20px rgba(8,45,70,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(2,132,199,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(202,138,4,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0284c7 0%,#0369a1 52%,#ca8a04 155%);
+    color:#e6f3fa;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(202,138,4,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a5d4ee;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56b3e0}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:38px;line-height:1.04;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfe8f5;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sand-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,45,70,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--blue-d));
+    color:#e6f3fa;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sand .rail{background:linear-gradient(165deg,var(--sand),var(--sand-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--blue-d);text-transform:uppercase;font-weight:500}
+  .day.sand .loc{color:var(--sand-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f3140}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--blue-d);
+    background:rgba(2,132,199,.08);border:1px solid rgba(2,132,199,.2);border-radius:999px;padding:4px 10px}
+  .day.sand .chip{color:var(--sand-d);background:rgba(202,138,4,.1);border-color:rgba(202,138,4,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e8f1f6);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(2,132,199,.08);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0a2030;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#143042;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:28px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Rio Grande do Norte · Litoral · roteiro dia a dia</div>
+    <h1>Litoral do Rio Grande do Norte em 10 dias</h1>
+    <p class="sub">Do litoral sul ao norte potiguar: as falésias e golfinhos da Praia da Pipa, a capital Natal com Ponta Negra e o Morro do Careca, o buggy nas dunas de Genipabu, os recifes de Maracajaú e a vila de kitesurf de São Miguel do Gostoso.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>10 dias</b></span>
+      <span class="fact">🏖️ <b>Dunas &amp; falésias</b></span>
+      <span class="fact">☀️ Melhor época: <b>set–mar</b></span>
+      <span class="fact">🐬 Golfinhos &amp; buggy</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Pipa</span><i>→</i><span>Natal</span><i>→</i><span>Genipabu</span><i>→</i><span>Maracajaú</span><i>→</i><span>São Miguel do Gostoso</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Sol, maré e buggy</h4>
+      <p>O litoral potiguar tem sol quase o ano todo; <b>set–mar</b> é o mais seco e quente. Os <b>golfinhos da Baía dos Golfinhos</b> (Pipa) aparecem cedo, na <b>maré baixa</b>; os <b>parrachos de Maracajaú</b> e as piscinas de coral também dependem da maré — reserve os passeios pela tábua. O <b>buggy</b> em Genipabu é tabelado ("com ou sem emoção"). São Miguel do Gostoso fica a ~3 h de Natal: vá de dia.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Pipa &amp; Natal</span><span class="lk">dias 1–5 · falésias, golfinhos &amp; capital</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia da Pipa<span class="move">chegada</span></div>
+      <h3>Chegada à badalada Pipa</h3>
+      <p>Chegada a <b>Pipa</b>, em Tibau do Sul (≈1,5 h do aeroporto de Natal). Tarde na <b>Praia do Centro</b> e na <b>Praia do Amor</b>, de falésias e ondas, e o fim de tarde na <b>rua principal</b>, com seus bares, lojas e a vida noturna mais animada do litoral potiguar.</p>
+      <div class="chips"><span class="chip">Pipa</span><span class="chip">Praia do Amor</span><span class="chip">vida noturna</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> frutos do mar e culinária internacional</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Pipa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pipa · Baía dos Golfinhos</div>
+      <h3>Golfinhos, falésias e o santuário</h3>
+      <p>De manhã cedo, na <b>maré baixa</b>, a caminhada pela praia até a <b>Baía dos Golfinhos</b>, onde os golfinhos nadam perto da costa. O <b>Santuário Ecológico</b> com seus mirantes sobre as falésias, e a tarde na <b>Praia do Madeiro</b>, de mar calmo e bom para surfe iniciante.</p>
+      <div class="chips"><span class="chip">Baía dos Golfinhos</span><span class="chip">Santuário Ecológico</span><span class="chip">Praia do Madeiro</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M16 10c2 0 3 1 3 3"/></svg></span><span><b>Maré:</b> golfinhos pela manhã, na maré baixa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Pipa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pipa · sul &amp; lagoas</div>
+      <h3>Baía Formosa, Mata Estrela e Sibaúma</h3>
+      <p>Dia ao sul de Pipa: a reserva da <b>Mata Estrela</b> em <b>Baía Formosa</b> (mata atlântica e a lagoa de água escura de Coca-Cola), ou as <b>lagoas de Guaraíras</b> e o pôr do sol no Chapadão. Tarde de praia ou passeio de barco pela orla das falésias.</p>
+      <div class="chips"><span class="chip">Mata Estrela</span><span class="chip">Baía Formosa</span><span class="chip">lagoas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Faça:</b> a reserva da Mata Estrela com guia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Pipa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pipa → Natal<span class="move">≈ 1,5 h · 85 km</span></div>
+      <h3>A capital e Ponta Negra</h3>
+      <p>Subida a <b>Natal</b>, parando no <b>maior cajueiro do mundo</b> em Pirangi. Na capital, a orla de <b>Ponta Negra</b> e o icônico <b>Morro do Careca</b>, o <b>Forte dos Reis Magos</b> na barra do rio e a ginga com tapioca na praia. Pôr do sol em Ponta Negra.</p>
+      <div class="chips"><span class="chip">Ponta Negra</span><span class="chip">Morro do Careca</span><span class="chip">Forte dos Reis Magos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Forte dos Reis Magos (séc. XVI)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Natal (Ponta Negra)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Genipabu<span class="move">buggy · dunas</span></div>
+      <h3>Buggy "com emoção" nas dunas</h3>
+      <p>O passeio-ícone: o <b>buggy pelas dunas de Genipabu</b>, em Extremoz, com o "esquibunda", a tirolesa nas lagoas (Genipabu e Jacumã), o aerobunda e os <b>dromedários</b>. Adrenalina nas dunas móveis e banho nas lagoas. Pôr do sol na duna.</p>
+      <div class="chips"><span class="chip">Genipabu</span><span class="chip">buggy</span><span class="chip">lagoa de Jacumã</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o buggy "com emoção" nas dunas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Natal</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">O Litoral Norte</span><span class="lk">dias 6–10 · recifes &amp; kitesurf</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Maracajaú<span class="move">≈ 1 h · 60 km</span></div>
+      <h3>Os parrachos e o snorkel nos corais</h3>
+      <p>Subida ao litoral norte até <b>Maracajaú</b>, em Maxaranguape: a travessia de <b>catamarã aos parrachos</b> (recifes de coral a ~7 km da costa), com <b>snorkel ou mergulho</b> nas piscinas naturais transparentes, na maré baixa. Tarde na praia e nas barracas.</p>
+      <div class="chips"><span class="chip">parrachos de Maracajaú</span><span class="chip">snorkel</span><span class="chip">recifes de coral</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Maré:</b> parrachos só na maré baixa — reserve antes</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Maracajaú ou Natal</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Miguel do Gostoso<span class="move">≈ 2 h · 110 km</span></div>
+      <h3>A vila do vento e do kitesurf</h3>
+      <p>Travessia à charmosa <b>São Miguel do Gostoso</b>, na ponta nordeste do estado: vila de pescadores que virou refúgio de <b>kitesurfistas</b>, com vento constante. Tarde na <b>Praia de Tourinhos</b> (dunas e arenito) ou na Praia do Maceió, e o pôr do sol no Cardeiro.</p>
+      <div class="chips"><span class="chip">São Miguel do Gostoso</span><span class="chip">kitesurf</span><span class="chip">Praia de Tourinhos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Não perca:</b> o kite e o pôr do sol em Tourinhos</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Miguel do Gostoso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Gostoso · praias selvagens</div>
+      <h3>Tourinhos, Maceió e aula de kite</h3>
+      <p>Dia para curtir as praias do <b>Gostoso</b>: as dunas e formações de arenito de <b>Tourinhos</b>, a tranquila Praia do Maceió e a Ponta do Santo Cristo. Aula ou sessão de <b>kitesurf</b> para quem pratica, e o clima descontraído e gastronômico da vila.</p>
+      <div class="chips"><span class="chip">Tourinhos</span><span class="chip">aula de kite</span><span class="chip">praias selvagens</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixe na brasa e frutos do mar na vila</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Miguel do Gostoso</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Gostoso → Natal<span class="move">≈ 3 h · 170 km</span></div>
+      <h3>Retorno e tarde na capital</h3>
+      <p>Retorno a <b>Natal</b> pela estrada. Tarde livre na capital para o que faltou: o <b>Parque das Dunas</b> e a Via Costeira, as compras de artesanato no <b>Centro de Turismo</b> (a antiga cadeia) e a última ginga com tapioca à beira-mar.</p>
+      <div class="chips"><span class="chip">Parque das Dunas</span><span class="chip">Centro de Turismo</span><span class="chip">artesanato</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Faça:</b> o Parque das Dunas (Bosque dos Namorados)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Natal</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Natal → partida<span class="move">voo</span></div>
+      <h3>Despedida do litoral potiguar</h3>
+      <p>Manhã final em <b>Natal</b> e partida pelo aeroporto de São Gonçalo do Amarante. Das falésias de Pipa às dunas do Gostoso, fecha-se o circuito do litoral do Rio Grande do Norte. <i>Até a próxima maré!</i></p>
+      <div class="chips"><span class="chip">retorno</span><span class="chip">Natal</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de Natal (São Gonçalo do Amarante)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem o Gostoso, foque em Pipa, Natal e Genipabu (poupa ~3 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o litoral do Rio Grande do Norte.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Sol quase o ano todo; set–mar é o mais seco e quente. Vento de kite forte de jul a jan no Gostoso.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Marés</h5><p>Golfinhos (Pipa) e parrachos (Maracajaú) dependem da maré baixa. Reserve os passeios pela tábua.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Buggy</h5><p>Em Genipabu é tabelado ("com ou sem emoção"). Use bugueiros credenciados e combine cedo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Distâncias</h5><p>Pipa ↔ Natal ≈1,5 h; Gostoso ≈3 h de Natal. Estradas boas, mas vá de dia ao litoral norte.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Ginga com tapioca, caranguejo, camarão e a carne de sol com macaxeira e manteiga de garrafa.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><div><h5>Mar &amp; vento</h5><p>Pipa para surfe e golfinhos; Maracajaú para mergulho; Genipabu e Gostoso para dunas e kite.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Litoral do Rio Grande do Norte em 10 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

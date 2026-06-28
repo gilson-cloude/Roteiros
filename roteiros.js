@@ -2966,6 +2966,12 @@ window.ROTEIROS = (function(){
       resumo:"As duas costas do Ceará a partir de Fortaleza: falésias do litoral leste (Morro Branco, Canoa Quebrada) e dunas e kite do litoral oeste (Cumbuco, Flecheiras, Icaraí). Foque em mapa, programação, custos e checklist.",
       recursos:[]
     },
+    "rn-litoral": {
+      id:"rn-litoral",
+      nome:"Rio Grande do Norte — Litoral",
+      resumo:"As duas faces potiguares a partir de Natal: litoral sul de falésias e golfinhos (Pipa, Tibau) e litoral norte de dunas e kite (Genipabu, Maracajaú, São Miguel do Gostoso). Foque em mapa, programação, custos e checklist.",
+      recursos:[]
+    },
     bahia: {
       id:"bahia",
       nome:"Bahia — Chapada Diamantina",
@@ -3113,7 +3119,68 @@ window.ROTEIROS = (function(){
     ], essencial:{ min:3800, max:7200, media:5400, economia:"~22%", corteKm:"≈ 250 km", corteNote:"sem Mundaú e Icaraí de Amontada" } }
   };
 
-  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1];
+  /* ---------- RN1: Rio Grande do Norte — Litoral das Dunas ---------- */
+  const rn1f = [
+    { id:"e0", nome:"Litoral Sul", cor:"#0EA5A4", mes:"Semana 1" },
+    { id:"e1", nome:"Litoral Norte", cor:"#C2410C", mes:"Semana 2" },
+  ];
+  const rn1 = {
+    id:"rn-litoral",
+    nome:"Rio Grande do Norte — Litoral",
+    tagline:"De Pipa às dunas de Genipabu e às falésias de São Miguel do Gostoso",
+    accent:"#0EA5A4", origem:"Natal", regiao:"Rio Grande do Norte — Litoral", regiaoId:"rn-litoral",
+    periodo:"Set–Mar (sol e mar quente)", semanas:2,
+    distancia_completa:"≈ 540 km", distancia_essencial:"≈ 320 km",
+    resumo:"As duas faces potiguares a partir de Natal: o litoral sul das falésias e golfinhos de Pipa e da Praia da Pipa, e o litoral norte das dunas de Genipabu, dos buggys e da meca do kite em São Miguel do Gostoso, passando pela maior caju do mundo em Pirangi.",
+    seasonTip:{ h:"Quando ir?", p:"O <b>verão (set–mar)</b> tem sol firme e mar quente; o <b>vento de jul a jan</b> é ideal para o kite no Gostoso. As chuvas vão de <b>mar a jul</b>. Os <b>buggys</b> em Genipabu e os passeios de barco em Pipa dependem da maré — combine com guias locais." },
+    order:["Litoral Sul","Litoral Norte"],
+    phaseMes:{ "Litoral Sul":"Pipa, Tibau do Sul & Baía Formosa", "Litoral Norte":"Genipabu, Maracajaú & São Miguel do Gostoso" },
+    fases:Object.fromEntries(rn1f.map(f=>[f.id,f])), fasesList:rn1f,
+    weeks:[
+      {n:1, datas:"Semana 1", mes:"Litoral Sul", fase:"e0",
+       from:"Natal", to:"Pipa", km:"≈ 120 km",
+       reg:"Natal · Tibau do Sul · Pipa · Baía Formosa",
+       desc:"De <b>Natal</b> (Ponta Negra e o Morro do Careca) ao litoral sul: a <b>Praia da Pipa</b> e suas falésias, a <b>Baía dos Golfinhos</b> e a Praia do Amor, a Lagoa de Guaraíras em <b>Tibau do Sul</b> e a preservada <b>Baía Formosa</b>, com a mata atlântica.",
+       focos:[["Falésias & golfinhos","atracao"],["Vila boêmia","cidade"]],
+       parque:"Santuário Ecológico de Pipa · Mata Estrela",
+       comer:"Frutos do mar, camarão e caranguejo · tapioca",
+       pernoite:["cidade","Pousada em Pipa"],
+       dica:"Em Pipa, a Baía dos Golfinhos rende mais na maré baixa e cedo; passeios de barco e stand-up saem da praia central."},
+      {n:2, datas:"Semana 2", mes:"Litoral Norte", fase:"e1",
+       from:"Natal", to:"São Miguel do Gostoso", km:"≈ 180 km",
+       reg:"Genipabu · Pirangi · Maracajaú · São Miguel do Gostoso",
+       desc:"O litoral norte de dunas e vento: o <b>buggy nas dunas de Genipabu</b> com o esquibunda, o maior <b>cajueiro do mundo</b> em Pirangi, os <b>parrachos de Maracajaú</b> (snorkel em piscinas de coral) e a meca do kitesurf em <b>São Miguel do Gostoso</b>.",
+       focos:[["Dunas & buggy","atracao"],["Parrachos & kite","atracao"]],
+       parque:"Dunas de Genipabu · parrachos de Maracajaú",
+       comer:"Peixe na brasa, lagosta e ginga com tapioca",
+       pernoite:["cidade","Pousada em São Miguel do Gostoso"],
+       dica:"O buggy em Genipabu é tabelado e 'com ou sem emoção'; os parrachos de Maracajaú só na maré baixa, de catamarã.",
+       optEss:"Essencial: foque em Pipa e em Genipabu/Pirangi a partir de Natal, deixando Baía Formosa e o Gostoso (poupa ~3 dias)."},
+    ],
+    mapa:{ fases:rn1f, atracoes:{
+      pipa:    { estrela:true, acc:"sim", nota:"Falésias, Baía dos Golfinhos e vida noturna." },
+      gostoso: { estrela:true, acc:"parcial", nota:"Meca do kitesurf; vila tranquila de vento constante." },
+    }, wp:[
+      {id:"natal", n:"Natal", lat:-5.7945, lng:-35.2110, t:"origem", f:"e0", sem:1, var:"both", hl:true, d:"Capital potiguar; Ponta Negra e o Morro do Careca."},
+      {id:"tibau", n:"Tibau do Sul", lat:-6.1869, lng:-35.0931, t:"cidade", f:"e0", sem:1, var:"both", d:"Lagoa de Guaraíras e pôr do sol; vizinha de Pipa."},
+      {id:"pipa", n:"Pipa", lat:-6.2289, lng:-35.0428, t:"cidade", f:"e0", sem:1, var:"both", hl:true, d:"Falésias, Baía dos Golfinhos e Praia do Amor."},
+      {id:"baiaformosa", n:"Baía Formosa", lat:-6.3722, lng:-35.0078, t:"atracao", f:"e0", sem:1, var:"completa", d:"Vila de pescadores e a Mata Estrela preservada."},
+      {id:"genipabu", n:"Genipabu", lat:-5.6986, lng:-35.1869, t:"atracao", f:"e1", sem:2, var:"both", hl:true, d:"Dunas móveis, buggy e dromedários, em Extremoz."},
+      {id:"pirangi", n:"Pirangi", lat:-5.9667, lng:-35.1167, t:"atracao", f:"e1", sem:2, var:"both", d:"O maior cajueiro do mundo e os parrachos."},
+      {id:"maracajau", n:"Maracajaú", lat:-5.4167, lng:-35.2500, t:"atracao", f:"e1", sem:2, var:"completa", d:"Parrachos: piscinas de coral para snorkel, de catamarã."},
+      {id:"gostoso", n:"São Miguel do Gostoso", lat:-5.1228, lng:-35.6386, t:"cidade", f:"e1", sem:2, var:"both", hl:true, d:"Meca do kitesurf; vento constante e vila tranquila."},
+    ]},
+    custos:{ dias:14, categorias:[
+      {nome:"Combustível & transfers", min:600, max:1300, obs:"≈540 km · buggys e transfers"},
+      {nome:"Hospedagem", min:1500, max:3200, obs:"13 noites em pousadas"},
+      {nome:"Alimentação", min:1300, max:2400, obs:"Frutos do mar, lagosta e ginga"},
+      {nome:"Passeios (buggy, barco, mergulho)", min:500, max:1300, obs:"Dunas, golfinhos e parrachos"},
+      {nome:"Pedágios & extras", min:60, max:160, obs:"Acessos e taxas"},
+      {nome:"Compras (artesanato)", min:120, max:350, obs:"Renda, areia colorida e bordados"},
+    ], essencial:{ min:3700, max:7000, media:5300, economia:"~22%", corteKm:"≈ 220 km", corteNote:"sem Baía Formosa e São Miguel do Gostoso" } }
+  };
+
+  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1, rn1];
   try{
     var custom = JSON.parse(localStorage.getItem('roteirosCustom')||'[]');
     if(Array.isArray(custom)) custom.forEach(function(c){ if(c && c.id) base.push(c); });

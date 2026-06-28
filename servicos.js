@@ -2049,6 +2049,50 @@
     ],
   },
 
+  "rn-litoral": {
+    atracoes:[
+      {n:"Ponta Negra & Morro do Careca", base:"Natal", nota:"A orla mais famosa e a duna-cartão-postal da capital.", lat:-5.8819, lng:-35.1717},
+      {n:"Praia da Pipa", base:"Tibau do Sul", nota:"Falésias, Baía dos Golfinhos, Praia do Amor e vida noturna.", lat:-6.2289, lng:-35.0428},
+      {n:"Baía dos Golfinhos", base:"Pipa", nota:"Golfinhos pela manhã, na maré baixa; acesso pela praia.", lat:-6.2347, lng:-35.0469},
+      {n:"Dunas de Genipabu", base:"Extremoz", nota:"Buggy 'com emoção', esquibunda e dromedários.", lat:-5.6986, lng:-35.1869},
+      {n:"Maior cajueiro do mundo", base:"Pirangi do Norte", nota:"Cajueiro de ~8.500 m²; passarela e mirante.", lat:-5.9667, lng:-35.1167},
+      {n:"Parrachos de Maracajaú", base:"Maxaranguape", nota:"Piscinas de coral para snorkel, de catamarã, na maré baixa.", lat:-5.4167, lng:-35.2500},
+      {n:"São Miguel do Gostoso", base:"São Miguel do Gostoso", nota:"Vila de kitesurf de vento constante; Praia de Tourinhos.", lat:-5.1228, lng:-35.6386},
+      {n:"Mata Estrela", base:"Baía Formosa", nota:"Reserva de mata atlântica com lagoa de água escura.", lat:-6.3722, lng:-35.0078},
+    ],
+    museus:[
+      {n:"Forte dos Reis Magos", base:"Natal", nota:"Forte quinhentista na barra do Potengi; origem da cidade."},
+      {n:"Centro de Turismo (antiga cadeia)", base:"Natal", nota:"Artesanato potiguar e o mirante para Ponta Negra."},
+    ],
+    parques:[
+      {n:"Santuário Ecológico de Pipa", base:"Pipa", nota:"Trilhas e mirantes sobre as falésias e a Baía dos Golfinhos."},
+      {n:"Dunas de Genipabu (APA)", base:"Extremoz", nota:"Dunas móveis e a Lagoa de Genipabu/Jacumã."},
+      {n:"Parrachos de Maracajaú", base:"Maxaranguape", nota:"Recifes de coral; mergulho e snorkel guiados."},
+      {n:"Parque das Dunas", base:"Natal", nota:"Maior parque urbano de dunas do país, na Via Costeira."},
+    ],
+    campings:[
+      {n:"Campings em Pipa", base:"Tibau do Sul", nota:"Hospedagem econômica perto da Praia do Amor."},
+      {n:"Áreas em São Miguel do Gostoso", base:"Gostoso", nota:"Pousadas e estrutura simples na vila de kite."},
+    ],
+    pernoite:[
+      {n:"Buggy nas dunas", base:"Genipabu", nota:"Tabelado, 'com ou sem emoção'; combine cedo, depende da maré."},
+      {n:"Acesso ao Gostoso", base:"São Miguel do Gostoso", nota:"≈3 h de Natal por estrada; vá de dia."},
+    ],
+    comer:[
+      {n:"Ginga com tapioca", base:"Natal", nota:"Petisco potiguar de peixe frito na tapioca, na orla."},
+      {n:"Camarão & lagosta", base:"Pipa", nota:"Frutos do mar nos restaurantes da rua central."},
+      {n:"Peixe na brasa", base:"São Miguel do Gostoso", nota:"Barracas de praia com peixe fresco e frutos do mar."},
+    ],
+    igrejas:[
+      {n:"Catedral Nova de Natal", base:"Natal", nota:"Arquitetura modernista no centro da capital."},
+    ],
+    eventos:[
+      {n:"Carnatal", base:"Natal", nota:"Dez; o carnaval fora de época com trios elétricos."},
+      {n:"Festa de Sant'Ana", base:"Caicó (interior)", nota:"Jul; uma das maiores festas religiosas do RN."},
+      {n:"Temporada de kitesurf", base:"São Miguel do Gostoso", nota:"Jul–jan; vento constante e campeonatos na vila."},
+    ],
+  },
+
   };
 
   /* mescla nos roteiros e expõe o mapa */
