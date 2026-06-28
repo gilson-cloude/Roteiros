@@ -2135,6 +2135,95 @@
     ],
   },
 
+  "pe-litoral": {
+    atracoes:[
+      {n:"Recife Antigo & Marco Zero", base:"Recife", nota:"O bairro histórico dos rios e pontes; Rua do Bom Jesus e Paço do Frevo.", lat:-8.0631, lng:-34.8711},
+      {n:"Sítio Histórico de Olinda", base:"Olinda", nota:"Ladeiras barrocas, igrejas e o Alto da Sé (UNESCO).", lat:-8.0089, lng:-34.8553},
+      {n:"Ilha de Itamaracá", base:"Itamaracá", nota:"Forte Orange e o projeto Peixe-Boi, ao norte.", lat:-7.7478, lng:-34.8256},
+      {n:"Praias do Cabo de Santo Agostinho", base:"Cabo de Santo Agostinho", nota:"Calhetas, Gaibu e Suape, ao sul do Recife.", lat:-8.2900, lng:-34.9633},
+      {n:"Piscinas de Porto de Galinhas", base:"Ipojuca", nota:"Piscinas naturais de jangada nos recifes; a praia símbolo de PE.", lat:-8.5089, lng:-35.0036},
+      {n:"Praia dos Carneiros", base:"Tamandaré", nota:"A capelinha no mar e o rio Formoso; passeio de barco.", lat:-8.7036, lng:-35.0700},
+    ],
+    museus:[
+      {n:"Paço do Frevo", base:"Recife", nota:"O frevo, patrimônio imaterial, no coração do Recife Antigo."},
+      {n:"Instituto Ricardo Brennand", base:"Recife", nota:"Castelo, armaria e a maior coleção de Frans Post do mundo."},
+      {n:"Oficina Cerâmica Francisco Brennand", base:"Recife", nota:"O ateliê-templo de esculturas do mestre Brennand."},
+      {n:"Museu do Mamulengo", base:"Olinda", nota:"O teatro de bonecos popular do Nordeste."},
+    ],
+    parques:[
+      {n:"Alto da Sé de Olinda", base:"Olinda", nota:"Mirante sobre Olinda e o Recife; tapioca e artesanato."},
+      {n:"Forte Orange", base:"Itamaracá", nota:"Forte holandês do séc. XVII à beira-mar."},
+      {n:"Praia de Calhetas", base:"Cabo de Santo Agostinho", nota:"Enseada de mata e mar calmo entre falésias."},
+    ],
+    campings:[
+      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila."},
+      {n:"Campings no Cabo", base:"Cabo de Santo Agostinho", nota:"Hospedagem econômica perto de Gaibu e Calhetas."},
+    ],
+    pernoite:[
+      {n:"Jangadas às piscinas", base:"Porto de Galinhas", nota:"Saem da praia central conforme a maré; tabeladas."},
+      {n:"Banho sinalizado no Recife", base:"Recife", nota:"Respeite os pontos de banho; há risco de tubarão em Boa Viagem."},
+    ],
+    comer:[
+      {n:"Caranguejo & agulha frita", base:"Recife", nota:"Bares do Recife Antigo e da orla; bolo de rolo de sobremesa."},
+      {n:"Tapioca no Alto da Sé", base:"Olinda", nota:"As barracas de tapioca recheada com vista para o Recife."},
+      {n:"Peixe na folha de bananeira", base:"Porto de Galinhas", nota:"Restaurantes da vila e na beira da praia."},
+    ],
+    igrejas:[
+      {n:"Basílica de São Bento", base:"Olinda", nota:"O altar dourado barroco mais célebre de Pernambuco."},
+      {n:"Capela Dourada", base:"Recife", nota:"Joia do barroco brasileiro, na Ordem Terceira de São Francisco."},
+      {n:"Capelinha dos Carneiros", base:"Tamandaré", nota:"A icônica igrejinha de São Benedito à beira-mar."},
+    ],
+    eventos:[
+      {n:"Carnaval de Recife & Olinda", base:"Recife / Olinda", nota:"Fev; frevo, maracatu, Galo da Madrugada e os bonecos gigantes."},
+      {n:"São João", base:"Recife", nota:"Jun; forró e quadrilhas no ciclo junino pernambucano."},
+      {n:"Festa de Iemanjá & verão", base:"Porto de Galinhas", nota:"Set–mar; auge da temporada nas piscinas naturais."},
+    ],
+  },
+
+  "pb-litoral": {
+    atracoes:[
+      {n:"Praia de Tambaú & orla", base:"João Pessoa", nota:"A orla mais movimentada da capital; pôr do sol e o Mercado de Artesanato.", lat:-7.1153, lng:-34.8228},
+      {n:"Ponta do Seixas & Farol do Cabo Branco", base:"João Pessoa", nota:"O ponto mais oriental das Américas; mirante e o farol icônico.", lat:-7.1503, lng:-34.7936},
+      {n:"Pôr do sol do Jacaré", base:"Cabedelo", nota:"O Bolero de Ravel ao entardecer no rio Paraíba; barcos e bares.", lat:-7.0381, lng:-34.8497},
+      {n:"Praia de Coqueirinho", base:"Conde", nota:"Falésias coloridas, grutas e piscinas naturais do litoral sul.", lat:-7.3247, lng:-34.7989},
+      {n:"Praia de Tambaba", base:"Conde", nota:"A primeira praia naturista oficial do Nordeste; falésias e mata.", lat:-7.3722, lng:-34.7919},
+      {n:"Areia Vermelha", base:"Cabedelo", nota:"Banco de areia que emerge na maré baixa; passeio de catamarã.", lat:-6.9742, lng:-34.8339},
+      {n:"Baía da Traição", base:"Baía da Traição", nota:"Praias remotas, falésias e aldeias indígenas Potiguara.", lat:-6.6892, lng:-34.9342},
+    ],
+    museus:[
+      {n:"Centro Histórico de João Pessoa", base:"João Pessoa", nota:"Uma das cidades mais antigas do país; Igreja de São Francisco e o Centro Cultural."},
+      {n:"Estação Cabo Branco (Ciência, Cultura e Artes)", base:"João Pessoa", nota:"Projeto de Oscar Niemeyer no alto do Cabo Branco."},
+      {n:"Casa da Pólvora", base:"João Pessoa", nota:"Museu da cidade no centro histórico restaurado."},
+    ],
+    parques:[
+      {n:"Igreja e Convento de São Francisco", base:"João Pessoa", nota:"Conjunto barroco-rococó, um dos mais belos do Brasil."},
+      {n:"Jardim Botânico Benjamim Maranhão", base:"João Pessoa", nota:"Mata Atlântica preservada no coração da cidade verde."},
+      {n:"Falésias de Coqueirinho", base:"Conde", nota:"Grutas, mirantes e piscinas naturais entre as falésias."},
+    ],
+    campings:[
+      {n:"Campings no litoral sul", base:"Conde", nota:"Áreas perto de Coqueirinho e Tabatinga."},
+      {n:"Áreas na Baía da Traição", base:"Baía da Traição", nota:"Hospedagem simples nas praias remotas do norte."},
+    ],
+    pernoite:[
+      {n:"Catamarã à Areia Vermelha", base:"Cabedelo", nota:"Só na maré baixa; reserve pelo horário da maré."},
+      {n:"Barcos do pôr do sol do Jacaré", base:"Cabedelo", nota:"Saídas ao entardecer; chegue cedo para garantir lugar."},
+    ],
+    comer:[
+      {n:"Frutos do mar em Tambaú", base:"João Pessoa", nota:"Peixe, camarão e a tapioca paraibana na orla."},
+      {n:"Peixe na brasa", base:"Coqueirinho", nota:"Barracas de praia entre as falésias do litoral sul."},
+      {n:"Caranguejo & sucos tropicais", base:"Cabedelo", nota:"Bares do Jacaré e da orla norte."},
+    ],
+    igrejas:[
+      {n:"Igreja de São Francisco", base:"João Pessoa", nota:"O complexo barroco de Santo Antônio, joia da capital."},
+      {n:"Basílica de Nossa Senhora das Neves", base:"João Pessoa", nota:"A padroeira da cidade, no centro histórico."},
+    ],
+    eventos:[
+      {n:"Réveillon & verão de João Pessoa", base:"João Pessoa", nota:"Set–mar; auge da temporada e festas na orla de Tambaú."},
+      {n:"Carnaval & micaratas", base:"João Pessoa", nota:"Folia de rua e o pré-carnaval Muriçocas do Miramar."},
+      {n:"Festa das Neves", base:"João Pessoa", nota:"Ago; padroeira da cidade, com programação cultural e shows."},
+    ],
+  },
+
   };
 
   /* mescla nos roteiros e expõe o mapa */

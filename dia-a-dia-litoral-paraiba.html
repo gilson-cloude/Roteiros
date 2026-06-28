@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Litoral da Paraíba — Roteiro dia a dia (10 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08231f; --slate:#3a5650; --faint:#789690;
+    --paper:#e7f4f1; --card:#ffffff; --line:#c6e4dd;
+    --terra:#0ea5a4; --amber:#c2660c; --sun:#e8973a; --sun-d:#c2660c;
+    --teal-d:#0e7490;
+    --shadow:0 14px 34px -20px rgba(8,55,48,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(14,165,164,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(232,151,58,.09), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0ea5a4 0%,#0e7490 52%,#e8973a 155%);
+    color:#e6f6f3;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(232,151,58,.45),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3dedb;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56cac6}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeeea;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sun-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,55,48,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f6f3;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sun .rail{background:linear-gradient(165deg,var(--sun),var(--sun-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.sun .loc{color:var(--sun-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f332e}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(14,165,164,.09);border:1px solid rgba(14,165,164,.2);border-radius:999px;padding:4px 10px}
+  .day.sun .chip{color:var(--sun-d);background:rgba(232,151,58,.12);border-color:rgba(232,151,58,.28)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e7f3ef);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(14,165,164,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0a231f;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#14332d;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Paraíba · Litoral · roteiro dia a dia</div>
+    <h1>Litoral da Paraíba em 10 dias</h1>
+    <p class="sub">O ponto mais oriental das Américas: João Pessoa, a cidade verde, com a Ponta do Seixas e o célebre pôr do sol do Jacaré ao som do Bolero de Ravel, as falésias e piscinas do litoral sul (Coqueirinho, Tambaba) e as praias e bancos de areia do litoral norte (Areia Vermelha, Baía da Traição).</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>10 dias</b></span>
+      <span class="fact">🌅 <b>Sol nascente &amp; falésias</b></span>
+      <span class="fact">☀️ Melhor época: <b>set–mar</b></span>
+      <span class="fact">🦀 Maré &amp; piscinas</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>João Pessoa</span><i>→</i><span>Ponta do Seixas</span><i>→</i><span>Praia do Jacaré</span><i>→</i><span>Coqueirinho</span><i>→</i><span>Cabedelo / Areia Vermelha</span><i>→</i><span>Baía da Traição</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Verão, maré e o pôr do sol</h4>
+      <p>O <b>verão (set–mar)</b> tem sol e mar calmo, ideal para as piscinas naturais e falésias; as chuvas vão de <b>abr a jul</b>. A <b>Areia Vermelha</b> (banco de areia em Cabedelo) e as piscinas só aparecem na <b>maré baixa</b> — consulte a tábua. O <b>pôr do sol do Jacaré</b> é diário ao entardecer; <b>chegue cedo</b> para garantir lugar no barco ou no bar. A Baía da Traição é remota, com aldeias Potiguara.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">João Pessoa &amp; o Litoral Sul</span><span class="lk">dias 1–5 · capital, Jacaré &amp; falésias</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>João Pessoa<span class="move">chegada</span></div>
+      <h3>A cidade verde e Tambaú</h3>
+      <p>Chegada a <b>João Pessoa</b>, uma das capitais mais verdes do país. Tarde na orla de <b>Tambaú e Cabo Branco</b>, a feirinha de artesanato e o calçadão. Jantar de frutos do mar à beira-mar, conhecendo o ritmo tranquilo da capital paraibana.</p>
+      <div class="chips"><span class="chip">Tambaú</span><span class="chip">Cabo Branco</span><span class="chip">cidade verde</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> frutos do mar e a tapioca paraibana</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> João Pessoa (Tambaú)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Ponta do Seixas · Centro</div>
+      <h3>Onde o sol nasce primeiro nas Américas</h3>
+      <p>Manhã na <b>Ponta do Seixas</b> e no <b>Farol do Cabo Branco</b>, o <b>ponto mais oriental das Américas</b> — onde o sol nasce primeiro no continente. Tarde no <b>Centro Histórico</b>: a Igreja de São Francisco e o Centro Cultural, com a arquitetura colonial.</p>
+      <div class="chips"><span class="chip">Ponta do Seixas</span><span class="chip">Farol do Cabo Branco</span><span class="chip">Centro Histórico</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Igreja de São Francisco e o centro</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> João Pessoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia do Jacaré<span class="move">≈ 30 min</span></div>
+      <h3>O pôr do sol ao som do Bolero de Ravel</h3>
+      <p>Dia tranquilo e, ao entardecer, o ritual mais famoso da Paraíba: o <b>pôr do sol da Praia do Jacaré</b>, no rio Paraíba, ao vivo ao som do <b>Bolero de Ravel</b> tocado por um saxofonista sobre as águas. Passeio de catamarã ou da beira do bar. Inesquecível.</p>
+      <div class="chips"><span class="chip">Praia do Jacaré</span><span class="chip">Bolero de Ravel</span><span class="chip">pôr do sol</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Chegue cedo:</b> garanta lugar no barco ou no bar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> João Pessoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Tabatinga &amp; Coqueirinho<span class="move">≈ 1 h · 50 km</span></div>
+      <h3>As falésias coloridas do litoral sul</h3>
+      <p>Descida ao <b>litoral sul</b>, no Conde: as <b>falésias coloridas de Tabatinga</b>, com seus mirantes, e a deslumbrante <b>Praia de Coqueirinho</b>, de falésias, mata e <b>piscinas naturais</b> na maré baixa. Banho, tirolesa nas falésias e o dia inteiro de paraíso.</p>
+      <div class="chips"><span class="chip">Tabatinga</span><span class="chip">Coqueirinho</span><span class="chip">piscinas naturais</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Maré:</b> piscinas naturais só na maré baixa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Coqueirinho ou João Pessoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Tambaba &amp; sul profundo</div>
+      <h3>Falésias selvagens e a praia naturista</h3>
+      <p>Dia nas praias mais selvagens do sul: <b>Tambaba</b>, a <b>primeira praia naturista oficial do Nordeste</b> (com setor naturista e setor tradicional), de falésias e mata preservada, e as quedas e mirantes do entorno. Natureza intocada e mar quente.</p>
+      <div class="chips"><span class="chip">Tambaba</span><span class="chip">falésias</span><span class="chip">mata preservada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Dica:</b> Tambaba tem setor naturista e setor tradicional</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Coqueirinho ou João Pessoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">O Litoral Norte</span><span class="lk">dias 6–10 · Areia Vermelha &amp; Baía da Traição</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cabedelo · Areia Vermelha<span class="move">catamarã · maré baixa</span></div>
+      <h3>O banco de areia que emerge do mar</h3>
+      <p>Passeio de <b>catamarã a partir de Cabedelo</b> à <b>Areia Vermelha</b>: um banco de areia que <b>emerge no meio do mar na maré baixa</b>, formando uma ilha temporária de águas mornas e rasas. Banho, caranguejo e o visual surreal. Visita à <b>Fortaleza de Santa Catarina</b>.</p>
+      <div class="chips"><span class="chip">Cabedelo</span><span class="chip">Areia Vermelha</span><span class="chip">Fortaleza de Santa Catarina</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Maré:</b> o catamarã só sai na maré baixa — confirme o horário</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cabedelo ou João Pessoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lucena<span class="move">barca · ≈ 40 min</span></div>
+      <h3>A travessia de barca e o Cristo de Lucena</h3>
+      <p>Travessia de <b>barca a partir de Cabedelo</b> à tranquila <b>Lucena</b>, do outro lado da foz: as praias de coqueiros, o <b>Cristo de Lucena</b> no alto da falésia (um dos maiores do país) com sua vista, e o ritmo pacato da vila. Banho e fruto do mar à beira-mar.</p>
+      <div class="chips"><span class="chip">Lucena</span><span class="chip">Cristo de Lucena</span><span class="chip">travessia de barca</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a vista do Cristo de Lucena</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cabedelo ou Lucena</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Barra de Camaratuba<span class="move">≈ 1,5 h</span></div>
+      <h3>Praias remotas do norte</h3>
+      <p>Subida ao norte profundo até a <b>Barra de Camaratuba</b> e as praias selvagens da região: a foz do rio, os coqueirais, o surfe e o mar aberto. Praias quase desertas, longe das multidões, no caminho à Baía da Traição. Dia de mar e tranquilidade.</p>
+      <div class="chips"><span class="chip">Barra de Camaratuba</span><span class="chip">praias desertas</span><span class="chip">surfe</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> banho de mar e a foz do rio Camaratuba</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Baía da Traição ou Camaratuba</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Baía da Traição<span class="move">aldeias Potiguara</span></div>
+      <h3>Praias, falésias e cultura Potiguara</h3>
+      <p>Dia na remota <b>Baía da Traição</b>: as praias de falésias e coqueiros, a cultura viva das <b>aldeias indígenas Potiguara</b>, o artesanato e os passeios de barco. Um Nordeste mais autêntico e preservado, longe das rotas turísticas. Pôr do sol na praia.</p>
+      <div class="chips"><span class="chip">Baía da Traição</span><span class="chip">aldeias Potiguara</span><span class="chip">artesanato</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Cultura:</b> as aldeias Potiguara e seu artesanato</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Baía da Traição</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Baía da Traição → João Pessoa<span class="move">≈ 2 h · partida</span></div>
+      <h3>Despedida do sol nascente</h3>
+      <p>Retorno a <b>João Pessoa</b> para a partida (aeroporto), com a opção de últimas compras de <b>renda renascença e artesanato Potiguara</b>. Do ponto onde o sol nasce primeiro às falésias do sul e ao mar do norte, fecha-se o litoral paraibano. <i>Até a próxima maré!</i></p>
+      <div class="chips"><span class="chip">renda renascença</span><span class="chip">retorno</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de João Pessoa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem o litoral norte distante, encerre em Coqueirinho (poupa ~3 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o litoral da Paraíba.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Verão (set–mar): sol e mar calmo para piscinas e falésias. Abr–jul concentra as chuvas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Marés</h5><p>Areia Vermelha e as piscinas naturais só aparecem na maré baixa. Cheque a tábua e o horário do catamarã.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Pôr do sol do Jacaré</h5><p>É diário, ao entardecer, ao som do Bolero de Ravel. Chegue cedo para garantir lugar no barco ou bar.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Litoral norte</h5><p>Baía da Traição é remota, com aldeias Potiguara. Travessia de barca a Lucena; vá de dia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Frutos do mar, peixe na brasa, caranguejo, tapioca paraibana e sucos tropicais.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Compras</h5><p>Renda renascença, artesanato Potiguara e a moda praia da feirinha de Tambaú.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Litoral da Paraíba em 10 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

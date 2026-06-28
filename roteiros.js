@@ -2972,6 +2972,18 @@ window.ROTEIROS = (function(){
       resumo:"As duas faces potiguares a partir de Natal: litoral sul de falésias e golfinhos (Pipa, Tibau) e litoral norte de dunas e kite (Genipabu, Maracajaú, São Miguel do Gostoso). Foque em mapa, programação, custos e checklist.",
       recursos:[]
     },
+    "pernambuco-litoral": {
+      id:"pernambuco-litoral",
+      nome:"Pernambuco — Litoral",
+      resumo:"A capital cultural do Nordeste e seu litoral: Recife e a barroca Olinda (UNESCO), Itamaracá ao norte, o Cabo de Santo Agostinho e as piscinas de Porto de Galinhas e Carneiros ao sul. Foque em mapa, programação, custos e checklist.",
+      recursos:[]
+    },
+    "pb-litoral": {
+      id:"pb-litoral",
+      nome:"Paraíba — Litoral",
+      resumo:"O ponto mais oriental das Américas: João Pessoa, o pôr do sol do Jacaré, as falésias do litoral sul (Coqueirinho, Tabatinga) e as praias do norte (Cabedelo, Areia Vermelha, Baía da Traição). Foque em mapa, programação, custos e checklist.",
+      recursos:[]
+    },
     "corais-litoral": {
       id:"corais-litoral",
       nome:"Costa dos Corais — AL/PE",
@@ -3245,7 +3257,126 @@ window.ROTEIROS = (function(){
     ], essencial:{ min:3800, max:7100, media:5400, economia:"~21%", corteKm:"≈ 170 km", corteNote:"sem a Rota Ecológica de São Miguel dos Milagres" } }
   };
 
-  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1, rn1, cc1];
+  /* ---------- PERN1: Pernambuco — Capital Cultural & Praias ---------- */
+  const pern1f = [
+    { id:"e0", nome:"Recife & Olinda", cor:"#7C3AED", mes:"Semana 1" },
+    { id:"e1", nome:"Litoral Sul", cor:"#0EA5A4", mes:"Semana 2" },
+  ];
+  const pern1 = {
+    id:"pe-litoral",
+    nome:"Pernambuco — Capital & Praias",
+    tagline:"De Recife e Olinda às piscinas de Porto de Galinhas",
+    accent:"#7C3AED", origem:"Recife", regiao:"Pernambuco — Litoral", regiaoId:"pernambuco-litoral",
+    periodo:"Set–Mar (sol e frevo)", semanas:2,
+    distancia_completa:"≈ 320 km", distancia_essencial:"≈ 180 km",
+    resumo:"A capital cultural do Nordeste e seu litoral: a Recife dos rios e pontes e a barroca Olinda, Patrimônio da Humanidade, a ilha de Itamaracá ao norte, o Cabo de Santo Agostinho e as piscinas naturais de Porto de Galinhas e a Praia dos Carneiros ao sul.",
+    seasonTip:{ h:"Quando ir?", p:"O <b>verão (set–mar)</b> tem sol, mar calmo e as piscinas naturais no auge; o <b>Carnaval</b> (fev) é o ápice cultural de Recife e Olinda — frevo e maracatu (lota, reserve com meses). As chuvas concentram-se de <b>abr a jul</b>. As <b>piscinas naturais</b> dependem da maré baixa; respeite os pontos de banho sinalizados (há registro de tubarões em algumas praias urbanas do Recife)." },
+    order:["Recife & Olinda","Litoral Sul"],
+    phaseMes:{ "Recife & Olinda":"Capital, Olinda & Itamaracá", "Litoral Sul":"Cabo, Porto de Galinhas & Carneiros" },
+    fases:Object.fromEntries(pern1f.map(f=>[f.id,f])), fasesList:pern1f,
+    weeks:[
+      {n:1, datas:"Semana 1", mes:"Recife & Olinda", fase:"e0",
+       from:"Recife", to:"Itamaracá", km:"≈ 70 km",
+       reg:"Recife · Olinda · Ilha de Itamaracá",
+       desc:"A <b>Recife</b> dos rios, pontes e do Recife Antigo (Marco Zero, Rua do Bom Jesus, Paço do Frevo) e a barroca <b>Olinda</b>, Patrimônio da Humanidade, de ladeiras, igrejas e ateliês. Ao norte, a <b>Ilha de Itamaracá</b>, com o Forte Orange e os peixes-boi.",
+       focos:[["Capital cultural","cidade"],["Olinda histórica","atracao"]],
+       parque:"Recife Antigo · Sítio Histórico de Olinda",
+       comer:"Caranguejo, bobó, tapioca e o bolo de rolo",
+       pernoite:["cidade","Hotel no Recife ou pousada em Olinda"],
+       dica:"Olinda se explora a pé pelas ladeiras; vá de manhã para as igrejas e fique para o pôr do sol do Alto da Sé. No Recife Antigo, a noite da Rua do Bom Jesus é animada."},
+      {n:2, datas:"Semana 2", mes:"Litoral Sul", fase:"e1",
+       from:"Recife", to:"Tamandaré", km:"≈ 110 km",
+       reg:"Cabo de Santo Agostinho · Porto de Galinhas · Tamandaré (Carneiros)",
+       desc:"Descida ao litoral sul: o <b>Cabo de Santo Agostinho</b> (Praia de Calhetas e Gaibu) e as famosas <b>piscinas naturais de Porto de Galinhas</b>, exploradas de jangada, até a <b>Praia dos Carneiros</b> em Tamandaré, com sua capelinha no mar e o rio Formoso.",
+       focos:[["Piscinas naturais","atracao"],["Praia dos Carneiros","atracao"]],
+       parque:"Piscinas de Porto de Galinhas · Praia dos Carneiros",
+       comer:"Peixe na folha de bananeira, casquinha de siri e agulha frita",
+       pernoite:["cidade","Pousada em Porto de Galinhas"],
+       dica:"As jangadas de Porto de Galinhas levam às piscinas na maré baixa; a Praia dos Carneiros rende um dia de barco pelo rio Formoso.",
+       optEss:"Essencial: Recife + Olinda e Porto de Galinhas, deixando Itamaracá e Carneiros (poupa ~3 dias)."},
+    ],
+    mapa:{ fases:pern1f, atracoes:{
+      olinda:        { estrela:true, acc:"sim", nota:"Sítio histórico barroco (UNESCO); ladeiras, igrejas e o Alto da Sé." },
+      portogalinhaspe:{ estrela:true, acc:"sim", nota:"Piscinas naturais de jangada na maré baixa." },
+    }, wp:[
+      {id:"recife", n:"Recife", lat:-8.0631, lng:-34.8711, t:"origem", f:"e0", sem:1, var:"both", hl:true, d:"Capital de PE; Recife Antigo, Marco Zero e os rios."},
+      {id:"olinda", n:"Olinda", lat:-8.0089, lng:-34.8553, t:"atracao", f:"e0", sem:1, var:"both", hl:true, d:"Sítio histórico barroco (UNESCO); Alto da Sé."},
+      {id:"itamaraca", n:"Ilha de Itamaracá", lat:-7.7478, lng:-34.8256, t:"cidade", f:"e0", sem:1, var:"completa", d:"Forte Orange e o projeto Peixe-Boi."},
+      {id:"cabo", n:"Cabo de Santo Agostinho", lat:-8.2900, lng:-34.9633, t:"atracao", f:"e1", sem:2, var:"both", d:"Praias de Calhetas e Gaibu, ao sul do Recife."},
+      {id:"portogalinhaspe", n:"Porto de Galinhas", lat:-8.5089, lng:-35.0036, t:"cidade", f:"e1", sem:2, var:"both", hl:true, d:"Piscinas naturais de jangada; a praia símbolo de PE."},
+      {id:"carneiros", n:"Praia dos Carneiros", lat:-8.7036, lng:-35.0700, t:"atracao", f:"e1", sem:2, var:"completa", hl:true, d:"Capelinha no mar e o rio Formoso, em Tamandaré."},
+    ]},
+    custos:{ dias:14, categorias:[
+      {nome:"Combustível & transfers", min:500, max:1100, obs:"≈320 km · transfers e jangadas"},
+      {nome:"Hospedagem", min:1600, max:3400, obs:"13 noites (hotel + pousadas)"},
+      {nome:"Alimentação", min:1300, max:2400, obs:"Frutos do mar, bobó e tapioca"},
+      {nome:"Passeios (jangada, city tour)", min:450, max:1200, obs:"Piscinas, Carneiros e Olinda"},
+      {nome:"Pedágios & extras", min:60, max:160, obs:"Acessos e taxas de praia"},
+      {nome:"Compras (artesanato, frevo)", min:120, max:350, obs:"Bonecos de Olinda e bordados"},
+    ], essencial:{ min:3700, max:6900, media:5300, economia:"~20%", corteKm:"≈ 140 km", corteNote:"sem Itamaracá e a Praia dos Carneiros" } }
+  };
+
+  /* ---------- PB1: Paraíba — Onde o Sol Nasce Primeiro ---------- */
+  const pb1f = [
+    { id:"e0", nome:"João Pessoa & Sul", cor:"#0EA5A4", mes:"Semana 1" },
+    { id:"e1", nome:"Litoral Norte", cor:"#0E7490", mes:"Semana 2" },
+  ];
+  const pb1 = {
+    id:"pb-litoral",
+    nome:"Paraíba — Litoral do Sol Nascente",
+    tagline:"De João Pessoa e o pôr do sol do Jacaré às falésias de Coqueirinho",
+    accent:"#0EA5A4", origem:"João Pessoa", regiao:"Paraíba — Litoral", regiaoId:"pb-litoral",
+    periodo:"Set–Mar (sol e mar calmo)", semanas:2,
+    distancia_completa:"≈ 360 km", distancia_essencial:"≈ 200 km",
+    resumo:"O ponto mais oriental das Américas: João Pessoa, a cidade verde, com a Ponta do Seixas e o célebre pôr do sol do Jacaré ao som do Bolero de Ravel, as falésias e piscinas do litoral sul (Coqueirinho, Tambaba, Tabatinga) e as praias e a foz do litoral norte (Cabedelo, Areia Vermelha, Baía da Traição).",
+    seasonTip:{ h:"Quando ir?", p:"O <b>verão (set–mar)</b> tem sol e mar calmo, ideal para as piscinas naturais e as falésias. As chuvas concentram-se de <b>abr a jul</b>. A <b>Areia Vermelha</b> (banco de areia em Cabedelo) e as piscinas naturais só aparecem na <b>maré baixa</b> — consulte a tábua. O pôr do sol do <b>Jacaré</b> é diário, ao entardecer; chegue cedo para garantir lugar." },
+    order:["João Pessoa & Sul","Litoral Norte"],
+    phaseMes:{ "João Pessoa & Sul":"Capital, Jacaré & falésias do sul", "Litoral Norte":"Cabedelo, Areia Vermelha & Baía da Traição" },
+    fases:Object.fromEntries(pb1f.map(f=>[f.id,f])), fasesList:pb1f,
+    weeks:[
+      {n:1, datas:"Semana 1", mes:"João Pessoa & Sul", fase:"e0",
+       from:"João Pessoa", to:"Coqueirinho", km:"≈ 90 km",
+       reg:"João Pessoa · Ponta do Seixas · Jacaré · Tabatinga & Coqueirinho",
+       desc:"De <b>João Pessoa</b> (Tambaú, o Centro Histórico e a <b>Ponta do Seixas</b>, ponto mais oriental das Américas) e o famoso <b>pôr do sol do Jacaré</b> ao som do Bolero de Ravel, ao litoral sul de <b>falésias coloridas</b> — Tabatinga, <b>Coqueirinho</b> e a naturista Tambaba.",
+       focos:[["Ponto mais oriental","atracao"],["Falésias do sul","atracao"]],
+       parque:"Ponta do Seixas · falésias de Coqueirinho",
+       comer:"Frutos do mar, peixe e a tapioca paraibana",
+       pernoite:["cidade","Hotel em João Pessoa ou pousada no sul"],
+       dica:"Chegue cedo ao pôr do sol do Jacaré para garantir lugar no barco ou no bar; as falésias e piscinas do sul ficam melhores na maré baixa."},
+      {n:2, datas:"Semana 2", mes:"Litoral Norte", fase:"e1",
+       from:"João Pessoa", to:"Baía da Traição", km:"≈ 130 km",
+       reg:"Cabedelo · Areia Vermelha · Lucena · Baía da Traição",
+       desc:"O litoral norte: <b>Cabedelo</b> e o banco de areia da <b>Areia Vermelha</b> (que só emerge na maré baixa), a histórica <b>Lucena</b>, e as praias mais remotas de <b>Barra de Camaratuba</b> e da <b>Baía da Traição</b>, com suas aldeias indígenas Potiguara e falésias.",
+       focos:[["Areia Vermelha","atracao"],["Praias remotas","cidade"]],
+       parque:"Areia Vermelha (Cabedelo) · Baía da Traição",
+       comer:"Peixe na brasa, caranguejo e sucos tropicais",
+       pernoite:["cidade","Pousada em Cabedelo ou Baía da Traição"],
+       dica:"O passeio de catamarã à Areia Vermelha sai de Cabedelo só na maré baixa; a Baía da Traição é mais remota, com cultura Potiguara.",
+       optEss:"Essencial: João Pessoa, o pôr do sol do Jacaré e Coqueirinho, deixando o litoral norte mais distante (poupa ~3 dias)."},
+    ],
+    mapa:{ fases:pb1f, atracoes:{
+      jacare:      { estrela:true, acc:"sim", nota:"Pôr do sol do Jacaré ao som do Bolero de Ravel, no rio Paraíba." },
+      coqueirinho: { estrela:true, acc:"sim", nota:"Falésias coloridas e piscinas naturais do litoral sul." },
+    }, wp:[
+      {id:"joaopessoa", n:"João Pessoa", lat:-7.1195, lng:-34.8450, t:"origem", f:"e0", sem:1, var:"both", hl:true, d:"Capital paraibana; Tambaú, centro histórico e a cidade verde."},
+      {id:"pontaseixas", n:"Ponta do Seixas", lat:-7.1503, lng:-34.7936, t:"atracao", f:"e0", sem:1, var:"both", hl:true, d:"Ponto mais oriental das Américas; o Farol do Cabo Branco."},
+      {id:"jacare", n:"Praia do Jacaré", lat:-7.0381, lng:-34.8497, t:"atracao", f:"e0", sem:1, var:"both", hl:true, d:"Pôr do sol ao som do Bolero de Ravel, no rio Paraíba."},
+      {id:"tabatinga", n:"Tabatinga & Coqueirinho", lat:-7.3247, lng:-34.7989, t:"cidade", f:"e0", sem:1, var:"both", hl:true, d:"Falésias coloridas e piscinas naturais do litoral sul."},
+      {id:"cabedelo", n:"Cabedelo / Areia Vermelha", lat:-6.9742, lng:-34.8339, t:"atracao", f:"e1", sem:2, var:"both", hl:true, d:"Banco de areia que emerge na maré baixa; Fortaleza de Santa Catarina."},
+      {id:"lucena", n:"Lucena", lat:-6.9050, lng:-34.8678, t:"cidade", f:"e1", sem:2, var:"completa", d:"Praias e o cristo de Lucena, ao norte, via barca de Cabedelo."},
+      {id:"baiatraicao", n:"Baía da Traição", lat:-6.6892, lng:-34.9342, t:"cidade", f:"e1", sem:2, var:"completa", hl:true, d:"Praias remotas, falésias e aldeias Potiguara."},
+    ]},
+    custos:{ dias:14, categorias:[
+      {nome:"Combustível & transfers", min:450, max:1000, obs:"≈360 km · transfers e catamarã"},
+      {nome:"Hospedagem", min:1500, max:3200, obs:"13 noites (hotel + pousadas)"},
+      {nome:"Alimentação", min:1250, max:2300, obs:"Frutos do mar, peixe e tapioca"},
+      {nome:"Passeios (catamarã, barco)", min:400, max:1100, obs:"Areia Vermelha, Jacaré e falésias"},
+      {nome:"Pedágios & extras", min:50, max:140, obs:"Acessos e taxas de praia"},
+      {nome:"Compras (artesanato)", min:100, max:300, obs:"Renda renascença e artesanato Potiguara"},
+    ], essencial:{ min:3500, max:6500, media:5000, economia:"~20%", corteKm:"≈ 160 km", corteNote:"sem o litoral norte mais distante (Baía da Traição)" } }
+  };
+
+  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1, rn1, cc1, pern1, pb1];
   try{
     var custom = JSON.parse(localStorage.getItem('roteirosCustom')||'[]');
     if(Array.isArray(custom)) custom.forEach(function(c){ if(c && c.id) base.push(c); });
