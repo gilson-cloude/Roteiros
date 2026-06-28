@@ -2005,6 +2005,50 @@
     ],
   },
 
+  "ce-litoral": {
+    atracoes:[
+      {n:"Praia do Futuro & Beira-Mar", base:"Fortaleza", nota:"Barracas badaladas e a orla da capital.", lat:-3.7319, lng:-38.4767},
+      {n:"Morro Branco", base:"Beberibe", nota:"Falésias coloridas e labirintos de areia; garrafas de areia.", lat:-4.1797, lng:-38.1297},
+      {n:"Praia das Fontes", base:"Beberibe", nota:"Falésias, fontes e o Mar do Meio, ao lado de Morro Branco.", lat:-4.1869, lng:-38.1200},
+      {n:"Canoa Quebrada", base:"Aracati", nota:"Falésias, Broadway e buggy; vento de kite.", lat:-4.5247, lng:-37.7019},
+      {n:"Cumbuco & Lagoa do Cauípe", base:"Caucaia", nota:"Dunas, lagoa e meca do kitesurf perto de Fortaleza.", lat:-3.6286, lng:-38.7256},
+      {n:"Lagoinha", base:"Paraipaba", nota:"Praia de coqueiros, dunas e falésias.", lat:-3.2392, lng:-39.2611},
+      {n:"Flecheiras & Mundaú", base:"Trairi", nota:"Piscinas naturais, mangue e cavalos-marinhos.", lat:-3.2167, lng:-39.2667},
+      {n:"Icaraí de Amontada", base:"Amontada", nota:"Vila remota de dunas; refúgio de kitesurfistas.", lat:-3.0469, lng:-39.6453},
+    ],
+    museus:[
+      {n:"Museu da Cultura Cearense", base:"Fortaleza", nota:"No Centro Dragão do Mar; cultura popular e cordel."},
+      {n:"Museu do Mangue", base:"Trairi", nota:"Mangue de Mundaú; ecologia e os cavalos-marinhos."},
+    ],
+    parques:[
+      {n:"Falésias de Morro Branco", base:"Beberibe", nota:"Labirintos e mirantes nas falésias coloridas."},
+      {n:"Lagoa do Cauípe", base:"Cumbuco", nota:"Pista mundial de kitesurf entre as dunas."},
+      {n:"Dunas de Canoa Quebrada", base:"Aracati", nota:"Buggy, tirolesa e o pôr do sol nas falésias."},
+      {n:"Mangue de Mundaú", base:"Trairi", nota:"Passeio de barco pelo mangue; cavalos-marinhos."},
+    ],
+    campings:[
+      {n:"Áreas em Icaraí de Amontada", base:"Amontada", nota:"Pousadas e estrutura simples na vila de kite."},
+      {n:"Campings em Canoa Quebrada", base:"Aracati", nota:"Hospedagem econômica perto da Broadway."},
+    ],
+    pernoite:[
+      {n:"Acesso a Icaraí de Amontada", base:"Amontada", nota:"Trechos finais de terra; vá de dia."},
+      {n:"Buggy pelas dunas", base:"Cumbuco", nota:"Passeios dependem da maré; combine com guia local."},
+    ],
+    comer:[
+      {n:"Caranguejada & peixada", base:"Fortaleza", nota:"Praia do Futuro e mercado dos peixes; tapioca e baião."},
+      {n:"Lagosta na brasa", base:"Flecheiras", nota:"Frutos do mar frescos nas barracas das vilas."},
+      {n:"Camarão & sucos de caju", base:"Canoa Quebrada", nota:"Restaurantes da Broadway e barracas de praia."},
+    ],
+    igrejas:[
+      {n:"Catedral Metropolitana", base:"Fortaleza", nota:"Imponente igreja em estilo gótico no centro."},
+    ],
+    eventos:[
+      {n:"Réveillon & Carnaval de Fortaleza", base:"Fortaleza", nota:"Pré-Caju, blocos e festas na orla."},
+      {n:"Festival de kitesurf", base:"Cumbuco / Icaraí", nota:"Jul–dez; temporada de vento forte na costa oeste."},
+      {n:"Festa de Iemanjá", base:"Fortaleza", nota:"15 de agosto; oferendas no mar na Praia do Futuro."},
+    ],
+  },
+
   };
 
   /* mescla nos roteiros e expõe o mapa */

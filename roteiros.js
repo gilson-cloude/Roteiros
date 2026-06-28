@@ -2960,6 +2960,12 @@ window.ROTEIROS = (function(){
       resumo:"Litoral sul da Bahia: Porto Seguro, Trancoso e Caraíva. Foque em mapa, programação, custos e checklist.",
       recursos:[]
     },
+    "ceara-litoral": {
+      id:"ceara-litoral",
+      nome:"Ceará — Litoral de Sol",
+      resumo:"As duas costas do Ceará a partir de Fortaleza: falésias do litoral leste (Morro Branco, Canoa Quebrada) e dunas e kite do litoral oeste (Cumbuco, Flecheiras, Icaraí). Foque em mapa, programação, custos e checklist.",
+      recursos:[]
+    },
     bahia: {
       id:"bahia",
       nome:"Bahia — Chapada Diamantina",
@@ -3046,7 +3052,68 @@ window.ROTEIROS = (function(){
     }
   };
 
-  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2];
+  /* ---------- CE1: Ceará — Litoral de Sol Poente & Nascente ---------- */
+  const ce1f = [
+    { id:"e0", nome:"Litoral Leste", cor:"#0EA5A4", mes:"Semana 1" },
+    { id:"e1", nome:"Litoral Oeste", cor:"#0E7490", mes:"Semana 2" },
+  ];
+  const ce1 = {
+    id:"ce-litoral",
+    nome:"Ceará — Litoral de Sol",
+    tagline:"Das falésias de Canoa Quebrada às dunas de Icaraí de Amontada",
+    accent:"#0EA5A4", origem:"Fortaleza", regiao:"Ceará — Litoral", regiaoId:"ceara-litoral",
+    periodo:"Jul–Dez (sol e vento)", semanas:2,
+    distancia_completa:"≈ 700 km", distancia_essencial:"≈ 450 km",
+    resumo:"As duas costas do Ceará a partir de Fortaleza: o litoral leste das falésias coloridas de Morro Branco e da boêmia Canoa Quebrada, e o litoral oeste de dunas e kitesurf — Cumbuco, Lagoinha, Flecheiras, Mundaú e a remota Icaraí de Amontada.",
+    seasonTip:{ h:"Quando ir?", p:"O <b>segundo semestre (jul–dez)</b> é seco, ensolarado e com vento forte para o <b>kitesurf</b>. As chuvas concentram-se de <b>fev a maio</b>. Os <b>buggys</b> e passeios de praia dependem da maré; combine guias locais e respeite a tábua." },
+    order:["Litoral Leste","Litoral Oeste"],
+    phaseMes:{ "Litoral Leste":"Beberibe, Morro Branco & Canoa Quebrada", "Litoral Oeste":"Cumbuco, Lagoinha, Flecheiras & Icaraí" },
+    fases:Object.fromEntries(ce1f.map(f=>[f.id,f])), fasesList:ce1f,
+    weeks:[
+      {n:1, datas:"Semana 1", mes:"Litoral Leste", fase:"e0",
+       from:"Fortaleza", to:"Canoa Quebrada", km:"≈ 200 km",
+       reg:"Fortaleza · Beberibe (Morro Branco) · Canoa Quebrada",
+       desc:"De <b>Fortaleza</b> (Beira-Mar, Mucuripe e Centro) ao litoral leste: as falésias coloridas de <b>Morro Branco e Praia das Fontes</b> em Beberibe, e a boêmia <b>Canoa Quebrada</b>, em Aracati, com sua Broadway, falésias e passeios de buggy.",
+       focos:[["Capital & praias","cidade"],["Falésias coloridas","atracao"]],
+       parque:"Falésias de Morro Branco · dunas de Canoa",
+       comer:"Caranguejo, peixada e camarão · tapioca",
+       pernoite:["cidade","Pousada em Canoa Quebrada"],
+       dica:"Os labirintos de falésia de Morro Branco e os buggys de Canoa têm guias locais; combine pela manhã."},
+      {n:2, datas:"Semana 2", mes:"Litoral Oeste", fase:"e1",
+       from:"Fortaleza", to:"Icaraí de Amontada", km:"≈ 280 km",
+       reg:"Cumbuco · Lagoinha · Flecheiras · Mundaú · Icaraí de Amontada",
+       desc:"O litoral oeste de dunas e vento: <b>Cumbuco</b> (Lagoa do Cauípe e kite), <b>Lagoinha</b> e <b>Paracuru</b>, as tranquilas <b>Flecheiras e Mundaú</b> (com seu mangue e cavalos-marinhos) e a remota <b>Icaraí de Amontada</b>, refúgio de kitesurfistas.",
+       focos:[["Dunas & kite","atracao"],["Vilas de pescadores","cidade"]],
+       parque:"Lagoa do Cauípe · mangue de Mundaú",
+       comer:"Lagosta e peixe na brasa · sucos de caju e cajá",
+       pernoite:["cidade","Pousada em Flecheiras ou Icaraí"],
+       dica:"O vento de jul–dez é ideal para o kite; passeios de buggy às dunas e lagoas saem das vilas com a maré.",
+       optEss:"Essencial: foque no litoral leste (Canoa e Morro Branco) e em Cumbuco/Lagoinha, deixando Mundaú e Icaraí (poupa ~3 dias)."},
+    ],
+    mapa:{ fases:ce1f, atracoes:{
+      canoaquebrada: { estrela:true, acc:"sim", nota:"Falésias, Broadway e buggy; vento bom para kite." },
+      icarai:        { estrela:true, acc:"parcial", nota:"Vila remota de dunas; meca do kitesurf, acesso de terra." },
+    }, wp:[
+      {id:"fortaleza", n:"Fortaleza", lat:-3.7319, lng:-38.5267, t:"origem", f:"e0", sem:1, var:"both", hl:true, d:"Capital cearense; Beira-Mar, Mucuripe e mercado central."},
+      {id:"morrobranco", n:"Morro Branco", lat:-4.1797, lng:-38.1297, t:"atracao", f:"e0", sem:1, var:"both", hl:true, d:"Falésias coloridas e labirintos em Beberibe."},
+      {id:"canoaquebrada", n:"Canoa Quebrada", lat:-4.5247, lng:-37.7019, t:"cidade", f:"e0", sem:1, var:"both", hl:true, d:"Falésias, Broadway e buggy, em Aracati."},
+      {id:"cumbuco", n:"Cumbuco", lat:-3.6286, lng:-38.7256, t:"atracao", f:"e1", sem:2, var:"both", hl:true, d:"Dunas, Lagoa do Cauípe e kitesurf, em Caucaia."},
+      {id:"lagoinha", n:"Lagoinha", lat:-3.2392, lng:-39.2611, t:"cidade", f:"e1", sem:2, var:"both", d:"Praia de coqueiros e falésias, em Paraipaba."},
+      {id:"flecheiras", n:"Flecheiras", lat:-3.2167, lng:-39.2667, t:"cidade", f:"e1", sem:2, var:"completa", d:"Praia tranquila de piscinas naturais, em Trairi."},
+      {id:"mundau", n:"Mundaú", lat:-3.0167, lng:-39.3667, t:"atracao", f:"e1", sem:2, var:"completa", d:"Foz e mangue de cavalos-marinhos, em Trairi."},
+      {id:"icarai", n:"Icaraí de Amontada", lat:-3.0469, lng:-39.6453, t:"cidade", f:"e1", sem:2, var:"both", hl:true, d:"Vila remota de dunas; meca do kitesurf."},
+    ]},
+    custos:{ dias:14, categorias:[
+      {nome:"Combustível & transfers", min:700, max:1500, obs:"≈700 km · buggys e transfers"},
+      {nome:"Hospedagem", min:1500, max:3200, obs:"13 noites em pousadas"},
+      {nome:"Alimentação", min:1300, max:2400, obs:"Frutos do mar, lagosta e tapioca"},
+      {nome:"Passeios (buggy, kite, barco)", min:500, max:1300, obs:"Dunas, lagoas e mangue"},
+      {nome:"Pedágios & extras", min:60, max:160, obs:"Acessos e taxas"},
+      {nome:"Compras (renda, labirinto)", min:150, max:400, obs:"Renda de bilro e garrafas de areia"},
+    ], essencial:{ min:3800, max:7200, media:5400, economia:"~22%", corteKm:"≈ 250 km", corteNote:"sem Mundaú e Icaraí de Amontada" } }
+  };
+
+  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1];
   try{
     var custom = JSON.parse(localStorage.getItem('roteirosCustom')||'[]');
     if(Array.isArray(custom)) custom.forEach(function(c){ if(c && c.id) base.push(c); });

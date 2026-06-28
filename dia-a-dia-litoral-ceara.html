@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Litoral do Ceará — Roteiro dia a dia (11 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08231f; --slate:#3a5650; --faint:#789690;
+    --paper:#e7f4f1; --card:#ffffff; --line:#c6e4dd;
+    --terra:#0ea5a4; --amber:#c2660c; --sand:#ca8a04; --sand-d:#a16207;
+    --teal-d:#0e7490;
+    --shadow:0 14px 34px -20px rgba(8,55,48,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(14,165,164,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(202,138,4,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0ea5a4 0%,#0e7490 52%,#ca8a04 155%);
+    color:#e6f6f3;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(202,138,4,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3dedb;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56cac6}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeeea;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sand-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,55,48,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f6f3;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sand .rail{background:linear-gradient(165deg,var(--sand),var(--sand-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.sand .loc{color:var(--sand-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f332e}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(14,165,164,.09);border:1px solid rgba(14,165,164,.2);border-radius:999px;padding:4px 10px}
+  .day.sand .chip{color:var(--sand-d);background:rgba(202,138,4,.1);border-color:rgba(202,138,4,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e7f3ef);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(14,165,164,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0a231f;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#14332d;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Ceará · Litoral · roteiro dia a dia</div>
+    <h1>Litoral do Ceará em 11 dias</h1>
+    <p class="sub">As duas costas a partir de Fortaleza: o litoral leste das falésias coloridas de Morro Branco e da boêmia Canoa Quebrada, e o litoral oeste de dunas e kitesurf — Cumbuco, Lagoinha, Flecheiras, Mundaú e a remota Icaraí de Amontada.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>11 dias</b></span>
+      <span class="fact">🪁 <b>Dunas &amp; kitesurf</b></span>
+      <span class="fact">☀️ Melhor época: <b>jul–dez</b></span>
+      <span class="fact">🦞 Lagosta &amp; falésias</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Fortaleza</span><i>→</i><span>Morro Branco</span><i>→</i><span>Canoa Quebrada</span><i>→</i><span>Cumbuco</span><i>→</i><span>Lagoinha</span><i>→</i><span>Flecheiras &amp; Mundaú</span><i>→</i><span>Icaraí de Amontada</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Sol, vento e maré</h4>
+      <p>O <b>segundo semestre (jul–dez)</b> é seco e ensolarado, com o <b>vento forte</b> ideal para o kitesurf; as chuvas concentram-se de <b>fev a maio</b>. Os passeios de <b>buggy</b> e as piscinas naturais dependem da <b>maré</b> — combine guias locais e consulte a tábua. As vilas do oeste (Mundaú, Icaraí) têm <b>trechos de terra</b> e pouca estrutura: leve dinheiro vivo e vá de dia.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Fortaleza &amp; o Litoral Leste</span><span class="lk">dias 1–5 · falésias &amp; Canoa</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Fortaleza<span class="move">chegada</span></div>
+      <h3>A capital e a orla</h3>
+      <p>Chegada a <b>Fortaleza</b>. Tarde na <b>Av. Beira-Mar</b> e no Mucuripe, a feira de artesanato, o <b>Centro Dragão do Mar</b> e o Mercado Central. Jantar de frutos do mar na <b>Praia do Futuro</b>, nas barracas à beira-mar.</p>
+      <div class="chips"><span class="chip">Beira-Mar</span><span class="chip">Dragão do Mar</span><span class="chip">Praia do Futuro</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> caranguejada, peixada e tapioca</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Fortaleza (Beira-Mar)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Fortaleza → Morro Branco<span class="move">≈ 1,5 h · 90 km</span></div>
+      <h3>As falésias coloridas de Beberibe</h3>
+      <p>Descida ao litoral leste até <b>Morro Branco</b>, em Beberibe: os <b>labirintos de falésias coloridas</b> com guia, as garrafas de areia coloridas e a vizinha <b>Praia das Fontes</b>, com o Mar do Meio. Banho de mar e o pôr do sol nas falésias.</p>
+      <div class="chips"><span class="chip">Morro Branco</span><span class="chip">labirintos</span><span class="chip">Praia das Fontes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os labirintos de falésia com guia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Beberibe ou Canoa Quebrada</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Canoa Quebrada<span class="move">≈ 1 h · 60 km</span></div>
+      <h3>Falésias, Broadway e buggy</h3>
+      <p>Chegada à boêmia <b>Canoa Quebrada</b>, em Aracati: as <b>falésias avermelhadas</b> com a lua e estrela esculpidas, o passeio de <b>buggy</b> pelas dunas e o pôr do sol no alto da falésia. À noite, a <b>Broadway</b>, a rua de bares e música da vila.</p>
+      <div class="chips"><span class="chip">Canoa Quebrada</span><span class="chip">buggy</span><span class="chip">Broadway</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o pôr do sol nas falésias</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Canoa Quebrada</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Canoa · praias &amp; foz<span class="move">passeios</span></div>
+      <h3>Praia do Estêvão, Majorlândia e o rio</h3>
+      <p>Dia de praias do entorno: a <b>Praia do Estêvão</b>, a vizinha <b>Majorlândia</b> (de areias coloridas e jangadas) e o passeio de barco pela <b>foz do rio Jaguaribe</b>. Kitesurf para quem pratica, e tarde de descanso à beira-mar.</p>
+      <div class="chips"><span class="chip">Majorlândia</span><span class="chip">foz do Jaguaribe</span><span class="chip">jangadas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> camarão e peixe na Broadway</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Canoa Quebrada</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Canoa → Fortaleza → oeste<span class="move">≈ 3 h · travessia</span></div>
+      <h3>Travessia ao litoral oeste</h3>
+      <p>Retorno por Fortaleza e travessia ao <b>litoral oeste</b> rumo a <b>Cumbuco</b>, em Caucaia. Tarde de chegada nas dunas e na <b>Lagoa do Cauípe</b>, com a primeira sessão de kite ou um passeio de buggy ao pôr do sol nas dunas.</p>
+      <div class="chips"><span class="chip">Cumbuco</span><span class="chip">Lagoa do Cauípe</span><span class="chip">dunas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> dia de translado — siga cedo de Canoa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cumbuco</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">O Litoral Oeste de Dunas</span><span class="lk">dias 6–11 · kite, mangue &amp; Icaraí</span><span class="lr"></span></div>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cumbuco<span class="move">dunas &amp; kite</span></div>
+      <h3>Esquibunda, dunas e a Lagoa do Cauípe</h3>
+      <p>Dia em <b>Cumbuco</b>: o passeio de <b>buggy</b> pelas dunas com o "esquibunda" e o jangadeiro, a <b>Lagoa do Cauípe</b> (uma das melhores pistas de kitesurf do mundo) e os bares de praia. Cavalgada na areia ou passeio de jangada ao entardecer.</p>
+      <div class="chips"><span class="chip">esquibunda</span><span class="chip">kitesurf</span><span class="chip">jangada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o kite na Lagoa do Cauípe</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cumbuco</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cumbuco → Lagoinha<span class="move">≈ 1,5 h · 90 km</span></div>
+      <h3>Coqueiros e falésias de Lagoinha</h3>
+      <p>Subida a <b>Lagoinha</b>, em Paraipaba: uma das praias mais tradicionais do Ceará, de <b>coqueiros, dunas e falésias</b>, com a Pedra Rachada e o mirante. Passeio de buggy e banho na praia. Parada possível em <b>Paracuru</b>, point de surfe e kite.</p>
+      <div class="chips"><span class="chip">Lagoinha</span><span class="chip">Paracuru</span><span class="chip">coqueiros</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> buggy às dunas e à Pedra Rachada</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lagoinha ou Flecheiras</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Flecheiras<span class="move">≈ 40 min</span></div>
+      <h3>Piscinas naturais e jangada nos recifes</h3>
+      <p><b>Flecheiras</b>, em Trairi: praia tranquila de <b>piscinas naturais</b> que se formam nos recifes na maré baixa, acessadas por <b>jangada</b>. Mergulho leve, banho nas piscinas e o ritmo pacato da vila de pescadores. Vila ainda preservada e familiar.</p>
+      <div class="chips"><span class="chip">Flecheiras</span><span class="chip">piscinas naturais</span><span class="chip">jangada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Maré:</b> piscinas só na maré baixa — cheque a tábua</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Flecheiras</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Mundaú<span class="move">mangue &amp; foz</span></div>
+      <h3>O mangue e os cavalos-marinhos</h3>
+      <p>A vizinha <b>Mundaú</b>: a foz do rio entre o mar e o coqueiral, o passeio de <b>barco pelo mangue</b> à procura dos <b>cavalos-marinhos</b> e guarás vermelhos, e as dunas. Uma das paisagens mais bonitas e selvagens da costa oeste cearense.</p>
+      <div class="chips"><span class="chip">Mundaú</span><span class="chip">mangue</span><span class="chip">cavalos-marinhos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> os cavalos-marinhos no mangue</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Flecheiras ou Mundaú</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sand">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Icaraí de Amontada<span class="move">≈ 2 h · terra</span></div>
+      <h3>A meca do kite no fim do mundo</h3>
+      <p>Travessia à remota <b>Icaraí de Amontada</b>: vila de pescadores cercada de dunas, hoje refúgio de <b>kitesurfistas</b> do mundo todo, com vento constante e mar raso. O clima descolado e internacional, as dunas de Moitas e o pôr do sol no fim do mundo.</p>
+      <div class="chips"><span class="chip">Icaraí de Amontada</span><span class="chip">kitesurf</span><span class="chip">dunas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Acesso:</b> trechos de terra · leve dinheiro vivo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Icaraí de Amontada</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Icaraí → Fortaleza<span class="move">≈ 3 h · partida</span></div>
+      <h3>Despedida do litoral cearense</h3>
+      <p>Retorno a <b>Fortaleza</b> para a partida (aeroporto), com a opção de últimas compras de <b>renda de bilro e labirinto de garrafa</b>. Das falésias de Canoa às dunas de Icaraí, fecha-se o circuito das duas costas do Ceará. <i>Até a próxima maré!</i></p>
+      <div class="chips"><span class="chip">renda de bilro</span><span class="chip">retorno</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de Fortaleza</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Mundaú/Icaraí, encerre em Flecheiras (poupa ~3 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o litoral do Ceará.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Segundo semestre (jul–dez): seco, ensolarado e com vento forte para o kite. Fev–maio chove mais.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Marés</h5><p>Piscinas naturais (Flecheiras) e passeios de buggy dependem da maré baixa. Consulte a tábua e o guia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Acessos</h5><p>Mundaú e Icaraí têm trechos de terra; buggys e transfers para as dunas. Vá de dia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><div><h5>Kitesurf</h5><p>Cumbuco, Cauípe e Icaraí são pistas de classe mundial. Há escolas e aluguel de equipamento nas vilas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Lagosta, caranguejada, peixada e camarão; tapioca, baião de dois e sucos de caju e cajá.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Compras</h5><p>Renda de bilro, labirinto e garrafas de areia colorida de Morro Branco e do artesanato cearense.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Litoral do Ceará em 11 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
