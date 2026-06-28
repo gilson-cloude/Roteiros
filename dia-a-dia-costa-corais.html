@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Costa dos Corais — Roteiro dia a dia (11 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08231f; --slate:#3a5650; --faint:#789690;
+    --paper:#e7f4f1; --card:#ffffff; --line:#c6e4dd;
+    --terra:#0ea5a4; --amber:#c2660c; --aqua:#0891b2; --aqua-d:#0e7490;
+    --teal-d:#0f766e;
+    --shadow:0 14px 34px -20px rgba(8,55,48,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(14,165,164,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(8,145,178,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0ea5a4 0%,#0f766e 52%,#0891b2 155%);
+    color:#e6f6f3;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(8,145,178,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3dedb;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56cac6}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:40px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeeea;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--aqua-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,55,48,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f6f3;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.aqua .rail{background:linear-gradient(165deg,var(--aqua),var(--aqua-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.aqua .loc{color:var(--aqua-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f332e}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(14,165,164,.09);border:1px solid rgba(14,165,164,.2);border-radius:999px;padding:4px 10px}
+  .day.aqua .chip{color:var(--aqua-d);background:rgba(8,145,178,.09);border-color:rgba(8,145,178,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e7f3ef);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(14,165,164,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0a231f;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#14332d;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:29px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Alagoas · Pernambuco · Costa dos Corais · roteiro dia a dia</div>
+    <h1>Costa dos Corais em 11 dias</h1>
+    <p class="sub">O maior corredor de recifes do Atlântico Sul: de Maceió e a Praia do Francês, pela Rota Ecológica de São Miguel dos Milagres e as galés de Maragogi, cruzando a Pernambuco até a Praia dos Carneiros e as piscinas naturais de Porto de Galinhas.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>11 dias</b></span>
+      <span class="fact">🐠 <b>Piscinas naturais</b></span>
+      <span class="fact">☀️ Melhor época: <b>set–mar</b></span>
+      <span class="fact">🌊 Maré baixa manda</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Maceió</span><i>→</i><span>Praia do Francês</span><i>→</i><span>São Miguel dos Milagres</span><i>→</i><span>Maragogi</span><i>→</i><span>Tamandaré</span><i>→</i><span>Porto de Galinhas</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Maré baixa, catamarã e verão</h4>
+      <p>Aqui tudo gira em torno da <b>maré baixa</b>: é quando as <b>piscinas naturais</b> (Pajuçara, galés de Maragogi, Porto de Galinhas) se formam nos recifes. <b>Planeje cada passeio pela tábua de marés</b> e reserve a jangada/catamarã para o horário certo. O <b>verão (set–mar)</b> tem mar mais calmo e transparente; as chuvas vão de <b>abr a jul</b>. Respeite os recifes — não pise nos corais.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">A Costa Alagoana</span><span class="lk">dias 1–6 · Maceió, Milagres &amp; Maragogi</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Maceió<span class="move">chegada</span></div>
+      <h3>As piscinas de Pajuçara</h3>
+      <p>Chegada a <b>Maceió</b>. Tarde nas <b>piscinas naturais de Pajuçara</b>, a 2 km da orla, alcançadas de <b>jangada</b> na maré baixa, e na orla de Ponta Verde e Jatiúca. Pôr do sol na praia e o caldo de <b>sururu</b>, marca da cidade.</p>
+      <div class="chips"><span class="chip">Maceió</span><span class="chip">piscinas de Pajuçara</span><span class="chip">jangada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> sururu, caranguejo e frutos do mar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Maceió (Ponta Verde)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Praia do Francês · Marechal Deodoro<span class="move">≈ 40 min</span></div>
+      <h3>Praia do Francês e a antiga capital</h3>
+      <p>Bate-volta ao sul: a badalada <b>Praia do Francês</b>, de mar aberto e piscinas protegidas pelo recife, e a colonial <b>Marechal Deodoro</b> — primeira capital de Alagoas, com o Convento de São Francisco e o casario tombado à beira da lagoa Manguaba.</p>
+      <div class="chips"><span class="chip">Praia do Francês</span><span class="chip">Marechal Deodoro</span><span class="chip">barroco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> Convento de São Francisco (séc. XVIII)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Maceió</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day aqua">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Miguel dos Milagres<span class="move">≈ 1,5 h · 100 km</span></div>
+      <h3>A Rota Ecológica</h3>
+      <p>Subida pela <b>Rota Ecológica</b> à preservada <b>São Miguel dos Milagres</b>: estrada de coqueiros entre o mar e os povoados, as pousadas de charme, os recifes em frente à praia e o <b>Projeto Peixe-Boi</b> em Porto de Pedras. Ritmo lento e mar de piscinas.</p>
+      <div class="chips"><span class="chip">Rota Ecológica</span><span class="chip">São Miguel dos Milagres</span><span class="chip">peixe-boi</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> passeio de jangada aos recifes na maré baixa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Miguel dos Milagres</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day aqua">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Milagres → Maragogi<span class="move">≈ 1 h</span></div>
+      <h3>As galés de Maragogi</h3>
+      <p>Chegada a <b>Maragogi</b> e o passeio-ícone: as <b>galés</b>, piscinas naturais a <b>6 km da costa</b> alcançadas de <b>catamarã</b> na maré baixa — snorkel em águas transparentes sobre os corais. Tarde nas praias de coqueiros e o pôr do sol na orla.</p>
+      <div class="chips"><span class="chip">Maragogi</span><span class="chip">galés</span><span class="chip">catamarã</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Maré:</b> galés só na maré baixa — reserve pelo horário</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Maragogi</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day aqua">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Maragogi · praias &amp; recifes</div>
+      <h3>Antunes, Barra Grande e dia de mar</h3>
+      <p>Dia de praias em <b>Maragogi</b>: a <b>Praia de Antunes</b> e suas piscinas próximas à areia, a Barra Grande e os recifes acessíveis a pé na maré baixa. Passeio de caiaque ou stand-up, e tarde de descanso à beira-mar nos coqueirais.</p>
+      <div class="chips"><span class="chip">Praia de Antunes</span><span class="chip">Barra Grande</span><span class="chip">recifes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> casquinha de siri e peixe na brasa</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Maragogi</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day aqua">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São José da Coroa Grande<span class="move">divisa AL/PE</span></div>
+      <h3>Dia tranquilo na divisa</h3>
+      <p>Dia mais leve na divisa dos estados: a tranquila <b>São José da Coroa Grande</b> (PE), de recifes e coqueirais, marcando a transição para o litoral sul pernambucano. Banho de mar, descanso e preparação para o trecho final rumo a Porto de Galinhas.</p>
+      <div class="chips"><span class="chip">São José da Coroa Grande</span><span class="chip">divisa AL/PE</span><span class="chip">recifes</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> bom ponto de transição entre os dois estados</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Maragogi ou Tamandaré</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Rumo a Pernambuco</span><span class="lk">dias 7–11 · Carneiros &amp; Porto de Galinhas</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Tamandaré · Praia dos Carneiros<span class="move">≈ 1 h</span></div>
+      <h3>A capelinha no mar e o rio Formoso</h3>
+      <p>Chegada a <b>Tamandaré</b> e a deslumbrante <b>Praia dos Carneiros</b>: a icônica <b>capelinha de São Benedito</b> à beira-mar, os coqueirais e o passeio de <b>barco pelo rio Formoso</b>, com paradas nos bares flutuantes e piscinas. Um dos cenários mais bonitos do Nordeste.</p>
+      <div class="chips"><span class="chip">Praia dos Carneiros</span><span class="chip">capelinha</span><span class="chip">rio Formoso</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a capelinha dos Carneiros e o rio</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Tamandaré ou Porto de Galinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Porto de Galinhas<span class="move">≈ 1,5 h</span></div>
+      <h3>As piscinas naturais mais famosas</h3>
+      <p>Chegada a <b>Porto de Galinhas</b>, em Ipojuca, e o passeio-símbolo: as <b>piscinas naturais</b> nos recifes em frente à vila, alcançadas de <b>jangada</b> na maré baixa — snorkel entre peixes coloridos. À noite, a vila de bugigangas, gastronomia e os galinhos coloridos.</p>
+      <div class="chips"><span class="chip">Porto de Galinhas</span><span class="chip">piscinas naturais</span><span class="chip">jangada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Maré:</b> piscinas só na maré baixa — cheque a tábua</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Porto de Galinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Maracaípe &amp; arredores</div>
+      <h3>Pontal de Maracaípe e os surfes</h3>
+      <p>Dia nas praias vizinhas: o <b>Pontal de Maracaípe</b> (a foz e o passeio de jangada pelo manguezal à procura dos cavalos-marinhos), a praia de surfe de Maracaípe e a tranquila Cupe. Caiaque no rio e tarde de mar e coqueiros.</p>
+      <div class="chips"><span class="chip">Pontal de Maracaípe</span><span class="chip">cavalos-marinhos</span><span class="chip">surfe</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M16 10c2 0 3 1 3 3"/></svg></span><span><b>Não perca:</b> os cavalos-marinhos do Pontal</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Porto de Galinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Porto de Galinhas · dia livre</div>
+      <h3>Praias, bugigangas e gastronomia</h3>
+      <p>Dia livre em <b>Porto de Galinhas</b>: as praias de Cupe e Muro Alto (com sua piscina natural protegida pelo recife), os beach clubs, as compras de <b>bugigangas</b> e a gastronomia da vila. Último mergulho nas piscinas ou descanso à beira-mar.</p>
+      <div class="chips"><span class="chip">Muro Alto</span><span class="chip">Cupe</span><span class="chip">bugigangas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixe na folha de bananeira e tapioca</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Porto de Galinhas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Porto de Galinhas → Recife<span class="move">≈ 1 h · partida</span></div>
+      <h3>Despedida da Costa dos Corais</h3>
+      <p>Retorno ao <b>aeroporto do Recife</b> (≈ 1 h) para a partida — com a opção de uma parada no centro histórico de <b>Olinda/Recife Antigo</b> se o voo permitir. Das piscinas de Pajuçara aos recifes de Porto de Galinhas, fecha-se o corredor de corais. <i>Até a próxima maré baixa!</i></p>
+      <div class="chips"><span class="chip">Recife</span><span class="chip">retorno</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto do Recife</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem a Rota Ecológica, foque em Maragogi e Porto de Galinhas (poupa ~3 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Costa dos Corais.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Marés mandam</h5><p>Pajuçara, galés de Maragogi e Porto de Galinhas só formam piscinas na maré baixa. Planeje pela tábua.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Verão (set–mar): mar calmo e transparente. As chuvas concentram-se de abr a jul.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Passeios</h5><p>Catamarã às galés (Maragogi) e jangadas às piscinas; tabelados e por horário de maré. Reserve antes.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><div><h5>Preserve os recifes</h5><p>Não pise nos corais nem use protetor não-biodegradável. A APA Costa dos Corais protege os peixes-boi.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Sururu e caldos em Maceió, casquinha de siri, peixe na folha de bananeira e tapioca.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Logística</h5><p>Sentido clássico Maceió→Recife (chegue por Maceió, saia por Recife). Carro ajuda na Rota Ecológica.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Costa dos Corais em 11 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

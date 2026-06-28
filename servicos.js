@@ -2093,6 +2093,48 @@
     ],
   },
 
+  "al-costa-corais": {
+    atracoes:[
+      {n:"Piscinas de Pajuçara", base:"Maceió", nota:"Piscinas naturais a 2 km da orla, de jangada, na maré baixa.", lat:-9.6650, lng:-35.7000},
+      {n:"Praia do Francês", base:"Marechal Deodoro", nota:"Praia badalada e a colonial Marechal Deodoro ao lado.", lat:-9.7569, lng:-35.8389},
+      {n:"Rota Ecológica de Milagres", base:"São Miguel dos Milagres", nota:"Coqueirais, recifes e pousadas de charme; piscinas de jangada.", lat:-9.2783, lng:-35.3781},
+      {n:"Galés de Maragogi", base:"Maragogi", nota:"Piscinas naturais a 6 km da costa, de catamarã, na maré baixa.", lat:-9.0122, lng:-35.2225},
+      {n:"Praia dos Carneiros", base:"Tamandaré", nota:"A capelinha no mar, o rio Formoso e coqueirais; passeio de barco.", lat:-8.7050, lng:-35.0700},
+      {n:"Piscinas de Porto de Galinhas", base:"Ipojuca", nota:"Piscinas naturais de jangada nos recifes; a praia símbolo de PE.", lat:-8.5089, lng:-35.0036},
+    ],
+    museus:[
+      {n:"Memorial à República (Marechal Deodoro)", base:"Marechal Deodoro", nota:"Casa natal de Deodoro e o conjunto colonial tombado."},
+      {n:"Igreja e Convento de São Francisco", base:"Marechal Deodoro", nota:"Barroco do séc. XVIII na antiga capital alagoana."},
+    ],
+    parques:[
+      {n:"APA Costa dos Corais", base:"Maragogi", nota:"Maior unidade marinha do país; recifes e peixes-boi."},
+      {n:"Praia dos Carneiros (rio Formoso)", base:"Tamandaré", nota:"Passeio de barco pelo rio, manguezal e a capelinha."},
+      {n:"Projeto Peixe-Boi", base:"Porto de Pedras", nota:"Centro de visitação dos peixes-boi marinhos, na Rota Ecológica."},
+    ],
+    campings:[
+      {n:"Campings em Maragogi", base:"Maragogi", nota:"Hospedagem econômica perto das galés."},
+      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila."},
+    ],
+    pernoite:[
+      {n:"Catamarã às galés", base:"Maragogi", nota:"Só na maré baixa; reserve pelo horário da maré."},
+      {n:"Jangadas às piscinas", base:"Porto de Galinhas", nota:"Saem da praia central conforme a maré; tabeladas."},
+    ],
+    comer:[
+      {n:"Sururu & caldos", base:"Maceió", nota:"Sururu de Capote e frutos do mar na orla da Pajuçara."},
+      {n:"Peixe na folha de bananeira", base:"Porto de Galinhas", nota:"Restaurantes da vila e na beira da praia."},
+      {n:"Casquinha de siri & camarão", base:"Maragogi", nota:"Frutos do mar nas barracas das galés."},
+    ],
+    igrejas:[
+      {n:"Capelinha dos Carneiros", base:"Tamandaré", nota:"A icônica igrejinha de São Benedito à beira-mar."},
+      {n:"Catedral de Maceió", base:"Maceió", nota:"Nossa Senhora dos Prazeres, no centro da capital."},
+    ],
+    eventos:[
+      {n:"Réveillon & verão de Maceió", base:"Maceió", nota:"Set–mar; auge da temporada nas praias alagoanas."},
+      {n:"Festa de São Benedito", base:"Tamandaré", nota:"Procissão religiosa ligada à capelinha dos Carneiros."},
+      {n:"Festival Gastronômico", base:"Porto de Galinhas", nota:"Pratos de frutos do mar e cultura praieira na vila."},
+    ],
+  },
+
   };
 
   /* mescla nos roteiros e expõe o mapa */

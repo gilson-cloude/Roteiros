@@ -2972,6 +2972,12 @@ window.ROTEIROS = (function(){
       resumo:"As duas faces potiguares a partir de Natal: litoral sul de falésias e golfinhos (Pipa, Tibau) e litoral norte de dunas e kite (Genipabu, Maracajaú, São Miguel do Gostoso). Foque em mapa, programação, custos e checklist.",
       recursos:[]
     },
+    "corais-litoral": {
+      id:"corais-litoral",
+      nome:"Costa dos Corais — AL/PE",
+      resumo:"O maior corredor de recifes do Atlântico Sul: de Maceió e Maragogi (AL) pela Rota Ecológica até Tamandaré e Porto de Galinhas (PE). Foque em mapa, programação, custos e checklist.",
+      recursos:[]
+    },
     bahia: {
       id:"bahia",
       nome:"Bahia — Chapada Diamantina",
@@ -3180,7 +3186,66 @@ window.ROTEIROS = (function(){
     ], essencial:{ min:3700, max:7000, media:5300, economia:"~22%", corteKm:"≈ 220 km", corteNote:"sem Baía Formosa e São Miguel do Gostoso" } }
   };
 
-  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1, rn1];
+  /* ---------- CO-CORAIS: Costa dos Corais (AL/PE) ---------- */
+  const cc1f = [
+    { id:"e0", nome:"Costa Alagoana", cor:"#0EA5A4", mes:"Semana 1" },
+    { id:"e1", nome:"Rumo a Pernambuco", cor:"#0E7490", mes:"Semana 2" },
+  ];
+  const cc1 = {
+    id:"al-costa-corais",
+    nome:"Costa dos Corais (AL/PE)",
+    tagline:"De Maceió e Maragogi às piscinas naturais de Porto de Galinhas",
+    accent:"#0EA5A4", origem:"Maceió", regiao:"Costa dos Corais — AL/PE", regiaoId:"corais-litoral",
+    periodo:"Set–Mar (mar calmo e piscinas)", semanas:2,
+    distancia_completa:"≈ 450 km", distancia_essencial:"≈ 280 km",
+    resumo:"O maior corredor de recifes de coral do Atlântico Sul: de Maceió e a Praia do Francês, pela Rota Ecológica de São Miguel dos Milagres e as galés de Maragogi, cruzando a Pernambuco até Tamandaré e as piscinas naturais de Porto de Galinhas.",
+    seasonTip:{ h:"Quando ir?", p:"As <b>piscinas naturais</b> nos recifes dependem da <b>maré baixa</b> — consulte a tábua e reserve os passeios de jangada/catamarã para o horário certo. O <b>verão (set–mar)</b> tem mar mais calmo e transparente. As chuvas concentram-se de <b>abr a jul</b>." },
+    order:["Costa Alagoana","Rumo a Pernambuco"],
+    phaseMes:{ "Costa Alagoana":"Maceió, Francês, Milagres & Maragogi", "Rumo a Pernambuco":"Tamandaré & Porto de Galinhas" },
+    fases:Object.fromEntries(cc1f.map(f=>[f.id,f])), fasesList:cc1f,
+    weeks:[
+      {n:1, datas:"Semana 1", mes:"Costa Alagoana", fase:"e0",
+       from:"Maceió", to:"Maragogi", km:"≈ 130 km",
+       reg:"Maceió · Praia do Francês · São Miguel dos Milagres · Maragogi",
+       desc:"De <b>Maceió</b> (Pajuçara e suas piscinas de jangada) à <b>Praia do Francês</b> e a colonial Marechal Deodoro; depois a <b>Rota Ecológica</b> de <b>São Miguel dos Milagres</b> e Porto de Pedras, e as <b>galés de Maragogi</b> — piscinas naturais a 6 km da costa.",
+       focos:[["Piscinas naturais","atracao"],["Rota Ecológica","atracao"]],
+       parque:"APA Costa dos Corais · galés de Maragogi",
+       comer:"Frutos do mar, sururu e o caldo de Maceió",
+       pernoite:["cidade","Pousada em Maragogi ou Milagres"],
+       dica:"As piscinas de Pajuçara (Maceió) e as galés de Maragogi só na maré baixa; reserve a jangada/catamarã pelo horário da maré."},
+      {n:2, datas:"Semana 2", mes:"Rumo a Pernambuco", fase:"e1",
+       from:"Maragogi", to:"Porto de Galinhas", km:"≈ 150 km",
+       reg:"São José da Coroa Grande · Tamandaré · Porto de Galinhas",
+       desc:"Cruzando para <b>Pernambuco</b>: a tranquila <b>Tamandaré</b> e a Praia dos Carneiros (com sua capelinha no mar), até as famosas <b>piscinas naturais de Porto de Galinhas</b>, exploradas de jangada, e a vila de bugigangas e gastronomia.",
+       focos:[["Praia dos Carneiros","atracao"],["Porto de Galinhas","cidade"]],
+       parque:"Praia dos Carneiros · piscinas de Porto de Galinhas",
+       comer:"Peixe na folha de bananeira, casquinha de siri e tapioca",
+       pernoite:["cidade","Pousada em Porto de Galinhas"],
+       dica:"Em Porto de Galinhas as jangadas levam às piscinas na maré baixa; a Praia dos Carneiros rende um dia inteiro de barco pelo rio Formoso.",
+       optEss:"Essencial: foque em Maragogi e Porto de Galinhas (com Carneiros), deixando a Rota Ecológica de Milagres (poupa ~3 dias)."},
+    ],
+    mapa:{ fases:cc1f, atracoes:{
+      maragogi:   { estrela:true, acc:"sim", nota:"Galés: piscinas naturais a 6 km da costa, de catamarã." },
+      portogalinhas:{ estrela:true, acc:"sim", nota:"Piscinas naturais de jangada; a praia mais famosa de PE." },
+    }, wp:[
+      {id:"maceio", n:"Maceió", lat:-9.6498, lng:-35.7089, t:"origem", f:"e0", sem:1, var:"both", hl:true, d:"Capital alagoana; piscinas de Pajuçara e orla."},
+      {id:"frances", n:"Praia do Francês", lat:-9.7569, lng:-35.8389, t:"atracao", f:"e0", sem:1, var:"both", d:"Praia e a colonial Marechal Deodoro."},
+      {id:"milagres", n:"São Miguel dos Milagres", lat:-9.2783, lng:-35.3781, t:"cidade", f:"e0", sem:1, var:"completa", hl:true, d:"Rota Ecológica; pousadas de charme e recifes."},
+      {id:"maragogi", n:"Maragogi", lat:-9.0122, lng:-35.2225, t:"cidade", f:"e0", sem:1, var:"both", hl:true, d:"Galés: piscinas naturais a 6 km da costa."},
+      {id:"tamandare", n:"Tamandaré", lat:-8.7600, lng:-35.1042, t:"atracao", f:"e1", sem:2, var:"both", d:"Praia dos Carneiros e a capelinha no mar, em PE."},
+      {id:"portogalinhas", n:"Porto de Galinhas", lat:-8.5089, lng:-35.0036, t:"cidade", f:"e1", sem:2, var:"both", hl:true, d:"Piscinas naturais de jangada; a praia símbolo de PE."},
+    ]},
+    custos:{ dias:14, categorias:[
+      {nome:"Combustível & transfers", min:550, max:1200, obs:"≈450 km · transfers e jangadas"},
+      {nome:"Hospedagem", min:1600, max:3400, obs:"13 noites em pousadas"},
+      {nome:"Alimentação", min:1300, max:2400, obs:"Frutos do mar, sururu e peixe"},
+      {nome:"Passeios (catamarã, jangada)", min:500, max:1300, obs:"Galés, piscinas e Carneiros"},
+      {nome:"Pedágios & extras", min:60, max:160, obs:"Acessos e taxas de praia"},
+      {nome:"Compras (artesanato)", min:120, max:350, obs:"Bordado filé e bugigangas"},
+    ], essencial:{ min:3800, max:7100, media:5400, economia:"~21%", corteKm:"≈ 170 km", corteNote:"sem a Rota Ecológica de São Miguel dos Milagres" } }
+  };
+
+  var base = [roteiro1, roteiro2, mg1, mg2, mg3, mg4, mg5, mg6, sc1, sc2, sc3, rs1, rs2, ba1, go1, uy1, uy2, mt1, ms1, sp1, sp2, py1, bo1, pe1, py2, bo2, pe2, ar1, cl1, ec1, co1, ve1, ar2, cl2, ar3, cu1, cl3, ne1, ba2, cu2, co2, ve2, ce1, rn1, cc1];
   try{
     var custom = JSON.parse(localStorage.getItem('roteirosCustom')||'[]');
     if(Array.isArray(custom)) custom.forEach(function(c){ if(c && c.id) base.push(c); });
