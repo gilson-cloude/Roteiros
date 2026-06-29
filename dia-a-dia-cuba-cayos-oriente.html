@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuba — Cayos & Oriente — Roteiro dia a dia (14 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08222a; --slate:#3a565d; --faint:#789499;
+    --paper:#e7f4f4; --card:#ffffff; --line:#c6e3e3;
+    --terra:#0e7490; --amber:#c2660c; --coral:#c2410c; --coral-d:#9a3412;
+    --teal-d:#155e75;
+    --shadow:0 14px 34px -20px rgba(8,55,60,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(14,116,144,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(194,65,12,.06), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0e7490 0%,#155e75 52%,#c2410c 155%);
+    color:#e6f5f5;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(194,65,12,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#9fdcdc;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56caca}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:39px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#cfeeee;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--coral-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(8,55,60,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e6f5f5;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.coral .rail{background:linear-gradient(165deg,var(--coral),var(--coral-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.coral .loc{color:var(--coral-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#1f3338}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(14,116,144,.09);border:1px solid rgba(14,116,144,.2);border-radius:999px;padding:4px 10px}
+  .day.coral .chip{color:var(--coral-d);background:rgba(194,65,12,.09);border-color:rgba(194,65,12,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e7f3f3);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(14,116,144,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#08222a;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#123238;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:27px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Cuba · Cayos &amp; Oriente · roteiro dia a dia</div>
+    <h1>Cuba — Cayos &amp; Oriente em 14 dias</h1>
+    <p class="sub">A Cuba de oeste a leste: de Havana e Varadero aos cayos paradisíacos do norte (Santa María, Coco e a Playa Pilar de Cayo Guillermo), e o profundo Oriente — Camagüey, Holguín, a vibrante Santiago de Cuba e a remota Baracoa, primeira vila da ilha.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>14 dias</b></span>
+      <span class="fact">🏖️ <b>Cayos &amp; Oriente</b></span>
+      <span class="fact">☀️ Melhor época: <b>nov–abr</b></span>
+      <span class="fact">🎶 Son &amp; trova</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Havana</span><i>→</i><span>Varadero</span><i>→</i><span>Cayo Santa María</span><i>→</i><span>Cayo Guillermo &amp; Coco</span><i>→</i><span>Camagüey</span><i>→</i><span>Holguín</span><i>→</i><span>Santiago de Cuba</span><i>→</i><span>Baracoa</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, dinheiro e distâncias longas</h4>
+      <p>A <b>seca (nov–abr)</b> é a melhor época; a temporada de furacões vai de <b>jun a nov</b>. Leve <b>euros ou dólares em espécie</b> para trocar — cartões estrangeiros muitas vezes não funcionam, e há escassez de itens; reserve <b>casas particulares</b>. As distâncias do Oriente são grandes (Santa Clara→Santiago é um dia inteiro); avalie um <b>voo doméstico</b> Havana→Holguín/Santiago para ganhar tempo. Os cayos têm acesso por <b>pedraplén</b> (estrada sobre o mar) com pedágio.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Havana &amp; os Cayos do Norte</span><span class="lk">dias 1–7 · capital &amp; praias de sonho</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana<span class="move">chegada</span></div>
+      <h3>A Habana Vieja e o Malecón</h3>
+      <p>Chegada a <b>Havana</b>. Tarde pela <b>Habana Vieja</b> (Patrimônio da Humanidade): as praças coloniais, o Capitólio, os carros antigos e o <b>Malecón</b> ao pôr do sol. Noite de <b>mojito e son cubano</b> num bar histórico. Imersão na capital vibrante e decadente.</p>
+      <div class="chips"><span class="chip">Habana Vieja</span><span class="chip">Malecón</span><span class="chip">carros antigos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> ropa vieja, moros y cristianos, mojito</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> casa particular em Havana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana<span class="move">cidade</span></div>
+      <h3>Vedado, Fusterlândia e os clássicos</h3>
+      <p>Mais um dia na capital: o <b>Vedado</b> e a Plaza de la Revolución, o cemitério de Colón, a colorida <b>Fusterlandia</b> (a Gaudí cubana) e um passeio de <b>carro conversível antigo</b> pela orla. À noite, a Fábrica de Arte Cubano ou um cabaré. O melhor de Havana antes de seguir leste.</p>
+      <div class="chips"><span class="chip">Vedado</span><span class="chip">Fusterlandia</span><span class="chip">conversível antigo</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o passeio de conversível pelo Malecón</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Havana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana → Varadero<span class="move">≈ 2,5 h · 140 km</span></div>
+      <h3>A maior praia de Cuba</h3>
+      <p>Descida a <b>Varadero</b>, a península de <b>22 km de praias</b> de areia branca e mar turquesa. Tarde de praia, mergulho ou um passeio de catamarã. O grande balneário de Cuba, com seus resorts, mas também praias públicas e a cultura local em Cárdenas, ali perto.</p>
+      <div class="chips"><span class="chip">Varadero</span><span class="chip">praia de 22 km</span><span class="chip">catamarã</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> a praia e um passeio de catamarã</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Varadero</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cayo Santa María<span class="move">≈ 3,5 h · pedraplén</span></div>
+      <h3>O cayo da Costa Norte</h3>
+      <p>Travessia pelo <b>pedraplén</b> (estrada sobre o mar) ao <b>Cayo Santa María</b>, parte dos Jardines del Rey: praias de <b>areia branca finíssima e água azul-piscina</b>, recifes para snorkel e o sossego dos cayos. Parada em <b>Remedios</b>, vila colonial, no caminho.</p>
+      <div class="chips"><span class="chip">Cayo Santa María</span><span class="chip">pedraplén</span><span class="chip">Remedios</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Acesso:</b> pedraplén com pedágio · leve documento</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cayo Santa María</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cayo Coco &amp; Cayo Guillermo<span class="move">≈ 3 h</span></div>
+      <h3>A Playa Pilar de Hemingway</h3>
+      <p>Os famosos <b>Cayo Coco e Cayo Guillermo</b> (Jardines del Rey): a deslumbrante <b>Playa Pilar</b> (eleita uma das mais bonitas do Caribe, imortalizada por Hemingway), com suas dunas e mar raso, flamingos nos manguezais e snorkel nos recifes. Dias de puro Caribe.</p>
+      <div class="chips"><span class="chip">Cayo Guillermo</span><span class="chip">Playa Pilar</span><span class="chip">Cayo Coco</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a Playa Pilar e os flamingos</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cayo Coco / Guillermo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day coral">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cayos · praia &amp; snorkel</div>
+      <h3>Dia de mar e recifes</h3>
+      <p>Mais um dia para curtir os <b>cayos</b>: snorkel ou mergulho nos recifes de coral, caiaque pelos manguezais, ou simplesmente o relaxo nas praias mais desertas. Os Jardines del Rey têm alguns dos melhores fundos marinhos de Cuba. Última noite no paraíso antes do Oriente.</p>
+      <div class="chips"><span class="chip">snorkel</span><span class="chip">recifes</span><span class="chip">caiaque</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> mergulho/snorkel nos recifes</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cayo Coco / Guillermo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cayos → Camagüey<span class="move">≈ 3,5 h</span></div>
+      <h3>A cidade dos labirintos e tinajones</h3>
+      <p>Rumo ao Oriente até <b>Camagüey</b> (Patrimônio da Humanidade), de ruas em <b>labirinto</b> (feitas para confundir piratas), praças e igrejas, os característicos <b>tinajones</b> (grandes vasos de barro) e a cidade natal do poeta Nicolás Guillén. Arte e arquitetura colonial.</p>
+      <div class="chips"><span class="chip">Camagüey</span><span class="chip">labirintos</span><span class="chip">tinajones</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> o centro histórico em labirinto (UNESCO)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Camagüey</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">O Oriente Cubano</span><span class="lk">dias 8–14 · Holguín, Santiago &amp; Baracoa</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Holguín &amp; Guardalavaca<span class="move">≈ 3 h</span></div>
+      <h3>A cidade das praças e a praia de Guardalavaca</h3>
+      <p><b>Holguín</b>, a "cidade dos parques", e a subida à <b>Loma de la Cruz</b> (mirante de 458 degraus). Tarde na <b>Praia de Guardalavaca</b> e arredores (Playa Esmeralda), de mar cristalino, e o sítio arqueológico taíno de Chorro de Maíta. O berço da chegada de Colombo a Cuba.</p>
+      <div class="chips"><span class="chip">Holguín</span><span class="chip">Guardalavaca</span><span class="chip">Loma de la Cruz</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> a praia de Guardalavaca</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Holguín ou Guardalavaca</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Holguín → Santiago de Cuba<span class="move">≈ 3,5 h</span></div>
+      <h3>A capital do Oriente</h3>
+      <p>Chegada a <b>Santiago de Cuba</b>, a cidade mais caribenha e musical da ilha — berço do <b>son e da trova</b>. Tarde no centro histórico: o Parque Céspedes, a casa de Diego Velázquez (a mais antiga de Cuba) e a Catedral. À noite, a <b>Casa de la Trova</b>, com música ao vivo.</p>
+      <div class="chips"><span class="chip">Santiago de Cuba</span><span class="chip">Casa de la Trova</span><span class="chip">son</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 13l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span><b>Não perca:</b> a música ao vivo na Casa de la Trova</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santiago de Cuba</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santiago · Morro &amp; revolução</div>
+      <h3>O Castelo del Morro e a história</h3>
+      <p>Dia em <b>Santiago</b>: o <b>Castillo del Morro</b> (forte UNESCO na entrada da baía), o Cuartel Moncada (marco da Revolução), o Cemitério de Santa Ifigênia (túmulos de José Martí e Fidel) e o santuário do <b>Cobre</b> (a padroeira de Cuba), nos arredores. História e fé do Oriente.</p>
+      <div class="chips"><span class="chip">Castillo del Morro</span><span class="chip">Santa Ifigênia</span><span class="chip">El Cobre</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> o Castillo del Morro e o santuário do Cobre</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santiago de Cuba</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santiago → Baracoa<span class="move">≈ 5 h · La Farola</span></div>
+      <h3>A estrada de La Farola à primeira vila</h3>
+      <p>A espetacular travessia pela <b>La Farola</b>, estrada de montanha que serpenteia pelas alturas até <b>Baracoa</b>, a <b>primeira vila fundada em Cuba</b> (1511), isolada por séculos. Chegada à baía dominada pelo <b>El Yunque</b> (montanha de topo plano). Clima tropical, cacau e tradição.</p>
+      <div class="chips"><span class="chip">La Farola</span><span class="chip">Baracoa</span><span class="chip">El Yunque</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Estrada cênica:</b> La Farola pelas montanhas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Baracoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">12</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Baracoa · rios &amp; cacau</div>
+      <h3>Playa Maguana, rio Toa e o chocolate</h3>
+      <p>Dia em <b>Baracoa</b>: a <b>Playa Maguana</b> de coqueiros, o passeio de barco pelo <b>rio Toa</b> ou Yumurí, a subida ao <b>El Yunque</b> e a cultura do <b>cacau</b> (a casa do chocolate). Cozinha única, com leite de coco e o cucurucho. O canto mais autêntico e tropical de Cuba.</p>
+      <div class="chips"><span class="chip">Playa Maguana</span><span class="chip">rio Toa</span><span class="chip">cacau</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> pratos com leite de coco, cacau e cucurucho</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Baracoa</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">13</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Baracoa → Santiago / Holguín<span class="move">retorno</span></div>
+      <h3>Regresso pelo Oriente</h3>
+      <p>Retorno pela <b>La Farola</b> rumo a <b>Santiago ou Holguín</b>, de onde parte o voo doméstico de volta a Havana (ou a conexão internacional). Última tarde para a música, os charutos e as compras de artesanato e rum do Oriente. Despedida da Cuba profunda.</p>
+      <div class="chips"><span class="chip">retorno</span><span class="chip">rum &amp; charutos</span><span class="chip">música</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Dica:</b> voo doméstico Holguín/Santiago→Havana poupa um dia</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santiago, Holguín ou Havana</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">14</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Havana → partida<span class="move">voo</span></div>
+      <h3>Despedida da ilha</h3>
+      <p>Última manhã em <b>Havana</b> para as compras finais de <b>rum, charutos e café</b>, um último mojito no Malecón, e a partida pelo aeroporto José Martí. De Havana aos cayos e ao Oriente profundo, fecha-se a Cuba de ponta a ponta. <i>¡Hasta siempre, Cuba!</i></p>
+      <div class="chips"><span class="chip">rum &amp; charutos</span><span class="chip">Malecón</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto José Martí (Havana)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> com menos dias, voe Havana→Santiago e foque no Oriente + 1 cayo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para Cuba de oeste a leste.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (nov–abr) é a melhor época; furacões de jun a nov. Carnaval de Santiago em julho (calor intenso).</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><h5>Dinheiro</h5><p>Leve euros/dólares em espécie; cartões estrangeiros costumam não funcionar. Há escassez de itens — vá preparado.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Distâncias</h5><p>O Oriente é longe. Avalie um voo doméstico Havana→Holguín/Santiago para ganhar dias. Os cayos têm pedraplén com pedágio.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></div><div><h5>Hospedagem</h5><p>Casas particulares são a melhor experiência (e apoiam locais). Reserve com antecedência na alta temporada.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Ropa vieja, moros y cristianos, peixe e lagosta nos cayos, a cozinha de coco de Baracoa, rum e mojito.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><h5>Música</h5><p>Santiago é o berço do son e da trova. Não perca as Casas de la Trova e a música ao vivo do Oriente.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Cuba — Cayos &amp; Oriente em 14 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

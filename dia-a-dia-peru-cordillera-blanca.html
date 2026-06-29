@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peru — Cordillera Blanca — Roteiro dia a dia (10 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1f2a; --slate:#3e5560; --faint:#7a93a0;
+    --paper:#eaf2f6; --card:#ffffff; --line:#cfe0ea;
+    --terra:#0369a1; --amber:#b45309; --ice:#0d9488; --ice-d:#0f766e;
+    --navy:#075985;
+    --shadow:0 14px 34px -20px rgba(10,40,60,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(3,105,161,.06), transparent 38%),radial-gradient(circle at 88% 0%, rgba(13,148,136,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0369a1 0%,#075985 52%,#0d9488 155%);
+    color:#e7f3f8;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(13,148,136,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a6cfe6;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#5aaad8}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:39px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d3e8f1;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--ice-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(10,40,60,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--navy));
+    color:#e7f3f8;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.ice .rail{background:linear-gradient(165deg,var(--ice),var(--ice-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--navy);text-transform:uppercase;font-weight:500}
+  .day.ice .loc{color:var(--ice-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#22343d}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--navy);
+    background:rgba(3,105,161,.08);border:1px solid rgba(3,105,161,.2);border-radius:999px;padding:4px 10px}
+  .day.ice .chip{color:var(--ice-d);background:rgba(13,148,136,.1);border-color:rgba(13,148,136,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#e9f1f5);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(3,105,161,.08);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#0d1f2a;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#162f3c;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:28px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Peru · Cordillera Blanca · roteiro dia a dia</div>
+    <h1>Cordillera Blanca em 10 dias</h1>
+    <p class="sub">A cordilheira tropical mais alta do mundo, a partir de Huaraz: as lagoas glaciais turquesa da Laguna 69, Llanganuco e Parón sob os nevados do Huascarán e do Alpamayo, e o templo pré-inca de Chavín de Huántar, no Parque Nacional Huascarán.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>10 dias</b></span>
+      <span class="fact">🏔️ <b>Lagoas glaciais &amp; nevados</b></span>
+      <span class="fact">☀️ Melhor época: <b>mai–set</b></span>
+      <span class="fact">🥾 Altitude 3.000–4.600 m</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Lima</span><i>→</i><span>Huaraz</span><i>→</i><span>Laguna 69</span><i>→</i><span>Lagunas de Llanganuco</span><i>→</i><span>Laguna Parón</span><i>→</i><span>Caraz</span><i>→</i><span>Chavín de Huántar</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Altitude, seca e aclimatação</h4>
+      <p>A <b>seca (mai–set)</b> é a temporada de trekking: céu limpo e trilhas seguras. Huaraz fica a <b>~3.050 m</b> e as lagoas chegam a <b>4.600 m</b> — <b>aclimate-se 2–3 dias</b> antes da Laguna 69 e suba com calma contra o <b>soroche</b>. Leve roupa de frio (geia de manhã), protetor forte, óculos de sol e água. Mate de coca ajuda. As estradas a Parón e Chavín são de montanha — vá com agência ou guia local.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Huaraz &amp; a Aclimatação</span><span class="lk">dias 1–4 · capital andina &amp; primeiras lagoas</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lima<span class="move">chegada</span></div>
+      <h3>Chegada à capital e o Pacífico</h3>
+      <p>Chegada a <b>Lima</b>. Tarde em <b>Miraflores e Barranco</b>, à beira-mar, o centro histórico e a célebre <b>gastronomia limenha</b> (ceviche, pisco sour). Noite tranquila antes de subir à serra — descanso para a viagem a Huaraz no dia seguinte.</p>
+      <div class="chips"><span class="chip">Lima</span><span class="chip">Miraflores</span><span class="chip">ceviche</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> ceviche, tiradito e pisco sour</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lima (Miraflores)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lima → Huaraz<span class="move">≈ 8 h · ônibus/voo</span></div>
+      <h3>Subida à capital dos Andes peruanos</h3>
+      <p>Subida a <b>Huaraz</b> (~3.050 m), a base do trekking na Cordillera Blanca, pela rota que cruza a Cordillera Negra. Tarde de <b>descanso e aclimatação</b> — caminhada leve pela cidade, o mercado e o mirante de Rataquenua. Hidrate-se e evite esforço.</p>
+      <div class="chips"><span class="chip">Huaraz</span><span class="chip">aclimatação</span><span class="chip">Rataquenua</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Importante:</b> dia leve para aclimatar à altitude</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Huaraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Laguna Wilcacocha / Pastoruri<span class="move">aclimatação</span></div>
+      <h3>Aclimatação ativa e os Andes</h3>
+      <p>Dia de <b>aclimatação ativa</b>: a trilha leve à <b>Laguna Wilcacocha</b> (na Cordillera Negra, com vista panorâmica de toda a Blanca) ou o passeio ao <b>Nevado Pastoruri</b> e às puyas raimondi gigantes. Ganho gradual de altitude, preparando o corpo para a Laguna 69.</p>
+      <div class="chips"><span class="chip">Wilcacocha</span><span class="chip">Pastoruri</span><span class="chip">puya raimondi</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Faça:</b> trilha leve de aclimatação com vistas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Huaraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day ice">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Laguna 69<span class="move">trilha · 4.600 m</span></div>
+      <h3>A lagoa turquesa mais famosa dos Andes</h3>
+      <p>O dia-ícone: a trilha à <b>Laguna 69</b> (a ~4.600 m), uma lagoa de <b>turquesa elétrico</b> alimentada por geleiras, sob o nevado Chacraraju. Cerca de 6–7h de caminhada exigente em altitude, saindo bem cedo de Huaraz. Um dos cenários mais espetaculares da cordilheira.</p>
+      <div class="chips"><span class="chip">Laguna 69</span><span class="chip">4.600 m</span><span class="chip">trilha exigente</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Saia cedo:</b> trilha de altitude · só após aclimatar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Huaraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Llanganuco, Parón &amp; Chavín</span><span class="lk">dias 5–10 · lagoas glaciais &amp; arqueologia</span><span class="lr"></span></div>
+
+  <article class="day ice">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lagunas de Llanganuco<span class="move">~3.850 m</span></div>
+      <h3>As lagoas gêmeas sob o Huascarán</h3>
+      <p>As <b>Lagunas de Llanganuco</b> (Chinancocha e Orconcocha), de águas turquesa entre paredões, aos pés do <b>Huascarán</b> (6.768 m, o ponto mais alto do Peru) e do Huandoy. Passeio de barco, trilhas curtas pela quebrada e vistas dos gigantes nevados. Acesso fácil, ótimo dia mais leve.</p>
+      <div class="chips"><span class="chip">Llanganuco</span><span class="chip">Huascarán</span><span class="chip">lagoas turquesa</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o Huascarán refletido nas lagoas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Yungay ou Caraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day ice">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Laguna Parón<span class="move">~4.200 m</span></div>
+      <h3>A maior lagoa da Cordillera Blanca</h3>
+      <p>A <b>Laguna Parón</b>, a maior da cordilheira, de um azul intenso cercada de nevados, com o icônico <b>Artesonraju</b> (a montanha que teria inspirado o logo da Paramount). Mirante do Mirador de Parón com vista do anfiteatro glacial. Acesso por estrada de montanha desde Caraz.</p>
+      <div class="chips"><span class="chip">Laguna Parón</span><span class="chip">Artesonraju</span><span class="chip">mirante</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a vista do Artesonraju do mirante</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Caraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Caraz &amp; o Callejón de Huaylas</div>
+      <h3>O vale andino e a memória de Yungay</h3>
+      <p>Dia mais leve no <b>Callejón de Huaylas</b>: a tranquila <b>Caraz</b> (da "dulzura" e do manjar blanco), o vale entre as cordilheiras Blanca e Negra, e o <b>Campo Santo de Yungay</b> — memorial da cidade soterrada pelo terremoto de 1970. Cultura, história e paisagem andina.</p>
+      <div class="chips"><span class="chip">Caraz</span><span class="chip">Callejón de Huaylas</span><span class="chip">Campo Santo de Yungay</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> manjar blanco e cozinha andina</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Caraz ou Huaraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Chavín de Huántar<span class="move">≈ 3 h · Cordillera Negra</span></div>
+      <h3>O templo pré-inca de 3.000 anos</h3>
+      <p>Travessia à <b>Chavín de Huántar</b> (Patrimônio da Humanidade), cruzando o túnel de Cahuish: o <b>templo cerimonial</b> da cultura Chavín (~1.200 a.C.), com suas galerias subterrâneas, o Lanzón monolítico e as cabeças cravadas. O museu nacional de Chavín completa a visita. Uma das mais antigas civilizações andinas.</p>
+      <div class="chips"><span class="chip">Chavín de Huántar</span><span class="chip">UNESCO</span><span class="chip">Lanzón</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> as galerias subterrâneas e o Lanzón</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Huaraz</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Huaraz → Lima<span class="move">≈ 8 h</span></div>
+      <h3>Descida aos Andes e retorno à costa</h3>
+      <p>Manhã livre em <b>Huaraz</b> para últimas compras de <b>têxteis andinos e artesanato</b>, e a descida de volta a <b>Lima</b> pela estrada panorâmica. Última noite na capital, com um jantar de despedida na cena gastronômica limenha.</p>
+      <div class="chips"><span class="chip">têxteis andinos</span><span class="chip">retorno</span><span class="chip">Lima</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> ≈ 8 h a Lima (ônibus) ou voe de Anta</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Lima</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Lima → partida<span class="move">voo</span></div>
+      <h3>Despedida do Peru andino</h3>
+      <p>Manhã final em <b>Lima</b> — o circuito mágico das águas, o Larcomar ou os museus (Larco) — e a partida pelo aeroporto. Das lagoas turquesa da Blanca ao templo de Chavín, fecha-se um dos roteiros de montanha mais grandiosos da América do Sul. <i>¡Hasta la próxima, cordillera!</i></p>
+      <div class="chips"><span class="chip">Museu Larco</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de Lima</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem Chavín, foque nas lagoas (Huaraz base, poupa ~2 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Cordillera Blanca.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (mai–set): trilhas seguras e céu limpo. A estação chuvosa fecha trilhas e tira as vistas.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Altitude</h5><p>Huaraz a ~3.050 m, lagoas a 4.600 m. Aclimate-se 2–3 dias antes da Laguna 69; suba devagar.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Trilhas</h5><p>Laguna 69 é exigente (6–7h). Saia cedo, leve água, lanche e roupa de frio; vá com agência/guia.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Leve</h5><p>Casaco térmico, protetor solar forte, óculos de sol, gorro e mate de coca para a altitude.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Cozinha andina (cuy, pachamanca), trutas, manjar blanco de Caraz e o ceviche e pisco de Lima.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6z"/></svg></div><div><h5>Parque Huascarán</h5><p>As lagoas estão no PN Huascarán (ingresso). Respeite trilhas e leve seu lixo de volta.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Cordillera Blanca em 10 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

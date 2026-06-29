@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argentina — Cuyo & Mendoza — Roteiro dia a dia (9 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a1018; --slate:#664450; --faint:#a07d89;
+    --paper:#f8eef1; --card:#fffdfe; --line:#eed3da;
+    --terra:#9d174d; --amber:#b45309; --vine:#7c2d12; --vine-d:#5c2310;
+    --wine-d:#831843;
+    --shadow:0 14px 34px -20px rgba(90,20,45,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(157,23,77,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(124,45,18,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#9d174d 0%,#831843 52%,#7c2d12 155%);
+    color:#fceef2;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(124,45,18,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#f0b6cb;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#e87aa0}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:39px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#f6dde6;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--vine-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(90,20,45,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--wine-d));
+    color:#fceef2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.vine .rail{background:linear-gradient(165deg,var(--vine),var(--vine-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--wine-d);text-transform:uppercase;font-weight:500}
+  .day.vine .loc{color:var(--vine-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#33222a}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--wine-d);
+    background:rgba(157,23,77,.08);border:1px solid rgba(157,23,77,.2);border-radius:999px;padding:4px 10px}
+  .day.vine .chip{color:var(--vine-d);background:rgba(124,45,18,.1);border-color:rgba(124,45,18,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f7ebee);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(157,23,77,.08);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#2a1018;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#3d1824;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:28px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Argentina · Cuyo · roteiro dia a dia</div>
+    <h1>Cuyo &amp; Mendoza em 9 dias</h1>
+    <p class="sub">A terra do Malbec aos pés dos Andes: as vinícolas de Maipú, Luján de Cuyo e do Valle de Uco, a alta montanha de Uspallata e a Ponte do Inca, e o teto das Américas — o Aconcágua (6.961 m) — a partir de Mendoza.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>9 dias</b></span>
+      <span class="fact">🍷 <b>Malbec &amp; Andes</b></span>
+      <span class="fact">🍇 Vindima: <b>fev–abr</b></span>
+      <span class="fact">⛰️ Aconcágua 6.961 m</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Mendoza</span><i>→</i><span>Maipú</span><i>→</i><span>Luján de Cuyo</span><i>→</i><span>Valle de Uco</span><i>→</i><span>Uspallata</span><i>→</i><span>Ponte do Inca</span><i>→</i><span>Aconcágua (Horcones)</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Vindima, motorista e a alta montanha</h4>
+      <p>A <b>vindima (fev–abr)</b> é a temporada mais vibrante nas vinícolas; <b>set–nov</b> traz a primavera florida e menos gente. As degustações pedem <b>reserva</b> e um <b>motorista da rodada</b> (ou bike tour em Maipú). A <b>alta montanha</b> (Uspallata, Aconcágua) tem ar rarefeito e clima instável — a estrada à fronteira do Chile pode fechar por neve no inverno. Leve agasalho mesmo no verão para os Andes.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Mendoza &amp; os Vinhedos</span><span class="lk">dias 1–5 · Malbec, Maipú, Luján &amp; Uco</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Mendoza<span class="move">chegada</span></div>
+      <h3>A capital do vinho argentino</h3>
+      <p>Chegada a <b>Mendoza</b>, cidade arborizada de praças e acéquias ao pé dos Andes. Tarde no centro: a Plaza Independencia, o Parque General San Martín e os bares de vinho. Jantar com um bom <b>Malbec</b> e a parrilla argentina, conhecendo o ritmo da capital cuyana.</p>
+      <div class="chips"><span class="chip">Mendoza</span><span class="chip">Parque San Martín</span><span class="chip">Malbec</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> parrilla, empanadas e Malbec</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Mendoza</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Maipú<span class="move">≈ 30 min</span></div>
+      <h3>Bodegas de bicicleta</h3>
+      <p><b>Maipú</b>, o berço histórico do vinho mendozino: o clássico passeio de <b>bicicleta entre bodegas</b>, azeitarias e fábricas de licores, com degustações ao longo do dia. Bodegas tradicionais e familiares, num clima descontraído. Almoço harmonizado entre as vinhas.</p>
+      <div class="chips"><span class="chip">Maipú</span><span class="chip">bike tour</span><span class="chip">degustações</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-7h5l3 7M10 10l2-4"/></svg></span><span><b>Faça:</b> o bike tour entre as bodegas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Mendoza</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Luján de Cuyo<span class="move">≈ 40 min</span></div>
+      <h3>A "terra do Malbec"</h3>
+      <p><b>Luján de Cuyo</b>, a primeira denominação de origem do Malbec argentino: as grandes bodegas premiadas, com visitas guiadas, degustações de alto nível e <b>almoços de chef</b> entre os vinhedos, com os Andes ao fundo. O coração do enoturismo de Mendoza.</p>
+      <div class="chips"><span class="chip">Luján de Cuyo</span><span class="chip">Malbec D.O.</span><span class="chip">almoço harmonizado</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Reserve:</b> visitas e almoços com antecedência</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Mendoza ou Luján de Cuyo</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Valle de Uco<span class="move">≈ 1,5 h</span></div>
+      <h3>Os vinhedos de altitude e o glamour</h3>
+      <p>O <b>Valle de Uco</b> (Tupungato, Tunuyán): os vinhedos de <b>altitude</b> mais badalados da Argentina, com bodegas de arquitetura premiada, vinhos de elite e <b>fine dining</b> com vista para a cordilheira nevada. Paisagem grandiosa e o melhor da enogastronomia mendozina.</p>
+      <div class="chips"><span class="chip">Valle de Uco</span><span class="chip">vinhos de altitude</span><span class="chip">fine dining</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Não perca:</b> um almoço de chef com vista dos Andes</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Valle de Uco ou Mendoza</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Mendoza · dia livre</div>
+      <h3>Cidade, olivais e descanso</h3>
+      <p>Dia mais leve em <b>Mendoza</b>: o mercado central, as compras de vinhos e azeites, um spa de vinhoterapia ou o pôr do sol no Cerro de la Gloria. Preparação para a parte de alta montanha, trocando os vinhedos pelos picos nevados dos Andes.</p>
+      <div class="chips"><span class="chip">mercado central</span><span class="chip">vinhoterapia</span><span class="chip">dia livre</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Compras:</b> vinhos, azeites e doces regionais</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Mendoza</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">A Alta Montanha dos Andes</span><span class="lk">dias 6–9 · Uspallata, Ponte do Inca &amp; Aconcágua</span><span class="lr"></span></div>
+
+  <article class="day vine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Mendoza → Uspallata<span class="move">≈ 1,5 h · 100 km</span></div>
+      <h3>A subida à cordilheira</h3>
+      <p>Subida pela <b>Ruta 7</b> rumo aos Andes até <b>Uspallata</b>, vale de montanha cercado de picos (cenário do filme "Sete Anos no Tibete"). No caminho, a <b>Villavicencio</b> e suas curvas, os tons das montanhas coloridas e o ar rarefeito. Pernoite na alta montanha.</p>
+      <div class="chips"><span class="chip">Uspallata</span><span class="chip">Ruta 7</span><span class="chip">Villavicencio</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Atenção:</b> ar rarefeito · leve agasalho</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Uspallata</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day vine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Ponte do Inca &amp; Aconcágua<span class="move">~2.700–3.000 m</span></div>
+      <h3>A ponte natural e o teto das Américas</h3>
+      <p>O dia grandioso: a <b>Puente del Inca</b>, formação natural de rocha amarela sobre o rio, com as ruínas das antigas termas, e o <b>Parque Provincial Aconcágua</b> — a trilha curta ao mirante da <b>Laguna de Horcones</b>, com vista para o <b>Aconcágua (6.961 m)</b>, a montanha mais alta das Américas.</p>
+      <div class="chips"><span class="chip">Puente del Inca</span><span class="chip">Aconcágua</span><span class="chip">Laguna Horcones</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a vista do Aconcágua de Horcones</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Uspallata</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day vine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cristo Redentor / Uspallata</div>
+      <h3>A fronteira nas alturas</h3>
+      <p>Para os aventureiros, a subida (na estação sem neve) ao <b>Cristo Redentor de los Andes</b>, no alto da antiga passagem à fronteira chilena (~3.800 m), com vista de tirar o fôlego. Alternativa: trilhas e cavalgadas no entorno de Uspallata e o Cerro Tunduqueral com petróglifos.</p>
+      <div class="chips"><span class="chip">Cristo Redentor dos Andes</span><span class="chip">petróglifos</span><span class="chip">cavalgada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Atenção:</b> acesso ao Cristo só sem neve (verão)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Uspallata ou volta a Mendoza</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Uspallata → Mendoza → partida<span class="move">≈ 1,5 h</span></div>
+      <h3>Despedida de Cuyo</h3>
+      <p>Descida de volta a <b>Mendoza</b> para a partida (aeroporto), com tempo para as últimas compras de <b>vinhos</b>. Do Malbec dos vinhedos ao gelo do Aconcágua, fecha-se o roteiro que une a melhor enogastronomia da Argentina à grandiosidade dos Andes. <i>¡Salud!</i></p>
+      <div class="chips"><span class="chip">vinhos</span><span class="chip">retorno</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de Mendoza</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem a alta montanha, foque nos 3 vales de vinho (poupa ~3 dias)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para Cuyo &amp; Mendoza.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Vindima (fev–abr) é o auge nas bodegas; primavera (set–nov) é florida e menos cheia. Inverno fecha a alta montanha.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Degustações</h5><p>Reserve as visitas às bodegas e combine motorista da rodada (ou bike tour em Maipú). Não dirija após degustar.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Alta montanha</h5><p>Uspallata e Aconcágua têm ar rarefeito e clima instável. Leve agasalho mesmo no verão e cheque a estrada.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><h5>Fronteira</h5><p>A Ruta 7 leva ao Chile (Los Libertadores). Pode fechar por neve no inverno; confirme antes se for cruzar.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></div><div><h5>Sabores</h5><p>Malbec e Torrontés, parrilla, empanadas mendozinas, azeites e o doce de membrillo.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></div><div><h5>Logística</h5><p>Mendoza é ótima base única, com bate-voltas aos vales e à montanha. Câmbio e pesos argentinos em espécie ajudam.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Cuyo &amp; Mendoza em 9 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>

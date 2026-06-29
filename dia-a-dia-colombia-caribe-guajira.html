@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colômbia — Caribe & Guajira — Roteiro dia a dia (11 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a1808; --slate:#6a5230; --faint:#a08a5e;
+    --paper:#f8f1e3; --card:#fffdf8; --line:#ecdcbb;
+    --terra:#0d9488; --amber:#b45309; --sun:#d97706; --sun-d:#b45309;
+    --teal-d:#0f766e;
+    --shadow:0 14px 34px -20px rgba(90,60,15,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(13,148,136,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(217,119,6,.08), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#0d9488 0%,#0f766e 52%,#d97706 155%);
+    color:#e9f5f2;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(217,119,6,.42),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#a3dcd2;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#56cabe}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:39px;line-height:1.03;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#d2eee7;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--sun-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(90,60,15,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--teal-d));
+    color:#e9f5f2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.sun .rail{background:linear-gradient(165deg,var(--sun),var(--sun-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--teal-d);text-transform:uppercase;font-weight:500}
+  .day.sun .loc{color:var(--sun-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#33260f}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--teal-d);
+    background:rgba(13,148,136,.09);border:1px solid rgba(13,148,136,.2);border-radius:999px;padding:4px 10px}
+  .day.sun .chip{color:var(--sun-d);background:rgba(217,119,6,.1);border-color:rgba(217,119,6,.26)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#f6ecd9);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(13,148,136,.09);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#2a1808;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#3a2613;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:27px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Colômbia · Caribe &amp; Guajira · roteiro dia a dia</div>
+    <h1>Caribe &amp; Guajira em 11 dias</h1>
+    <p class="sub">O Caribe colombiano dos contrastes: a colonial Cartagena das Índias e as Islas del Rosario, a Sierra Nevada que encontra o mar no Parque Tayrona, o trekking ancestral à Ciudad Perdida e o deserto da Guajira até Punta Gallinas, o ponto mais ao norte da América do Sul.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>11 dias</b></span>
+      <span class="fact">🏜️ <b>Caribe &amp; deserto</b></span>
+      <span class="fact">☀️ Melhor época: <b>dez–abr</b></span>
+      <span class="fact">🥾 Ciudad Perdida 4 dias</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>Cartagena</span><i>→</i><span>Islas del Rosario</span><i>→</i><span>Santa Marta</span><i>→</i><span>Parque Tayrona</span><i>→</i><span>Ciudad Perdida</span><i>→</i><span>Cabo de la Vela</span><i>→</i><span>Punta Gallinas</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Seca, calor e a Guajira remota</h4>
+      <p>A <b>seca (dez–abr)</b> é a melhor época; faz <b>calor úmido</b> o ano todo no Caribe. O trekking à <b>Ciudad Perdida</b> leva 4 dias com <b>guia obrigatório</b> (operadoras autorizadas) — reserve antes. A <b>Guajira</b> (Cabo de la Vela, Punta Gallinas) é deserto remoto, território <b>Wayúu</b>, só acessível em <b>4x4 com tour</b>, sem caixas nem sinal: leve dinheiro, água e protetor. O Tayrona fecha em alguns períodos do ano para conservação — confira.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Cartagena &amp; o Caribe</span><span class="lk">dias 1–5 · cidade murada, ilhas &amp; Tayrona</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cartagena<span class="move">chegada</span></div>
+      <h3>A cidade amuralhada</h3>
+      <p>Chegada a <b>Cartagena das Índias</b> (Patrimônio da Humanidade). Tarde na <b>Cidade Amuralhada</b>: as ruas coloridas de balcões floridos, as praças, a muralha ao <b>pôr do sol</b> (Café del Mar) e o bairro boêmio de <b>Getsemaní</b>, de murais e vida noturna. Romance e história caribenha.</p>
+      <div class="chips"><span class="chip">Ciudad Amurallada</span><span class="chip">Getsemaní</span><span class="chip">muralha</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> arepa de huevo, ceviche e limonada de coco</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cartagena (Centro/Getsemaní)</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cartagena · centro &amp; Castillo</div>
+      <h3>San Felipe, Popa e a história</h3>
+      <p>Dia na cidade: o <b>Castillo San Felipe de Barajas</b> (a maior fortaleza espanhola das Américas), o convento de la Popa no alto com vista, os museus (Inquisição, Ouro Zenú) e as compras de esmeraldas e artesanato. Tarde livre na praia de Bocagrande ou mais um pôr do sol na muralha.</p>
+      <div class="chips"><span class="chip">Castillo San Felipe</span><span class="chip">La Popa</span><span class="chip">esmeraldas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> o Castillo San Felipe de Barajas</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cartagena</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Islas del Rosario<span class="move">barco</span></div>
+      <h3>O arquipélago de águas turquesa</h3>
+      <p>Passeio de barco às <b>Islas del Rosario</b>, parque nacional marinho de águas cristalinas e recifes de coral: snorkel, praias de areia branca (Playa Blanca) e o azul do Caribe. Dia de mar, peixe fresco e relaxo nas ilhas. Volta a Cartagena ao fim da tarde.</p>
+      <div class="chips"><span class="chip">Islas del Rosario</span><span class="chip">snorkel</span><span class="chip">Playa Blanca</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> snorkel nos recifes e a Playa Blanca</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Cartagena ou ilha</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Cartagena → Santa Marta<span class="move">≈ 4 h · 240 km</span></div>
+      <h3>A cidade mais antiga e Taganga</h3>
+      <p>Travessia pela costa a <b>Santa Marta</b>, a cidade mais antiga sobrevivente da Colômbia, aos pés da <b>Sierra Nevada</b>. Tarde no centro histórico, o pôr do sol na baía e a vizinha vila de pescadores de <b>Taganga</b>. Base para o Tayrona e a Ciudad Perdida. Mochilas Wayúu por toda parte.</p>
+      <div class="chips"><span class="chip">Santa Marta</span><span class="chip">Sierra Nevada</span><span class="chip">Taganga</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> peixe caribenho e patacón</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santa Marta</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Parque Tayrona<span class="move">≈ 1 h + trilha</span></div>
+      <h3>Onde a selva encontra o mar</h3>
+      <p>Dia no <b>Parque Nacional Tayrona</b>: a trilha pela mata até as praias paradisíacas de <b>Cabo San Juan del Guía</b> e <b>La Piscina</b>, onde a selva da Sierra Nevada desce até o Caribe. Enseadas de pedras, coqueiros e mar turquesa. Possível pernoite em rede no parque.</p>
+      <div class="chips"><span class="chip">Tayrona</span><span class="chip">Cabo San Juan</span><span class="chip">La Piscina</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Atenção:</b> o Tayrona fecha em alguns períodos — confira</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santa Marta ou rede no Tayrona</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">Ciudad Perdida &amp; o Deserto da Guajira</span><span class="lk">dias 6–11 · trekking ancestral &amp; o norte extremo</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Ciudad Perdida<span class="move">trekking · dia 1 de 4</span></div>
+      <h3>Início do trekking à cidade dos Tayrona</h3>
+      <p>Começa o épico <b>trekking de 4 dias à Ciudad Perdida (Teyuna)</b>, a cidade sagrada da civilização Tayrona, mais antiga que Machu Picchu, no coração da <b>Sierra Nevada de Santa Marta</b>. Subida pela selva, rios para banho e acampamentos, com guias indígenas. (Alternativa essencial: pule o trek e siga à Guajira.)</p>
+      <div class="chips"><span class="chip">Ciudad Perdida</span><span class="chip">Teyuna</span><span class="chip">Sierra Nevada</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Obrigatório:</b> tour de 4 dias com operadora autorizada</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> acampamento na selva</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Ciudad Perdida<span class="move">trekking · dias 2–4</span></div>
+      <h3>As 1.200 escadas e a cidade sagrada</h3>
+      <p>O coração do trek: a subida das <b>1.200 escadas de pedra</b> até os terraços circulares da <b>Ciudad Perdida</b>, envolta em névoa e história, ainda sagrada para os povos Kogi e Wiwa. Os dias seguintes refazem o caminho de volta pela selva. Uma das grandes aventuras das Américas.</p>
+      <div class="chips"><span class="chip">1.200 escadas</span><span class="chip">terraços</span><span class="chip">povos Kogi</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/></svg></span><span><b>Cultura:</b> a cidade sagrada Tayrona e os povos da Sierra</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> acampamentos · volta a Santa Marta</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santa Marta → Cabo de la Vela<span class="move">≈ 5 h · 4x4</span></div>
+      <h3>Entrada no deserto Wayúu</h3>
+      <p>Viagem ao norte, cruzando <b>Riohacha</b> e entrando no deserto da <b>Guajira</b>, território do povo <b>Wayúu</b>, até <b>Cabo de la Vela</b>: onde o <b>deserto encontra o mar</b>, com dunas, falésias e o farol do Pilón de Azúcar. Pôr do sol sagrado e noite em <b>rede (chinchorro)</b> à beira-mar.</p>
+      <div class="chips"><span class="chip">Cabo de la Vela</span><span class="chip">Wayúu</span><span class="chip">Pilón de Azúcar</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Acesso:</b> só em 4x4 com tour · leve dinheiro e água</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> chinchorro/rancheria em Cabo de la Vela</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">9</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Punta Gallinas<span class="move">≈ 4 h · 4x4 + barco</span></div>
+      <h3>O ponto mais ao norte da América do Sul</h3>
+      <p>Travessia ao extremo: <b>Punta Gallinas</b>, o <b>ponto mais setentrional da América do Sul</b>, onde o deserto, as <b>dunas de Taroa</b> e o mar do Caribe se encontram. As dunas que despencam no oceano, os flamingos da baía e o farol. Um fim de mundo árido e deslumbrante.</p>
+      <div class="chips"><span class="chip">Punta Gallinas</span><span class="chip">Dunas de Taroa</span><span class="chip">flamingos</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> as dunas de Taroa caindo no mar</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> rancheria em Punta Gallinas</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day sun">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">10</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Guajira → Riohacha<span class="move">retorno · 4x4</span></div>
+      <h3>Regresso pelo deserto e a cultura Wayúu</h3>
+      <p>Retorno pelo deserto até <b>Riohacha</b>, com paradas nas <b>rancherias Wayúu</b> para conhecer a cultura, o tecido das <b>mochilas</b> (mochila wayúu) e as salinas de Manaure, de montanhas de sal rosado. Tarde na orla de Riohacha e o artesanato. Despedida do norte árido.</p>
+      <div class="chips"><span class="chip">Riohacha</span><span class="chip">mochila Wayúu</span><span class="chip">salinas de Manaure</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Compras:</b> a autêntica mochila Wayúu na rancheria</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Riohacha ou Santa Marta</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">11</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santa Marta / Cartagena → partida<span class="move">voo</span></div>
+      <h3>Despedida do Caribe colombiano</h3>
+      <p>Retorno a <b>Santa Marta ou Cartagena</b> para a partida (voo), com tempo para as últimas compras de <b>café, esmeraldas e artesanato</b>. Da cidade murada às dunas de Punta Gallinas, fecha-se um dos roteiros mais diversos do Caribe — colonial, selvagem e ancestral. <i>¡Hasta pronto, Colombia!</i></p>
+      <div class="chips"><span class="chip">café &amp; esmeraldas</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Saída:</b> aeroporto de Santa Marta ou Cartagena</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem a Ciudad Perdida (4 dias), foque em Cartagena, Tayrona e Guajira</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para o Caribe colombiano e a Guajira.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Seca (dez–abr): melhor para praias, trekking e a Guajira. Calor úmido o ano todo no Caribe.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Ciudad Perdida</h5><p>Trekking de 4 dias, com guia obrigatório de operadora autorizada. Exige preparo físico; reserve com antecedência.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Guajira</h5><p>Deserto remoto Wayúu, só em 4x4 com tour. Sem caixas nem sinal: leve dinheiro, água, protetor e respeite a cultura local.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div><div><h5>Tayrona</h5><p>Pode fechar em alguns períodos do ano para conservação. Há trilha até as praias; leve repelente e água.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Ceviche, arepa de huevo, patacón, limonada de coco e o peixe fresco do Caribe; café colombiano.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Compras</h5><p>Mochilas Wayúu autênticas (compre na rancheria), esmeraldas e café. Pechinche com respeito.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Caribe &amp; Guajira em 11 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
