@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campos do Jordão & Mantiqueira Paulista — Roteiro dia a dia (8 dias)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1226; --slate:#4d4360; --faint:#8579a0;
+    --paper:#f0edf7; --card:#fffdff; --line:#ddd3ee;
+    --terra:#6d28d9; --amber:#b45309; --pine:#15803d; --pine-d:#166534;
+    --violet-d:#5b21b6;
+    --shadow:0 14px 34px -20px rgba(45,25,85,.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 8%, rgba(109,40,217,.07), transparent 38%),radial-gradient(circle at 88% 0%, rgba(21,128,61,.07), transparent 40%);}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 26px 70px}
+  .hero{position:relative;background:linear-gradient(135deg,#6d28d9 0%,#5b21b6 52%,#15803d 155%);
+    color:#f1eafe;border-radius:22px;padding:38px 38px 32px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(21,128,61,.4),transparent 68%)}
+  .hero .flag{display:inline-flex;gap:5px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:#cdb6f6;margin-bottom:16px}
+  .hero .flag .dot{width:7px;height:7px;border-radius:50%;background:#a883ee}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:38px;line-height:1.04;letter-spacing:-.02em;position:relative}
+  .hero .sub{font-size:15.5px;color:#e4d8f9;max-width:580px;margin-top:13px;position:relative}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative}
+  .hero .fact{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500}
+  .hero .fact b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .route{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;margin:26px 2px 8px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px;color:var(--pine-d)}
+  .route span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 11px;box-shadow:0 4px 12px -10px rgba(45,25,85,.5)}
+  .route i{color:var(--amber);font-style:normal;font-weight:700;padding:0 2px}
+  .note{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-left:4px solid var(--amber);border-radius:14px;padding:16px 18px;margin-top:18px;box-shadow:var(--shadow)}
+  .note svg{width:22px;height:22px;flex-shrink:0;stroke:var(--amber);fill:none;stroke-width:1.8;margin-top:1px}
+  .note h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:3px}
+  .note p{font-size:13.5px;color:var(--slate)}
+  .note b{color:var(--ink)}
+  .leg{display:flex;align-items:baseline;gap:12px;margin:40px 2px 6px}
+  .leg .lt{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;color:var(--terra)}
+  .leg .lk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .leg .lr{flex:1;height:1px;background:var(--line)}
+  .day{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin-top:16px;box-shadow:var(--shadow);overflow:hidden;break-inside:avoid}
+  .day .rail{flex-shrink:0;width:74px;background:linear-gradient(165deg,var(--terra),var(--violet-d));
+    color:#f1eafe;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px;gap:3px}
+  .day .rail .dn{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;opacity:.85}
+  .day .rail .dnum{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .day.pine .rail{background:linear-gradient(165deg,var(--pine),var(--pine-d))}
+  .day .body{flex:1;padding:18px 20px 19px;min-width:0}
+  .day .loc{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.04em;color:var(--violet-d);text-transform:uppercase;font-weight:500}
+  .day.pine .loc{color:var(--pine-d)}
+  .day .loc svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .day .move{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--faint);font-size:11px}
+  .day h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:6px 0 7px;letter-spacing:-.01em}
+  .day p{font-size:14px;color:#2c2240}
+  .day p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11.5px;font-weight:600;font-family:"Space Grotesk",sans-serif;color:var(--violet-d);
+    background:rgba(109,40,217,.08);border:1px solid rgba(109,40,217,.2);border-radius:999px;padding:4px 10px}
+  .day.pine .chip{color:var(--pine-d);background:rgba(21,128,61,.1);border-color:rgba(21,128,61,.24)}
+  .meta{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+  .meta div{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--slate);min-width:0}
+  .meta .ic{flex-shrink:0;width:15px;height:15px;margin-top:2px}
+  .meta .ic svg{width:15px;height:15px;stroke:var(--amber);fill:none;stroke-width:1.7}
+  .meta b{color:var(--ink);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  .prac{margin-top:42px;background:linear-gradient(160deg,#fff,#efeafa);border:1px solid var(--line);
+    border-radius:18px;padding:26px 26px 22px;box-shadow:var(--shadow)}
+  .prac h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:var(--terra);margin-bottom:4px}
+  .prac .psub{font-size:13px;color:var(--slate);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .pcard{display:flex;gap:11px;align-items:flex-start}
+  .pcard .pic{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:rgba(109,40,217,.08);display:grid;place-items:center}
+  .pcard .pic svg{width:18px;height:18px;stroke:var(--terra);fill:none;stroke-width:1.8}
+  .pcard h5{font-family:"Space Grotesk",sans-serif;font-size:13.5px;margin-bottom:2px}
+  .pcard p{font-size:12.5px;color:var(--slate)}
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .foot b{color:var(--terra)}
+  .backapp{position:fixed;left:16px;bottom:16px;z-index:999;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;color:#fff;
+    background:#1b1228;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 18px 11px 15px;
+    box-shadow:0 10px 28px -10px rgba(0,0,0,.55);transition:transform .12s,background .15s}
+  .backapp:hover{background:#291c3d;transform:translateY(-1px)}
+  .backapp svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2}
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 50px}.hero{padding:28px 22px}.hero h1{font-size:28px}
+    .pgrid{grid-template-columns:1fr}.day .rail{width:60px}.day .move{display:none}
+  }
+  @media print{
+    body{background:#fff}.wrap{max-width:none;padding:0}
+    .hero,.day,.note,.prac{box-shadow:none}.day,.prac,.note{break-inside:avoid}.leg{break-after:avoid}
+    .backapp{display:none !important}
+    @page{margin:14mm}
+  }
+</style>
+</head>
+<body>
+  <a class="backapp" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="flag"><span class="dot"></span>Interior de SP · Mantiqueira Paulista · roteiro dia a dia</div>
+    <h1>Campos do Jordão &amp; Mantiqueira em 8 dias</h1>
+    <p class="sub">A "Suíça brasileira" e as vilas de montanha da Mantiqueira paulista: a arquitetura alpina e o Horto Florestal de Campos do Jordão, as malhas e mirantes de Santo Antônio do Pinhal, a Pedra do Baú em São Bento do Sapucaí e o refúgio bucólico de São Francisco Xavier.</p>
+    <div class="facts">
+      <span class="fact">🗓️ <b>8 dias</b></span>
+      <span class="fact">🏔️ <b>Serra &amp; vilas alpinas</b></span>
+      <span class="fact">❄️ Melhor época: <b>jun–ago</b></span>
+      <span class="fact">🍫 Fondue &amp; chocolate</span>
+    </div>
+  </header>
+
+  <div class="route">
+    <span>São José dos Campos</span><i>→</i><span>Campos do Jordão</span><i>→</i><span>Santo Antônio do Pinhal</span><i>→</i><span>São Bento do Sapucaí</span><i>→</i><span>São Francisco Xavier</span>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <div>
+      <h4>Inverno, Festival e estradas de serra</h4>
+      <p>O <b>inverno (jun–ago)</b> é o auge: frio europeu, fondue e o <b>Festival de Inverno de Campos do Jordão</b> (música erudita, em julho) — quando a cidade <b>lota e os preços disparam</b>; reserve com meses. A primavera/outono são mais tranquilos e baratos. As estradas de serra são sinuosas, com neblina à tarde — dirija com cuidado e <b>evite a serra à noite</b>. Leve agasalho de verdade.</p>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="leg"><span class="lt">Campos do Jordão</span><span class="lk">dias 1–4 · a Suíça brasileira</span><span class="lr"></span></div>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">1</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São José dos Campos → Campos do Jordão<span class="move">≈ 1,5 h · 90 km</span></div>
+      <h3>Subida à serra e o Capivari</h3>
+      <p>Saída pelo Vale do Paraíba e subida a <b>Campos do Jordão</b>, a 1.628 m. Tarde no <b>Capivari</b>, o centro turístico de arquitetura alpina, com o lago, o teleférico ao Morro do Elefante, as chocolaterias e os cafés. Jantar de fondue no frio da serra.</p>
+      <div class="chips"><span class="chip">Capivari</span><span class="chip">teleférico</span><span class="chip">chocolaterias</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg></span><span><b>Comer:</b> fondue, chocolate quente e pinhão</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Campos do Jordão</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">2</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Horto Florestal &amp; Amantikir</div>
+      <h3>Araucárias, o trenzinho e jardins</h3>
+      <p>Manhã no <b>Parque Estadual de Campos do Jordão (Horto Florestal)</b>, de araucárias centenárias, rio e o trenzinho. Tarde nos jardins temáticos do <b>Amantikir</b> e no Palácio Boa Vista (residência de inverno dos governadores, com acervo de arte). Café colonial à tarde.</p>
+      <div class="chips"><span class="chip">Horto Florestal</span><span class="chip">Amantikir</span><span class="chip">Palácio Boa Vista</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> as araucárias do Horto Florestal</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Campos do Jordão</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">3</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Pico do Itapeva &amp; Ducha de Prata</div>
+      <h3>O mirante do Vale do Paraíba</h3>
+      <p>Manhã no <b>Pico do Itapeva</b> (cerca de 2.030 m), um dos mirantes mais altos, com vista panorâmica do Vale do Paraíba e da Serra da Mantiqueira. Tarde na Ducha de Prata, no Baden Baden (cervejaria) e nas compras de malhas, doces e chocolates do Capivari.</p>
+      <div class="chips"><span class="chip">Pico do Itapeva</span><span class="chip">cervejaria</span><span class="chip">malhas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> a vista do Pico do Itapeva</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Campos do Jordão</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">4</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Campos do Jordão · dia livre</div>
+      <h3>Festival de Inverno ou trilhas</h3>
+      <p>Dia livre: se for julho, os concertos do <b>Festival de Inverno</b> (música erudita no Auditório Cláudio Santoro); fora disso, as trilhas do Horto, o Tarundu (parque de atividades) ou simplesmente o ritmo dos cafés e ateliês da serra. Preparação para as vilas vizinhas.</p>
+      <div class="chips"><span class="chip">Festival de Inverno</span><span class="chip">trilhas</span><span class="chip">dia livre</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 13l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span><b>Julho:</b> concertos do Festival de Inverno</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Campos do Jordão</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PARTE 2 -->
+  <div class="leg"><span class="lt">As Vilas da Mantiqueira</span><span class="lk">dias 5–8 · Pinhal, Pedra do Baú &amp; São Francisco Xavier</span><span class="lr"></span></div>
+
+  <article class="day pine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">5</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>Santo Antônio do Pinhal<span class="move">≈ 40 min</span></div>
+      <h3>A vila dos mirantes e do trem</h3>
+      <p>A charmosa <b>Santo Antônio do Pinhal</b>: o centrinho de ateliês, o <b>Pico Agudo</b> (mirante e rampa de voo livre), o passeio de <b>Maria-Fumaça</b> que vem de Campos do Jordão e a gastronomia de montanha. Vila pequena e acolhedora, com vista para a serra.</p>
+      <div class="chips"><span class="chip">Santo Antônio do Pinhal</span><span class="chip">Pico Agudo</span><span class="chip">Maria-Fumaça</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></span><span><b>Não perca:</b> o pôr do sol do Pico Agudo</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> Santo Antônio do Pinhal</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day pine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">6</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Bento do Sapucaí<span class="move">≈ 50 min</span></div>
+      <h3>A Pedra do Baú</h3>
+      <p><b>São Bento do Sapucaí</b>, aos pés da imponente <b>Pedra do Baú</b> (1.950 m): o mirante e a via ferrata/escalada para os aventureiros, o teleférico e as trilhas, e o centrinho de artesanato. Uma das paisagens mais marcantes da Mantiqueira paulista.</p>
+      <div class="chips"><span class="chip">Pedra do Baú</span><span class="chip">via ferrata</span><span class="chip">trilhas</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></span><span><b>Aventura:</b> escalada/via ferrata na Pedra do Baú</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Bento do Sapucaí</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day pine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">7</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Francisco Xavier<span class="move">≈ 2 h</span></div>
+      <h3>O refúgio bucólico de mata atlântica</h3>
+      <p>Travessia ao distrito de <b>São Francisco Xavier</b>, refúgio bucólico de <b>mata atlântica</b> preservada: as cachoeiras (do Roncador, dos Pretos), as trilhas, os ateliês e a cozinha orgânica. Vila tranquila de artistas e natureza, longe das multidões.</p>
+      <div class="chips"><span class="chip">São Francisco Xavier</span><span class="chip">cachoeiras</span><span class="chip">mata atlântica</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span><b>Faça:</b> as cachoeiras e trilhas da mata</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 21V8l7-5 7 5v13M10 21v-6h4v6"/></svg></span><span><b>Dormir:</b> São Francisco Xavier</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day pine">
+    <div class="rail"><span class="dn">DIA</span><span class="dnum">8</span></div>
+    <div class="body">
+      <div class="loc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 9h.01"/></svg>São Francisco Xavier → partida<span class="move">≈ 1,5 h</span></div>
+      <h3>Despedida da Mantiqueira paulista</h3>
+      <p>Manhã para uma última trilha ou café da roça e o retorno a <b>São José dos Campos</b> (ou a São Paulo, ~2,5 h). Da Suíça brasileira às vilas de mata atlântica, fecha-se o circuito da serra paulista. <i>Até a próxima montanha!</i></p>
+      <div class="chips"><span class="chip">retorno</span><span class="chip">café da roça</span><span class="chip">partida</span></div>
+      <div class="meta">
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span><span><b>Volta:</b> São José dos Campos (~1,5 h) ou São Paulo (~2,5 h)</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17l9-10"/></svg></span><span><b>Essencial:</b> sem São Francisco Xavier, foque em Campos do Jordão + Pinhal/Baú</span></div>
+      </div>
+    </div>
+  </article>
+
+  <div class="prac">
+    <h2>Informações práticas</h2>
+    <p class="psub">O essencial para a Mantiqueira paulista.</p>
+    <div class="pgrid">
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><div><h5>Quando ir</h5><p>Inverno (jun–ago): frio e fondue; Festival de Inverno em julho (lota e encarece). Primavera/outono são mais calmos.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 17h3l2-3h6l2 3h3M7 14V8h10v6"/></svg></div><div><h5>Estradas de serra</h5><p>Sinuosas e com neblina à tarde. Dirija devagar, evite a serra à noite e cheque a previsão no inverno.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><h5>Festival de Inverno</h5><p>Concertos em julho no Auditório Cláudio Santoro. Programe-se e reserve hospedagem com meses de antecedência.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2 4 14h6l-2 8 10-12h-6l2-8z"/></svg></div><div><h5>Aventura</h5><p>Pico do Itapeva, Pico Agudo (voo livre) e a Pedra do Baú (escalada/via ferrata). Vá com operadores credenciados.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18"/></svg></div><div><h5>Sabores</h5><p>Fondue, chocolate quente, pinhão, trutas e as cervejas artesanais da serra.</p></div></div>
+      <div class="pcard"><div class="pic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v13H4zM12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg></div><div><h5>Compras</h5><p>Malhas e tricô, chocolates e doces do Capivari, artesanato das vilas de montanha.</p></div></div>
+    </div>
+  </div>
+
+  <p class="foot">Planejador de Roteiros · <b>Campos do Jordão &amp; Mantiqueira em 8 dias</b> · roteiro flexível — ajuste os dias ao seu ritmo</p>
+
+</div>
+</body>
+</html>
