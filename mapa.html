@@ -302,11 +302,21 @@
 
   /* roteiro selector */
   const rotsel = document.getElementById('rotsel');
-  window.ROTEIROS.forEach(r=>{
-    const o=document.createElement('option'); o.value=r.id;
-    o.textContent=`${r.nome} \u00b7 ${r.semanas} sem`; if(r.id===current.id) o.selected=true;
-    rotsel.appendChild(o);
-  });
+  (function(){
+    const groups={};
+    window.ROTEIROS.forEach(r=>{ const rg=(window.REGIOES[r.regiaoId]&&window.REGIOES[r.regiaoId].nome)||r.regiao||'Outros'; (groups[rg]=groups[rg]||[]).push(r); });
+    const INTL=/^(Patag[o\u00f4]nia|Uruguai|Paraguai|Bol[i\u00ed]via|Peru|Argentina|Chile|Equador|Col[o\u00f4]mbia|Venezuela|Cuba)\b/;
+    const ordered=Object.keys(groups).sort((a,b)=>((INTL.test(a)?1:0)-(INTL.test(b)?1:0)));
+    let macro=null;
+    ordered.forEach(gn=>{
+      const isI=INTL.test(gn), cur=isI?'ex':'br';
+      if(cur!==macro){ macro=cur; const hd=document.createElement('optgroup'); hd.label=isI?'\u2500\u2500\u2500 \ud83c\udf0e EXTERIOR \u2500\u2500\u2500':'\u2500\u2500\u2500 \ud83c\udde7\ud83c\uddf7 BRASIL \u2500\u2500\u2500'; hd.disabled=true; rotsel.appendChild(hd); }
+      const og=document.createElement('optgroup'); og.label=(isI?'\ud83c\udf0e ':'\ud83c\udde7\ud83c\uddf7 ')+gn;
+      groups[gn].forEach(r=>{ const o=document.createElement('option'); o.value=r.id;
+        o.textContent=`${r.nome} \u00b7 ${r.semanas} sem`; if(r.id===current.id) o.selected=true; og.appendChild(o); });
+      rotsel.appendChild(og);
+    });
+  })();
   rotsel.value = current.id;
   rotsel.addEventListener('change', ()=>{
     const url=new URL(location.href); url.searchParams.set('r', rotsel.value); location.href=url.toString();
