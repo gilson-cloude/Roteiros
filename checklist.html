@@ -14,13 +14,13 @@
 
   <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
 
-  <div class="brandline"><span class="dot"></span>preparação · renault master 2022</div>
-  <h1>Checklist do <span class="hl">motorhome</span></h1>
-  <p class="lead">Tudo o que revisar e levar antes de partir. <b>Toque para marcar</b> — o progresso fica salvo neste navegador.</p>
+  <div class="brandline"><span class="dot"></span><span id="brandtxt">preparação da viagem</span></div>
+  <h1>Checklist de <span class="hl">viagem</span></h1>
+  <p class="lead">Tudo o que revisar e levar antes de partir. <b>Toque para marcar</b> — o progresso fica salvo por roteiro neste navegador.</p>
 
-  <div class="callout">
+  <div class="callout" id="callout">
     <svg viewBox="0 0 24 24"><path d="M3 7h18M5 7l1 13h12l1-13M9 7V4h6v3"/></svg>
-    <div><h4>Foco austral</h4><p>A Patagônia castiga com <b>frio, vento e ripio</b>. Prioridade total para aquecimento, pneus e suspensão da Master.</p></div>
+    <div><h4 id="calh">Preparação</h4><p id="calp"></p></div>
   </div>
 
   <div class="progress-wrap">
@@ -48,65 +48,116 @@
 <script src="roteiros.js"></script>
 <script src="app-shared.js"></script>
 <script>
-const GROUPS = [
-  { t:"Mecânica & rodagem", c:"#2563EB", items:[
-    ["Revisão geral + troca de óleo e filtros","feita o mais perto possível da partida"],
-    ["Pneus: estado, calibragem e DOT","ripio da Carretera desgasta muito"],
-    ["Estepe(s) cheio(s) e macaco/chave reforçados","2 estepes é o ideal para a Patagônia"],
-    ["Freios, pastilhas e fluido","conferir antes das descidas andinas"],
-    ["Suspensão e amortecedores","reforço ajuda no ripio"],
-    ["Correias, mangueiras e arrefecimento",""],
-    ["Bateria do motor + aditivo/anticongelante","frio extremo no sul"],
+// ---- perfil do roteiro ativo ----
+const ROT = (window.PLANNER && PLANNER.active && PLANNER.active()) || (window.ROTEIROS && window.ROTEIROS[0]) || {nome:'',regiao:''};
+const _s = ((ROT.regiao||'')+' '+(ROT.nome||'')+' '+(ROT.regiaoId||'')).toLowerCase();
+const INTL=/(patag|carretera|atacama|s[u\u00fa]d|l[i\u00ed]pez|cordillera|altiplano|uyuni|\bandes\b|ushuaia|chalt|cuyo|mendoza|valpara|santiago|peru|bol[i\u00ed]via|argentin|chile|equador|col[o\u00f4]mbia|venezuela|cuba|uruguai|paraguai)/.test(_s);
+const FRIO=/(patag|carretera|atacama|s[u\u00fa]d|l[i\u00ed]pez|cordillera|altiplano|uyuni|\bandes\b|ushuaia|chalt|serra catarinense|serra ga[u\u00fa]cha|mantiqueira|campos do jord|c[a\u00e2]nion|veadeiros|cuyo|mendoza|cordillera blanca)/.test(_s);
+const ALT=/(atacama|altiplano|s[u\u00fa]d|l[i\u00ed]pez|cordillera|uyuni|cordillera blanca|cusco|machu|\bandes\b|aconc)/.test(_s);
+const PRAIA=/(litoral|praia|costa|cayos|caribe|guajira|emo[c\u00e7][o\u00f5]es|bonito|pantanal|corais|descobrimento|rosa|jeri)/.test(_s);
+const TRILHA=/(chapada|veadeiros|diamantina|cip[o\u00f3]|canastra|cordillera|trekking|trilha|c[a\u00e2]nion|mantiqueira|aconc|chalt|cordillera blanca|peruac)/.test(_s);
+
+const G_BASE = [
+  { t:"Veículo & rodagem", c:"#2563EB", items:[
+    ["Revisão geral + óleo, filtros e fluidos","faça o mais perto possível da partida"],
+    ["Pneus: estado, calibragem e estepe(s)",""],
+    ["Freios, suspensão e arrefecimento",""],
+    ["Bateria do motor testada",""],
+    ["Documento e seguro do veículo em dia",""],
   ]},
-  { t:"Elétrica & energia", c:"#D97706", items:[
-    ["Bateria(s) auxiliar(es) testada(s)",""],
-    ["Painel solar e controlador funcionando",""],
-    ["Inversor e tomadas 12V/USB",""],
-    ["Iluminação interna e externa",""],
-    ["Cabo de força externo (camping) + adaptadores AR/CL",""],
+  { t:"Energia & camping", c:"#D97706", items:[
+    ["Bateria(s) auxiliar(es) / solar testadas",""],
+    ["Inversor, tomadas 12V/USB e cabo de força",""],
     ["Lanternas, headlamps e pilhas reserva",""],
+    ["Barraca/toldo, cadeiras e mesa (se usar)",""],
   ]},
-  { t:"Água, gás & aquecimento", c:"#0EA5C0", items:[
-    ["Tanques de água limpos e cheios",""],
-    ["Bomba d'água e filtro",""],
-    ["Botijão(ões) de gás + adaptador chileno/argentino","bicos diferem entre países"],
-    ["Aquecedor / calefação testado","essencial no extremo sul"],
-    ["Chuveiro e aquecedor de água",""],
-    ["Cobertor térmico e isolamento das janelas",""],
-  ]},
-  { t:"Conforto, pet & interior", c:"#DB2777", items:[
-    ["Caixa/cama e cinto de segurança do pet",""],
-    ["Ração para toda a viagem + comedouros","marca do pet pode faltar fora do BR"],
-    ["Coleira, guia, sacos e kit de higiene do pet",""],
-    ["Roupa de cama e sacos de dormir para frio","-5 °C ou menos"],
-    ["Roupas em camadas, capa de chuva e calçado de trilha",""],
-    ["Cortinas/blackout e ventilação anti-condensação",""],
-  ]},
-  { t:"Ferramentas & peças", c:"#475569", items:[
-    ["Kit de ferramentas básico + chaves do veículo",""],
-    ["Compressor de ar e kit de reparo de pneu",""],
-    ["Cabo de chupeta / partida e cabo de reboque",""],
-    ["Fusíveis, lâmpadas, correias e fluidos reserva",""],
-    ["Fita, abraçadeiras, arame e vedante",""],
-    ["Pá, calços e esteira de tração (areia/lama)",""],
-  ]},
-  { t:"Segurança & documentos", c:"#DC2626", items:[
-    ["Extintor, triângulo e coletes refletivos","obrigatórios na Argentina"],
-    ["Kit de primeiros socorros completo",""],
-    ["GPS offline + mapas baixados (iOverlander, maps.me)",""],
-    ["Cópias físicas e digitais de todos os documentos",""],
-    ["Dinheiro em espécie (USD + pesos AR/CL)",""],
-    ["Carta Verde (seguro Mercosul) impressa",""],
-  ]},
-  { t:"Cozinha & despensa", c:"#2E9E5B", items:[
-    ["Fogão/cooktop e botijão testados",""],
+  { t:"Água, gás & cozinha", c:"#0EA5C0", items:[
+    ["Tanques de água limpos e cheios + bomba",""],
+    ["Botijão de gás + fogão/cooktop testados",""],
     ["Geladeira/cooler funcionando",""],
-    ["Despensa não-perecível para trechos remotos",""],
-    ["Água potável reserva (galões)",""],
+    ["Despensa não-perecível p/ trechos remotos",""],
     ["Utensílios, panelas e itens de limpeza",""],
-    ["Sacos de lixo e estratégia de descarte","leve tudo de volta no wild camping"],
+    ["Sacos de lixo — leve tudo de volta no camping",""],
+  ]},
+  { t:"Eletrônicos & navegação", c:"#7C3AED", items:[
+    ["GPS/mapas offline baixados (iOverlander, maps)",""],
+    ["Carregadores, power bank e cabos",""],
+    ["Suporte de celular e câmera",""],
+  ]},
+  { t:"Saúde & primeiros socorros", c:"#DC2626", items:[
+    ["Kit de primeiros socorros completo",""],
+    ["Remédios de uso pessoal + receitas",""],
+    ["Repelente e protetor solar",""],
+  ]},
+  { t:"Documentos & dinheiro", c:"#475569", items:[
+    ["RG/CNH e cópias físicas e digitais",""],
+    ["Dinheiro em espécie + cartões",""],
+    ["Seguro viagem / assistência",""],
+  ]},
+  { t:"Pet (se viajar com)", c:"#DB2777", items:[
+    ["Caixa/cinto, ração, comedouros e água",""],
+    ["Coleira, guia, sacos e kit de higiene",""],
+    ["Carteira de vacinação em dia",""],
+  ]},
+  { t:"Ferramentas & peças", c:"#64748B", items:[
+    ["Kit de ferramentas + chaves do veículo",""],
+    ["Compressor e kit de reparo de pneu",""],
+    ["Cabo de partida e reboque",""],
+    ["Fusíveis, lâmpadas, fita e abraçadeiras",""],
   ]},
 ];
+const G_FRIO = { t:"Frio & aquecimento", c:"#0284C7", items:[
+  ["Aquecedor/calefação e gás suficiente","noites geladas na serra/altiplano"],
+  ["Sacos de dormir e roupa de cama para frio",""],
+  ["Roupas em camadas, gorro e luvas",""],
+  ["Isolamento/cortinas térmicas nas janelas",""],
+  ["Anticongelante e bateria reforçada",""],
+] };
+const G_ALT = { t:"Altitude (soroche)", c:"#0F766E", items:[
+  ["Remédio para mal de altitude + mate de coca",""],
+  ["Subida gradual e hidratação reforçada",""],
+  ["Óculos de sol e protetor solar forte (UV alto)",""],
+] };
+const G_PRAIA = { t:"Praia & calor", c:"#0EA5C0", items:[
+  ["Protetor solar alto, chapéu e óculos",""],
+  ["Repelente forte (mosquitos/mangue)",""],
+  ["Roupas leves, traje de banho e chinelo",""],
+  ["Ventilação/ventilador e telas anti-inseto",""],
+  ["Snorkel/máscara e calçado aquático (recifes)",""],
+] };
+const G_TRILHA = { t:"Trilha & natureza", c:"#16A34A", items:[
+  ["Botas de trilha amaciadas e meias extras",""],
+  ["Mochila de ataque, água e lanches",""],
+  ["Capa de chuva e corta-vento",""],
+  ["Bastões, lanterna de cabeça e apito",""],
+] };
+const G_INTL = { t:"Fronteira & internacional", c:"#B45309", items:[
+  ["Passaporte/RG válido + cópias",""],
+  ["Documento e seguro do veículo p/ o exterior",""],
+  ["Câmbio: moeda local em espécie",""],
+  ["Adaptadores de tomada e de gás do país",""],
+  ["Chip/eSIM internacional ou roaming",""],
+  ["Vacinas exigidas e comprovantes",""],
+] };
+
+const GROUPS = G_BASE.slice();
+if(FRIO) GROUPS.push(G_FRIO);
+if(ALT) GROUPS.push(G_ALT);
+if(PRAIA) GROUPS.push(G_PRAIA);
+if(TRILHA) GROUPS.push(G_TRILHA);
+if(INTL) GROUPS.push(G_INTL);
+
+// header dinâmico
+(function(){
+  const bt=document.getElementById('brandtxt'), ch=document.getElementById('calh'), cp=document.getElementById('calp');
+  if(bt) bt.textContent='preparação · '+(ROT.nome||'viagem');
+  let h4='Preparação da viagem', p='Revise o veículo, a energia e a despensa antes de partir. Marque cada item conforme conferir.';
+  if(ALT){ h4='Foco em altitude'; p='Rota de <b>grande altitude nos Andes</b>: aclimate-se, leve remédio para soroche, proteção solar forte e roupa de frio.'; }
+  else if(FRIO){ h4='Foco no frio'; p='Rota de <b>frio e serra</b>: priorize aquecimento, isolamento térmico e roupas em camadas.'; }
+  else if(PRAIA){ h4='Foco em praia & calor'; p='Rota de <b>litoral e calor</b>: capriche em protetor solar, repelente, ventilação e roupas leves.'; }
+  else if(TRILHA){ h4='Foco em trilhas'; p='Rota de <b>natureza e caminhadas</b>: botas, mochila de ataque, água e capa de chuva fazem a diferença.'; }
+  if(ch) ch.textContent=h4; if(cp) cp.innerHTML=p;
+})();
 
 const KEY = "eraustral_checklist_v1_" + ((window.PLANNER && PLANNER.active() && PLANNER.active().id) || "default");
 const saved = JSON.parse(localStorage.getItem(KEY) || "{}");

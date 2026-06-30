@@ -30,7 +30,7 @@
       {n:"Puerto Montt", base:"Puerto Montt", nota:"Reentrada na malha asfaltada do Chile e grande hub logístico: oficinas, concessionárias e supermercados. Descanso e revisão.", lat:-41.469, lng:-72.942},
       {n:"Chiloé (Castro)", base:"Cruce dos Andes", nota:"Palafitas e igrejas de madeira (patrimônio). Desvio cultural opcional.", lat:-42.481, lng:-73.765},
       {n:"Bariloche", base:"Bariloche", nota:"De volta à Argentina pelos Sete Lagos. Apoio, chocolate e Cerro Catedral.", lat:-41.135, lng:-71.31},
-      {n:"Retorno a Agronômica / SC", base:"Retorno a Agronômica / SC", nota:"Volta pela Ruta 14 e Paso de los Libres. Fim da Carretera Austral.", lat:-27.267, lng:-49.706},
+      {n:"Retorno a Agronômica / SC", base:"Retorno a Agronômica / SC", nota:"Volta pela Ruta 14 e Paso de los Libres. Fim da Carretera Austral.", lat:-27.2668, lng:-49.7085},
     ],
     museus:[
       {n:"Museo del Fin del Mundo", base:"Ushuaia", nota:"História natural e dos povos fueguinos, no fim do mundo."},
@@ -59,23 +59,23 @@
   },
   "carretera-direta": {
     atracoes:[
-      {n:"Agronômica / SC", base:"Agronômica / SC", nota:"Ponto de partida. Revisão final da Master, água, gás e despensa antes da estrada.", lat:-27.267, lng:-49.706},
-      {n:"San Carlos de Bariloche", base:"San Carlos de Bariloche", nota:"Base para preparar o cruce: oficina, GLP e o último grande apoio barato antes do Chile.", lat:-41.135, lng:-71.31},
+      {n:"Agronômica / SC", base:"Agronômica / SC", nota:"Ponto de partida. Revisão final da Master, água, gás e despensa antes da estrada.", lat:-27.2655, lng:-49.7040},
+      {n:"San Carlos de Bariloche", base:"San Carlos de Bariloche", nota:"Base para preparar o cruce: oficina, GLP e o último grande apoio barato antes do Chile.", lat:-41.1348, lng:-71.3125},
       {n:"Puerto Varas", base:"Paso Cardenal Samoré", nota:"Cidade-base da Região dos Lagos, acessível de motorhome; Saltos del Petrohué e vulcão Osorno por perto.", lat:-41.32, lng:-72.985},
-      {n:"Puerto Montt", base:"Puerto Montt", nota:"Hub logístico e km 0 oficial da Carretera Austral. Mercado Angelmó e grande apoio.", lat:-41.469, lng:-72.942},
+      {n:"Puerto Montt", base:"Puerto Montt", nota:"Hub logístico e km 0 oficial da Carretera Austral. Mercado Angelmó e grande apoio.", lat:-41.4688, lng:-72.9445},
       {n:"Parque Pumalín", base:"Parque Pumalín", nota:"Campings e trilhas ao longo da Ruta 7; alerces milenares e mirantes por caminhadas curtas a pé.", lat:-42.58, lng:-72.42},
-      {n:"Futaleufú", base:"Parque Pumalín", nota:"Rio esmeralda de fama mundial no rafting, num desvio próximo à fronteira argentina.", lat:-43.181, lng:-71.866},
-      {n:"Puyuhuapi", base:"Parque Pumalín", nota:"Termas à beira do fiorde, base perfeita para o PN Queulat.", lat:-44.327, lng:-72.558},
+      {n:"Futaleufú", base:"Parque Pumalín", nota:"Rio esmeralda de fama mundial no rafting, num desvio próximo à fronteira argentina.", lat:-43.1808, lng:-71.8685},
+      {n:"Puyuhuapi", base:"Parque Pumalín", nota:"Termas à beira do fiorde, base perfeita para o PN Queulat.", lat:-44.3268, lng:-72.5605},
       {n:"Ventisquero Colgante (Queulat)", base:"Parque Pumalín", nota:"Geleira suspensa em cascata dupla sobre uma laguna, na floresta valdiviana.", lat:-44.5, lng:-72.23},
-      {n:"Coyhaique", base:"Coyhaique", nota:"Capital de Aysén e o melhor apoio de toda a Carretera: oficinas, GLP, peças e mercado.", lat:-45.572, lng:-72.068},
-      {n:"Villa Cerro Castillo", base:"RN Cerro Castillo", nota:"Maciço de agulhas e geleira com laguna glaciar — trekking alpino menos lotado que o Paine.", lat:-46.122, lng:-72.163},
+      {n:"Coyhaique", base:"Coyhaique", nota:"Capital de Aysén e o melhor apoio de toda a Carretera: oficinas, GLP, peças e mercado.", lat:-45.5718, lng:-72.0705},
+      {n:"Villa Cerro Castillo", base:"RN Cerro Castillo", nota:"Maciço de agulhas e geleira com laguna glaciar — trekking alpino menos lotado que o Paine.", lat:-46.1218, lng:-72.1655},
       {n:"Salto del Río Ibáñez", base:"RN Cerro Castillo", nota:"Mirante por caminho curto a pé; estacionamento simples à beira da estrada.", lat:-46.29, lng:-71.98},
-      {n:"Capillas de Mármol", base:"RN Cerro Castillo", nota:"Cavernas e colunas de mármore em azul turquesa no Lago General Carrera — ícone da Ruta 7.", lat:-46.626, lng:-72.667},
+      {n:"Capillas de Mármol", base:"RN Cerro Castillo", nota:"Cavernas e colunas de mármore em azul turquesa no Lago General Carrera — ícone da Ruta 7.", lat:-46.6258, lng:-72.6695},
       {n:"Puerto Bertrand", base:"RN Cerro Castillo", nota:"Vilarejo na nascente do Baker, paraíso da pesca com mosca. Base tranquila de pernoite.", lat:-46.99, lng:-72.8},
       {n:"Confluência Baker & Neff", base:"RN Cerro Castillo", nota:"Mirante à beira da Ruta 7; estaciona-se em acostamento alargado. Trilha curta a pé.", lat:-47.13, lng:-72.77},
       {n:"Caleta Tortel", base:"RN Cerro Castillo", nota:"Vila sem ruas: só passarelas de ciprés. Estaciona-se na entrada e percorre-se a pé.", lat:-47.795, lng:-73.535},
-      {n:"Villa O'Higgins (km 0)", base:"RN Cerro Castillo", nota:"Marco sul da Carretera Austral, fim da estrada, cercado de campos de gelo. Estrada sem saída.", lat:-48.469, lng:-72.56},
-      {n:"Retorno a Agronômica / SC", base:"Retorno a Agronômica / SC", nota:"Volta ao Brasil por Neuquén, Ruta 14 e Paso de los Libres. Fim da Carretera Direta.", lat:-27.267, lng:-49.706},
+      {n:"Villa O'Higgins (km 0)", base:"RN Cerro Castillo", nota:"Marco sul da Carretera Austral, fim da estrada, cercado de campos de gelo. Estrada sem saída.", lat:-48.4688, lng:-72.5625},
+      {n:"Retorno a Agronômica / SC", base:"Retorno a Agronômica / SC", nota:"Volta ao Brasil por Neuquén, Ruta 14 e Paso de los Libres. Fim da Carretera Direta.", lat:-27.2695, lng:-49.7064},
     ],
     museus:[
       {n:"Museo Regional de Aysén", base:"Coyhaique", nota:"História dos colonos e da região de Aysén."},
@@ -165,7 +165,7 @@
   },
   "minas-velho-chico": {
     atracoes:[
-      {n:"Belo Horizonte", base:"Belo Horizonte", nota:"Ponto de partida rumo ao norte e ao Rio São Francisco.", lat:-19.917, lng:-43.9345},
+      {n:"Belo Horizonte", base:"Belo Horizonte", nota:"Ponto de partida rumo ao norte e ao Rio São Francisco.", lat:-19.9168, lng:-43.9370},
       {n:"Três Marias", base:"Três Marias", nota:"Grande represa do São Francisco; pesca esportiva e lago.", lat:-18.2057, lng:-45.2589},
       {n:"Pirapora", base:"Três Marias", nota:"Vapor Benjamin Guimarães e ateliês de carrancas à beira do rio.", lat:-17.345, lng:-44.942},
       {n:"Cavernas do Peruaçu", base:"São Francisco", nota:"Salões gigantes e arte rupestre; só com agendamento e condutor credenciado.", lat:-15.108, lng:-44.239},
@@ -284,7 +284,7 @@
   },
   "minas-serra-cipo": {
     atracoes:[
-      {n:"Belo Horizonte", base:"Belo Horizonte", nota:"Ponto de partida, a ~1h30 da Serra do Cipó.", lat:-19.917, lng:-43.9345},
+      {n:"Belo Horizonte", base:"Belo Horizonte", nota:"Ponto de partida, a ~1h30 da Serra do Cipó.", lat:-19.9155, lng:-43.9325},
       {n:"PARNA Serra do Cipó", base:"PARNA Serra do Cipó", nota:"Trilhas e cachoeiras do PARNA; base de pousadas em Cardeal Mota.", lat:-19.3389, lng:-43.6028},
       {n:"Lapinha da Serra", base:"Lapinha da Serra", nota:"Vila bucólica com lago e o Morro da Carapuça.", lat:-19.185, lng:-43.555},
       {n:"Cachoeira do Tabuleiro", base:"Lapinha da Serra", nota:"A maior cachoeira de Minas (273 m); subida com horário controlado.", lat:-19.093, lng:-43.658},
@@ -422,7 +422,7 @@
     ],
     atracoes:[
       {n:"Bombinhas", base:"Bombinhas", nota:"Mar transparente e mergulho na Reserva do Arvoredo.", lat:-27.1389, lng:-48.4814},
-      {n:"Florianópolis", base:"Florianópolis", nota:"Ilha com 40+ praias, Lagoa da Conceição e centro histórico.", lat:-27.5949, lng:-48.5482},
+      {n:"Florianópolis", base:"Florianópolis", nota:"Ilha com 40+ praias, Lagoa da Conceição e centro histórico.", lat:-27.5947, lng:-48.5507},
       {n:"Guarda do Embaú", base:"Guarda do Embaú", nota:"Vila de surf na foz do rio, eleita praia mundial do surfe.", lat:-27.8869, lng:-48.5836},
       {n:"Praia do Rosa", base:"Guarda do Embaú", nota:"Enseada de surf e mirantes; avistamento de baleias no inverno.", lat:-28.1289, lng:-48.6403},
     ],
@@ -585,7 +585,7 @@
   },
   "rs-canions-serra-geral": {
     atracoes:[
-      {n:"Porto Alegre", base:"Porto Alegre", nota:"Capital gaúcha e ponto de partida rumo aos cânions.", lat:-30.0346, lng:-51.2177},
+      {n:"Porto Alegre", base:"Porto Alegre", nota:"Capital gaúcha e ponto de partida rumo aos cânions.", lat:-30.0344, lng:-51.2202},
       {n:"Cambará do Sul", base:"Cambará do Sul", nota:"Base dos parques dos Aparados e da Serra Geral.", lat:-29.0489, lng:-50.1456},
       {n:"Cânion Itaimbezinho", base:"Cambará do Sul", nota:"Cânion-símbolo dos Aparados; trilhas do Vértice e do Cotovelo.", lat:-29.1647, lng:-50.0794},
       {n:"Cânion Fortaleza", base:"Fortaleza", nota:"Maior cânion da região; mirante do Pedra do Segredo ao pôr do sol.", lat:-29.1031, lng:-49.9892},
@@ -657,7 +657,7 @@
     ],
     campings:[
       {n:"Campings de Lençóis", base:"Lençóis", nota:"Base do parque; perto do Ribeirão do Meio.", lat:-12.5614, lng:-41.3892},
-      {n:"Casas de nativos no Pati", base:"Vale do Pati", nota:"Pernoite na travessia; reserve com guia.", lat:-13.0058, lng:-41.3711},
+      {n:"Casas de nativos no Pati", base:"Vale do Pati", nota:"Pernoite na travessia; reserve com guia."},
     ],
     pernoite:[
       {n:"Postos da BR-242", base:"Lençóis/Seabra", nota:"Pátios na rodovia que corta a Chapada.", lat:-12.5614, lng:-41.3892},
@@ -704,7 +704,7 @@
       {n:"Camping em Cavalcante", base:"Cavalcante", nota:"Base das cachoeiras kalungas; condutor local.", lat:-13.7972, lng:-47.4583},
     ],
     pernoite:[
-      {n:"Postos da GO-118", base:"Alto Paraíso", nota:"Único apoio robusto; abasteça antes das trilhas.", lat:-14.1539, lng:-47.7547},
+      {n:"Postos da GO-118", base:"Alto Paraíso", nota:"Único apoio robusto; abasteça antes das trilhas.", lat:-14.1322, lng:-47.5097},
       {n:"Estacionamentos das trilhas", base:"São Jorge", nota:"Acessos de terra; vá de dia.", lat:-14.1714, lng:-47.8},
     ],
     comer:[
@@ -782,7 +782,7 @@
       {n:"Ciudad Vieja & Plaza Independencia", base:"Montevidéu", nota:"Centro histórico, Palácio Salvo e Mercado del Puerto."},
       {n:"Rambla de Montevidéu", base:"Montevidéu", nota:"A orla mais longa do mundo; pôr do sol e mate."},
       {n:"Mercado del Puerto", base:"Montevidéu", nota:"Templo do asado e do chivito, no porto."},
-      {n:"Montevidéu", base:"Montevidéu", nota:"Capital e ponto de partida rumo às bodegas.", lat:-34.9011, lng:-56.1645},
+      {n:"Montevidéu", base:"Montevidéu", nota:"Capital e ponto de partida rumo às bodegas.", lat:-34.9009, lng:-56.1670},
       {n:"Canelones", base:"Montevidéu", nota:"Principal região de bodegas de Tannat do país.", lat:-34.5225, lng:-56.2778},
       {n:"Carmelo", base:"Montevidéu", nota:"Vinícolas-boutique de Tannat e olivais à beira do Prata.", lat:-34.0028, lng:-58.2839},
       {n:"Colonia del Sacramento", base:"Colonia del Sacramento", nota:"Barrio Histórico português, patrimônio UNESCO; pôr do sol no Prata.", lat:-34.4716, lng:-57.8442},
@@ -938,7 +938,7 @@
       {n:"Parque das Fontes", base:"Águas de Lindóia", nota:"Fontes minerais, bosque e balneário."},
       {n:"Campos de flores de Holambra", base:"Holambra", nota:"Moinho, tulipas (jul–set) e a Expoflora."},
       {n:"Balneário Municipal", base:"Águas de Lindóia", nota:"Banhos termais sulfurosos, ducha escocesa e jardins de Burle Marx."},
-      {n:"Teleférico & Cristo Redentor", base:"Serra Negra", nota:"Sobe ao Alto da Serra / Pico do Fonseca (1.310 m); mirante.", lat:-22.6122, lng:-46.7008},
+      {n:"Teleférico & Cristo Redentor", base:"Serra Negra", nota:"Sobe ao Alto da Serra / Pico do Fonseca (1.310 m); mirante.", lat:-22.6120, lng:-46.7033},
       {n:"Morro Pelado", base:"Águas de Lindóia", nota:"Um dos pontos mais altos da região (1.400 m); voo livre."},
       {n:"Rafting no Rio do Peixe", base:"Socorro", nota:"Aventura clássica; tirolesa, trilhas e arvorismo na cidade."},
       {n:"Alambiques de cachaça", base:"Monte Alegre do Sul", nota:"A 'capital da cachaça'; +20 alambiques abertos a visita."},
@@ -1207,7 +1207,7 @@
   },
   "py-chaco-menonitas": {
     atracoes:[
-      {n:"Asunción", base:"Asunción", nota:"Capital e ponto de partida rumo ao norte e ao Chaco.", lat:-25.2637, lng:-57.5759},
+      {n:"Asunción", base:"Asunción", nota:"Capital e ponto de partida rumo ao norte e ao Chaco.", lat:-25.2635, lng:-57.5784},
       {n:"Concepción", base:"Concepción", nota:"A 'pérola do norte'; porto fluvial no rio Paraguai.", lat:-23.4083, lng:-57.4344},
       {n:"Filadélfia", base:"Filadélfia", nota:"Capital menonita do Chaco; museus, laticínios e ordem germânica.", lat:-22.3417, lng:-60.0317},
       {n:"Fortín Boquerón", base:"Filadélfia", nota:"Campo de batalha e museu da Guerra do Chaco.", lat:-22.45, lng:-60.3},
@@ -1244,7 +1244,7 @@
   "bo-sud-lipez": {
     atracoes:[
       {n:"Tupiza", base:"Tupiza", nota:"Vales vermelhos e quebradas do sul boliviano.", lat:-21.4439, lng:-65.7192},
-      {n:"Uyuni", base:"Uyuni", nota:"Base dos tours de jeep ao Sud Lípez.", lat:-20.4597, lng:-66.8253},
+      {n:"Uyuni", base:"Uyuni", nota:"Base dos tours de jeep ao Sud Lípez.", lat:-20.4595, lng:-66.8278},
       {n:"Laguna Colorada", base:"Reserva Eduardo Avaroa", nota:"Laguna vermelha de algas; milhares de flamingos a 4.300 m.", lat:-22.19, lng:-67.77},
       {n:"Sol de Mañana", base:"Reserva Eduardo Avaroa", nota:"Gêiseres e fumarolas a 4.900 m de altitude.", lat:-22.43, lng:-67.76},
       {n:"Árbol de Piedra", base:"Reserva Eduardo Avaroa", nota:"Rocha esculpida pelo vento no deserto de Siloli.", lat:-21.9, lng:-67.8},
@@ -1282,7 +1282,7 @@
     atracoes:[
       {n:"Plaza de Armas de Huaraz", base:"Huaraz", nota:"Centro da capital do montanhismo; catedral e mercado.", lat:-9.5295, lng:-77.5285},
       {n:"Mirador de Rataquenua", base:"Huaraz", nota:"Vista da cidade e da Cordillera Blanca.", lat:-9.543, lng:-77.521},
-      {n:"Lima", base:"Lima", nota:"Capital costeira e ponto de partida rumo aos Andes.", lat:-12.0464, lng:-77.0428},
+      {n:"Lima", base:"Lima", nota:"Capital costeira e ponto de partida rumo aos Andes.", lat:-12.0462, lng:-77.0453},
       {n:"Huaraz", base:"Huaraz", nota:"Capital do montanhismo; base da Cordillera Blanca.", lat:-9.5278, lng:-77.5278},
       {n:"Laguna 69", base:"Lima", nota:"Laguna glacial turquesa a 4.600 m; trilha de meio-dia de altitude.", lat:-8.9667, lng:-77.61},
       {n:"Lagunas de Llanganuco", base:"Llanganuco", nota:"Lagunas gêmeas sob o nevado Huascarán.", lat:-9.0667, lng:-77.6333},
@@ -1542,7 +1542,7 @@
       {n:"Getsemaní & Ciudad Amurallada", base:"Cartagena", nota:"Bairro boêmio, murais e a cidade colonial murada."},
       {n:"Las Bóvedas & Castillo San Felipe", base:"Cartagena", nota:"Arcos coloniais e a maior fortaleza espanhola."},
       {n:"Centro Histórico & El Rodadero", base:"Santa Marta", nota:"Casario colonial e a praia urbana mais famosa."},
-      {n:"Cartagena", base:"Cartagena", nota:"Cidade amuralhada do Caribe; Getsemaní e o Castillo San Felipe.", lat:10.391, lng:-75.4794},
+      {n:"Cartagena", base:"Cartagena", nota:"Cidade amuralhada do Caribe; Getsemaní e o Castillo San Felipe.", lat:10.3912, lng:-75.4819},
       {n:"Islas del Rosario", base:"Cartagena", nota:"Arquipélago de coral; praias e mergulho a 1h de barco.", lat:10.1717, lng:-75.7456},
       {n:"Parque Tayrona", base:"Cartagena", nota:"Praias de selva e mar do Caribe; Cabo San Juan.", lat:11.3097, lng:-74.0297},
       {n:"Ciudad Perdida (Teyuna)", base:"Ciudad Perdida", nota:"Teyuna; trekking de 4 dias na Serra Nevada, só com guia.", lat:11.0383, lng:-73.9258},
@@ -1632,7 +1632,7 @@
     atracoes:[
       {n:"Plaza Bolívar & Catedral", base:"Mérida", nota:"Coração da capital andina venezuelana.", lat:8.5938, lng:-71.1448},
       {n:"Mercado Principal", base:"Mérida", nota:"Artesanato, queijos e doces andinos.", lat:8.5897, lng:-71.1561},
-      {n:"Mérida", base:"Mérida", nota:"Capital andina; base do teleférico Mukumbarí.", lat:8.5897, lng:-71.1561},
+      {n:"Mérida", base:"Mérida", nota:"Capital andina; base do teleférico Mukumbarí.", lat:8.5899, lng:-71.1586},
       {n:"Mukumbarí (teleférico)", base:"Mérida", nota:"Teleférico mais alto e longo do mundo (4.765 m); vista do Pico Bolívar.", lat:8.5333, lng:-71.05},
       {n:"Laguna de Mucubají", base:"Mérida", nota:"Lagoa glacial no páramo de frailejones, a 3.600 m.", lat:8.7972, lng:-70.8222},
       {n:"Hatos de Apure", base:"Barinas", nota:"Safári de fauna dos Llanos; capivaras, jacarés e aves.", lat:7.89, lng:-68.8},
@@ -1679,7 +1679,7 @@
       {n:"Cerro de la Gloria", base:"Mendoza", nota:"Monumento ao Exército dos Andes, no Parque San Martín.", lat:-32.893, lng:-68.876},
       {n:"Parque General San Martín", base:"Mendoza", nota:"Grande parque urbano e o Cerro de la Gloria."},
       {n:"Peatonal Sarmiento & Plaza Independencia", base:"Mendoza", nota:"Calçadão de bares, vinho e vida mendocina."},
-      {n:"Mendoza", base:"Mendoza", nota:"Capital do vinho argentino; cidade-jardim arborizada.", lat:-32.8895, lng:-68.8458},
+      {n:"Mendoza", base:"Mendoza", nota:"Capital do vinho argentino; cidade-jardim arborizada.", lat:-32.8893, lng:-68.8483},
       {n:"Maipú", base:"Mendoza", nota:"Bodegas históricas e olivais; caminhos do vinho de bici.", lat:-32.9833, lng:-68.7833},
       {n:"Luján de Cuyo", base:"Mendoza", nota:"Berço do Malbec argentino; primeira zona D.O.C.", lat:-33.0386, lng:-68.88},
       {n:"Valle de Uco", base:"Mendoza", nota:"Vinhedos premiados de altitude aos pés da cordilheira.", lat:-33.6833, lng:-69.15},
@@ -1782,9 +1782,9 @@
       {n:"Centro & porto de Ushuaia", base:"Ushuaia", nota:"Cidade mais austral do mundo; museus e o canal.", lat:-54.8019, lng:-68.303},
       {n:"El Calafate", base:"El Calafate", nota:"Base do Parque Los Glaciares; porta do Perito Moreno.", lat:-50.3379, lng:-72.2648},
       {n:"Glaciar Perito Moreno", base:"El Calafate", nota:"Glaciar com passarelas de frente para a parede de gelo.", lat:-50.4953, lng:-73.1378},
-      {n:"El Chaltén", base:"El Chaltén", nota:"Capital nacional do trekking; base do Fitz Roy.", lat:-49.3315, lng:-72.8863},
+      {n:"El Chaltén", base:"El Chaltén", nota:"Capital nacional do trekking; base do Fitz Roy.", lat:-49.3313, lng:-72.8888},
       {n:"Laguna de los Tres", base:"El Chaltén", nota:"Trilha à vista-postal do Monte Fitz Roy.", lat:-49.2725, lng:-72.9939},
-      {n:"Ushuaia", base:"Ushuaia", nota:"Cidade mais austral do mundo; Beagle e Tierra del Fuego.", lat:-54.8019, lng:-68.303},
+      {n:"Ushuaia", base:"Ushuaia", nota:"Cidade mais austral do mundo; Beagle e Tierra del Fuego.", lat:-54.8017, lng:-68.3055},
       {n:"P. N. Tierra del Fuego", base:"Ushuaia", nota:"Bosques, baías e o marco final da Ruta 3.", lat:-54.8333, lng:-68.5667},
     ],
     museus:[
@@ -1908,13 +1908,13 @@
     atracoes:[
       {n:"Parque Céspedes & Calle Heredia", base:"Santiago de Cuba", nota:"Praça central e a rua da trova e do son.", lat:20.0206, lng:-75.8219},
       {n:"Plaza San Juan de Dios", base:"Camagüey", nota:"A praça colonial mais bela da cidade-labirinto.", lat:21.376, lng:-77.917},
-      {n:"Havana", base:"Havana", nota:"Capital e ponto de partida rumo aos cayos e ao oriente.", lat:23.1136, lng:-82.3666},
-      {n:"Varadero", base:"Varadero", nota:"A praia mais famosa de Cuba; 20 km de areia branca.", lat:23.1394, lng:-81.2861},
+      {n:"Havana", base:"Havana", nota:"Capital e ponto de partida rumo aos cayos e ao oriente.", lat:23.1111, lng:-82.3670},
+      {n:"Varadero", base:"Varadero", nota:"A praia mais famosa de Cuba; 20 km de areia branca.", lat:23.1396, lng:-81.2886},
       {n:"Cayo Santa María", base:"Varadero", nota:"Jardines del Rey; praias de resort sobre pedraplén.", lat:22.6479, lng:-78.9986},
       {n:"Cayo Guillermo (Playa Pilar)", base:"Varadero", nota:"Playa Pilar; dunas e mar turquesa no Jardines del Rey.", lat:22.5667, lng:-78.6722},
       {n:"Camagüey", base:"Camagüey", nota:"Cidade-labirinto colonial (UNESCO); tinajones e igrejas.", lat:21.3839, lng:-77.9069},
       {n:"Guardalavaca", base:"Camagüey", nota:"Playa Esmeralda e Guardalavaca; recifes na região de Holguín.", lat:21.1167, lng:-75.8167},
-      {n:"Santiago de Cuba", base:"Santiago de Cuba", nota:"Berço do son e da trova; castelo del Morro e El Cobre.", lat:20.0247, lng:-75.8219},
+      {n:"Santiago de Cuba", base:"Santiago de Cuba", nota:"Berço do son e da trova; castelo del Morro e El Cobre.", lat:20.0249, lng:-75.8244},
       {n:"El Cobre", base:"Santiago de Cuba", nota:"Santuário da Virgen de la Caridad, padroeira de Cuba.", lat:20.0436, lng:-75.9436},
       {n:"Baracoa", base:"Baracoa", nota:"Primeira vila de Cuba; El Yunque, rios e Playa Maguana.", lat:20.3467, lng:-74.4956},
     ],
@@ -1970,9 +1970,9 @@
       {n:"Cerro Santa Lucía", base:"Santiago", nota:"Mirante ajardinado no coração da capital. Metrô: est. Santa Lucía (L1)"},
       {n:"Plaza de Armas & Bellas Artes", base:"Santiago", nota:"Centro histórico, catedral e museus. Metrô: est. Plaza de Armas (L5)"},
       {n:"Bairro Bellavista & Sky Costanera", base:"Santiago", nota:"Vida noturna, La Chascona e o mirante mais alto. Metrô: est. Baquedano / Tobalaba"},
-      {n:"Santiago", base:"Santiago", nota:"Capital aos pés dos Andes; bairros, mercados e mirantes.", lat:-33.4489, lng:-70.6693},
+      {n:"Santiago", base:"Santiago", nota:"Capital aos pés dos Andes; bairros, mercados e mirantes.", lat:-33.4474, lng:-70.6673},
       {n:"Valle Nevado", base:"Santiago", nota:"Estação de ski nos Andes a ~1h30 de Santiago; trekking no verão.", lat:-33.3547, lng:-70.2497},
-      {n:"Cajón del Maipo", base:"Santiago", nota:"Vale de montanha; Embalse El Yeso e termas.", lat:-33.8, lng:-70.0833},
+      {n:"Cajón del Maipo", base:"Santiago", nota:"Vale de montanha; Embalse El Yeso e termas.", lat:-33.7998, lng:-70.0858},
       {n:"Isla Negra", base:"Pomaire", nota:"Casa-museu de Pablo Neruda à beira do Pacífico.", lat:-33.4469, lng:-71.7},
     ],
     museus:[
@@ -2124,7 +2124,7 @@
     ],
     campings:[
       {n:"Áreas em Icaraí de Amontada", base:"Amontada", nota:"Pousadas e estrutura simples na vila de kite.", lat:-3.0469, lng:-39.6453},
-      {n:"Campings em Canoa Quebrada", base:"Aracati", nota:"Hospedagem econômica perto da Broadway.", lat:-4.5247, lng:-37.7019},
+      {n:"Campings em Canoa Quebrada", base:"Aracati", nota:"Hospedagem econômica perto da Broadway."},
     ],
     pernoite:[
       {n:"Acesso a Icaraí de Amontada", base:"Amontada", nota:"Trechos finais de terra; vá de dia.", lat:-3.0469, lng:-39.6453},
@@ -2215,7 +2215,7 @@
     ],
     campings:[
       {n:"Campings em Maragogi", base:"Maragogi", nota:"Hospedagem econômica perto das galés.", lat:-9.0122, lng:-35.2225},
-      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila.", lat:-8.5089, lng:-35.0036},
+      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila."},
     ],
     pernoite:[
       {n:"Catamarã às galés", base:"Maragogi", nota:"Só na maré baixa; reserve pelo horário da maré.", lat:-9.0122, lng:-35.2225},
@@ -2246,7 +2246,7 @@
       {n:"Sítio Histórico de Olinda", base:"Olinda", nota:"Ladeiras barrocas, igrejas e o Alto da Sé (UNESCO).", lat:-8.0089, lng:-34.8553},
       {n:"Ilha de Itamaracá", base:"Itamaracá", nota:"Forte Orange e o projeto Peixe-Boi, ao norte.", lat:-7.7478, lng:-34.8256},
       {n:"Praias do Cabo de Santo Agostinho", base:"Cabo de Santo Agostinho", nota:"Calhetas, Gaibu e Suape, ao sul do Recife.", lat:-8.2900, lng:-34.9633},
-      {n:"Piscinas de Porto de Galinhas", base:"Ipojuca", nota:"Piscinas naturais de jangada nos recifes; a praia símbolo de PE.", lat:-8.5089, lng:-35.0036},
+      {n:"Piscinas de Porto de Galinhas", base:"Ipojuca", nota:"Piscinas naturais de jangada nos recifes; a praia símbolo de PE.", lat:-8.5114, lng:-35.0040},
       {n:"Praia dos Carneiros", base:"Tamandaré", nota:"A capelinha no mar e o rio Formoso; passeio de barco.", lat:-8.7036, lng:-35.0700},
     ],
     museus:[
@@ -2261,7 +2261,7 @@
       {n:"Praia de Calhetas", base:"Cabo de Santo Agostinho", nota:"Enseada de mata e mar calmo entre falésias."},
     ],
     campings:[
-      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila.", lat:-8.5089, lng:-35.0036},
+      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila."},
       {n:"Campings no Cabo", base:"Cabo de Santo Agostinho", nota:"Hospedagem econômica perto de Gaibu e Calhetas.", lat:-8.29, lng:-34.9633},
     ],
     pernoite:[
@@ -2309,12 +2309,12 @@
       {n:"Falésias de Coqueirinho", base:"Conde", nota:"Grutas, mirantes e piscinas naturais entre as falésias."},
     ],
     campings:[
-      {n:"Campings no litoral sul", base:"Conde", nota:"Áreas perto de Coqueirinho e Tabatinga.", lat:-7.3247, lng:-34.7989},
+      {n:"Campings no litoral sul", base:"Conde", nota:"Áreas perto de Coqueirinho e Tabatinga."},
       {n:"Áreas na Baía da Traição", base:"Baía da Traição", nota:"Hospedagem simples nas praias remotas do norte.", lat:-6.6892, lng:-34.9342},
     ],
     pernoite:[
-      {n:"Catamarã à Areia Vermelha", base:"Cabedelo", nota:"Só na maré baixa; reserve pelo horário da maré.", lat:-7.0381, lng:-34.8497},
-      {n:"Barcos do pôr do sol do Jacaré", base:"Cabedelo", nota:"Saídas ao entardecer; chegue cedo para garantir lugar.", lat:-7.0381, lng:-34.8497},
+      {n:"Catamarã à Areia Vermelha", base:"Cabedelo", nota:"Só na maré baixa; reserve pelo horário da maré.", lat:-6.9742, lng:-34.8339},
+      {n:"Barcos do pôr do sol do Jacaré", base:"Cabedelo", nota:"Saídas ao entardecer; chegue cedo para garantir lugar.", lat:-6.9742, lng:-34.8339},
     ],
     comer:[
       {n:"Frutos do mar em Tambaú", base:"João Pessoa", nota:"Peixe, camarão e a tapioca paraibana na orla."},
