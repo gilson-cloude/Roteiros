@@ -43,8 +43,8 @@
       {n:"P. N. Tierra del Fuego (AR)", base:"Ushuaia", nota:"Fim do mundo; trilha da costa e Lapataia."},
     ],
     campings:[
-      {n:"Camping municipal de El Chaltén", base:"El Chaltén", nota:"Base barata para Fitz Roy; rachado pelo vento."},
-      {n:"Camping Lago Viedma", base:"El Calafate", nota:"Estrutura para motorhome; vista do lago."},
+      {n:"Camping municipal de El Chaltén", base:"El Chaltén", nota:"Base barata para Fitz Roy; rachado pelo vento.", lat:-49.3315, lng:-72.8863},
+      {n:"Camping Lago Viedma", base:"El Calafate", nota:"Estrutura para motorhome; vista do lago.", lat:-50.339, lng:-72.275},
     ],
     pernoite:[
       {n:"Postos YPF de rota (RN-3 / RN-40)", base:"Patagônia AR", nota:"Pátios amplos 24h, comum para pernoite de motorhome."},
@@ -87,12 +87,12 @@
       {n:"P. N. Patagonia", base:"Cochrane", nota:"Estepe e fauna (huemul, guanaco); dos Tompkins."},
     ],
     campings:[
-      {n:"Camping em Río Tranquilo", base:"Puerto Río Tranquilo", nota:"Base para as Capillas de Mármol."},
-      {n:"Camping de Caleta Tortel", base:"Caleta Tortel", nota:"Vila de passarelas; estacione na entrada."},
+      {n:"Camping em Río Tranquilo", base:"Puerto Río Tranquilo", nota:"Base para as Capillas de Mármol.", lat:-46.626, lng:-72.667},
+      {n:"Camping de Caleta Tortel", base:"Caleta Tortel", nota:"Vila de passarelas; estacione na entrada.", lat:-47.795, lng:-73.535},
     ],
     pernoite:[
       {n:"Áreas da Ruta 7 (ripio)", base:"Aysén, CL", nota:"Mirantes e beira de rio; leve diesel reserva."},
-      {n:"Posto Copec de Coyhaique", base:"Coyhaique", nota:"Melhor apoio da Carretera; reabasteça tudo aqui."},
+      {n:"Posto Copec de Coyhaique", base:"Coyhaique", nota:"Melhor apoio da Carretera; reabasteça tudo aqui.", lat:-45.572, lng:-72.068},
     ],
     comer:[
       {n:"Mamma Gaucha", base:"Coyhaique", nota:"Pizzas, cordeiro e cervejas patagônicas."},
@@ -129,16 +129,16 @@
       {n:"Catedral de Santo Antônio", base:"Diamantina", nota:"Cartão-postal do centro histórico (UNESCO)."},
     ],
     campings:[
-      {n:"Camping no Vale do Paraopeba", base:"Ouro Preto/Lavras Novas", nota:"Pousadas-camping em Lavras Novas."},
-      {n:"Camping em Milho Verde", base:"Milho Verde", nota:"Vila serrana; campings simples e cachoeiras."},
+      {n:"Camping no Vale do Paraopeba", base:"Ouro Preto/Lavras Novas", nota:"Pousadas-camping em Lavras Novas.", lat:-20.3856, lng:-43.5035},
+      {n:"Camping em Milho Verde", base:"Milho Verde", nota:"Vila serrana; campings simples e cachoeiras.", lat:-18.456, lng:-43.435},
     ],
     encontros:[
-      {n:"Encontros de motorhome na Estrada Real", base:"Tiradentes/Ouro Preto", nota:"Confraternizações de caravanismo nas cidades históricas; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de motorhome na Estrada Real", base:"Tiradentes/Ouro Preto", nota:"Confraternizações de caravanismo nas cidades históricas; agenda no MaCamp e ANACAMP.", lat:-20.3856, lng:-43.5035},
       {n:"Encontros VQQ 'Vai Quem Quer'", base:"Minas Gerais", nota:"Encontros espontâneos de motorhome/trailer pelo circuito mineiro."},
     ],
     pernoite:[
-      {n:"Postos da BR-040 (caminhoneiros)", base:"Congonhas/Conselheiro Lafaiete", nota:"Pátios amplos para pernoite a caminho."},
-      {n:"Estacionamentos de centro histórico", base:"Ouro Preto", nota:"Deixe a van e ande a pé; ruas são de pedra."},
+      {n:"Postos da BR-040 (caminhoneiros)", base:"Congonhas/Conselheiro Lafaiete", nota:"Pátios amplos para pernoite a caminho.", lat:-20.4998, lng:-43.858},
+      {n:"Estacionamentos de centro histórico", base:"Ouro Preto", nota:"Deixe a van e ande a pé; ruas são de pedra.", lat:-20.3856, lng:-43.5035},
     ],
     comer:[
       {n:"O Passo / Forno de Barro", base:"Ouro Preto", nota:"Cozinha mineira contemporânea e de fogão a lenha."},
@@ -182,12 +182,12 @@
       {n:"Parque Estadual da Sapucaí", base:"Januária", nota:"Cerrado e veredas à beira do São Francisco."},
     ],
     campings:[
-      {n:"Campings à beira do rio", base:"Pirapora", nota:"Áreas ribeirinhas; cuidado com o nível do rio."},
-      {n:"Base em Itacarambi", base:"Itacarambi", nota:"Apoio para o Peruaçu; pousadas e campings simples."},
+      {n:"Campings à beira do rio", base:"Pirapora", nota:"Áreas ribeirinhas; cuidado com o nível do rio.", lat:-17.345, lng:-44.942},
+      {n:"Base em Itacarambi", base:"Itacarambi", nota:"Apoio para o Peruaçu; pousadas e campings simples.", lat:-15.099, lng:-44.093},
     ],
     pernoite:[
-      {n:"Postos da BR-365 / BR-135", base:"Pirapora/Montes Claros", nota:"Pátios de caminhão; pernoite comum no norte mineiro."},
-      {n:"Orla de Pirapora", base:"Pirapora", nota:"Estacionamento à beira-rio; movimento à noite."},
+      {n:"Postos da BR-365 / BR-135", base:"Pirapora/Montes Claros", nota:"Pátios de caminhão; pernoite comum no norte mineiro.", lat:-17.345, lng:-44.942},
+      {n:"Orla de Pirapora", base:"Pirapora", nota:"Estacionamento à beira-rio; movimento à noite.", lat:-17.345, lng:-44.942},
     ],
     comer:[
       {n:"Peixarias ribeirinhas", base:"Pirapora", nota:"Surubim e dourado do São Francisco."},
@@ -198,7 +198,7 @@
       {n:"Vaporzão (Festa do Vapor)", base:"Pirapora", nota:"Celebra o histórico barco a vapor e o rio."},
     ],
     encontros:[
-      {n:"Encontros ribeirinhos de campismo", base:"Pirapora/Januária", nota:"Confraternizações de motorhome às margens do São Francisco; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros ribeirinhos de campismo", base:"Pirapora/Januária", nota:"Confraternizações de motorhome às margens do São Francisco; agenda no MaCamp e ANACAMP.", lat:-17.345, lng:-44.942},
     ],
   },
   "minas-mantiqueira": {
@@ -222,16 +222,16 @@
       {n:"P. N. do Itatiaia (lado MG)", base:"Itamonte", nota:"Acesso à parte alta; Pico das Agulhas Negras."},
     ],
     campings:[
-      {n:"Campings do Vale do Matutu", base:"Aiuruoca", nota:"Beira de rio e trilhas; frio forte à noite."},
-      {n:"Camping em Gonçalves", base:"Gonçalves", nota:"Sítios e campings rurais na crista da serra."},
+      {n:"Campings do Vale do Matutu", base:"Aiuruoca", nota:"Beira de rio e trilhas; frio forte à noite.", lat:-21.976, lng:-44.604},
+      {n:"Camping em Gonçalves", base:"Gonçalves", nota:"Sítios e campings rurais na crista da serra.", lat:-22.658, lng:-45.857},
     ],
     encontros:[
-      {n:"Encontros de inverno na Mantiqueira", base:"Monte Verde/Gonçalves", nota:"Confraternizações de motorhome/trailer na serra; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de inverno na Mantiqueira", base:"Monte Verde/Gonçalves", nota:"Confraternizações de motorhome/trailer na serra; agenda no MaCamp e ANACAMP.", lat:-22.658, lng:-45.857},
       {n:"Encontros VQQ 'Vai Quem Quer'", base:"Sul de Minas", nota:"Encontros espontâneos de caravanismo nas montanhas mineiras."},
     ],
     pernoite:[
-      {n:"Postos da BR-354 / Rod. Fernão Dias", base:"Itanhandu/Itajubá", nota:"Pátios na chegada à serra."},
-      {n:"Estacionamento em Monte Verde", base:"Monte Verde", nota:"Vila pequena; chegue cedo em feriados."},
+      {n:"Postos da BR-354 / Rod. Fernão Dias", base:"Itanhandu/Itajubá", nota:"Pátios na chegada à serra.", lat:-22.4255, lng:-45.452},
+      {n:"Estacionamento em Monte Verde", base:"Monte Verde", nota:"Vila pequena; chegue cedo em feriados.", lat:-22.864, lng:-46.039},
     ],
     comer:[
       {n:"Queijarias premiadas", base:"Alagoa", nota:"Queijos artesanais a 1.500 m; compre na fazenda."},
@@ -258,12 +258,12 @@
       {n:"Lago Guanabara", base:"Lambari", nota:"Pedalinho e orla do balneário da Belle Époque."},
     ],
     campings:[
-      {n:"Campings de São Thomé", base:"São Thomé das Letras", nota:"Áreas com vista do vale e do pôr do sol."},
-      {n:"Camping em Lambari", base:"Lambari", nota:"Beira do lago Guanabara; estrutura simples."},
+      {n:"Campings de São Thomé", base:"São Thomé das Letras", nota:"Áreas com vista do vale e do pôr do sol.", lat:-21.7239, lng:-44.9869},
+      {n:"Camping em Lambari", base:"Lambari", nota:"Beira do lago Guanabara; estrutura simples.", lat:-21.9758, lng:-45.3508},
     ],
     pernoite:[
-      {n:"Postos da BR-459 / Rod. Fernão Dias", base:"Pouso Alegre/Itajubá", nota:"Pátios de apoio a caminho do circuito."},
-      {n:"Estacionamento das estâncias", base:"São Lourenço", nota:"Vagas perto do Parque das Águas."},
+      {n:"Postos da BR-459 / Rod. Fernão Dias", base:"Pouso Alegre/Itajubá", nota:"Pátios de apoio a caminho do circuito.", lat:-22.4255, lng:-45.452},
+      {n:"Estacionamento das estâncias", base:"São Lourenço", nota:"Vagas perto do Parque das Águas.", lat:-22.1158, lng:-45.0539},
     ],
     comer:[
       {n:"Cafés e doçarias", base:"Caxambu", nota:"Doces de tabuleiro e água gasosa na fonte."},
@@ -279,7 +279,7 @@
       {n:"Encontros de Música & Misticismo", base:"São Thomé das Letras", nota:"Festivais alternativos na 'cidade mística' de Minas."},
     ],
     encontros:[
-      {n:"Encontros de campismo no Circuito das Águas", base:"São Lourenço/Caxambu", nota:"Confraternizações de motorhome nas estâncias hidrominerais; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo no Circuito das Águas", base:"São Lourenço/Caxambu", nota:"Confraternizações de motorhome nas estâncias hidrominerais; agenda no MaCamp e ANACAMP.", lat:-21.9783, lng:-44.9319},
     ],
   },
   "minas-serra-cipo": {
@@ -304,14 +304,14 @@
       {n:"Estátua do Juquinha", base:"Santana do Riacho", nota:"Ícone da serra à beira da MG-010; o apanhador de flores."},
     ],
     campings:[
-      {n:"Campings da Rota do Cipó", base:"Cardeal Mota", nota:"Vários campings na MG-010, perto do parque."},
-      {n:"Camping Véu da Noiva (ACM)", base:"Serra do Cipó", nota:"Tradicional, no Circuito do PARNA; perto da cachoeira."},
+      {n:"Campings da Rota do Cipó", base:"Cardeal Mota", nota:"Vários campings na MG-010, perto do parque.", lat:-19.327, lng:-43.616},
+      {n:"Camping Véu da Noiva (ACM)", base:"Serra do Cipó", nota:"Tradicional, no Circuito do PARNA; perto da cachoeira.", lat:-19.3389, lng:-43.6028},
       {n:"Camping Matinha", base:"Santana do Riacho", nota:"Área arborizada com cachoeira a 50 m."},
-      {n:"Camping em Lapinha da Serra", base:"Lapinha da Serra", nota:"Vila bucólica; áreas com vista do lago."},
+      {n:"Camping em Lapinha da Serra", base:"Lapinha da Serra", nota:"Vila bucólica; áreas com vista do lago.", lat:-19.185, lng:-43.555},
     ],
     pernoite:[
-      {n:"Postos da MG-010", base:"Cardeal Mota", nota:"Apoio na entrada da serra; pernoite com cautela."},
-      {n:"Áreas perto do Tabuleiro", base:"Conceição do Mato Dentro", nota:"Estacione e suba cedo (horário-limite)."},
+      {n:"Postos da MG-010", base:"Cardeal Mota", nota:"Apoio na entrada da serra; pernoite com cautela.", lat:-19.327, lng:-43.616},
+      {n:"Áreas perto do Tabuleiro", base:"Conceição do Mato Dentro", nota:"Estacione e suba cedo (horário-limite).", lat:-19.0376, lng:-43.4258},
     ],
     comer:[
       {n:"Restaurantes da MG-010", base:"Serra do Cipó", nota:"Comida mineira e cafés de fazenda."},
@@ -322,7 +322,7 @@
       {n:"Festa de N. Sra. da Conceição", base:"Conceição do Mato Dentro", nota:"Dez; padroeira e cultura da cidade histórica."},
     ],
     encontros:[
-      {n:"Encontros de campismo na Serra do Cipó", base:"Cardeal Mota (Serra do Cipó)", nota:"Confraternizações de motorhome/trailer na região do PARNA; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo na Serra do Cipó", base:"Cardeal Mota (Serra do Cipó)", nota:"Confraternizações de motorhome/trailer na região do PARNA; agenda no MaCamp e ANACAMP.", lat:-19.327, lng:-43.616},
     ],
   },
   "minas-canastra": {
@@ -347,12 +347,12 @@
       {n:"Cachoeiras da Chinela & Capo Forro", base:"São Roque de Minas", nota:"Quedas e poços perto da cidade; banho e contemplação."},
     ],
     campings:[
-      {n:"Campings em São Roque de Minas", base:"São Roque de Minas", nota:"Base para o parque; reserve na alta."},
-      {n:"Camping da Casca d'Anta", base:"Vargem Bonita", nota:"Acesso à base da cachoeira; rústico."},
+      {n:"Campings em São Roque de Minas", base:"São Roque de Minas", nota:"Base para o parque; reserve na alta.", lat:-20.2447, lng:-46.365},
+      {n:"Camping da Casca d'Anta", base:"Vargem Bonita", nota:"Acesso à base da cachoeira; rústico.", lat:-20.3328, lng:-46.3667},
     ],
     pernoite:[
-      {n:"Postos da MG-050 / BR-262", base:"Passos/Piumhi", nota:"Pátios de apoio antes de subir o chapadão."},
-      {n:"Áreas no parque (porteiras)", base:"São Roque de Minas", nota:"Estrada de terra; abasteça antes de entrar."},
+      {n:"Postos da MG-050 / BR-262", base:"Passos/Piumhi", nota:"Pátios de apoio antes de subir o chapadão.", lat:-20.7197, lng:-46.6097},
+      {n:"Áreas no parque (porteiras)", base:"São Roque de Minas", nota:"Estrada de terra; abasteça antes de entrar.", lat:-20.2447, lng:-46.365},
     ],
     comer:[
       {n:"Restaurante Velho Chico", base:"São Roque de Minas", nota:"Pratos ao queijo Canastra e música ao vivo no centro."},
@@ -365,7 +365,7 @@
       {n:"Concurso do Queijo Canastra", base:"região da Canastra", nota:"Premiação do queijo artesanal (Emater); rota das queijarias."},
     ],
     encontros:[
-      {n:"Encontros de campismo na Canastra", base:"São Roque de Minas", nota:"Confraternizações de motorhome na nascente do São Francisco; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo na Canastra", base:"São Roque de Minas", nota:"Confraternizações de motorhome na nascente do São Francisco; agenda no MaCamp e ANACAMP.", lat:-20.2447, lng:-46.365},
     ],
   },
 
@@ -392,14 +392,14 @@
       {n:"Inscrições Rupestres", base:"Urubici", nota:"Painel de petróglifos milenares; visita rápida."},
     ],
     campings:[
-      {n:"Campings de Urubici", base:"Urubici", nota:"Vários na base da serra; frio intenso à noite."},
-      {n:"Camping Vale da Geada", base:"Urubici", nota:"Estrutura para o frio serrano; perto dos atrativos."},
-      {n:"Camping no topo do Rio do Rastro", base:"Bom Jardim da Serra", nota:"Vista dos cânions; preparado para frio."},
-      {n:"Camping da Cascata do Avencal", base:"Urubici", nota:"Área de barracas e apoio a motorhome junto ao parque."},
+      {n:"Campings de Urubici", base:"Urubici", nota:"Vários na base da serra; frio intenso à noite.", lat:-28.0153, lng:-49.5925},
+      {n:"Camping Vale da Geada", base:"Urubici", nota:"Estrutura para o frio serrano; perto dos atrativos.", lat:-28.0153, lng:-49.5925},
+      {n:"Camping no topo do Rio do Rastro", base:"Bom Jardim da Serra", nota:"Vista dos cânions; preparado para frio.", lat:-28.3381, lng:-49.6256},
+      {n:"Camping da Cascata do Avencal", base:"Urubici", nota:"Área de barracas e apoio a motorhome junto ao parque.", lat:-28.0153, lng:-49.5925},
     ],
     pernoite:[
-      {n:"Postos da BR-282 / SC-390", base:"Bom Jardim da Serra", nota:"Apoio antes/depois da Serra do Rio do Rastro."},
-      {n:"Mirante do Rio do Rastro", base:"Serra do Rio do Rastro", nota:"Estacionamento panorâmico; sem estrutura."},
+      {n:"Postos da BR-282 / SC-390", base:"Bom Jardim da Serra", nota:"Apoio antes/depois da Serra do Rio do Rastro.", lat:-28.3381, lng:-49.6256},
+      {n:"Mirante do Rio do Rastro", base:"Serra do Rio do Rastro", nota:"Estacionamento panorâmico; sem estrutura.", lat:-28.3897, lng:-49.5417},
     ],
     comer:[
       {n:"Vinícolas de altitude", base:"São Joaquim", nota:"Vinhos finos de altitude com degustação."},
@@ -412,7 +412,7 @@
       {n:"Festival de Inverno", base:"Urubici", nota:"Inverno; gastronomia da serra, vinhos de altitude e astroturismo nas noites frias."},
     ],
     encontros:[
-      {n:"Encontros de inverno em Urubici", base:"Urubici", nota:"Confraternizações de motorhome/trailer na temporada de geada; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de inverno em Urubici", base:"Urubici", nota:"Confraternizações de motorhome/trailer na temporada de geada; agenda no MaCamp e ANACAMP.", lat:-28.0153, lng:-49.5925},
       {n:"Encontros do grupo Rodamundo SC", base:"Serra Catarinense", nota:"Saídas do tradicional grupo catarinense de caravanismo."},
     ],
   },
@@ -443,15 +443,15 @@
       {n:"Igreja Matriz São Joaquim", base:"Garopaba", nota:"No centro histórico; mirante da praia central do alto."},
     ],
     campings:[
-      {n:"Camping Praia do Rosa", base:"Praia do Rosa", nota:"Áreas perto da enseada; lota na alta de verão."},
-      {n:"Camping Paraíso Tropical", base:"Bombinhas", nota:"Próximo às praias; estrutura para barraca e motorhome."},
-      {n:"Camping Guarda do Embaú", base:"Guarda do Embaú", nota:"Junto à vila de surf; deixe o carro e cruze de barco."},
-      {n:"Campings da Lagoa da Conceição", base:"Florianópolis", nota:"Áreas na Ilha próximas à Lagoa e às praias do leste."},
-      {n:"Camping Ferrugem", base:"Garopaba", nota:"Próximo à Praia da Ferrugem; muito procurado no verão."},
+      {n:"Camping Praia do Rosa", base:"Praia do Rosa", nota:"Áreas perto da enseada; lota na alta de verão.", lat:-28.1289, lng:-48.6403},
+      {n:"Camping Paraíso Tropical", base:"Bombinhas", nota:"Próximo às praias; estrutura para barraca e motorhome.", lat:-27.1389, lng:-48.4814},
+      {n:"Camping Guarda do Embaú", base:"Guarda do Embaú", nota:"Junto à vila de surf; deixe o carro e cruze de barco.", lat:-27.8869, lng:-48.5836},
+      {n:"Campings da Lagoa da Conceição", base:"Florianópolis", nota:"Áreas na Ilha próximas à Lagoa e às praias do leste.", lat:-27.5949, lng:-48.5482},
+      {n:"Camping Ferrugem", base:"Garopaba", nota:"Próximo à Praia da Ferrugem; muito procurado no verão.", lat:-28.0264, lng:-48.6175},
     ],
     pernoite:[
-      {n:"Postos da BR-101", base:"Palhoça/Garopaba", nota:"Grandes pátios; comum para pernoite na costa."},
-      {n:"Estacionamento da Guarda do Embaú", base:"Guarda do Embaú", nota:"Deixe o carro e cruze de barco à vila."},
+      {n:"Postos da BR-101", base:"Palhoça/Garopaba", nota:"Grandes pátios; comum para pernoite na costa.", lat:-28.0264, lng:-48.6175},
+      {n:"Estacionamento da Guarda do Embaú", base:"Guarda do Embaú", nota:"Deixe o carro e cruze de barco à vila.", lat:-27.8869, lng:-48.5836},
     ],
     comer:[
       {n:"Box 32 (Mercado Público)", base:"Florianópolis", nota:"Tradicional balcão de frutos do mar e cerveja."},
@@ -467,7 +467,7 @@
       {n:"Temporada de baleias", base:"Imbituba/Garopaba", nota:"Jun–nov; baleias-franca vistas da costa e de barco."},
     ],
     encontros:[
-      {n:"Encontros de campismo no litoral SC", base:"Garopaba/Imbituba", nota:"Confraternizações de motorhome/trailer na costa; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo no litoral SC", base:"Garopaba/Imbituba", nota:"Confraternizações de motorhome/trailer na costa; agenda no MaCamp e ANACAMP.", lat:-28.0264, lng:-48.6175},
       {n:"Encontros VQQ 'Vai Quem Quer'", base:"Litoral catarinense", nota:"Encontros espontâneos de caravanismo nas praias de SC."},
     ],
   },
@@ -494,14 +494,14 @@
       {n:"Santuário de Santa Paulina", base:"Nova Trento", nota:"Romaria à 1ª santa brasileira; vale do Vigolo.", lat:-27.2861, lng:-48.93},
     ],
     campings:[
-      {n:"Camping Rio da Prata", base:"Timbó", nota:"À beira do rio Itajaí; ciclovias e clima de vale."},
-      {n:"Camping Pomerode", base:"Pomerode", nota:"Base alemã do vale; recebe motorhomes e trailers."},
-      {n:"Camping em Treze Tílias", base:"Treze Tílias", nota:"Clima alpino; muito frio à noite no inverno."},
+      {n:"Camping Rio da Prata", base:"Timbó", nota:"À beira do rio Itajaí; ciclovias e clima de vale.", lat:-26.8231, lng:-49.2714},
+      {n:"Camping Pomerode", base:"Pomerode", nota:"Base alemã do vale; recebe motorhomes e trailers.", lat:-26.7408, lng:-49.1786},
+      {n:"Camping em Treze Tílias", base:"Treze Tílias", nota:"Clima alpino; muito frio à noite no inverno.", lat:-26.9986, lng:-51.4042},
       {n:"Campings de Botuverá", base:"Botuverá", nota:"Apoio rural perto das cavernas; sossego e natureza."},
     ],
     pernoite:[
-      {n:"Postos da BR-470", base:"Blumenau/Indaial", nota:"Pátios de apoio no vale do Itajaí."},
-      {n:"Estac. da Vila Germânica", base:"Blumenau", nota:"Na Oktoberfest, use transporte por app à noite."},
+      {n:"Postos da BR-470", base:"Blumenau/Indaial", nota:"Pátios de apoio no vale do Itajaí.", lat:-26.9194, lng:-49.0661},
+      {n:"Estac. da Vila Germânica", base:"Blumenau", nota:"Na Oktoberfest, use transporte por app à noite.", lat:-26.9194, lng:-49.0661},
     ],
     comer:[
       {n:"Biergarten Pomerano", base:"Pomerode", nota:"Cozinha alemã típica em clima familiar."},
@@ -519,7 +519,7 @@
       {n:"Festa do Porco no Rolete", base:"Oeste catarinense", nota:"Tradição colonial de assar o porco inteiro no rolete (ex.: Modelo, a 'capital catarinense'); festas pela região."},
     ],
     encontros:[
-      {n:"Encontro de RVs de Pomerode", base:"Pomerode", nota:"A vila já reuniu 440 motorhomes/trailers e presidentes de 4 grupos de campismo; polo de caravanismo do vale."},
+      {n:"Encontro de RVs de Pomerode", base:"Pomerode", nota:"A vila já reuniu 440 motorhomes/trailers e presidentes de 4 grupos de campismo; polo de caravanismo do vale.", lat:-26.7408, lng:-49.1786},
       {n:"Encontros do grupo Rodamundo SC", base:"Vale Europeu", nota:"Saídas e confraternizações do tradicional grupo catarinense de caravanismo."},
       {n:"Expo Motorhome (a ~2 h)", base:"Pinhais (PR)", nota:"Maior feira de campismo e caravanismo da América Latina, em novembro, com camping próprio para 800 veículos."},
     ],
@@ -553,15 +553,15 @@
       {n:"Santuário de Caravaggio", base:"Farroupilha", nota:"Centro de romaria da imigração italiana."},
     ],
     campings:[
-      {n:"Camping Bangalôs da Serra", base:"Gramado", nota:"Glamping e área de motorhome com estrutura na RS-235."},
-      {n:"Camping & Pousada Vale dos Vinhedos", base:"Bento Gonçalves", nota:"Pousadas-camping entre parreirais; bom apoio a trailers."},
-      {n:"Camping do Caracol", base:"Canela", nota:"Áreas perto do Parque do Caracol; muito frio no inverno."},
-      {n:"Camping Municipal de Nova Petrópolis", base:"Nova Petrópolis", nota:"Camping tradicional da serra, arborizado e econômico."},
-      {n:"Recanto do Caravanismo (pontos de apoio)", base:"Bento Gonçalves", nota:"Pátios e vinícolas que recebem motorhomes; consulte MaCamp/ANACAMP."},
+      {n:"Camping Bangalôs da Serra", base:"Gramado", nota:"Glamping e área de motorhome com estrutura na RS-235.", lat:-29.3747, lng:-50.8769},
+      {n:"Camping & Pousada Vale dos Vinhedos", base:"Bento Gonçalves", nota:"Pousadas-camping entre parreirais; bom apoio a trailers.", lat:-29.1714, lng:-51.5189},
+      {n:"Camping do Caracol", base:"Canela", nota:"Áreas perto do Parque do Caracol; muito frio no inverno.", lat:-29.3556, lng:-50.8156},
+      {n:"Camping Municipal de Nova Petrópolis", base:"Nova Petrópolis", nota:"Camping tradicional da serra, arborizado e econômico.", lat:-29.3756, lng:-51.1119},
+      {n:"Recanto do Caravanismo (pontos de apoio)", base:"Bento Gonçalves", nota:"Pátios e vinícolas que recebem motorhomes; consulte MaCamp/ANACAMP.", lat:-29.1714, lng:-51.5189},
     ],
     pernoite:[
-      {n:"Postos da RS-122 / BR-116", base:"Caxias do Sul", nota:"Grandes pátios na subida da serra."},
-      {n:"Estacionamentos de Gramado", base:"Gramado", nota:"No Natal Luz, chegue cedo; trânsito intenso."},
+      {n:"Postos da RS-122 / BR-116", base:"Caxias do Sul", nota:"Grandes pátios na subida da serra.", lat:-29.1678, lng:-51.1789},
+      {n:"Estacionamentos de Gramado", base:"Gramado", nota:"No Natal Luz, chegue cedo; trânsito intenso.", lat:-29.3747, lng:-50.8769},
     ],
     comer:[
       {n:"Restaurante Casa Valduga", base:"Vale dos Vinhedos", nota:"Almoço harmonizado em vinícola histórica."},
@@ -606,14 +606,14 @@
       {n:"Cascata do Tigre Preto", base:"Cambará do Sul", nota:"Queda de 350 m vista do interior do cânion Fortaleza."},
     ],
     campings:[
-      {n:"Camping Pousada Fazenda Pindorama", base:"Cambará do Sul", nota:"Ampla área de barracas e motorhome; base clássica dos cânions."},
-      {n:"Camping Recanto das Corucacas", base:"Cambará do Sul", nota:"Entre araucárias e lago; muito frio e geada no inverno."},
-      {n:"Camping Pousada Aparados da Serra", base:"São José dos Ausentes", nota:"A ~2 km do Cânion Monte Negro; campos de cima da serra."},
-      {n:"Áreas de camping em Praia Grande (SC)", base:"Praia Grande", nota:"Ao pé dos cânions; base da trilha do Rio do Boi."},
+      {n:"Camping Pousada Fazenda Pindorama", base:"Cambará do Sul", nota:"Ampla área de barracas e motorhome; base clássica dos cânions.", lat:-29.0489, lng:-50.1456},
+      {n:"Camping Recanto das Corucacas", base:"Cambará do Sul", nota:"Entre araucárias e lago; muito frio e geada no inverno.", lat:-29.0489, lng:-50.1456},
+      {n:"Camping Pousada Aparados da Serra", base:"São José dos Ausentes", nota:"A ~2 km do Cânion Monte Negro; campos de cima da serra.", lat:-28.7472, lng:-50.0681},
+      {n:"Áreas de camping em Praia Grande (SC)", base:"Praia Grande", nota:"Ao pé dos cânions; base da trilha do Rio do Boi.", lat:-29.1925, lng:-49.9608},
     ],
     pernoite:[
-      {n:"Postos da RS-020 / RS-110", base:"Cambará do Sul", nota:"Apoio limitado; abasteça na cidade."},
-      {n:"Áreas em Praia Grande (SC)", base:"Praia Grande", nota:"Base ao pé da Serra do Faxinal."},
+      {n:"Postos da RS-020 / RS-110", base:"Cambará do Sul", nota:"Apoio limitado; abasteça na cidade.", lat:-29.0489, lng:-50.1456},
+      {n:"Áreas em Praia Grande (SC)", base:"Praia Grande", nota:"Base ao pé da Serra do Faxinal.", lat:-29.1925, lng:-49.9608},
     ],
     comer:[
       {n:"Galeteria O Casarão", base:"Cambará do Sul", nota:"Rodízio de galeto, truta e buffet de saladas orgânicas."},
@@ -626,7 +626,7 @@
       {n:"Cavalgadas e rodeios campeiros", base:"São José dos Ausentes", nota:"Tradição gauchesca dos Campos de Cima da Serra."},
     ],
     encontros:[
-      {n:"Encontros de campismo nos cânions", base:"Cambará do Sul", nota:"Confraternizações de motorhome/trailer nas pousadas-camping; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo nos cânions", base:"Cambará do Sul", nota:"Confraternizações de motorhome/trailer nas pousadas-camping; agenda no MaCamp e ANACAMP.", lat:-29.0489, lng:-50.1456},
       {n:"Encontros VQQ 'Vai Quem Quer'", base:"Campos de Cima da Serra", nota:"Encontros espontâneos de caravanismo na região serrana RS/SC."},
     ],
   },
@@ -656,12 +656,12 @@
       {n:"Igatu (ruínas do garimpo)", base:"Andaraí", nota:"A 'Machu Picchu baiana'; casas de pedra e mirantes."},
     ],
     campings:[
-      {n:"Campings de Lençóis", base:"Lençóis", nota:"Base do parque; perto do Ribeirão do Meio."},
-      {n:"Casas de nativos no Pati", base:"Vale do Pati", nota:"Pernoite na travessia; reserve com guia."},
+      {n:"Campings de Lençóis", base:"Lençóis", nota:"Base do parque; perto do Ribeirão do Meio.", lat:-12.5614, lng:-41.3892},
+      {n:"Casas de nativos no Pati", base:"Vale do Pati", nota:"Pernoite na travessia; reserve com guia.", lat:-13.0058, lng:-41.3711},
     ],
     pernoite:[
-      {n:"Postos da BR-242", base:"Lençóis/Seabra", nota:"Pátios na rodovia que corta a Chapada."},
-      {n:"Estacionamentos das vilas", base:"Vale do Capão", nota:"Deixe o carro; trilhas saem das vilas."},
+      {n:"Postos da BR-242", base:"Lençóis/Seabra", nota:"Pátios na rodovia que corta a Chapada.", lat:-12.5614, lng:-41.3892},
+      {n:"Estacionamentos das vilas", base:"Vale do Capão", nota:"Deixe o carro; trilhas saem das vilas.", lat:-12.6019, lng:-41.4925},
     ],
     comer:[
       {n:"Bistrô Orquídea Negra", base:"Vale do Capão", nota:"Bistrô aconchegante com boa carta de vinhos."},
@@ -676,7 +676,7 @@
       {n:"Festivais de Reggae e Blues", base:"Vale do Capão", nota:"Eventos anuais de música na vila alternativa."},
     ],
     encontros:[
-      {n:"Encontros de campismo na Chapada", base:"Lençóis", nota:"Confraternizações de motorhome/trailer e overlanders na chapada; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo na Chapada", base:"Lençóis", nota:"Confraternizações de motorhome/trailer e overlanders na chapada; agenda no MaCamp e ANACAMP.", lat:-12.5614, lng:-41.3892},
     ],
   },
   "go-chapada-veadeiros": {
@@ -700,12 +700,12 @@
       {n:"Cachoeira do Label (187 m)", base:"São João d'Aliança", nota:"A maior queda de Goiás; 1ª cidade vindo de Brasília."},
     ],
     campings:[
-      {n:"Campings de São Jorge", base:"São Jorge", nota:"Vila na porta do parque; áreas simples."},
-      {n:"Camping em Cavalcante", base:"Cavalcante", nota:"Base das cachoeiras kalungas; condutor local."},
+      {n:"Campings de São Jorge", base:"São Jorge", nota:"Vila na porta do parque; áreas simples.", lat:-14.1714, lng:-47.8},
+      {n:"Camping em Cavalcante", base:"Cavalcante", nota:"Base das cachoeiras kalungas; condutor local.", lat:-13.7972, lng:-47.4583},
     ],
     pernoite:[
-      {n:"Postos da GO-118", base:"Alto Paraíso", nota:"Único apoio robusto; abasteça antes das trilhas."},
-      {n:"Estacionamentos das trilhas", base:"São Jorge", nota:"Acessos de terra; vá de dia."},
+      {n:"Postos da GO-118", base:"Alto Paraíso", nota:"Único apoio robusto; abasteça antes das trilhas.", lat:-14.1539, lng:-47.7547},
+      {n:"Estacionamentos das trilhas", base:"São Jorge", nota:"Acessos de terra; vá de dia.", lat:-14.1714, lng:-47.8},
     ],
     comer:[
       {n:"Santo Cerrado Risoteria", base:"São Jorge", nota:"Risotos e deck para o pôr do sol; o mais famoso da vila."},
@@ -717,7 +717,7 @@
       {n:"Encontro de Culturas Tradicionais", base:"São Jorge", nota:"Julho; um dos maiores festivais culturais do cerrado."},
     ],
     encontros:[
-      {n:"Encontros de campismo nos Veadeiros", base:"Alto Paraíso de Goiás", nota:"Confraternizações de motorhome e overlanders no cerrado; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo nos Veadeiros", base:"Alto Paraíso de Goiás", nota:"Confraternizações de motorhome e overlanders no cerrado; agenda no MaCamp e ANACAMP.", lat:-14.1322, lng:-47.5097},
       {n:"Encontros VQQ 'Vai Quem Quer'", base:"Chapada dos Veadeiros", nota:"Encontros espontâneos de caravanismo na região."},
     ],
   },
@@ -754,14 +754,14 @@
       {n:"La Pedrera & La Paloma", base:"Rocha", nota:"Balneários de surfe e clima roots na costa de Rocha."},
     ],
     campings:[
-      {n:"Camping de Santa Teresa", base:"Parque Santa Teresa", nota:"Enorme camping estatal entre a mata e o mar."},
-      {n:"Campings de Punta del Diablo", base:"Punta del Diablo", nota:"Vários na vila; alta no verão."},
-      {n:"Camping Punta del Diablo", base:"Punta del Diablo", nota:"Vila de pescadores; campings junto às praias."},
+      {n:"Camping de Santa Teresa", base:"Parque Santa Teresa", nota:"Enorme camping estatal entre a mata e o mar.", lat:-33.9772, lng:-53.5439},
+      {n:"Campings de Punta del Diablo", base:"Punta del Diablo", nota:"Vários na vila; alta no verão.", lat:-34.0489, lng:-53.5453},
+      {n:"Camping Punta del Diablo", base:"Punta del Diablo", nota:"Vila de pescadores; campings junto às praias.", lat:-34.0489, lng:-53.5453},
       {n:"Camping La Pedrera / Cabo Polonio", base:"Rocha", nota:"Acampamentos rústicos no litoral selvagem de Rocha."},
     ],
     pernoite:[
       {n:"Postos ANCAP de rota (R9/R10)", base:"Costa UY", nota:"Pátios 24h; combustível mais caro que no BR."},
-      {n:"Estac. do acesso a Cabo Polonio", base:"Cabo Polonio", nota:"Deixe o carro e entre na jardineira 4x4."},
+      {n:"Estac. do acesso a Cabo Polonio", base:"Cabo Polonio", nota:"Deixe o carro e entre na jardineira 4x4.", lat:-34.4006, lng:-53.7783},
     ],
     comer:[
       {n:"Mercado del Puerto", base:"Montevidéu", nota:"Parrilla e chivito no coração da capital."},
@@ -805,12 +805,12 @@
       {n:"Viñedos del Quintón", base:"Colonia del Sacramento", nota:"Vinhos Malbec e azeites, a ~30 min do centro."},
     ],
     campings:[
-      {n:"Camping de Colonia", base:"Colonia del Sacramento", nota:"Áreas à beira do Prata; tranquilo fora do verão."},
-      {n:"Bodega-hotéis (estac.)", base:"Carmelo", nota:"Algumas bodegas recebem motorhome com reserva."},
+      {n:"Camping de Colonia", base:"Colonia del Sacramento", nota:"Áreas à beira do Prata; tranquilo fora do verão.", lat:-34.4716, lng:-57.8442},
+      {n:"Bodega-hotéis (estac.)", base:"Carmelo", nota:"Algumas bodegas recebem motorhome com reserva.", lat:-34.0028, lng:-58.2839},
     ],
     pernoite:[
       {n:"Postos ANCAP (R1/R21)", base:"Litoral do Prata", nota:"Pátios na rota Montevidéu–Colonia–Carmelo."},
-      {n:"Estac. do Barrio Histórico", base:"Colonia del Sacramento", nota:"Ande a pé; ruas estreitas de pedra."},
+      {n:"Estac. do Barrio Histórico", base:"Colonia del Sacramento", nota:"Ande a pé; ruas estreitas de pedra.", lat:-34.4716, lng:-57.8442},
     ],
     comer:[
       {n:"Bodegas de Tannat", base:"Canelones/Carmelo", nota:"Almoços harmonizados (reserve antes)."},
@@ -850,16 +850,16 @@
       {n:"P. E. Encontro das Águas", base:"Porto Jofre", nota:"Maior densidade de onças-pintadas do mundo."},
     ],
     campings:[
-      {n:"Pousadas-camping da Chapada", base:"Chapada dos Guimarães", nota:"Áreas com cachoeiras e cerrado."},
-      {n:"Camping na Transpantaneira", base:"Pixaim", nota:"Pousadas com camping à beira do rio; muito calor."},
-      {n:"Porto Jofre Pantanal (camping)", base:"Porto Jofre", nota:"Camping no fim da Transpantaneira; base dos safáris de onça."},
-      {n:"Pousada Piuval", base:"Poconé", nota:"Lodge no km 10, com focagem, cavalgada e safari fotográfico."},
+      {n:"Pousadas-camping da Chapada", base:"Chapada dos Guimarães", nota:"Áreas com cachoeiras e cerrado.", lat:-15.4608, lng:-55.7503},
+      {n:"Camping na Transpantaneira", base:"Pixaim", nota:"Pousadas com camping à beira do rio; muito calor.", lat:-16.6072, lng:-56.8456},
+      {n:"Porto Jofre Pantanal (camping)", base:"Porto Jofre", nota:"Camping no fim da Transpantaneira; base dos safáris de onça.", lat:-17.35, lng:-56.7758},
+      {n:"Pousada Piuval", base:"Poconé", nota:"Lodge no km 10, com focagem, cavalgada e safari fotográfico.", lat:-16.2567, lng:-56.6228},
     ],
     encontros:[
-      {n:"Encontros de campismo em Chapada dos Guimarães", base:"Chapada dos Guimarães", nota:"Confraternizações de motorhome/trailer perto de Cuiabá; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo em Chapada dos Guimarães", base:"Chapada dos Guimarães", nota:"Confraternizações de motorhome/trailer perto de Cuiabá; agenda no MaCamp e ANACAMP.", lat:-15.4608, lng:-55.7503},
     ],
     pernoite:[
-      {n:"Postos de Poconé", base:"Poconé", nota:"Último apoio com estrutura antes da Transpantaneira."},
+      {n:"Postos de Poconé", base:"Poconé", nota:"Último apoio com estrutura antes da Transpantaneira.", lat:-16.2567, lng:-56.6228},
       {n:"Áreas da Transpantaneira (MT-060)", base:"Transpantaneira", nota:"Pontes de madeira; dirija devagar, leve repelente."},
     ],
     comer:[
@@ -898,12 +898,12 @@
       {n:"Estrada Parque do Pantanal", base:"Miranda/Corumbá", nota:"Fauna por pontes de madeira; melhor na seca."},
     ],
     campings:[
-      {n:"Campings de Bonito", base:"Bonito", nota:"Boa estrutura; base dos passeios (voucher)."},
-      {n:"Pousadas-fazenda (Passo do Lontra)", base:"Estrada Parque", nota:"Pacotes com focagem, barco e cavalgada."},
+      {n:"Campings de Bonito", base:"Bonito", nota:"Boa estrutura; base dos passeios (voucher).", lat:-21.1261, lng:-56.4836},
+      {n:"Pousadas-fazenda (Passo do Lontra)", base:"Estrada Parque", nota:"Pacotes com focagem, barco e cavalgada.", lat:-19.5747, lng:-57.0233},
     ],
     pernoite:[
-      {n:"Postos da BR-262", base:"Miranda/Aquidauana", nota:"Grandes pátios na rota Campo Grande–Corumbá."},
-      {n:"Estac. dos atrativos de Bonito", base:"Bonito", nota:"Cada passeio tem horário e cota; chegue na hora."},
+      {n:"Postos da BR-262", base:"Miranda/Aquidauana", nota:"Grandes pátios na rota Campo Grande–Corumbá.", lat:-20.2419, lng:-56.3789},
+      {n:"Estac. dos atrativos de Bonito", base:"Bonito", nota:"Cada passeio tem horário e cota; chegue na hora.", lat:-21.1261, lng:-56.4836},
     ],
     comer:[
       {n:"Restaurantes de Bonito", base:"Bonito", nota:"Peixe de rio, sobá e tereré."},
@@ -917,7 +917,7 @@
       {n:"Festa da Linguiça de Maracaju", base:"Maracaju", nota:"Abr–mai; a maior festa gastronômica de MS — linguiça artesanal (IG, com laranja azeda), no caminho a Bonito."},
     ],
     encontros:[
-      {n:"Encontros de campismo em Bonito", base:"Bonito", nota:"Confraternizações de motorhome/trailer na capital do ecoturismo; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo em Bonito", base:"Bonito", nota:"Confraternizações de motorhome/trailer na capital do ecoturismo; agenda no MaCamp e ANACAMP.", lat:-21.1261, lng:-56.4836},
       {n:"Encontros VQQ 'Vai Quem Quer'", base:"Mato Grosso do Sul", nota:"Encontros espontâneos de caravanismo na rota Bonito–Pantanal."},
     ],
   },
@@ -945,12 +945,12 @@
       {n:"Centro de malhas", base:"Serra Negra", nota:"Comércio de tricô, couro e artesanato; shopping a céu aberto."},
     ],
     campings:[
-      {n:"Campings de Socorro", base:"Socorro", nota:"À beira do Rio do Peixe; base de aventura."},
-      {n:"Camping em Serra Negra", base:"Serra Negra", nota:"Ar de montanha; perto do teleférico."},
+      {n:"Campings de Socorro", base:"Socorro", nota:"À beira do Rio do Peixe; base de aventura.", lat:-22.5908, lng:-46.5289},
+      {n:"Camping em Serra Negra", base:"Serra Negra", nota:"Ar de montanha; perto do teleférico.", lat:-22.6122, lng:-46.7008},
     ],
     pernoite:[
-      {n:"Postos da Rod. Anhanguera/Bandeirantes", base:"Campinas", nota:"Grandes pátios na chegada ao circuito."},
-      {n:"Estac. das estâncias", base:"Águas de Lindóia", nota:"Vagas perto dos parques de fontes."},
+      {n:"Postos da Rod. Anhanguera/Bandeirantes", base:"Campinas", nota:"Grandes pátios na chegada ao circuito.", lat:-22.9099, lng:-47.0626},
+      {n:"Estac. das estâncias", base:"Águas de Lindóia", nota:"Vagas perto dos parques de fontes.", lat:-22.4761, lng:-46.6306},
     ],
     comer:[
       {n:"Cafés coloniais", base:"Serra Negra", nota:"Café colonial e truta na serra."},
@@ -989,12 +989,12 @@
       {n:"Tour Cervejaria Baden Baden", base:"Campos do Jordão", nota:"Pioneira da cerveja artesanal; visita guiada e degustação."},
     ],
     campings:[
-      {n:"Campings de São Bento do Sapucaí", base:"São Bento do Sapucaí", nota:"Base da Pedra do Baú; clima de montanha."},
-      {n:"Camping em São Francisco Xavier", base:"São Francisco Xavier", nota:"Mata atlântica e cachoeiras; rústico."},
+      {n:"Campings de São Bento do Sapucaí", base:"São Bento do Sapucaí", nota:"Base da Pedra do Baú; clima de montanha.", lat:-22.6889, lng:-45.7306},
+      {n:"Camping em São Francisco Xavier", base:"São Francisco Xavier", nota:"Mata atlântica e cachoeiras; rústico.", lat:-22.8978, lng:-45.9986},
     ],
     pernoite:[
-      {n:"Postos da Rod. Floriano Rodrigues Pinheiro", base:"São José dos Campos", nota:"Apoio na subida da serra."},
-      {n:"Estac. do Capivari", base:"Campos do Jordão", nota:"No Festival de Inverno, chegue cedo."},
+      {n:"Postos da Rod. Floriano Rodrigues Pinheiro", base:"São José dos Campos", nota:"Apoio na subida da serra.", lat:-23.1896, lng:-45.8841},
+      {n:"Estac. do Capivari", base:"Campos do Jordão", nota:"No Festival de Inverno, chegue cedo.", lat:-22.7392, lng:-45.5917},
     ],
     comer:[
       {n:"Baden Baden", base:"Campos do Jordão", nota:"Choperia da cerveja local em Capivari; linguiças e pizzas."},
@@ -1012,7 +1012,7 @@
       {n:"Páscoa Encantada", base:"Campos do Jordão", nota:"Fev–abr; ovos cenográficos, música e arte pela cidade."},
     ],
     encontros:[
-      {n:"Encontros de inverno em Campos do Jordão", base:"Campos do Jordão", nota:"Confraternizações de motorhome/trailer na serra paulista; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de inverno em Campos do Jordão", base:"Campos do Jordão", nota:"Confraternizações de motorhome/trailer na serra paulista; agenda no MaCamp e ANACAMP.", lat:-22.7392, lng:-45.5917},
       {n:"Encontros do grupo Pé na Estrada (SP)", base:"Mantiqueira paulista", nota:"Saídas do tradicional grupo paulista de caravanismo."},
     ],
   },
@@ -1050,12 +1050,12 @@
       {n:"Cerro Koi & Chororeí", base:"Areguá", nota:"Formações geológicas raras de arenito hexagonal."},
     ],
     campings:[
-      {n:"Campings da Costanera", base:"Encarnación", nota:"Áreas à beira-rio; movimento no verão."},
-      {n:"Balneários do Ypacaraí", base:"San Bernardino", nota:"Áreas de lazer à beira do lago."},
+      {n:"Campings da Costanera", base:"Encarnación", nota:"Áreas à beira-rio; movimento no verão.", lat:-27.3306, lng:-55.8667},
+      {n:"Balneários do Ypacaraí", base:"San Bernardino", nota:"Áreas de lazer à beira do lago.", lat:-25.2833, lng:-57.3},
     ],
     pernoite:[
       {n:"Postos da Ruta 6 / Ruta 2", base:"Rota PY", nota:"Pátios na descida ao sul; combustível barato no PY."},
-      {n:"Estac. da fronteira", base:"Ciudad del Este", nota:"Ponte da Amizade; atenção à cota e à papelada."},
+      {n:"Estac. da fronteira", base:"Ciudad del Este", nota:"Ponte da Amizade; atenção à cota e à papelada.", lat:-25.5097, lng:-54.6111},
     ],
     comer:[
       {n:"Paulista Grill / Tierra Colorada", base:"Asunción", nota:"Do rodízio renomado à alta gastronomia guarani-contemporânea."},
@@ -1100,12 +1100,12 @@
       {n:"Gêiseres Sol de Mañana", base:"Uyuni", nota:"Fumarolas e gêiseres a 4.900 m, no circuito Sud Lípez."},
     ],
     campings:[
-      {n:"Hotéis de sal", base:"Salar de Uyuni", nota:"Hospedagem feita de blocos de sal na borda do salar."},
-      {n:"Hospedagens de Copacabana", base:"Copacabana", nota:"Pousadas simples à beira do Titicaca."},
+      {n:"Hotéis de sal", base:"Salar de Uyuni", nota:"Hospedagem feita de blocos de sal na borda do salar.", lat:-20.3, lng:-67.05},
+      {n:"Hospedagens de Copacabana", base:"Copacabana", nota:"Pousadas simples à beira do Titicaca.", lat:-16.1667, lng:-69.0833},
     ],
     pernoite:[
       {n:"Postos de rota (altiplano)", base:"Rota BO", nota:"Apoio escasso entre cidades; abasteça nas cidades grandes."},
-      {n:"Base de tours em Uyuni", base:"Uyuni", nota:"Cidade-base dos jeeps ao salar; estrutura simples."},
+      {n:"Base de tours em Uyuni", base:"Uyuni", nota:"Cidade-base dos jeeps ao salar; estrutura simples.", lat:-20.4597, lng:-66.8253},
     ],
     comer:[
       {n:"Gustu", base:"La Paz", nota:"Alta gastronomia boliviana de Claus Meyer (Noma); reserve."},
@@ -1170,13 +1170,13 @@
     ],
     campings:[
       {n:"Hospedagens de Aguas Calientes", base:"Aguas Calientes", nota:"Base ao pé de Machu Picchu; reserve cedo."},
-      {n:"Pousadas do Vale Sagrado", base:"Ollantaytambo", nota:"Boa base para o trem e as ruínas, mais barato que Cusco."},
-      {n:"Camping em Ollantaytambo", base:"Ollantaytambo", nota:"Vale Sagrado; base para Machu Picchu de trem."},
-      {n:"Quinta Lala", base:"Cusco", nota:"Camping clássico de overlanders no alto de Cusco."},
+      {n:"Pousadas do Vale Sagrado", base:"Ollantaytambo", nota:"Boa base para o trem e as ruínas, mais barato que Cusco.", lat:-13.2586, lng:-72.2636},
+      {n:"Camping em Ollantaytambo", base:"Ollantaytambo", nota:"Vale Sagrado; base para Machu Picchu de trem.", lat:-13.2586, lng:-72.2636},
+      {n:"Quinta Lala", base:"Cusco", nota:"Camping clássico de overlanders no alto de Cusco.", lat:-13.5319, lng:-71.9675},
     ],
     pernoite:[
-      {n:"Trem a Machu Picchu", base:"Ollantaytambo", nota:"Sem estrada à cidadela; só de trem + ônibus de subida."},
-      {n:"Base em Cusco", base:"Cusco", nota:"Aclimate-se 1–2 dias (3.400 m) antes das trilhas."},
+      {n:"Trem a Machu Picchu", base:"Ollantaytambo", nota:"Sem estrada à cidadela; só de trem + ônibus de subida.", lat:-13.2586, lng:-72.2636},
+      {n:"Base em Cusco", base:"Cusco", nota:"Aclimate-se 1–2 dias (3.400 m) antes das trilhas.", lat:-13.5319, lng:-71.9675},
     ],
     comer:[
       {n:"Central / Maido (Lima)", base:"Lima", nota:"Entre os melhores do mundo; alta cozinha peruana (reserve)."},
@@ -1224,12 +1224,12 @@
       {n:"Chaco Lodge / lagunas salinas", base:"Filadélfia", nota:"Reserva privada de avifauna no Chaco Central."},
     ],
     campings:[
-      {n:"Áreas à beira-rio", base:"Concepción", nota:"Estrutura simples; calor forte no verão."},
-      {n:"Acampamento no Defensores", base:"Defensores del Chaco", nota:"Remoto; leve tudo (água, comida, combustível)."},
+      {n:"Áreas à beira-rio", base:"Concepción", nota:"Estrutura simples; calor forte no verão.", lat:-23.4083, lng:-57.4344},
+      {n:"Acampamento no Defensores", base:"Defensores del Chaco", nota:"Remoto; leve tudo (água, comida, combustível).", lat:-20.05, lng:-60.45},
     ],
     pernoite:[
-      {n:"Postos do Trans-Chaco (Ruta 9)", base:"Pozo Colorado", nota:"Apoio escasso; abasteça em cada posto disponível."},
-      {n:"Hotéis das colônias", base:"Filadélfia/Loma Plata", nota:"Boa base menonita; reserve com antecedência."},
+      {n:"Postos do Trans-Chaco (Ruta 9)", base:"Pozo Colorado", nota:"Apoio escasso; abasteça em cada posto disponível.", lat:-23.49, lng:-58.8},
+      {n:"Hotéis das colônias", base:"Filadélfia/Loma Plata", nota:"Boa base menonita; reserve com antecedência.", lat:-22.3417, lng:-60.0317},
     ],
     comer:[
       {n:"Laticínios menonitas", base:"Loma Plata", nota:"Queijos e produtos da cooperativa Chortitzer."},
@@ -1263,11 +1263,11 @@
       {n:"Vales & quebradas de Tupiza", base:"Tupiza", nota:"Cânions vermelhos; cavalgadas e a terra de Butch Cassidy."},
     ],
     campings:[
-      {n:"Refúgios da Colorada", base:"Laguna Colorada", nota:"Abrigos básicos do circuito; frio extremo à noite."},
-      {n:"Hospedagens de Tupiza", base:"Tupiza", nota:"Cidade-base; pousadas simples."},
+      {n:"Refúgios da Colorada", base:"Laguna Colorada", nota:"Abrigos básicos do circuito; frio extremo à noite.", lat:-22.19, lng:-67.77},
+      {n:"Hospedagens de Tupiza", base:"Tupiza", nota:"Cidade-base; pousadas simples.", lat:-21.4439, lng:-65.7192},
     ],
     pernoite:[
-      {n:"Base de tours em Uyuni", base:"Uyuni", nota:"Saída dos jeeps ao Sud Lípez; estrutura simples."},
+      {n:"Base de tours em Uyuni", base:"Uyuni", nota:"Saída dos jeeps ao Sud Lípez; estrutura simples.", lat:-20.4597, lng:-66.8253},
       {n:"Aguas Termais de Polques", base:"Reserva Avaroa", nota:"Parada do circuito; banho termal a 4.400 m."},
     ],
     comer:[
@@ -1303,13 +1303,13 @@
     ],
     campings:[
       {n:"Acampamentos de trekking", base:"Huascarán", nota:"Santa Cruz e outras trilhas; só com guia/arriero."},
-      {n:"Campings de Caraz", base:"Caraz", nota:"Base tranquila do Callejón de Huaylas."},
-      {n:"Camping em Huaraz", base:"Huaraz", nota:"Áreas e hospedagens com pátio; base de aclimatação."},
+      {n:"Campings de Caraz", base:"Caraz", nota:"Base tranquila do Callejón de Huaylas.", lat:-9.0481, lng:-77.8108},
+      {n:"Camping em Huaraz", base:"Huaraz", nota:"Áreas e hospedagens com pátio; base de aclimatação.", lat:-9.5278, lng:-77.5278},
       {n:"Camping Llanganuco", base:"Yungay", nota:"Acampamento de altitude junto às lagoas, no PN Huascarán."},
     ],
     pernoite:[
-      {n:"Base de aclimatação", base:"Huaraz", nota:"Suba devagar; faça trilhas curtas antes da Laguna 69."},
-      {n:"Estac. das trilhas", base:"Yungay/Caraz", nota:"Acessos de altitude; vá cedo e cheque o tempo."},
+      {n:"Base de aclimatação", base:"Huaraz", nota:"Suba devagar; faça trilhas curtas antes da Laguna 69.", lat:-9.5278, lng:-77.5278},
+      {n:"Estac. das trilhas", base:"Yungay/Caraz", nota:"Acessos de altitude; vá cedo e cheque o tempo.", lat:-9.0481, lng:-77.8108},
     ],
     comer:[
       {n:"Trucha & pachamanca", base:"Huaraz", nota:"Cozinha andina; trutas dos rios glaciais."},
@@ -1349,12 +1349,12 @@
       {n:"Cerro 14 Colores (Hornocal)", base:"Humahuaca", nota:"Serra multicolorida a 4.350 m; mirante espetacular."},
     ],
     campings:[
-      {n:"Campings de Cafayate", base:"Cafayate", nota:"Entre vinhedos; clima seco e ameno."},
-      {n:"Camping em Tilcara", base:"Tilcara", nota:"Base cultural da Quebrada; frio à noite."},
+      {n:"Campings de Cafayate", base:"Cafayate", nota:"Entre vinhedos; clima seco e ameno.", lat:-26.0731, lng:-65.9761},
+      {n:"Camping em Tilcara", base:"Tilcara", nota:"Base cultural da Quebrada; frio à noite.", lat:-23.5772, lng:-65.3939},
     ],
     pernoite:[
-      {n:"Postos da RN9 / RN68", base:"Salta/Jujuy", nota:"Pátios nas rotas do NOA; abasteça antes da puna."},
-      {n:"Estac. de Purmamarca", base:"Purmamarca", nota:"Base para Salinas Grandes; chegue cedo."},
+      {n:"Postos da RN9 / RN68", base:"Salta/Jujuy", nota:"Pátios nas rotas do NOA; abasteça antes da puna.", lat:-24.7821, lng:-65.4232},
+      {n:"Estac. de Purmamarca", base:"Purmamarca", nota:"Base para Salinas Grandes; chegue cedo.", lat:-23.745, lng:-65.5},
     ],
     comer:[
       {n:"Empanadas salteñas", base:"Salta", nota:"Empanadas, locro e humita; peñas folclóricas à noite."},
@@ -1398,14 +1398,14 @@
       {n:"Valle de la Muerte (sandboard)", base:"San Pedro de Atacama", nota:"Dunas para sandboard ao pôr do sol, na Cordillera de la Sal."},
     ],
     campings:[
-      {n:"Campings de San Pedro", base:"San Pedro de Atacama", nota:"Base dos passeios; noites frias e secas."},
-      {n:"Áreas em Calama", base:"Calama", nota:"Apoio na entrada do deserto; estrutura urbana."},
-      {n:"Camping Los Abuelos", base:"San Pedro de Atacama", nota:"Camping consagrado na vila; base dos passeios do deserto."},
-      {n:"Camping Mistico", base:"San Pedro de Atacama", nota:"Estrutura para barraca e motorhome em San Pedro."},
+      {n:"Campings de San Pedro", base:"San Pedro de Atacama", nota:"Base dos passeios; noites frias e secas.", lat:-22.9087, lng:-68.1997},
+      {n:"Áreas em Calama", base:"Calama", nota:"Apoio na entrada do deserto; estrutura urbana.", lat:-22.4667, lng:-68.9333},
+      {n:"Camping Los Abuelos", base:"San Pedro de Atacama", nota:"Camping consagrado na vila; base dos passeios do deserto.", lat:-22.9087, lng:-68.1997},
+      {n:"Camping Mistico", base:"San Pedro de Atacama", nota:"Estrutura para barraca e motorhome em San Pedro.", lat:-22.9087, lng:-68.1997},
     ],
     pernoite:[
-      {n:"Postos de Calama / R23", base:"Calama", nota:"Último apoio robusto antes de San Pedro."},
-      {n:"Estac. dos tours", base:"San Pedro de Atacama", nota:"Passeios com horário; reserve com operadora."},
+      {n:"Postos de Calama / R23", base:"Calama", nota:"Último apoio robusto antes de San Pedro.", lat:-22.4667, lng:-68.9333},
+      {n:"Estac. dos tours", base:"San Pedro de Atacama", nota:"Passeios com horário; reserve com operadora.", lat:-22.9087, lng:-68.1997},
     ],
     comer:[
       {n:"Adobe & Barros", base:"San Pedro de Atacama", nota:"Clássicos da rua Caracoles; fogueira, carnes e pisco sour."},
@@ -1450,11 +1450,11 @@
       {n:"Mercado de Otavalo", base:"Otavalo", nota:"Maior mercado indígena dos Andes; têxteis e artesanato."},
     ],
     campings:[
-      {n:"Refúgios do Cotopaxi", base:"Cotopaxi", nota:"Abrigos no parque; frio e altitude."},
-      {n:"Hospedagens de borda (Quilotoa)", base:"Quilotoa", nota:"Pousadas simples na cratera; muito frio à noite."},
+      {n:"Refúgios do Cotopaxi", base:"Cotopaxi", nota:"Abrigos no parque; frio e altitude.", lat:-0.68, lng:-78.4378},
+      {n:"Hospedagens de borda (Quilotoa)", base:"Quilotoa", nota:"Pousadas simples na cratera; muito frio à noite.", lat:-0.8589, lng:-78.9036},
     ],
     pernoite:[
-      {n:"Base em Quito", base:"Quito", nota:"Aclimate-se a 2.850 m antes das trilhas."},
+      {n:"Base em Quito", base:"Quito", nota:"Aclimate-se a 2.850 m antes das trilhas.", lat:-0.1807, lng:-78.4678},
       {n:"Postos da Panamericana", base:"Serra EC", nota:"Apoio na rota dos vulcões; abasteça nas cidades."},
     ],
     comer:[
@@ -1511,12 +1511,12 @@
       {n:"Fazendas de café (Eje Cafetero)", base:"Salento", nota:"Tour do grão à xícara nas fincas cafeeiras."},
     ],
     campings:[
-      {n:"Fincas cafeeiras", base:"Salento", nota:"Hospedagem em fazendas de café do eixo."},
-      {n:"Campings de Guatapé", base:"Guatapé", nota:"À beira do lago; clima ameno."},
+      {n:"Fincas cafeeiras", base:"Salento", nota:"Hospedagem em fazendas de café do eixo.", lat:4.6378, lng:-75.5708},
+      {n:"Campings de Guatapé", base:"Guatapé", nota:"À beira do lago; clima ameno.", lat:6.2336, lng:-75.1608},
     ],
     pernoite:[
-      {n:"Base no Eje Cafetero", base:"Salento/Filandia", nota:"Vilas coloridas; chegue cedo ao Cocora."},
-      {n:"Voo interno a Cartagena", base:"Medellín", nota:"Trecho longo ao Caribe; muitos fazem de avião."},
+      {n:"Base no Eje Cafetero", base:"Salento/Filandia", nota:"Vilas coloridas; chegue cedo ao Cocora.", lat:4.6378, lng:-75.5708},
+      {n:"Voo interno a Cartagena", base:"Medellín", nota:"Trecho longo ao Caribe; muitos fazem de avião.", lat:6.2442, lng:-75.5812},
     ],
     comer:[
       {n:"Bandeja paisa", base:"Medellín", nota:"Prato paisa fartíssimo; arepas e arroz."},
@@ -1560,12 +1560,12 @@
       {n:"Minca", base:"Santa Marta", nota:"Vila de montanha; cachoeiras, café e cacau na Serra Nevada."},
     ],
     campings:[
-      {n:"Camping no Tayrona (Cabo San Juan)", base:"Parque Tayrona", nota:"Redes e barracas com vista do mar; chegue cedo."},
+      {n:"Camping no Tayrona (Cabo San Juan)", base:"Parque Tayrona", nota:"Redes e barracas com vista do mar; chegue cedo.", lat:11.3097, lng:-74.0297},
       {n:"Rancharias wayúu (chinchorros)", base:"La Guajira", nota:"Redes em pousadas comunitárias do deserto."},
     ],
     pernoite:[
       {n:"4x4 com guia (Alta Guajira)", base:"La Guajira", nota:"Cabo de la Vela e Punta Gallinas só em tração e com guia."},
-      {n:"Base em Santa Marta", base:"Santa Marta", nota:"Apoio ao Tayrona, Minca e ao trek da Ciudad Perdida."},
+      {n:"Base em Santa Marta", base:"Santa Marta", nota:"Apoio ao Tayrona, Minca e ao trek da Ciudad Perdida.", lat:11.2408, lng:-74.199},
     ],
     comer:[
       {n:"La Cevichería", base:"Cartagena", nota:"Ceviches caribenhos famosos em Getsemaní."},
@@ -1608,11 +1608,11 @@
       {n:"Quebrada Pacheco", base:"Gran Sabana", nota:"Cachoeira e poços à beira da estrada da savana."},
     ],
     campings:[
-      {n:"Acampamento no Roraima", base:"Monte Roraima", nota:"Acampamentos no platô; só com expedição guiada."},
-      {n:"Campings da Gran Sabana", base:"Santa Elena de Uairén", nota:"Áreas junto aos saltos; estrutura simples."},
+      {n:"Acampamento no Roraima", base:"Monte Roraima", nota:"Acampamentos no platô; só com expedição guiada.", lat:5.1431, lng:-60.7625},
+      {n:"Campings da Gran Sabana", base:"Santa Elena de Uairén", nota:"Áreas junto aos saltos; estrutura simples.", lat:4.6028, lng:-61.1108},
     ],
     pernoite:[
-      {n:"Base em Santa Elena", base:"Santa Elena de Uairén", nota:"Combustível, provisões e dinheiro em espécie antes de seguir."},
+      {n:"Base em Santa Elena", base:"Santa Elena de Uairén", nota:"Combustível, provisões e dinheiro em espécie antes de seguir.", lat:4.6028, lng:-61.1108},
       {n:"Pousadas pemón", base:"Gran Sabana", nota:"Hospedagem comunitária ao longo da Troncal 10."},
     ],
     comer:[
@@ -1646,12 +1646,12 @@
       {n:"Río Catatumbo (relâmpago)", base:"Zulia", nota:"O 'relámpago del Catatumbo'; tempestades quase perpétuas."},
     ],
     campings:[
-      {n:"Refúgios do páramo", base:"Mérida", nota:"Abrigos de montanha; frio intenso à noite."},
+      {n:"Refúgios do páramo", base:"Mérida", nota:"Abrigos de montanha; frio intenso à noite.", lat:8.5897, lng:-71.1561},
       {n:"Hato com pensão completa", base:"Los Llanos", nota:"Fazenda-reserva com safáris e refeições inclusas."},
     ],
     pernoite:[
-      {n:"Base em Mérida", base:"Mérida", nota:"Cidade universitária; aclimate-se antes do teleférico."},
-      {n:"Estradas remotas aos Llanos", base:"Barinas", nota:"Abasteça e leve provisões; apoio escasso na savana."},
+      {n:"Base em Mérida", base:"Mérida", nota:"Cidade universitária; aclimate-se antes do teleférico.", lat:8.5897, lng:-71.1561},
+      {n:"Estradas remotas aos Llanos", base:"Barinas", nota:"Abasteça e leve provisões; apoio escasso na savana.", lat:8.6226, lng:-70.2073},
     ],
     comer:[
       {n:"Pisca andina & trucha", base:"Mérida", nota:"Sopa andina e truta; arepas de trigo e chocolate quente."},
@@ -1700,14 +1700,14 @@
       {n:"Cerro de la Gloria", base:"Mendoza", nota:"Parque San Martín e mirante sobre a cidade-jardim."},
     ],
     campings:[
-      {n:"Camping de Uspallata", base:"Uspallata", nota:"Base de montanha na RN7; frio à noite."},
+      {n:"Camping de Uspallata", base:"Uspallata", nota:"Base de montanha na RN7; frio à noite.", lat:-32.5917, lng:-69.3469},
       {n:"Campings do Potrerillos", base:"Potrerillos", nota:"À beira do dique, entre Mendoza e a cordilheira."},
       {n:"Camping Suizo", base:"El Challao (Mendoza)", nota:"Arborizado e tradicional, nos arredores da capital do vinho."},
-      {n:"Camping ACA Uspallata", base:"Uspallata", nota:"Apoio na alta montanha a caminho do Aconcágua."},
+      {n:"Camping ACA Uspallata", base:"Uspallata", nota:"Apoio na alta montanha a caminho do Aconcágua.", lat:-32.5917, lng:-69.3469},
     ],
     pernoite:[
-      {n:"Postos da RN7", base:"Mendoza/Uspallata", nota:"Apoio na estrada internacional ao Chile."},
-      {n:"Bodegas-hotel", base:"Valle de Uco", nota:"Hospedagem entre vinhedos (reserve com antecedência)."},
+      {n:"Postos da RN7", base:"Mendoza/Uspallata", nota:"Apoio na estrada internacional ao Chile.", lat:-32.8895, lng:-68.8458},
+      {n:"Bodegas-hotel", base:"Valle de Uco", nota:"Hospedagem entre vinhedos (reserve com antecedência).", lat:-33.6833, lng:-69.15},
     ],
     comer:[
       {n:"Asado & Malbec", base:"Mendoza", nota:"Parrillas e degustações; a alma mendocina."},
@@ -1745,13 +1745,13 @@
     ],
     campings:[
       {n:"Campings do Cajón del Maipo", base:"San José de Maipo", nota:"Áreas de montanha junto ao rio Maipo."},
-      {n:"Litoral central", base:"Viña del Mar", nota:"Opções costeiras; vento e frio matinal."},
+      {n:"Litoral central", base:"Viña del Mar", nota:"Opções costeiras; vento e frio matinal.", lat:-33.0245, lng:-71.5518},
       {n:"Campings do Cajón del Maipo", base:"San José de Maipo", nota:"Áreas à beira do rio Maipo, na montanha perto de Santiago."},
       {n:"Camping en Valparaíso/Con Cón", base:"Concón", nota:"Apoio litorâneo perto de Valparaíso e Viña del Mar."},
     ],
     pernoite:[
-      {n:"Autopistas centrais", base:"Santiago", nota:"Boa malha viária; postos completos no vale central."},
-      {n:"Cerros de Valparaíso", base:"Valparaíso", nota:"Hospede num cerro (Alegre/Concepción); atenção aos pertences."},
+      {n:"Autopistas centrais", base:"Santiago", nota:"Boa malha viária; postos completos no vale central.", lat:-33.4489, lng:-70.6693},
+      {n:"Cerros de Valparaíso", base:"Valparaíso", nota:"Hospede num cerro (Alegre/Concepción); atenção aos pertences.", lat:-33.0472, lng:-71.6127},
     ],
     comer:[
       {n:"Boragó", base:"Santiago", nota:"Entre os melhores do mundo; cozinha endêmica chilena (reserve)."},
@@ -1801,15 +1801,15 @@
       {n:"Lago Argentino / Estancia Cristina", base:"El Calafate", nota:"Navegação aos glaciares Upsala e Spegazzini."},
     ],
     campings:[
-      {n:"Camping Poincenot", base:"El Chaltén", nota:"Acampamento livre na base do Fitz Roy."},
-      {n:"Campings de El Calafate", base:"El Calafate", nota:"Áreas urbanas; vento forte da estepe."},
-      {n:"Camping El Relincho", base:"El Chaltén", nota:"Camping tradicional na vila, base do trekking ao Fitz Roy."},
-      {n:"Camping AICA / Municipal", base:"El Calafate", nota:"Áreas para barraca e motorhome perto do centro."},
-      {n:"La Pista del Andino", base:"Ushuaia", nota:"Camping com vista da baía; clássico de overlanders no fim do mundo."},
+      {n:"Camping Poincenot", base:"El Chaltén", nota:"Acampamento livre na base do Fitz Roy.", lat:-49.3315, lng:-72.8863},
+      {n:"Campings de El Calafate", base:"El Calafate", nota:"Áreas urbanas; vento forte da estepe.", lat:-50.339, lng:-72.275},
+      {n:"Camping El Relincho", base:"El Chaltén", nota:"Camping tradicional na vila, base do trekking ao Fitz Roy.", lat:-49.3315, lng:-72.8863},
+      {n:"Camping AICA / Municipal", base:"El Calafate", nota:"Áreas para barraca e motorhome perto do centro.", lat:-50.339, lng:-72.275},
+      {n:"La Pista del Andino", base:"Ushuaia", nota:"Camping com vista da baía; clássico de overlanders no fim do mundo.", lat:-54.807, lng:-68.307},
     ],
     pernoite:[
       {n:"Ruta 40 / Ruta 3", base:"Patagônia", nota:"Distâncias enormes; abasteça em toda cidade."},
-      {n:"Base em El Chaltén", base:"El Chaltén", nota:"Trilhas saem do próprio vilarejo, a pé."},
+      {n:"Base em El Chaltén", base:"El Chaltén", nota:"Trilhas saem do próprio vilarejo, a pé.", lat:-49.3315, lng:-72.8863},
     ],
     comer:[
       {n:"La Tablita", base:"El Calafate", nota:"Cordeiro patagônico no espeto; clássico de Calafate."},
@@ -1859,12 +1859,12 @@
       {n:"Cayo Largo del Sur", base:"Varadero", nota:"Praias paradisíacas (Playa Paraíso/Sirena); voo bate-volta."},
     ],
     campings:[
-      {n:"Casas particulares", base:"Havana/Trinidad", nota:"Hospedagem em casas de família; a melhor experiência."},
-      {n:"Cabanas de Viñales", base:"Viñales", nota:"Hospedagem rural no vale do tabaco."},
+      {n:"Casas particulares", base:"Havana/Trinidad", nota:"Hospedagem em casas de família; a melhor experiência.", lat:23.1136, lng:-82.3666},
+      {n:"Cabanas de Viñales", base:"Viñales", nota:"Hospedagem rural no vale do tabaco.", lat:22.616, lng:-83.7144},
     ],
     pernoite:[
-      {n:"Aluguel de carro / Víazul", base:"Havana", nota:"Carro próprio ou ônibus turístico entre cidades."},
-      {n:"Combustível limitado", base:"Cuba", nota:"Abasteça sempre que puder; filas e escassez possíveis."},
+      {n:"Aluguel de carro / Víazul", base:"Havana", nota:"Carro próprio ou ônibus turístico entre cidades.", lat:23.1136, lng:-82.3666},
+      {n:"Combustível limitado", base:"Cuba", nota:"Abasteça sempre que puder; filas e escassez possíveis.", lat:20.0247, lng:-75.8219},
     ],
     comer:[
       {n:"La Guarida", base:"Havana", nota:"O paladar mais famoso de Cuba, em casarão de Centro Habana."},
@@ -1929,12 +1929,12 @@
       {n:"P. N. Alejandro de Humboldt", base:"Baracoa", nota:"Floresta tropical (UNESCO); biodiversidade rara."},
     ],
     campings:[
-      {n:"Resorts all-inclusive", base:"Cayo Coco/Santa María", nota:"Hospedagem de praia com tudo incluído nos cayos."},
-      {n:"Casas particulares", base:"Santiago/Baracoa", nota:"Hospedagem em casa de família no oriente cubano."},
+      {n:"Resorts all-inclusive", base:"Cayo Coco/Santa María", nota:"Hospedagem de praia com tudo incluído nos cayos.", lat:22.5097, lng:-78.4039},
+      {n:"Casas particulares", base:"Santiago/Baracoa", nota:"Hospedagem em casa de família no oriente cubano.", lat:20.3467, lng:-74.4956},
     ],
     pernoite:[
       {n:"Pedraplén com pedágio", base:"Cayos", nota:"Acesso por longas pontes-aterro sobre o mar; abasteça antes."},
-      {n:"Estrada La Farola", base:"Baracoa", nota:"Trecho montanhoso e sinuoso; dirija de dia."},
+      {n:"Estrada La Farola", base:"Baracoa", nota:"Trecho montanhoso e sinuoso; dirija de dia.", lat:20.3467, lng:-74.4956},
     ],
     comer:[
       {n:"Lagosta nos cayos", base:"Cayo Coco", nota:"Frutos do mar e lagosta nos resorts e ranchones."},
@@ -1990,11 +1990,11 @@
     ],
     campings:[
       {n:"Camping do Cajón del Maipo", base:"San José de Maipo", nota:"Áreas de montanha junto ao rio Maipo."},
-      {n:"Litoral central", base:"Algarrobo", nota:"Opções à beira-mar; vento e frio matinal."},
+      {n:"Litoral central", base:"Algarrobo", nota:"Opções à beira-mar; vento e frio matinal.", lat:-33.3667, lng:-71.6667},
     ],
     pernoite:[
-      {n:"Bairros centrais", base:"Santiago", nota:"Lastarria/Providencia; bem servidos e seguros."},
-      {n:"Subida a Valle Nevado", base:"Santiago", nota:"Caracoles fechados; correntes obrigatórias no inverno."},
+      {n:"Bairros centrais", base:"Santiago", nota:"Lastarria/Providencia; bem servidos e seguros.", lat:-33.4489, lng:-70.6693},
+      {n:"Subida a Valle Nevado", base:"Santiago", nota:"Caracoles fechados; correntes obrigatórias no inverno.", lat:-33.4489, lng:-70.6693},
     ],
     comer:[
       {n:"Bares de Bellavista", base:"Santiago", nota:"Terremoto, pisco e vida noturna no bairro boêmio."},
@@ -2034,11 +2034,11 @@
       {n:"Centro Histórico de São Luís", base:"São Luís", nota:"Casario de azulejos (UNESCO); reggae e cultura."},
     ],
     campings:[
-      {n:"Pousadas de Atins", base:"Atins", nota:"Vila rústica na foz do Preguiças; kite e dunas."},
-      {n:"Áreas em Barreirinhas", base:"Barreirinhas", nota:"Base estruturada dos Lençóis; pousadas e camping."},
+      {n:"Pousadas de Atins", base:"Atins", nota:"Vila rústica na foz do Preguiças; kite e dunas.", lat:-2.5783, lng:-42.7344},
+      {n:"Áreas em Barreirinhas", base:"Barreirinhas", nota:"Base estruturada dos Lençóis; pousadas e camping.", lat:-2.7472, lng:-42.8264},
     ],
     pernoite:[
-      {n:"4x4 obrigatório (dunas)", base:"Jericoacoara", nota:"Acesso a Jeri e travessias só em tração; combine transfer."},
+      {n:"4x4 obrigatório (dunas)", base:"Jericoacoara", nota:"Acesso a Jeri e travessias só em tração; combine transfer.", lat:-2.7939, lng:-40.5119},
       {n:"Atenção às marés", base:"Litoral CE-MA", nota:"Trechos de praia firmes só na maré baixa."},
     ],
     comer:[
@@ -2051,7 +2051,7 @@
       {n:"Jeri Jazz & festas de vento", base:"Jericoacoara", nota:"Eventos de música e kitesurf na alta estação."},
     ],
     encontros:[
-      {n:"Encontros de overlanders e motorhome", base:"Jericoacoara/Barreirinhas", nota:"Confraternizações de caravanismo na Rota das Emoções; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de overlanders e motorhome", base:"Jericoacoara/Barreirinhas", nota:"Confraternizações de caravanismo na Rota das Emoções; agenda no MaCamp e ANACAMP.", lat:-2.7939, lng:-40.5119},
     ],
   },
   "ba-costa-descobrimento": {
@@ -2076,12 +2076,12 @@
       {n:"Praia do Apaga-Fogo & Pitinga", base:"Arraial d'Ajuda", nota:"Praias de falésia e barracas badaladas."},
     ],
     campings:[
-      {n:"Campings de Caraíva", base:"Caraíva", nota:"Estrutura rústica na vila sem energia plena."},
-      {n:"Áreas em Arraial d'Ajuda", base:"Arraial d'Ajuda", nota:"Pousadas e campings perto da Rua do Mucugê."},
+      {n:"Campings de Caraíva", base:"Caraíva", nota:"Estrutura rústica na vila sem energia plena.", lat:-16.8086, lng:-39.1467},
+      {n:"Áreas em Arraial d'Ajuda", base:"Arraial d'Ajuda", nota:"Pousadas e campings perto da Rua do Mucugê.", lat:-16.4886, lng:-39.0719},
     ],
     pernoite:[
-      {n:"Balsa do Buranhém", base:"Porto Seguro", nota:"Travessia a Arraial; calcule fila no verão."},
-      {n:"Acesso a Caraíva", base:"Caraíva", nota:"Estrada de terra + travessia de canoa; sem carros na vila."},
+      {n:"Balsa do Buranhém", base:"Porto Seguro", nota:"Travessia a Arraial; calcule fila no verão.", lat:-16.4497, lng:-39.0647},
+      {n:"Acesso a Caraíva", base:"Caraíva", nota:"Estrada de terra + travessia de canoa; sem carros na vila.", lat:-16.8086, lng:-39.1467},
     ],
     comer:[
       {n:"Moqueca & peixe na folha", base:"Porto Seguro", nota:"Cozinha baiana; acarajé e cocadas."},
@@ -2097,7 +2097,7 @@
       {n:"Festas juninas & do descobrimento", base:"Porto Seguro", nota:"Cultura local e festejos no centro histórico."},
     ],
     encontros:[
-      {n:"Encontros de campismo na Costa do Descobrimento", base:"Porto Seguro", nota:"Confraternizações de motorhome/trailer no litoral sul baiano; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo na Costa do Descobrimento", base:"Porto Seguro", nota:"Confraternizações de motorhome/trailer no litoral sul baiano; agenda no MaCamp e ANACAMP.", lat:-16.4497, lng:-39.0647},
     ],
   },
 
@@ -2123,12 +2123,12 @@
       {n:"Mangue de Mundaú", base:"Trairi", nota:"Passeio de barco pelo mangue; cavalos-marinhos."},
     ],
     campings:[
-      {n:"Áreas em Icaraí de Amontada", base:"Amontada", nota:"Pousadas e estrutura simples na vila de kite."},
-      {n:"Campings em Canoa Quebrada", base:"Aracati", nota:"Hospedagem econômica perto da Broadway."},
+      {n:"Áreas em Icaraí de Amontada", base:"Amontada", nota:"Pousadas e estrutura simples na vila de kite.", lat:-3.0469, lng:-39.6453},
+      {n:"Campings em Canoa Quebrada", base:"Aracati", nota:"Hospedagem econômica perto da Broadway.", lat:-4.5247, lng:-37.7019},
     ],
     pernoite:[
-      {n:"Acesso a Icaraí de Amontada", base:"Amontada", nota:"Trechos finais de terra; vá de dia."},
-      {n:"Buggy pelas dunas", base:"Cumbuco", nota:"Passeios dependem da maré; combine com guia local."},
+      {n:"Acesso a Icaraí de Amontada", base:"Amontada", nota:"Trechos finais de terra; vá de dia.", lat:-3.0469, lng:-39.6453},
+      {n:"Buggy pelas dunas", base:"Cumbuco", nota:"Passeios dependem da maré; combine com guia local.", lat:-3.6286, lng:-38.7256},
     ],
     comer:[
       {n:"Caranguejada & peixada", base:"Fortaleza", nota:"Praia do Futuro e mercado dos peixes; tapioca e baião."},
@@ -2144,7 +2144,7 @@
       {n:"Festa de Iemanjá", base:"Fortaleza", nota:"15 de agosto; oferendas no mar na Praia do Futuro."},
     ],
     encontros:[
-      {n:"Encontros de campismo no litoral cearense", base:"Canoa Quebrada/Cumbuco", nota:"Confraternizações de motorhome e kitesurfistas na costa; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo no litoral cearense", base:"Canoa Quebrada/Cumbuco", nota:"Confraternizações de motorhome e kitesurfistas na costa; agenda no MaCamp e ANACAMP.", lat:-3.6286, lng:-38.7256},
     ],
   },
 
@@ -2170,12 +2170,12 @@
       {n:"Parque das Dunas", base:"Natal", nota:"Maior parque urbano de dunas do país, na Via Costeira."},
     ],
     campings:[
-      {n:"Campings em Pipa", base:"Tibau do Sul", nota:"Hospedagem econômica perto da Praia do Amor."},
-      {n:"Áreas em São Miguel do Gostoso", base:"Gostoso", nota:"Pousadas e estrutura simples na vila de kite."},
+      {n:"Campings em Pipa", base:"Tibau do Sul", nota:"Hospedagem econômica perto da Praia do Amor.", lat:-6.1869, lng:-35.0931},
+      {n:"Áreas em São Miguel do Gostoso", base:"Gostoso", nota:"Pousadas e estrutura simples na vila de kite.", lat:-5.1228, lng:-35.6386},
     ],
     pernoite:[
-      {n:"Buggy nas dunas", base:"Genipabu", nota:"Tabelado, 'com ou sem emoção'; combine cedo, depende da maré."},
-      {n:"Acesso ao Gostoso", base:"São Miguel do Gostoso", nota:"≈3 h de Natal por estrada; vá de dia."},
+      {n:"Buggy nas dunas", base:"Genipabu", nota:"Tabelado, 'com ou sem emoção'; combine cedo, depende da maré.", lat:-5.6986, lng:-35.1869},
+      {n:"Acesso ao Gostoso", base:"São Miguel do Gostoso", nota:"≈3 h de Natal por estrada; vá de dia.", lat:-5.1228, lng:-35.6386},
     ],
     comer:[
       {n:"Ginga com tapioca", base:"Natal", nota:"Petisco potiguar de peixe frito na tapioca, na orla."},
@@ -2191,7 +2191,7 @@
       {n:"Temporada de kitesurf", base:"São Miguel do Gostoso", nota:"Jul–jan; vento constante e campeonatos na vila."},
     ],
     encontros:[
-      {n:"Encontros de campismo no litoral potiguar", base:"Pipa/Natal", nota:"Confraternizações de motorhome/trailer na costa do RN; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo no litoral potiguar", base:"Pipa/Natal", nota:"Confraternizações de motorhome/trailer na costa do RN; agenda no MaCamp e ANACAMP.", lat:-6.2289, lng:-35.0428},
     ],
   },
 
@@ -2214,12 +2214,12 @@
       {n:"Projeto Peixe-Boi", base:"Porto de Pedras", nota:"Centro de visitação dos peixes-boi marinhos, na Rota Ecológica."},
     ],
     campings:[
-      {n:"Campings em Maragogi", base:"Maragogi", nota:"Hospedagem econômica perto das galés."},
-      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila."},
+      {n:"Campings em Maragogi", base:"Maragogi", nota:"Hospedagem econômica perto das galés.", lat:-9.0122, lng:-35.2225},
+      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila.", lat:-8.5089, lng:-35.0036},
     ],
     pernoite:[
-      {n:"Catamarã às galés", base:"Maragogi", nota:"Só na maré baixa; reserve pelo horário da maré."},
-      {n:"Jangadas às piscinas", base:"Porto de Galinhas", nota:"Saem da praia central conforme a maré; tabeladas."},
+      {n:"Catamarã às galés", base:"Maragogi", nota:"Só na maré baixa; reserve pelo horário da maré.", lat:-9.0122, lng:-35.2225},
+      {n:"Jangadas às piscinas", base:"Porto de Galinhas", nota:"Saem da praia central conforme a maré; tabeladas.", lat:-8.5089, lng:-35.0036},
     ],
     comer:[
       {n:"Sururu & caldos", base:"Maceió", nota:"Sururu de Capote e frutos do mar na orla da Pajuçara."},
@@ -2236,7 +2236,7 @@
       {n:"Festival Gastronômico", base:"Porto de Galinhas", nota:"Pratos de frutos do mar e cultura praieira na vila."},
     ],
     encontros:[
-      {n:"Encontros de campismo na Costa dos Corais", base:"Maragogi/Maceió", nota:"Confraternizações de motorhome/trailer no litoral AL/PE; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo na Costa dos Corais", base:"Maragogi/Maceió", nota:"Confraternizações de motorhome/trailer no litoral AL/PE; agenda no MaCamp e ANACAMP.", lat:-9.6498, lng:-35.7089},
     ],
   },
 
@@ -2261,12 +2261,12 @@
       {n:"Praia de Calhetas", base:"Cabo de Santo Agostinho", nota:"Enseada de mata e mar calmo entre falésias."},
     ],
     campings:[
-      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila."},
-      {n:"Campings no Cabo", base:"Cabo de Santo Agostinho", nota:"Hospedagem econômica perto de Gaibu e Calhetas."},
+      {n:"Áreas em Porto de Galinhas", base:"Ipojuca", nota:"Pousadas e estrutura simples próximas à vila.", lat:-8.5089, lng:-35.0036},
+      {n:"Campings no Cabo", base:"Cabo de Santo Agostinho", nota:"Hospedagem econômica perto de Gaibu e Calhetas.", lat:-8.29, lng:-34.9633},
     ],
     pernoite:[
-      {n:"Jangadas às piscinas", base:"Porto de Galinhas", nota:"Saem da praia central conforme a maré; tabeladas."},
-      {n:"Banho sinalizado no Recife", base:"Recife", nota:"Respeite os pontos de banho; há risco de tubarão em Boa Viagem."},
+      {n:"Jangadas às piscinas", base:"Porto de Galinhas", nota:"Saem da praia central conforme a maré; tabeladas.", lat:-8.5089, lng:-35.0036},
+      {n:"Banho sinalizado no Recife", base:"Recife", nota:"Respeite os pontos de banho; há risco de tubarão em Boa Viagem.", lat:-8.0631, lng:-34.8711},
     ],
     comer:[
       {n:"Caranguejo & agulha frita", base:"Recife", nota:"Bares do Recife Antigo e da orla; bolo de rolo de sobremesa."},
@@ -2284,7 +2284,7 @@
       {n:"Festa de Iemanjá & verão", base:"Porto de Galinhas", nota:"Set–mar; auge da temporada nas piscinas naturais."},
     ],
     encontros:[
-      {n:"Encontros de campismo no litoral pernambucano", base:"Porto de Galinhas", nota:"Confraternizações de motorhome/trailer na costa de PE; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo no litoral pernambucano", base:"Porto de Galinhas", nota:"Confraternizações de motorhome/trailer na costa de PE; agenda no MaCamp e ANACAMP.", lat:-8.5089, lng:-35.0036},
     ],
   },
 
@@ -2309,12 +2309,12 @@
       {n:"Falésias de Coqueirinho", base:"Conde", nota:"Grutas, mirantes e piscinas naturais entre as falésias."},
     ],
     campings:[
-      {n:"Campings no litoral sul", base:"Conde", nota:"Áreas perto de Coqueirinho e Tabatinga."},
-      {n:"Áreas na Baía da Traição", base:"Baía da Traição", nota:"Hospedagem simples nas praias remotas do norte."},
+      {n:"Campings no litoral sul", base:"Conde", nota:"Áreas perto de Coqueirinho e Tabatinga.", lat:-7.3247, lng:-34.7989},
+      {n:"Áreas na Baía da Traição", base:"Baía da Traição", nota:"Hospedagem simples nas praias remotas do norte.", lat:-6.6892, lng:-34.9342},
     ],
     pernoite:[
-      {n:"Catamarã à Areia Vermelha", base:"Cabedelo", nota:"Só na maré baixa; reserve pelo horário da maré."},
-      {n:"Barcos do pôr do sol do Jacaré", base:"Cabedelo", nota:"Saídas ao entardecer; chegue cedo para garantir lugar."},
+      {n:"Catamarã à Areia Vermelha", base:"Cabedelo", nota:"Só na maré baixa; reserve pelo horário da maré.", lat:-7.0381, lng:-34.8497},
+      {n:"Barcos do pôr do sol do Jacaré", base:"Cabedelo", nota:"Saídas ao entardecer; chegue cedo para garantir lugar.", lat:-7.0381, lng:-34.8497},
     ],
     comer:[
       {n:"Frutos do mar em Tambaú", base:"João Pessoa", nota:"Peixe, camarão e a tapioca paraibana na orla."},
@@ -2331,7 +2331,7 @@
       {n:"Festa das Neves", base:"João Pessoa", nota:"Ago; padroeira da cidade, com programação cultural e shows."},
     ],
     encontros:[
-      {n:"Encontros de campismo no litoral paraibano", base:"João Pessoa", nota:"Confraternizações de motorhome/trailer na costa da PB; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros de campismo no litoral paraibano", base:"João Pessoa", nota:"Confraternizações de motorhome/trailer na costa da PB; agenda no MaCamp e ANACAMP.", lat:-7.1195, lng:-34.845},
     ],
   },
 
