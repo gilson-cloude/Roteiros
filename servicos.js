@@ -375,6 +375,7 @@
       {n:"Campings de Urubici", base:"Urubici", nota:"Vários na base da serra; frio intenso à noite."},
       {n:"Camping Vale da Geada", base:"Urubici", nota:"Estrutura para o frio serrano; perto dos atrativos."},
       {n:"Camping no topo do Rio do Rastro", base:"Bom Jardim da Serra", nota:"Vista dos cânions; preparado para frio."},
+      {n:"Camping da Cascata do Avencal", base:"Urubici", nota:"Área de barracas e apoio a motorhome junto ao parque."},
     ],
     pernoite:[
       {n:"Postos da BR-282 / SC-390", base:"Bom Jardim da Serra", nota:"Apoio antes/depois da Serra do Rio do Rastro."},
@@ -389,6 +390,10 @@
       {n:"Festa Nacional da Maçã", base:"São Joaquim", nota:"Capital nacional da maçã (IG); shows, feira de produtos serranos e gastronomia."},
       {n:"Festa Nacional do Pinhão", base:"Lages (região)", nota:"Maio–jun; cultura serrana, araucária e pinhão assado."},
       {n:"Festival de Inverno", base:"Urubici", nota:"Inverno; gastronomia da serra, vinhos de altitude e astroturismo nas noites frias."},
+    ],
+    encontros:[
+      {n:"Encontros de inverno em Urubici", base:"Urubici", nota:"Confraternizações de motorhome/trailer na temporada de geada; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros do grupo Rodamundo SC", base:"Serra Catarinense", nota:"Saídas do tradicional grupo catarinense de caravanismo."},
     ],
   },
   "sc-litoral": {
@@ -418,8 +423,11 @@
       {n:"Igreja Matriz São Joaquim", base:"Garopaba", nota:"No centro histórico; mirante da praia central do alto."},
     ],
     campings:[
-      {n:"Campings da Praia do Rosa", base:"Praia do Rosa", nota:"Áreas perto da enseada; alta no verão."},
-      {n:"Camping em Bombinhas", base:"Bombinhas", nota:"Próximo às praias; reserve no verão."},
+      {n:"Camping Praia do Rosa", base:"Praia do Rosa", nota:"Áreas perto da enseada; lota na alta de verão."},
+      {n:"Camping Paraíso Tropical", base:"Bombinhas", nota:"Próximo às praias; estrutura para barraca e motorhome."},
+      {n:"Camping Guarda do Embaú", base:"Guarda do Embaú", nota:"Junto à vila de surf; deixe o carro e cruze de barco."},
+      {n:"Campings da Lagoa da Conceição", base:"Florianópolis", nota:"Áreas na Ilha próximas à Lagoa e às praias do leste."},
+      {n:"Camping Ferrugem", base:"Garopaba", nota:"Próximo à Praia da Ferrugem; muito procurado no verão."},
     ],
     pernoite:[
       {n:"Postos da BR-101", base:"Palhoça/Garopaba", nota:"Grandes pátios; comum para pernoite na costa."},
@@ -437,6 +445,10 @@
       {n:"Réveillon Virada Mágica", base:"Praia do Rosa", nota:"Virada do ano com música eletrônica na praia."},
       {n:"Bike Marathon", base:"Praia do Rosa", nota:"Outubro; tradicional prova de mountain bike."},
       {n:"Temporada de baleias", base:"Imbituba/Garopaba", nota:"Jun–nov; baleias-franca vistas da costa e de barco."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo no litoral SC", base:"Garopaba/Imbituba", nota:"Confraternizações de motorhome/trailer na costa; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Litoral catarinense", nota:"Encontros espontâneos de caravanismo nas praias de SC."},
     ],
   },
   "sc-vale-europeu": {
@@ -462,8 +474,10 @@
       {n:"Santuário de Santa Paulina", base:"Nova Trento", nota:"Romaria à 1ª santa brasileira; vale do Vigolo.", lat:-27.2861, lng:-48.93},
     ],
     campings:[
-      {n:"Campings rurais do vale", base:"Timbó/Indaial", nota:"Áreas à beira do rio Itajaí; ciclovias."},
-      {n:"Camping em Treze Tílias", base:"Treze Tílias", nota:"Clima alpino; reserve fora do veículo no frio."},
+      {n:"Camping Rio da Prata", base:"Timbó", nota:"À beira do rio Itajaí; ciclovias e clima de vale."},
+      {n:"Camping Pomerode", base:"Pomerode", nota:"Base alemã do vale; recebe motorhomes e trailers."},
+      {n:"Camping em Treze Tílias", base:"Treze Tílias", nota:"Clima alpino; muito frio à noite no inverno."},
+      {n:"Campings de Botuverá", base:"Botuverá", nota:"Apoio rural perto das cavernas; sossego e natureza."},
     ],
     pernoite:[
       {n:"Postos da BR-470", base:"Blumenau/Indaial", nota:"Pátios de apoio no vale do Itajaí."},
@@ -483,6 +497,11 @@
       {n:"Festa Nacional do Marreco (Fenarreco)", base:"Brusque", nota:"Out; o marreco recheado com repolho roxo e chope, prato germânico símbolo do vale."},
       {n:"Tirolerfest", base:"Treze Tílias", nota:"Out; herança austríaca-tirolesa, danças folclóricas e gastronomia alpina."},
       {n:"Festa do Porco no Rolete", base:"Oeste catarinense", nota:"Tradição colonial de assar o porco inteiro no rolete (ex.: Modelo, a 'capital catarinense'); festas pela região."},
+    ],
+    encontros:[
+      {n:"Encontro de RVs de Pomerode", base:"Pomerode", nota:"A vila já reuniu 440 motorhomes/trailers e presidentes de 4 grupos de campismo; polo de caravanismo do vale."},
+      {n:"Encontros do grupo Rodamundo SC", base:"Vale Europeu", nota:"Saídas e confraternizações do tradicional grupo catarinense de caravanismo."},
+      {n:"Expo Motorhome (a ~2 h)", base:"Pinhais (PR)", nota:"Maior feira de campismo e caravanismo da América Latina, em novembro, com camping próprio para 800 veículos."},
     ],
   },
 
@@ -514,8 +533,11 @@
       {n:"Santuário de Caravaggio", base:"Farroupilha", nota:"Centro de romaria da imigração italiana."},
     ],
     campings:[
-      {n:"Camping em Canela", base:"Canela", nota:"Áreas perto do Caracol; frio no inverno."},
-      {n:"Campings do Vale dos Vinhedos", base:"Bento Gonçalves", nota:"Pousadas-camping entre parreirais."},
+      {n:"Camping Bangalôs da Serra", base:"Gramado", nota:"Glamping e área de motorhome com estrutura na RS-235."},
+      {n:"Camping & Pousada Vale dos Vinhedos", base:"Bento Gonçalves", nota:"Pousadas-camping entre parreirais; bom apoio a trailers."},
+      {n:"Camping do Caracol", base:"Canela", nota:"Áreas perto do Parque do Caracol; muito frio no inverno."},
+      {n:"Camping Municipal de Nova Petrópolis", base:"Nova Petrópolis", nota:"Camping tradicional da serra, arborizado e econômico."},
+      {n:"Recanto do Caravanismo (pontos de apoio)", base:"Bento Gonçalves", nota:"Pátios e vinícolas que recebem motorhomes; consulte MaCamp/ANACAMP."},
     ],
     pernoite:[
       {n:"Postos da RS-122 / BR-116", base:"Caxias do Sul", nota:"Grandes pátios na subida da serra."},
@@ -534,6 +556,11 @@
       {n:"Natal Luz de Gramado", base:"Gramado", nota:"Nov–jan; um dos maiores eventos natalinos do país."},
       {n:"Festa da Uva", base:"Caxias do Sul", nota:"Fev/mar (bienal); imigração italiana e o vinho."},
       {n:"Festa das Colônias", base:"Nova Petrópolis", nota:"Cultura e gastronomia alemãs."},
+    ],
+    encontros:[
+      {n:"Encontros do grupo Ranchomóvel RS", base:"Serra Gaúcha", nota:"Confraternizações do tradicional grupo gaúcho de caravanismo; agenda na ANACAMP/redes."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Serra Gaúcha", nota:"Encontros espontâneos de motorhome/trailer pela serra; calendário no MaCamp e ANACAMP."},
+      {n:"Expo Motorhome (referência regional)", base:"Pinhais (PR)", nota:"Maior feira de campismo e caravanismo da América Latina, em novembro; nasceu em Novo Hamburgo (RS)."},
     ],
   },
   "rs-canions-serra-geral": {
@@ -559,8 +586,10 @@
       {n:"Cascata do Tigre Preto", base:"Cambará do Sul", nota:"Queda de 350 m vista do interior do cânion Fortaleza."},
     ],
     campings:[
-      {n:"Campings de Cambará do Sul", base:"Cambará do Sul", nota:"Base dos parques; frio e geada no inverno."},
-      {n:"Camping em São José dos Ausentes", base:"São José dos Ausentes", nota:"Campos de cima da serra; o RS mais alto."},
+      {n:"Camping Pousada Fazenda Pindorama", base:"Cambará do Sul", nota:"Ampla área de barracas e motorhome; base clássica dos cânions."},
+      {n:"Camping Recanto das Corucacas", base:"Cambará do Sul", nota:"Entre araucárias e lago; muito frio e geada no inverno."},
+      {n:"Camping Pousada Aparados da Serra", base:"São José dos Ausentes", nota:"A ~2 km do Cânion Monte Negro; campos de cima da serra."},
+      {n:"Áreas de camping em Praia Grande (SC)", base:"Praia Grande", nota:"Ao pé dos cânions; base da trilha do Rio do Boi."},
     ],
     pernoite:[
       {n:"Postos da RS-020 / RS-110", base:"Cambará do Sul", nota:"Apoio limitado; abasteça na cidade."},
@@ -575,6 +604,10 @@
     eventos:[
       {n:"Festa Nacional do Pinhão", base:"Lages (região)", nota:"Maio–jun; cultura serrana, araucária e pinhão."},
       {n:"Cavalgadas e rodeios campeiros", base:"São José dos Ausentes", nota:"Tradição gauchesca dos Campos de Cima da Serra."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo nos cânions", base:"Cambará do Sul", nota:"Confraternizações de motorhome/trailer nas pousadas-camping; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Campos de Cima da Serra", nota:"Encontros espontâneos de caravanismo na região serrana RS/SC."},
     ],
   },
 

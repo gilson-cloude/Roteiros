@@ -278,7 +278,8 @@
     campings:{label:'Camping', cor:'#0EA5C0'},
     pernoite:{label:'Pernoite', cor:'#B45309'}, comer:{label:'Comer', cor:'#DC2626'},
     museus:{label:'Museu', cor:'#0D9488'},
-    eventos:{label:'Evento', cor:'#9333EA'}
+    eventos:{label:'Evento', cor:'#9333EA'},
+    encontros:{label:'Encontro MH', cor:'#4F46E5'}
   };
   function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
   function svcForWp(p){
@@ -603,9 +604,10 @@
     pernoite:'<path d="M3 17V8h10v9M13 11h4l3 3v3M7 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0z"/>',
     comer:'<path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/>',
     museus:'<path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6z"/>',
-    eventos:'<path d="M4 8h16M4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M9 2v4M15 2v4"/>'
+    eventos:'<path d="M4 8h16M4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M9 2v4M15 2v4"/>',
+    encontros:'<path d="M3 17V9a1 1 0 0 1 1-1h10v9M14 12h4l2 3v2M6 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0M2 20h20"/>'
   };
-  const SVC_OFFS = {atracoes:0, parques:1, campings:2, pernoite:3, comer:4, museus:5, eventos:6, igrejas:7};
+  const SVC_OFFS = {atracoes:0, parques:1, campings:2, pernoite:3, comer:4, museus:5, eventos:6, igrejas:7, encontros:8};
   function svcLatLng(it,k,i){
     if(typeof it.lat==='number' && typeof it.lng==='number') return [it.lat,it.lng];
     const b=norm(it.base);
