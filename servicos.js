@@ -756,6 +756,8 @@
     campings:[
       {n:"Camping de Santa Teresa", base:"Parque Santa Teresa", nota:"Enorme camping estatal entre a mata e o mar."},
       {n:"Campings de Punta del Diablo", base:"Punta del Diablo", nota:"Vários na vila; alta no verão."},
+      {n:"Camping Punta del Diablo", base:"Punta del Diablo", nota:"Vila de pescadores; campings junto às praias."},
+      {n:"Camping La Pedrera / Cabo Polonio", base:"Rocha", nota:"Acampamentos rústicos no litoral selvagem de Rocha."},
     ],
     pernoite:[
       {n:"Postos ANCAP de rota (R9/R10)", base:"Costa UY", nota:"Pátios 24h; combustível mais caro que no BR."},
@@ -1169,6 +1171,8 @@
     campings:[
       {n:"Hospedagens de Aguas Calientes", base:"Aguas Calientes", nota:"Base ao pé de Machu Picchu; reserve cedo."},
       {n:"Pousadas do Vale Sagrado", base:"Ollantaytambo", nota:"Boa base para o trem e as ruínas, mais barato que Cusco."},
+      {n:"Camping em Ollantaytambo", base:"Ollantaytambo", nota:"Vale Sagrado; base para Machu Picchu de trem."},
+      {n:"Quinta Lala", base:"Cusco", nota:"Camping clássico de overlanders no alto de Cusco."},
     ],
     pernoite:[
       {n:"Trem a Machu Picchu", base:"Ollantaytambo", nota:"Sem estrada à cidadela; só de trem + ônibus de subida."},
@@ -1300,6 +1304,8 @@
     campings:[
       {n:"Acampamentos de trekking", base:"Huascarán", nota:"Santa Cruz e outras trilhas; só com guia/arriero."},
       {n:"Campings de Caraz", base:"Caraz", nota:"Base tranquila do Callejón de Huaylas."},
+      {n:"Camping em Huaraz", base:"Huaraz", nota:"Áreas e hospedagens com pátio; base de aclimatação."},
+      {n:"Camping Llanganuco", base:"Yungay", nota:"Acampamento de altitude junto às lagoas, no PN Huascarán."},
     ],
     pernoite:[
       {n:"Base de aclimatação", base:"Huaraz", nota:"Suba devagar; faça trilhas curtas antes da Laguna 69."},
@@ -1394,6 +1400,8 @@
     campings:[
       {n:"Campings de San Pedro", base:"San Pedro de Atacama", nota:"Base dos passeios; noites frias e secas."},
       {n:"Áreas em Calama", base:"Calama", nota:"Apoio na entrada do deserto; estrutura urbana."},
+      {n:"Camping Los Abuelos", base:"San Pedro de Atacama", nota:"Camping consagrado na vila; base dos passeios do deserto."},
+      {n:"Camping Mistico", base:"San Pedro de Atacama", nota:"Estrutura para barraca e motorhome em San Pedro."},
     ],
     pernoite:[
       {n:"Postos de Calama / R23", base:"Calama", nota:"Último apoio robusto antes de San Pedro."},
@@ -1694,6 +1702,8 @@
     campings:[
       {n:"Camping de Uspallata", base:"Uspallata", nota:"Base de montanha na RN7; frio à noite."},
       {n:"Campings do Potrerillos", base:"Potrerillos", nota:"À beira do dique, entre Mendoza e a cordilheira."},
+      {n:"Camping Suizo", base:"El Challao (Mendoza)", nota:"Arborizado e tradicional, nos arredores da capital do vinho."},
+      {n:"Camping ACA Uspallata", base:"Uspallata", nota:"Apoio na alta montanha a caminho do Aconcágua."},
     ],
     pernoite:[
       {n:"Postos da RN7", base:"Mendoza/Uspallata", nota:"Apoio na estrada internacional ao Chile."},
@@ -1736,6 +1746,8 @@
     campings:[
       {n:"Campings do Cajón del Maipo", base:"San José de Maipo", nota:"Áreas de montanha junto ao rio Maipo."},
       {n:"Litoral central", base:"Viña del Mar", nota:"Opções costeiras; vento e frio matinal."},
+      {n:"Campings do Cajón del Maipo", base:"San José de Maipo", nota:"Áreas à beira do rio Maipo, na montanha perto de Santiago."},
+      {n:"Camping en Valparaíso/Con Cón", base:"Concón", nota:"Apoio litorâneo perto de Valparaíso e Viña del Mar."},
     ],
     pernoite:[
       {n:"Autopistas centrais", base:"Santiago", nota:"Boa malha viária; postos completos no vale central."},
@@ -1791,6 +1803,9 @@
     campings:[
       {n:"Camping Poincenot", base:"El Chaltén", nota:"Acampamento livre na base do Fitz Roy."},
       {n:"Campings de El Calafate", base:"El Calafate", nota:"Áreas urbanas; vento forte da estepe."},
+      {n:"Camping El Relincho", base:"El Chaltén", nota:"Camping tradicional na vila, base do trekking ao Fitz Roy."},
+      {n:"Camping AICA / Municipal", base:"El Calafate", nota:"Áreas para barraca e motorhome perto do centro."},
+      {n:"La Pista del Andino", base:"Ushuaia", nota:"Camping com vista da baía; clássico de overlanders no fim do mundo."},
     ],
     pernoite:[
       {n:"Ruta 40 / Ruta 3", base:"Patagônia", nota:"Distâncias enormes; abasteça em toda cidade."},
