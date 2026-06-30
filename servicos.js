@@ -132,6 +132,10 @@
       {n:"Camping no Vale do Paraopeba", base:"Ouro Preto/Lavras Novas", nota:"Pousadas-camping em Lavras Novas."},
       {n:"Camping em Milho Verde", base:"Milho Verde", nota:"Vila serrana; campings simples e cachoeiras."},
     ],
+    encontros:[
+      {n:"Encontros de motorhome na Estrada Real", base:"Tiradentes/Ouro Preto", nota:"Confraternizações de caravanismo nas cidades históricas; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Minas Gerais", nota:"Encontros espontâneos de motorhome/trailer pelo circuito mineiro."},
+    ],
     pernoite:[
       {n:"Postos da BR-040 (caminhoneiros)", base:"Congonhas/Conselheiro Lafaiete", nota:"Pátios amplos para pernoite a caminho."},
       {n:"Estacionamentos de centro histórico", base:"Ouro Preto", nota:"Deixe a van e ande a pé; ruas são de pedra."},
@@ -193,6 +197,9 @@
       {n:"Festas Juninas ribeirinhas", base:"Pirapora/Januária", nota:"Junho; quadrilhas e cultura do São Francisco."},
       {n:"Vaporzão (Festa do Vapor)", base:"Pirapora", nota:"Celebra o histórico barco a vapor e o rio."},
     ],
+    encontros:[
+      {n:"Encontros ribeirinhos de campismo", base:"Pirapora/Januária", nota:"Confraternizações de motorhome às margens do São Francisco; agenda no MaCamp e ANACAMP."},
+    ],
   },
   "minas-mantiqueira": {
     atracoes:[
@@ -217,6 +224,10 @@
     campings:[
       {n:"Campings do Vale do Matutu", base:"Aiuruoca", nota:"Beira de rio e trilhas; frio forte à noite."},
       {n:"Camping em Gonçalves", base:"Gonçalves", nota:"Sítios e campings rurais na crista da serra."},
+    ],
+    encontros:[
+      {n:"Encontros de inverno na Mantiqueira", base:"Monte Verde/Gonçalves", nota:"Confraternizações de motorhome/trailer na serra; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Sul de Minas", nota:"Encontros espontâneos de caravanismo nas montanhas mineiras."},
     ],
     pernoite:[
       {n:"Postos da BR-354 / Rod. Fernão Dias", base:"Itanhandu/Itajubá", nota:"Pátios na chegada à serra."},
@@ -267,6 +278,9 @@
     eventos:[
       {n:"Encontros de Música & Misticismo", base:"São Thomé das Letras", nota:"Festivais alternativos na 'cidade mística' de Minas."},
     ],
+    encontros:[
+      {n:"Encontros de campismo no Circuito das Águas", base:"São Lourenço/Caxambu", nota:"Confraternizações de motorhome nas estâncias hidrominerais; agenda no MaCamp e ANACAMP."},
+    ],
   },
   "minas-serra-cipo": {
     atracoes:[
@@ -307,6 +321,9 @@
       {n:"Travessia Lapinha–Tabuleiro", base:"Lapinha da Serra", nota:"Trekking clássico de 2–3 dias à maior queda de Minas (só c/ guia)."},
       {n:"Festa de N. Sra. da Conceição", base:"Conceição do Mato Dentro", nota:"Dez; padroeira e cultura da cidade histórica."},
     ],
+    encontros:[
+      {n:"Encontros de campismo na Serra do Cipó", base:"Cardeal Mota (Serra do Cipó)", nota:"Confraternizações de motorhome/trailer na região do PARNA; agenda no MaCamp e ANACAMP."},
+    ],
   },
   "minas-canastra": {
     atracoes:[
@@ -346,6 +363,9 @@
     eventos:[
       {n:"Festival de Balão da Canastra", base:"São Roque de Minas", nota:"Balões sobre o chapadão; queijos e cultura rural."},
       {n:"Concurso do Queijo Canastra", base:"região da Canastra", nota:"Premiação do queijo artesanal (Emater); rota das queijarias."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo na Canastra", base:"São Roque de Minas", nota:"Confraternizações de motorhome na nascente do São Francisco; agenda no MaCamp e ANACAMP."},
     ],
   },
 
@@ -655,6 +675,9 @@
       {n:"Festival de Música e Arte de Igatu", base:"Igatu", nota:"Ago–set; música brasileira e oficinas, programação gratuita."},
       {n:"Festivais de Reggae e Blues", base:"Vale do Capão", nota:"Eventos anuais de música na vila alternativa."},
     ],
+    encontros:[
+      {n:"Encontros de campismo na Chapada", base:"Lençóis", nota:"Confraternizações de motorhome/trailer e overlanders na chapada; agenda no MaCamp e ANACAMP."},
+    ],
   },
   "go-chapada-veadeiros": {
     atracoes:[
@@ -692,6 +715,10 @@
     ],
     eventos:[
       {n:"Encontro de Culturas Tradicionais", base:"São Jorge", nota:"Julho; um dos maiores festivais culturais do cerrado."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo nos Veadeiros", base:"Alto Paraíso de Goiás", nota:"Confraternizações de motorhome e overlanders no cerrado; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Chapada dos Veadeiros", nota:"Encontros espontâneos de caravanismo na região."},
     ],
   },
 
@@ -826,6 +853,9 @@
       {n:"Porto Jofre Pantanal (camping)", base:"Porto Jofre", nota:"Camping no fim da Transpantaneira; base dos safáris de onça."},
       {n:"Pousada Piuval", base:"Poconé", nota:"Lodge no km 10, com focagem, cavalgada e safari fotográfico."},
     ],
+    encontros:[
+      {n:"Encontros de campismo em Chapada dos Guimarães", base:"Chapada dos Guimarães", nota:"Confraternizações de motorhome/trailer perto de Cuiabá; agenda no MaCamp e ANACAMP."},
+    ],
     pernoite:[
       {n:"Postos de Poconé", base:"Poconé", nota:"Último apoio com estrutura antes da Transpantaneira."},
       {n:"Áreas da Transpantaneira (MT-060)", base:"Transpantaneira", nota:"Pontes de madeira; dirija devagar, leve repelente."},
@@ -884,6 +914,10 @@
       {n:"Festival da Pesca", base:"Bonito", nota:"Março/abril; tradição ribeirinha no Rio Formoso."},
       {n:"Festa da Linguiça de Maracaju", base:"Maracaju", nota:"Abr–mai; a maior festa gastronômica de MS — linguiça artesanal (IG, com laranja azeda), no caminho a Bonito."},
     ],
+    encontros:[
+      {n:"Encontros de campismo em Bonito", base:"Bonito", nota:"Confraternizações de motorhome/trailer na capital do ecoturismo; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Mato Grosso do Sul", nota:"Encontros espontâneos de caravanismo na rota Bonito–Pantanal."},
+    ],
   },
 
   /* ===================== INTERIOR DE SP ===================== */
@@ -924,6 +958,10 @@
     eventos:[
       {n:"Expoflora", base:"Holambra", nota:"Set–out; a maior feira de flores da América Latina."},
       {n:"Paixão de Cristo & Auto de Natal", base:"Serra Negra", nota:"Encenações em feriados; programação cultural o ano todo."},
+    ],
+    encontros:[
+      {n:"Encontros do grupo Pé na Estrada (SP)", base:"Circuito das Águas Paulista", nota:"Saídas do tradicional grupo paulista de caravanismo; agenda na ANACAMP."},
+      {n:"Encontros VQQ 'Vai Quem Quer'", base:"Interior de SP", nota:"Encontros espontâneos de motorhome/trailer no circuito das águas e flores."},
     ],
   },
   "sp-campos-jordao": {
@@ -970,6 +1008,10 @@
       {n:"Festival de Inverno", base:"Campos do Jordão", nota:"Julho; o maior festival de música clássica da América Latina."},
       {n:"Sabores da Montanha", base:"Campos do Jordão", nota:"Inverno; maior festival gastronômico da Mantiqueira."},
       {n:"Páscoa Encantada", base:"Campos do Jordão", nota:"Fev–abr; ovos cenográficos, música e arte pela cidade."},
+    ],
+    encontros:[
+      {n:"Encontros de inverno em Campos do Jordão", base:"Campos do Jordão", nota:"Confraternizações de motorhome/trailer na serra paulista; agenda no MaCamp e ANACAMP."},
+      {n:"Encontros do grupo Pé na Estrada (SP)", base:"Mantiqueira paulista", nota:"Saídas do tradicional grupo paulista de caravanismo."},
     ],
   },
 
@@ -1993,6 +2035,9 @@
       {n:"Bumba meu boi", base:"São Luís", nota:"Jun; maior festa popular do Maranhão (Patrimônio)."},
       {n:"Jeri Jazz & festas de vento", base:"Jericoacoara", nota:"Eventos de música e kitesurf na alta estação."},
     ],
+    encontros:[
+      {n:"Encontros de overlanders e motorhome", base:"Jericoacoara/Barreirinhas", nota:"Confraternizações de caravanismo na Rota das Emoções; agenda no MaCamp e ANACAMP."},
+    ],
   },
   "ba-costa-descobrimento": {
     atracoes:[
@@ -2035,6 +2080,9 @@
     eventos:[
       {n:"Réveillon de Trancoso", base:"Trancoso", nota:"Dez–jan; auge da temporada no Quadrado."},
       {n:"Festas juninas & do descobrimento", base:"Porto Seguro", nota:"Cultura local e festejos no centro histórico."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo na Costa do Descobrimento", base:"Porto Seguro", nota:"Confraternizações de motorhome/trailer no litoral sul baiano; agenda no MaCamp e ANACAMP."},
     ],
   },
 
@@ -2080,6 +2128,9 @@
       {n:"Festival de kitesurf", base:"Cumbuco / Icaraí", nota:"Jul–dez; temporada de vento forte na costa oeste."},
       {n:"Festa de Iemanjá", base:"Fortaleza", nota:"15 de agosto; oferendas no mar na Praia do Futuro."},
     ],
+    encontros:[
+      {n:"Encontros de campismo no litoral cearense", base:"Canoa Quebrada/Cumbuco", nota:"Confraternizações de motorhome e kitesurfistas na costa; agenda no MaCamp e ANACAMP."},
+    ],
   },
 
   "rn-litoral": {
@@ -2124,6 +2175,9 @@
       {n:"Festa de Sant'Ana", base:"Caicó (interior)", nota:"Jul; uma das maiores festas religiosas do RN."},
       {n:"Temporada de kitesurf", base:"São Miguel do Gostoso", nota:"Jul–jan; vento constante e campeonatos na vila."},
     ],
+    encontros:[
+      {n:"Encontros de campismo no litoral potiguar", base:"Pipa/Natal", nota:"Confraternizações de motorhome/trailer na costa do RN; agenda no MaCamp e ANACAMP."},
+    ],
   },
 
   "al-costa-corais": {
@@ -2165,6 +2219,9 @@
       {n:"Réveillon & verão de Maceió", base:"Maceió", nota:"Set–mar; auge da temporada nas praias alagoanas."},
       {n:"Festa de São Benedito", base:"Tamandaré", nota:"Procissão religiosa ligada à capelinha dos Carneiros."},
       {n:"Festival Gastronômico", base:"Porto de Galinhas", nota:"Pratos de frutos do mar e cultura praieira na vila."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo na Costa dos Corais", base:"Maragogi/Maceió", nota:"Confraternizações de motorhome/trailer no litoral AL/PE; agenda no MaCamp e ANACAMP."},
     ],
   },
 
@@ -2211,6 +2268,9 @@
       {n:"São João", base:"Recife", nota:"Jun; forró e quadrilhas no ciclo junino pernambucano."},
       {n:"Festa de Iemanjá & verão", base:"Porto de Galinhas", nota:"Set–mar; auge da temporada nas piscinas naturais."},
     ],
+    encontros:[
+      {n:"Encontros de campismo no litoral pernambucano", base:"Porto de Galinhas", nota:"Confraternizações de motorhome/trailer na costa de PE; agenda no MaCamp e ANACAMP."},
+    ],
   },
 
   "pb-litoral": {
@@ -2254,6 +2314,9 @@
       {n:"Réveillon & verão de João Pessoa", base:"João Pessoa", nota:"Set–mar; auge da temporada e festas na orla de Tambaú."},
       {n:"Carnaval & micaratas", base:"João Pessoa", nota:"Folia de rua e o pré-carnaval Muriçocas do Miramar."},
       {n:"Festa das Neves", base:"João Pessoa", nota:"Ago; padroeira da cidade, com programação cultural e shows."},
+    ],
+    encontros:[
+      {n:"Encontros de campismo no litoral paraibano", base:"João Pessoa", nota:"Confraternizações de motorhome/trailer na costa da PB; agenda no MaCamp e ANACAMP."},
     ],
   },
 
