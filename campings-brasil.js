@@ -22,6 +22,11 @@ window.CAMPINGS_BR = [
   { n:"Ilha do Mel (base Pontal do Sul)", uf:"PR", reg:"Sul", tipo:"apoio", lat:-25.5711, lng:-48.3542, nota:"Travessia de barco; campings na ilha, sem carros." },
   { n:"Superagui / Guaraqueçaba", uf:"PR", reg:"Sul", tipo:"parque", lat:-25.4319, lng:-48.2242, nota:"Parque Nacional do litoral paranaense; acesso por barco." },
   { n:"Vila Velha (Ponta Grossa)", uf:"PR", reg:"Sul", tipo:"parque", lat:-25.2406, lng:-49.9975, nota:"Arenitos e formações rochosas; parque estadual com apoio na cidade." },
+  { n:"Camping Fazenda Evaristo (Rio Negrinho)", uf:"SC", reg:"Sul", tipo:"camping", lat:-26.2919, lng:-49.4653, nota:"Apresentado como o maior camping do Brasil (~2 mi de m²); estrutura completa para barraca e motorhome, no planalto norte catarinense. Coord. aproximada." },
+  { n:"Farol de Santa Marta (Laguna)", uf:"SC", reg:"Sul", tipo:"camping", lat:-28.6033, lng:-48.8092, nota:"Maior farol das Américas em alvenaria; costão, praias e campings rústicos." },
+  { n:"Prudentópolis — cachoeiras", uf:"PR", reg:"Sul", tipo:"camping", lat:-25.2131, lng:-50.9772, nota:"Terra das quedas gigantes (Salto São Francisco, 196 m); campings e cânions." },
+  { n:"Marumbi (Morretes)", uf:"PR", reg:"Sul", tipo:"parque", lat:-25.4406, lng:-48.9203, nota:"Serra do Mar paranaense; trilhas de montanha e camping do parque." },
+  { n:"Foz do Iguaçu", uf:"PR", reg:"Sul", tipo:"apoio", lat:-25.5163, lng:-54.5854, nota:"Cataratas do Iguaçu e Itaipu; grande apoio e áreas de RV." },
 
   /* ===================== SUDESTE ===================== */
   { n:"Camping Clube — Ubatuba (Perequê-Açu)", uf:"SP", reg:"Sudeste", tipo:"camping", lat:-23.4108, lng:-45.0733, nota:"Unidade do Camping Clube do Brasil no litoral norte paulista." },
@@ -46,9 +51,20 @@ window.CAMPINGS_BR = [
   { n:"Lapinha da Serra", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-19.2833, lng:-43.6333, nota:"Vila bucólica com lago e Morro da Carapuça; campings simples." },
   { n:"Milho Verde / Serro", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-18.4560, lng:-43.4350, nota:"Vila serrana do Espinhaço; queijo do Serro e cachoeiras." },
   { n:"São Thomé das Letras", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-21.7239, lng:-44.9869, nota:"Cidade de pedra e mística; campings com vista do vale." },
-  { n:"Aiuruoca / Vale do Matutu", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-21.9760, lng:-44.6040, nota:"Pico do Papagaio e cachoeiras; campings à beira de rio." },
+  { n:"Aiuruoca / Vale do Matutu", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-21.9760, lng:-44.6040, nota:"Pico do Papagaio e cachoeiras; campings à beira de rio (ex.: O Panorâmico, Km 10 da estrada do Matutu)." },
+  { n:"Ibitipoca (Conceição do Ibitipoca)", uf:"MG", reg:"Sudeste", tipo:"parque", lat:-21.7086, lng:-43.8917, nota:"Parque Estadual do Ibitipoca; grutas, cachoeiras e a Janela do Céu. Campings na vila do Ibitipoca." },
+  { n:"Carrancas — cachoeiras", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-21.4886, lng:-44.6494, nota:"Complexo da Zilda, Fumaça e poços; muitos campings rurais." },
+  { n:"Gonçalves (Mantiqueira)", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-22.6567, lng:-45.8556, nota:"Refúgio de montanha na Mantiqueira; campings e trilhas." },
+  { n:"Monte Verde (Camanducaia)", uf:"MG", reg:"Sudeste", tipo:"apoio", lat:-22.8636, lng:-46.0364, nota:"Vila alpina de altitude; frio, fondue e trilhas." },
   { n:"Serra da Canastra (São Roque de Minas)", uf:"MG", reg:"Sudeste", tipo:"parque", lat:-20.2467, lng:-46.3667, nota:"Nascente do São Francisco e Casca d'Anta; campings e portaria." },
   { n:"Capitólio / Escarpas de Furnas", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-20.6156, lng:-46.0489, nota:"Cânions do lago de Furnas; campings e passeios de lancha." },
+  { n:"PETAR — Núcleo Santana (Iporanga)", uf:"SP", reg:"Sudeste", tipo:"parque", lat:-24.5253, lng:-48.6903, nota:"Parque das cavernas do Alto Ribeira; campings nos núcleos, grutas e rios." },
+  { n:"Ilha do Cardoso (Cananéia)", uf:"SP", reg:"Sudeste", tipo:"parque", lat:-25.1281, lng:-47.9297, nota:"Ilha preservada no litoral sul; camping no Marujá, acesso por barco." },
+  { n:"São Luiz do Paraitinga", uf:"SP", reg:"Sudeste", tipo:"apoio", lat:-23.2222, lng:-45.3106, nota:"Cidade histórica e cachoeiras; base para o PE da Serra do Mar." },
+  { n:"Praia do Sono (Paraty)", uf:"RJ", reg:"Sudeste", tipo:"camping", lat:-23.3050, lng:-44.5433, nota:"Praia isolada com trilha ou barco; campings pé na areia." },
+  { n:"Itaúnas (Conceição da Barra)", uf:"ES", reg:"Sudeste", tipo:"camping", lat:-18.4200, lng:-39.6939, nota:"Dunas, Parque Estadual e Festival de Forró (jul); vários campings na vila." },
+  { n:"Pedra Azul (Domingos Martins)", uf:"ES", reg:"Sudeste", tipo:"parque", lat:-20.4053, lng:-41.0189, nota:"Monólito de 1.822 m na região serrana capixaba; campings e pousadas." },
+  { n:"Guarapari / Setiba (Paulo César Vinha)", uf:"ES", reg:"Sudeste", tipo:"parque", lat:-20.5889, lng:-40.4131, nota:"Praias e restinga preservada; camping e lagoas no litoral capixaba." },
 
   /* ===================== CENTRO-OESTE ===================== */
   { n:"Chapada dos Veadeiros — Alto Paraíso", uf:"GO", reg:"Centro-Oeste", tipo:"apoio", lat:-14.1330, lng:-47.5100, nota:"Base do cerrado de altitude; cachoeiras e cristais." },
@@ -63,6 +79,8 @@ window.CAMPINGS_BR = [
   { n:"Estrada Parque do Pantanal (Passo do Lontra)", uf:"MS", reg:"Centro-Oeste", tipo:"pernoite", lat:-19.5747, lng:-57.0233, nota:"Pousadas de pantanal com camping; fauna abundante." },
   { n:"Camping Clube — Corumbá", uf:"MS", reg:"Centro-Oeste", tipo:"apoio", lat:-19.0092, lng:-57.6531, nota:"Capital do Pantanal, à beira do rio Paraguai; apoio e passeios." },
   { n:"Alto Paraíso — Vale da Lua", uf:"GO", reg:"Centro-Oeste", tipo:"camping", lat:-14.0997, lng:-47.6892, nota:"Rochas do rio São Miguel; campings próximos (não visitar sob chuva)." },
+  { n:"Brasília — Chapada Imperial", uf:"DF", reg:"Centro-Oeste", tipo:"camping", lat:-15.5333, lng:-48.1500, nota:"Maior reserva particular do DF; cachoeiras e camping a ~50 km do Plano Piloto." },
+  { n:"Camping Clube — Brasília (Lago Paranoá)", uf:"DF", reg:"Centro-Oeste", tipo:"apoio", lat:-15.8000, lng:-47.8256, nota:"Apoio na capital; base para a Chapada dos Veadeiros e Pirenópolis." },
 
   /* ===================== NORDESTE ===================== */
   { n:"Camping Clube — Guarajuba (Camaçari)", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.6539, lng:-38.0117, nota:"Litoral norte baiano; unidade do Camping Clube." },
@@ -85,11 +103,20 @@ window.CAMPINGS_BR = [
   { n:"Porto de Galinhas (Ipojuca)", uf:"PE", reg:"Nordeste", tipo:"apoio", lat:-8.5089, lng:-35.0072, nota:"Piscinas naturais e jangadas; grande apoio turístico." },
   { n:"Praia da Pipa — Chapadão", uf:"RN", reg:"Nordeste", tipo:"pernoite", lat:-6.2333, lng:-35.0389, nota:"Mirante das falésias; áreas de pernoite com vista." },
   { n:"João Pessoa — Praia do Jacaré", uf:"PB", reg:"Nordeste", tipo:"apoio", lat:-7.0472, lng:-34.8503, nota:"Pôr do sol com Bolero de Ravel no rio Paraíba; apoio na capital." },
+  { n:"Serra da Capivara (São Raimundo Nonato)", uf:"PI", reg:"Nordeste", tipo:"parque", lat:-8.8367, lng:-42.5583, nota:"Patrimônio da Humanidade; pinturas rupestres e cânions. Apoio em Coronel José Dias." },
+  { n:"Sete Cidades (Piripiri)", uf:"PI", reg:"Nordeste", tipo:"parque", lat:-4.0961, lng:-41.7089, nota:"Formações rochosas e inscrições; camping do parque nacional." },
+  { n:"Cânion do Xingó (Canindé de São Francisco)", uf:"SE", reg:"Nordeste", tipo:"camping", lat:-9.6217, lng:-37.7897, nota:"Passeios de catamarã pelos paredões do São Francisco; apoio e campings." },
+  { n:"Praia do Saco (Estância)", uf:"SE", reg:"Nordeste", tipo:"camping", lat:-11.3672, lng:-37.4033, nota:"Litoral sul sergipano; dunas, coqueirais e campings." },
 
   /* ===================== NORTE ===================== */
   { n:"Presidente Figueiredo", uf:"AM", reg:"Norte", tipo:"camping", lat:-2.0300, lng:-60.0250, nota:"Terra das cachoeiras, ao norte de Manaus; campings e grutas." },
   { n:"Alter do Chão (Santarém)", uf:"PA", reg:"Norte", tipo:"camping", lat:-2.5072, lng:-54.9469, nota:"'Caribe amazônico'; praias de rio e Ilha do Amor." },
   { n:"Jalapão (Ponte Alta do Tocantins)", uf:"TO", reg:"Norte", tipo:"camping", lat:-10.7561, lng:-47.5361, nota:"Dunas, fervedouros e cachoeiras (acesso 4x4); campings rústicos." },
   { n:"Chapada das Mesas (Carolina)", uf:"MA", reg:"Norte", tipo:"camping", lat:-7.3350, lng:-47.4650, nota:"Cachoeiras e cânions do cerrado maranhense; campings na região." },
+  { n:"Serra do Tepequém (Amajari)", uf:"RR", reg:"Norte", tipo:"camping", lat:3.7614, lng:-61.7189, nota:"Serra de garimpo com cachoeiras e mirantes; campings rústicos em Roraima." },
+  { n:"Boa Vista — base do Tepequém/fronteira", uf:"RR", reg:"Norte", tipo:"apoio", lat:2.8235, lng:-60.6758, nota:"Capital planejada; apoio e ponto de partida para o Tepequém e a fronteira." },
+  { n:"Porto Velho / Flona do Jamari", uf:"RO", reg:"Norte", tipo:"apoio", lat:-8.7619, lng:-63.9039, nota:"Base no rio Madeira; apoio urbano e a Floresta Nacional do Jamari a ~90 km." },
+  { n:"Rio Branco — Parque Chico Mendes", uf:"AC", reg:"Norte", tipo:"apoio", lat:-9.9750, lng:-67.8100, nota:"Capital acreana; apoio e base para a Amazônia ocidental e o Peru." },
+  { n:"Macapá — Marco Zero do Equador", uf:"AP", reg:"Norte", tipo:"apoio", lat:0.0389, lng:-51.0664, nota:"Cidade sobre a linha do Equador; Fortaleza de São José e foz do Amazonas." },
 
 ];
