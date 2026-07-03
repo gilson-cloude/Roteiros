@@ -175,6 +175,7 @@ window.CAMPINGS_BR = [
   { n:"Paracuru / Lagoinha", uf:"CE", reg:"Nordeste", tipo:"camping", lat:-3.4100, lng:-39.0300, nota:"Surfe, kite e coqueirais perto de Fortaleza; campings e a badalada Lagoinha." },
   { n:"Ilha de Itamaracá", uf:"PE", reg:"Nordeste", tipo:"camping", lat:-7.7478, lng:-34.8261, nota:"Forte Orange, peçois-boi e praias calmas; campings na ilha ao norte de Recife." },
   { n:"Piranhas / Cânion do Xingó (AL)", uf:"AL", reg:"Nordeste", tipo:"camping", lat:-9.6244, lng:-37.7561, nota:"Cidade histórica às margens do São Francisco; catamarã pelo cânion e rota do cangao." },
+  { n:"RV Park Gameleira (Coruripe)", uf:"AL", reg:"Nordeste", tipo:"pernoite", lat:-10.1330, lng:-36.1497, nota:"Estrutura para motorhome/RV na praia da Gameleira, litoral sul de Alagoas (Pontal do Coruripe): pernoite, apoio e coqueirais à beira-mar." },
 
   /* ===================== NORTE ===================== */
   { n:"Presidente Figueiredo", uf:"AM", reg:"Norte", tipo:"camping", lat:-2.0300, lng:-60.0250, nota:"Terra das cachoeiras, ao norte de Manaus; campings e grutas." },
