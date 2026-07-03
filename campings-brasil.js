@@ -40,6 +40,10 @@ window.CAMPINGS_BR = [
   { n:"Iraí — termas", uf:"RS", reg:"Sul", tipo:"apoio", lat:-27.1919, lng:-53.2508, nota:"Estância hidromineral no noroeste gaúcho; parque de águas termais e apoio." },
   { n:"Guaratuba", uf:"PR", reg:"Sul", tipo:"apoio", lat:-25.8825, lng:-48.5747, nota:"Baía e praias ao sul do litoral paranaense; apoio e travessia de ferry." },
   { n:"Treze Tílias", uf:"SC", reg:"Sul", tipo:"apoio", lat:-26.9989, lng:-51.4028, nota:"'Tirol brasileiro' no meio-oeste catarinense; apoio, escultura e gastronomia austríaca." },
+  { n:"Antônio Prado / Caminhos de Pedra", uf:"RS", reg:"Sul", tipo:"apoio", lat:-28.8508, lng:-51.2833, nota:"Maior acervo de casas italianas tombadas do Brasil; roteiro rural dos Caminhos de Pedra." },
+  { n:"São Joaquim", uf:"SC", reg:"Sul", tipo:"apoio", lat:-28.2939, lng:-49.9319, nota:"Cidade mais fria do Brasil; maçãs, vinhos de altitude e neve ocasional no inverno." },
+  { n:"Lages / Coxilha Rica", uf:"SC", reg:"Sul", tipo:"camping", lat:-27.8150, lng:-50.3261, nota:"Berço do turismo rural; fazendas históricas, cascatas e céu estrelado no planalto serrano." },
+  { n:"Blumenau", uf:"SC", reg:"Sul", tipo:"apoio", lat:-26.9194, lng:-49.0661, nota:"Vila Germânica, Oktoberfest e cervejarias; apoio central do Vale do Itajaí." },
 
   /* ===================== SUDESTE ===================== */
   { n:"Camping Clube — Ubatuba (Perequê-Açu)", uf:"SP", reg:"Sudeste", tipo:"camping", lat:-23.4108, lng:-45.0733, nota:"Unidade do Camping Clube do Brasil no litoral norte paulista." },
@@ -95,6 +99,12 @@ window.CAMPINGS_BR = [
   { n:"Brumadinho / Inhotim", uf:"MG", reg:"Sudeste", tipo:"apoio", lat:-20.1436, lng:-44.1958, nota:"Maior museu de arte a céu aberto da América Latina; apoio na região metropolitana de BH." },
   { n:"Cabo Frio / Búzios", uf:"RJ", reg:"Sudeste", tipo:"apoio", lat:-22.8894, lng:-42.0286, nota:"Região dos Lagos; praias de areia branca, dunas e apoio completo." },
   { n:"Petrópolis", uf:"RJ", reg:"Sudeste", tipo:"apoio", lat:-22.5050, lng:-43.1786, nota:"Cidade imperial na serra fluminense; base para a Serra dos Órgãos e o Vale do Caí." },
+  { n:"Delfinópolis (Furnas/Canastra)", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-20.3450, lng:-46.8500, nota:"Cânions e grutas no lago de Furnas, borda da Canastra; campings e passeios de barco." },
+  { n:"Itamonte / Serra Fina", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-22.2842, lng:-44.8672, nota:"Base da trilha da Serra Fina e do Vale dos Garcias; campings de montanha na Mantiqueira." },
+  { n:"Alagoa (queijos)", uf:"MG", reg:"Sudeste", tipo:"camping", lat:-22.1650, lng:-44.6408, nota:"Terra do premiado queijo Alagoa; vilarejo de montanha com campings e cachoeiras." },
+  { n:"Alto Caparaó / Pico da Bandeira", uf:"MG", reg:"Sudeste", tipo:"parque", lat:-20.4197, lng:-41.8622, nota:"PARNA do Caparaó; base para o Pico da Bandeira (2.892 m), com camping na Tronqueira." },
+  { n:"Serra do Brigadeiro (Fervedouro)", uf:"MG", reg:"Sudeste", tipo:"parque", lat:-20.7167, lng:-42.4833, nota:"Mata atlântica de altitude na Zona da Mata; muriquis, mirantes e campings do parque." },
+  { n:"Intervales (Ribeirão Grande)", uf:"SP", reg:"Sudeste", tipo:"parque", lat:-24.2667, lng:-48.4167, nota:"Parque Estadual de mata atlântica contínua; grutas, aves e alojamento/camping." },
 
   /* ===================== CENTRO-OESTE ===================== */
   { n:"Chapada dos Veadeiros — Alto Paraíso", uf:"GO", reg:"Centro-Oeste", tipo:"apoio", lat:-14.1330, lng:-47.5100, nota:"Base do cerrado de altitude; cachoeiras e cristais." },
@@ -120,6 +130,7 @@ window.CAMPINGS_BR = [
   { n:"Cáceres — Pantanal noroeste", uf:"MT", reg:"Centro-Oeste", tipo:"apoio", lat:-16.0764, lng:-57.6817, nota:"às margens do rio Paraguai; festival de pesca e porta do Pantanal norte." },
   { n:"Coxim — Rio Taquari", uf:"MS", reg:"Centro-Oeste", tipo:"camping", lat:-18.5067, lng:-54.7600, nota:"Capital da piracema; praias de rio, pesca e campings na temporada seca." },
   { n:"Serra da Bodoquena (Bodoquena)", uf:"MS", reg:"Centro-Oeste", tipo:"parque", lat:-20.5378, lng:-56.7128, nota:"Parque Nacional de cachoeiras e grutas entre Bonito e Miranda; apoio na cidade." },
+  { n:"Costa Rica — Rio Sucuriú", uf:"MS", reg:"Centro-Oeste", tipo:"camping", lat:-18.5433, lng:-53.1294, nota:"Cachoeiras e sítios arqueológicos no nordeste de MS; campings à beira do Sucuriú." },
 
   /* ===================== NORDESTE ===================== */
   { n:"Camping Clube — Guarajuba (Camaçari)", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.6539, lng:-38.0117, nota:"Litoral norte baiano; unidade do Camping Clube." },
@@ -160,6 +171,10 @@ window.CAMPINGS_BR = [
   { n:"Barra Grande (Maraú)", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-14.1656, lng:-38.9800, nota:"Península de Maraú com praias desertas e a piscina do Taiípe; campings e pousadas rústicas." },
   { n:"Aracaju — Praia do Atalaia", uf:"SE", reg:"Nordeste", tipo:"apoio", lat:-10.9853, lng:-37.0500, nota:"Capital sergipana; orla, Oceanário e base para a Croa do Goé e o litoral sul." },
   { n:"Baía Formosa", uf:"RN", reg:"Nordeste", tipo:"camping", lat:-6.3719, lng:-35.0072, nota:"Vila de pesca e surfe com Mata Estrela e lagoa de água doce; campings tranquilos." },
+  { n:"Icapuí / Ponta Grossa", uf:"CE", reg:"Nordeste", tipo:"camping", lat:-4.7139, lng:-37.3556, nota:"Falésias, recifes e vila de pescadores no extremo leste cearense; campings tranquilos." },
+  { n:"Paracuru / Lagoinha", uf:"CE", reg:"Nordeste", tipo:"camping", lat:-3.4100, lng:-39.0300, nota:"Surfe, kite e coqueirais perto de Fortaleza; campings e a badalada Lagoinha." },
+  { n:"Ilha de Itamaracá", uf:"PE", reg:"Nordeste", tipo:"camping", lat:-7.7478, lng:-34.8261, nota:"Forte Orange, peçois-boi e praias calmas; campings na ilha ao norte de Recife." },
+  { n:"Piranhas / Cânion do Xingó (AL)", uf:"AL", reg:"Nordeste", tipo:"camping", lat:-9.6244, lng:-37.7561, nota:"Cidade histórica às margens do São Francisco; catamarã pelo cânion e rota do cangao." },
 
   /* ===================== NORTE ===================== */
   { n:"Presidente Figueiredo", uf:"AM", reg:"Norte", tipo:"camping", lat:-2.0300, lng:-60.0250, nota:"Terra das cachoeiras, ao norte de Manaus; campings e grutas." },
@@ -179,5 +194,7 @@ window.CAMPINGS_BR = [
   { n:"Belém — apoio", uf:"PA", reg:"Norte", tipo:"apoio", lat:-1.4558, lng:-48.5000, nota:"Ver-o-Peso, Mangal das Garças e Estação das Docas; porta da Amazônia oriental e do Marajó." },
   { n:"Palmas — Praia da Graciosa", uf:"TO", reg:"Norte", tipo:"apoio", lat:-10.1689, lng:-48.3317, nota:"Capital às margens do lago do Lajeado; praia urbana e apoio para o Jalapão." },
   { n:"Mateiros (núcleo do Jalapão)", uf:"TO", reg:"Norte", tipo:"camping", lat:-10.5533, lng:-46.4167, nota:"Coração do Jalapão: Dunas, Fervedouro e cachoeiras; campings rústicos (acesso 4x4)." },
+  { n:"Oiapoque — extremo norte", uf:"AP", reg:"Norte", tipo:"apoio", lat:3.8408, lng:-51.8353, nota:"Fronteira com a Guiana Francesa, na foz do rio Oiapoque; ponto extremo norte do Brasil." },
+  { n:"Cruzeiro do Sul", uf:"AC", reg:"Norte", tipo:"apoio", lat:-7.6306, lng:-72.6710, nota:"Vale do Juruá, no extremo oeste acreano; farinha, floresta e o Parque da Serra do Divisor." },
 
 ];
