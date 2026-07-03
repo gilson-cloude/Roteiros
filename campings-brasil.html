@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campings do Brasil · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root{
+    --bg:#F6F7F9; --panel:#FFFFFF; --ink:#16202C; --slate:#5B6472; --faint:#8B93A1;
+    --line:#E6E9EE; --teal:#0F766E; --amber:#B45309;
+    --shadow:0 14px 34px -20px rgba(20,40,60,.4);
+    --c-camping:#2E9E5B; --c-parque:#0F766E; --c-apoio:#2563EB; --c-pernoite:#D97706;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.5}
+  .top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:12px 16px}
+  .top .row1{display:flex;align-items:center;gap:12px}
+  .back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px}
+  .back svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:2.2}
+  .top h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;margin-left:2px}
+  .top .count{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint)}
+  .filters{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:6px 12px;cursor:pointer;transition:all .16s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .chip:hover{border-color:#cfd5de}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .fl{width:8px;height:8px;border-radius:3px}
+  .layout{display:flex;height:calc(100vh - 108px)}
+  #map{flex:1;min-width:0;height:100%;background:#dfe6ea}
+  .side{width:340px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--line);background:var(--panel);padding:12px}
+  .scard{border:1px solid var(--line);border-left:3px solid var(--sc,var(--line));border-radius:12px;
+    padding:12px 13px;margin-bottom:10px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+  .scard:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .scard.hidden{display:none}
+  .scard .h{display:flex;align-items:flex-start;gap:8px}
+  .scard h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;line-height:1.2}
+  .scard .uf{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;color:#fff;
+    background:var(--sc);border-radius:6px;padding:2px 7px;flex-shrink:0}
+  .scard .nota{font-size:12px;color:var(--slate);margin-top:6px;line-height:1.4}
+  .scard .foot{display:flex;align-items:center;gap:10px;margin-top:9px;padding-top:8px;border-top:1px solid var(--line)}
+  .scard .gps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  .scard .gps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .note-bar{display:flex;gap:11px;align-items:flex-start;background:#FFF8EE;border:1px solid #F0E0C4;
+    border-radius:11px;padding:11px 13px;margin:12px 16px 0}
+  .note-bar svg{width:19px;height:19px;stroke:var(--amber);fill:none;stroke-width:1.9;flex-shrink:0;margin-top:1px}
+  .note-bar p{font-size:12.5px;color:var(--ink)}
+  .leaflet-popup-content{font-family:"IBM Plex Sans",sans-serif;margin:11px 13px}
+  .pop h4{font-family:"Space Grotesk",sans-serif;font-size:14px;margin-bottom:4px}
+  .pop .pn{font-size:12px;color:var(--slate);margin-bottom:7px}
+  .pop a{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--teal);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  .pop a svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  @media (max-width:760px){
+    .layout{flex-direction:column;height:auto}
+    #map{height:56vh}
+    .side{width:100%;border-left:none;border-top:1px solid var(--line);max-height:none}
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="row1">
+      <a class="back" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar</a>
+      <h1>Campings do Brasil</h1>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="filters" id="filters"></div>
+  </div>
+
+  <div class="note-bar">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <p>Curadoria verificada de <b>campings, pernoites e pontos de apoio</b> pelo Brasil. Coordenadas aproximadas (nível do acesso) — <b>confirme funcionamento e condições</b> no iOverlander ou localmente antes de ir. Toque num ponto para ver no mapa e abrir o GPS.</p>
+  </div>
+
+  <div class="layout">
+    <div id="map"></div>
+    <aside class="side" id="side"></aside>
+  </div>
+
+<script src="campings-brasil.js"></script>
+<script>
+(function(){
+  var TIPOS={
+    camping:{cor:'var(--c-camping)',hex:'#2E9E5B',label:'Camping'},
+    parque:{cor:'var(--c-parque)',hex:'#0F766E',label:'Parque'},
+    apoio:{cor:'var(--c-apoio)',hex:'#2563EB',label:'Apoio'},
+    pernoite:{cor:'var(--c-pernoite)',hex:'#D97706',label:'Pernoite'}
+  };
+  var DATA=(window.CAMPINGS_BR||[]).slice().sort(function(a,b){return a.n.localeCompare(b.n);});
+  var map=L.map('map',{scrollWheelZoom:true}).setView([-15.6,-52],4);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19
+  }).addTo(map);
+
+  function dot(hex){ return L.divIcon({className:'',html:'<div style="width:15px;height:15px;border-radius:50%;background:'+hex+';border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',iconSize:[15,15],iconAnchor:[7,7]}); }
+  function gmaps(p){ return 'https://www.google.com/maps/dir/?api=1&destination='+p.lat+','+p.lng; }
+  function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  var markers=[], cards=[], group=[];
+  var side=document.getElementById('side');
+  DATA.forEach(function(p,i){
+    var tp=TIPOS[p.tipo]||TIPOS.camping;
+    var m=L.marker([p.lat,p.lng],{icon:dot(tp.hex)}).addTo(map);
+    m.bindPopup('<div class="pop"><h4>'+esc(p.n)+'</h4><div class="pn">'+esc(p.uf)+' · '+tp.label+' — '+esc(p.nota)+'</div>'
+      +'<a href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>');
+    markers.push({m:m,p:p});
+    group.push([p.lat,p.lng]);
+
+    var c=document.createElement('div');
+    c.className='scard'; c.style.setProperty('--sc',tp.hex); c.dataset.tipo=p.tipo;
+    c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3><span class="uf">'+esc(p.uf)+'</span></div>'
+      +'<div class="nota">'+esc(p.nota)+'</div>'
+      +'<div class="foot"><a class="gps" href="'+gmaps(p)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>';
+    c.onclick=function(){ map.setView([p.lat,p.lng],10); m.openPopup(); if(window.innerWidth<=760) document.getElementById('map').scrollIntoView({behavior:'smooth'}); };
+    side.appendChild(c);
+    cards.push({el:c,p:p});
+  });
+  if(group.length) map.fitBounds(group,{padding:[40,40]});
+
+  // filtros
+  var active='all';
+  var filtersEl=document.getElementById('filters');
+  var defs=[{k:'all',label:'Todos'}].concat(Object.keys(TIPOS).map(function(k){return {k:k,label:TIPOS[k].label,hex:TIPOS[k].hex};}));
+  defs.forEach(function(f){
+    var ch=document.createElement('div'); ch.className='chip'+(f.k==='all'?' on':''); ch.dataset.k=f.k;
+    ch.innerHTML=(f.hex?'<span class="fl" style="background:'+f.hex+'"></span>':'')+f.label;
+    ch.onclick=function(){ active=f.k; filtersEl.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x.dataset.k===active);}); apply(); };
+    filtersEl.appendChild(ch);
+  });
+  function apply(){
+    var vis=[];
+    markers.forEach(function(o){ var show=active==='all'||o.p.tipo===active; if(show){o.m.addTo(map);vis.push([o.p.lat,o.p.lng]);}else{map.removeLayer(o.m);} });
+    cards.forEach(function(o){ o.el.classList.toggle('hidden', !(active==='all'||o.p.tipo===active)); });
+    document.getElementById('count').textContent=vis.length+' pontos';
+    if(vis.length) map.fitBounds(vis,{padding:[40,40]});
+  }
+  document.getElementById('count').textContent=DATA.length+' pontos';
+})();
+</script>
+</body>
+</html>
