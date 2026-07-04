@@ -62,6 +62,48 @@
     #map{height:56vh}
     .side{width:100%;border-left:none;border-top:1px solid var(--line);max-height:none}
   }
+  /* botão adicionar */
+  .addbtn{margin-left:auto;display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;
+    border:none;border-radius:9px;padding:8px 13px;font-family:"Space Grotesk",sans-serif;font-weight:600;
+    font-size:13px;cursor:pointer;transition:filter .15s}
+  .addbtn:hover{filter:brightness(1.08)}
+  .addbtn svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.4}
+  .top .count{margin-left:14px}
+  /* modal */
+  .ovl{position:fixed;inset:0;background:rgba(16,28,40,.5);backdrop-filter:blur(3px);z-index:50;
+    display:none;align-items:center;justify-content:center;padding:18px}
+  .ovl.on{display:flex}
+  .modal{background:#fff;border-radius:16px;width:100%;max-width:440px;box-shadow:0 30px 70px -20px rgba(20,40,60,.6);
+    max-height:92vh;overflow-y:auto}
+  .modal .mh{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .modal .mh h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px}
+  .modal .mh .x{margin-left:auto;background:var(--bg);border:1px solid var(--line);border-radius:8px;
+    width:30px;height:30px;cursor:pointer;font-size:17px;color:var(--slate);line-height:1}
+  .modal .mb{padding:16px 18px}
+  .fld{margin-bottom:13px}
+  .fld label{display:block;font-size:12px;font-weight:600;color:var(--slate);margin-bottom:5px}
+  .fld label .req{color:#C0392B}
+  .fld input,.fld select,.fld textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;
+    font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;color:var(--ink);background:#fff}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--teal)}
+  .fld textarea{resize:vertical;min-height:56px}
+  .fld .hint{font-size:11px;color:var(--faint);margin-top:4px;line-height:1.35}
+  .frow{display:flex;gap:10px}
+  .frow .fld{flex:1}
+  .cparsed{font-family:"JetBrains Mono",monospace;font-size:11.5px;margin-top:5px}
+  .cparsed.ok{color:var(--c-camping)}
+  .cparsed.err{color:#C0392B}
+  .mfoot{display:flex;gap:9px;padding:14px 18px;border-top:1px solid var(--line)}
+  .mfoot button{flex:1;border-radius:9px;padding:10px;font-family:"Space Grotesk",sans-serif;font-weight:600;
+    font-size:13.5px;cursor:pointer;border:1px solid var(--line)}
+  .mfoot .cancel{background:#fff;color:var(--slate)}
+  .mfoot .save{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .mfoot .save:disabled{opacity:.5;cursor:not-allowed}
+  .scard .mine{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;
+    color:var(--teal);background:#E6F4EF;border:1px solid #BFE3D8;border-radius:6px;padding:2px 6px;flex-shrink:0}
+  .scard .del{font-family:"JetBrains Mono",monospace;font-size:11px;color:#C0392B;text-decoration:none;
+    display:inline-flex;align-items:center;gap:4px;margin-left:auto;cursor:pointer;background:none;border:none}
+  .scard .del svg{width:12px;height:12px;stroke:#C0392B;fill:none;stroke-width:1.8}
 </style>
 </head>
 <body>
@@ -69,6 +111,7 @@
     <div class="row1">
       <a class="back" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar</a>
       <h1>Campings do Brasil</h1>
+      <button class="addbtn" id="openAdd"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar</button>
       <span class="count" id="count"></span>
     </div>
     <div class="filters" id="filters"></div>
@@ -84,6 +127,50 @@
     <aside class="side" id="side"></aside>
   </div>
 
+  <div class="ovl" id="ovl">
+    <div class="modal">
+      <div class="mh">
+        <h2>Adicionar camping</h2>
+        <button class="x" id="closeAdd" aria-label="Fechar">×</button>
+      </div>
+      <div class="mb">
+        <div class="fld">
+          <label>Nome <span class="req">*</span></label>
+          <input id="f_nome" type="text" placeholder="Ex.: RV Park Gameleira (Coruripe)" maxlength="70">
+        </div>
+        <div class="frow">
+          <div class="fld" style="flex:0 0 88px">
+            <label>UF <span class="req">*</span></label>
+            <input id="f_uf" type="text" placeholder="AL" maxlength="2" style="text-transform:uppercase">
+          </div>
+          <div class="fld">
+            <label>Tipo</label>
+            <select id="f_tipo">
+              <option value="camping">Camping</option>
+              <option value="pernoite">Pernoite / motorhome</option>
+              <option value="apoio">Apoio</option>
+              <option value="parque">Parque</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld">
+          <label>Coordenada <span class="req">*</span></label>
+          <input id="f_coord" type="text" placeholder="Cole o link do Google Maps ou -10.1330, -36.1497">
+          <div class="hint">No Google Maps: toque no ponto → “Compartilhar” → copie o link, ou copie as coordenadas (lat, lng) e cole aqui.</div>
+          <div class="cparsed" id="f_parsed"></div>
+        </div>
+        <div class="fld">
+          <label>Observação</label>
+          <textarea id="f_nota" placeholder="Estrutura, preço, contato, dicas…" maxlength="240"></textarea>
+        </div>
+      </div>
+      <div class="mfoot">
+        <button class="cancel" id="cancelAdd">Cancelar</button>
+        <button class="save" id="saveAdd" disabled>Salvar ponto</button>
+      </div>
+    </div>
+  </div>
+
 <script src="campings-brasil.js"></script>
 <script>
 (function(){
@@ -93,36 +180,61 @@
     apoio:{cor:'var(--c-apoio)',hex:'#2563EB',label:'Apoio'},
     pernoite:{cor:'var(--c-pernoite)',hex:'#D97706',label:'Pernoite'}
   };
-  var DATA=(window.CAMPINGS_BR||[]).slice().sort(function(a,b){return a.n.localeCompare(b.n);});
+  var DATA_BASE=(window.CAMPINGS_BR||[]).slice();
+  var USER_KEY='campingsUser';
+  function loadUser(){ try{ return JSON.parse(localStorage.getItem(USER_KEY)||'[]'); }catch(e){ return []; } }
+  function saveUser(a){ try{ localStorage.setItem(USER_KEY, JSON.stringify(a)); }catch(e){} }
+  var USER=loadUser();
+  function allData(){
+    return DATA_BASE.concat(USER).slice().sort(function(a,b){return a.n.localeCompare(b.n);});
+  }
+  var DATA=allData();
   var map=L.map('map',{scrollWheelZoom:true}).setView([-15.6,-52],4);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
     attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19
   }).addTo(map);
 
-  function dot(hex){ return L.divIcon({className:'',html:'<div style="width:15px;height:15px;border-radius:50%;background:'+hex+';border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',iconSize:[15,15],iconAnchor:[7,7]}); }
+  function dot(hex,mine){ return L.divIcon({className:'',html:'<div style="width:15px;height:15px;border-radius:50%;background:'+hex+';border:2.5px solid '+(mine?'#0F766E':'#fff')+';box-shadow:0 1px 4px rgba(0,0,0,.4)'+(mine?';outline:2px solid #fff;outline-offset:1px':'')+'"></div>',iconSize:[15,15],iconAnchor:[7,7]}); }
   function gmaps(p){ return 'https://www.google.com/maps/dir/?api=1&destination='+p.lat+','+p.lng; }
   function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   var markers=[], cards=[], group=[];
   var side=document.getElementById('side');
-  DATA.forEach(function(p,i){
-    var tp=TIPOS[p.tipo]||TIPOS.camping;
-    var m=L.marker([p.lat,p.lng],{icon:dot(tp.hex)}).addTo(map);
-    m.bindPopup('<div class="pop"><h4>'+esc(p.n)+'</h4><div class="pn">'+esc(p.uf)+' · '+tp.label+' — '+esc(p.nota)+'</div>'
-      +'<a href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>');
-    markers.push({m:m,p:p});
-    group.push([p.lat,p.lng]);
+  function render(){
+    markers.forEach(function(o){ map.removeLayer(o.m); });
+    markers=[]; cards=[]; group=[]; side.innerHTML='';
+    DATA=allData();
+    DATA.forEach(function(p,i){
+      var tp=TIPOS[p.tipo]||TIPOS.camping;
+      var m=L.marker([p.lat,p.lng],{icon:dot(tp.hex,p.user)}).addTo(map);
+      m.bindPopup('<div class="pop"><h4>'+esc(p.n)+'</h4><div class="pn">'+esc(p.uf)+' · '+tp.label+(p.user?' · meu ponto':'')+' — '+esc(p.nota)+'</div>'
+        +'<a href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>');
+      markers.push({m:m,p:p});
+      group.push([p.lat,p.lng]);
 
-    var c=document.createElement('div');
-    c.className='scard'; c.style.setProperty('--sc',tp.hex); c.dataset.tipo=p.tipo;
-    c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3><span class="uf">'+esc(p.uf)+'</span></div>'
-      +'<div class="nota">'+esc(p.nota)+'</div>'
-      +'<div class="foot"><a class="gps" href="'+gmaps(p)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>';
-    c.onclick=function(){ map.setView([p.lat,p.lng],10); m.openPopup(); if(window.innerWidth<=760) document.getElementById('map').scrollIntoView({behavior:'smooth'}); };
-    side.appendChild(c);
-    cards.push({el:c,p:p});
-  });
-  if(group.length) map.fitBounds(group,{padding:[40,40]});
+      var c=document.createElement('div');
+      c.className='scard'; c.style.setProperty('--sc',tp.hex); c.dataset.tipo=p.tipo;
+      var foot='<a class="gps" href="'+gmaps(p)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a>';
+      if(p.user){ foot+='<button class="del" data-id="'+esc(p.id)+'"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>excluir</button>'; }
+      c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3>'+(p.user?'<span class="mine">MEU</span>':'<span class="uf">'+esc(p.uf)+'</span>')+'</div>'
+        +'<div class="nota">'+esc(p.nota)+'</div>'
+        +'<div class="foot">'+foot+'</div>';
+      c.onclick=function(){ map.setView([p.lat,p.lng],10); m.openPopup(); if(window.innerWidth<=760) document.getElementById('map').scrollIntoView({behavior:'smooth'}); };
+      side.appendChild(c);
+      cards.push({el:c,p:p});
+    });
+    side.querySelectorAll('.del').forEach(function(b){
+      b.onclick=function(e){
+        e.stopPropagation();
+        var id=b.dataset.id;
+        var p=USER.find(function(x){return x.id===id;});
+        if(p && confirm('Excluir “'+p.n+'” dos seus pontos?')){
+          USER=USER.filter(function(x){return x.id!==id;}); saveUser(USER); render(); apply();
+        }
+      };
+    });
+    apply();
+  }
 
   // filtros
   var active='all';
@@ -139,9 +251,59 @@
     markers.forEach(function(o){ var show=active==='all'||o.p.tipo===active; if(show){o.m.addTo(map);vis.push([o.p.lat,o.p.lng]);}else{map.removeLayer(o.m);} });
     cards.forEach(function(o){ o.el.classList.toggle('hidden', !(active==='all'||o.p.tipo===active)); });
     document.getElementById('count').textContent=vis.length+' pontos';
-    if(vis.length) map.fitBounds(vis,{padding:[40,40]});
   }
-  document.getElementById('count').textContent=DATA.length+' pontos';
+  render();
+  if(group.length) map.fitBounds(group,{padding:[40,40]});
+
+  // ===== Adicionar camping =====
+  var ovl=document.getElementById('ovl');
+  var fCoord=document.getElementById('f_coord'), fParsed=document.getElementById('f_parsed');
+  var fNome=document.getElementById('f_nome'), fUf=document.getElementById('f_uf');
+  var fTipo=document.getElementById('f_tipo'), fNota=document.getElementById('f_nota');
+  var saveBtn=document.getElementById('saveAdd');
+  var lastCoord=null;
+
+  function parseCoord(txt){
+    if(!txt) return null; txt=txt.trim();
+    var m=txt.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/); if(m) return [parseFloat(m[1]),parseFloat(m[2])];
+    m=txt.match(/[?&](?:q|query|destination|ll|center)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/); if(m) return [parseFloat(m[1]),parseFloat(m[2])];
+    m=txt.match(/^\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*$/); if(m) return [parseFloat(m[1]),parseFloat(m[2])];
+    m=txt.match(/(-?\d{1,3}\.\d{3,}),\s*(-?\d{1,3}\.\d{3,})/); if(m) return [parseFloat(m[1]),parseFloat(m[2])];
+    return null;
+  }
+  function validate(){
+    var c=parseCoord(fCoord.value); lastCoord=c;
+    if(fCoord.value.trim()===''){ fParsed.textContent=''; fParsed.className='cparsed'; }
+    else if(c){
+      var inBR=c[0]>=-34&&c[0]<=6&&c[1]>=-74&&c[1]<=-32;
+      fParsed.textContent=(inBR?'✓ ':'⚠ fora do Brasil? ')+c[0].toFixed(4)+', '+c[1].toFixed(4);
+      fParsed.className='cparsed '+(inBR?'ok':'err');
+    } else { fParsed.textContent='Coordenada não reconhecida — cole o link do Maps ou “lat, lng”.'; fParsed.className='cparsed err'; }
+    var ok=fNome.value.trim()&&fUf.value.trim().length>=2&&c;
+    saveBtn.disabled=!ok;
+  }
+  [fNome,fUf,fCoord].forEach(function(el){ el.addEventListener('input',validate); });
+
+  function openModal(){ ovl.classList.add('on'); setTimeout(function(){fNome.focus();},50); }
+  function closeModal(){ ovl.classList.remove('on'); }
+  document.getElementById('openAdd').onclick=openModal;
+  document.getElementById('closeAdd').onclick=closeModal;
+  document.getElementById('cancelAdd').onclick=closeModal;
+  ovl.addEventListener('click',function(e){ if(e.target===ovl) closeModal(); });
+
+  saveBtn.onclick=function(){
+    if(!lastCoord) return;
+    var pt={ id:'u'+Date.now().toString(36), user:true,
+      n:fNome.value.trim(), uf:fUf.value.trim().toUpperCase().slice(0,2),
+      reg:'Meus pontos', tipo:fTipo.value, lat:lastCoord[0], lng:lastCoord[1],
+      nota:fNota.value.trim()||'Ponto adicionado por você.' };
+    USER.push(pt); saveUser(USER);
+    fNome.value=''; fUf.value=''; fCoord.value=''; fNota.value=''; fTipo.value='camping';
+    fParsed.textContent=''; fParsed.className='cparsed'; saveBtn.disabled=true; lastCoord=null;
+    closeModal(); render();
+    var mk=markers.find(function(o){return o.p.id===pt.id;});
+    if(mk){ map.setView([pt.lat,pt.lng],11); mk.m.openPopup(); }
+  };
 })();
 </script>
 </body>
