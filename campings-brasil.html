@@ -40,6 +40,19 @@
   .chip .fl{width:8px;height:8px;border-radius:3px}
   .chip.osm{margin-left:6px;border-style:dashed}
   .chip.osm.on{background:var(--teal);border-color:var(--teal)}
+  .searchrow{margin-top:10px}
+  .searchbox{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);
+    border-radius:11px;padding:8px 11px;transition:border-color .15s,box-shadow .15s}
+  .searchbox:focus-within{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.12);background:#fff}
+  .searchbox svg{width:17px;height:17px;stroke:var(--faint);fill:none;stroke-width:2;flex-shrink:0}
+  .searchbox input{flex:1;border:none;background:none;outline:none;font-family:"IBM Plex Sans",sans-serif;
+    font-size:14px;color:var(--ink)}
+  .searchbox input::placeholder{color:var(--faint)}
+  .searchbox #searchClear{display:none;background:none;border:none;font-size:18px;line-height:1;color:var(--slate);
+    cursor:pointer;padding:0 2px;flex-shrink:0}
+  .searchbox.has #searchClear{display:block}
+  .scard .osmtag{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;
+    color:var(--teal);background:#EAF3F1;border:1px solid #CBE6DF;border-radius:6px;padding:2px 6px;flex-shrink:0}
   .layout{display:flex;height:calc(100vh - 150px)}
   #map{flex:1;min-width:0;height:100%;background:#dfe6ea}
   .side{width:340px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--line);background:var(--panel);padding:12px}
@@ -113,6 +126,13 @@
       <h1>Campings do Brasil</h1>
       <button class="addbtn" id="openAdd"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar</button>
       <span class="count" id="count"></span>
+    </div>
+    <div class="searchrow">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="search" type="text" placeholder="Buscar camping por nome, cidade ou UF…" autocomplete="off">
+        <button id="searchClear" aria-label="Limpar" title="Limpar">×</button>
+      </div>
     </div>
     <div class="filters" id="filters"></div>
   </div>
@@ -209,12 +229,15 @@
       +'<a href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>';
   }
 
-  var active='all', osmOn=true;
+  var active='all', osmOn=true, query='';
+  function norm(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+  function matchQ(p){ if(!query) return true; var q=norm(query); return norm(p.n).indexOf(q)>=0 || norm(p.uf).indexOf(q)>=0; }
 
   function activePoints(){
     var arr=DATA_BASE.concat(USER);
     if(osmOn) arr=arr.concat(OSM);
     if(active!=='all') arr=arr.filter(function(p){ return (p.tipo||'camping')===active; });
+    if(query) arr=arr.filter(matchQ);
     return arr;
   }
 
@@ -252,25 +275,54 @@
   }
   map.on('zoomend moveend',drawMap);
 
-  // side list = curadoria + meus (OSM fica só no mapa)
+  // side list = curadoria + meus (OSM entra na lista quando há busca)
   var side=document.getElementById('side');
+  function flyTo(p){
+    map.setView([p.lat,p.lng], 13, {animate:true});
+    L.popup({offset:[0,-6]}).setLatLng([p.lat,p.lng]).setContent(popHtml(p)).openOn(map);
+    if(window.innerWidth<=760){ var m=document.getElementById('map'); window.scrollTo({top:m.offsetTop-8,behavior:'smooth'}); }
+  }
   function renderSide(){
     side.innerHTML='';
-    var head=document.createElement('div'); head.className='sh'; head.textContent='Curadoria & meus pontos'; side.appendChild(head);
-    var list=DATA_BASE.concat(USER).slice().sort(function(a,b){return a.n.localeCompare(b.n);});
-    list.forEach(function(p){
-      if(active!=='all' && (p.tipo||'camping')!==active) return;
+    var base=DATA_BASE.concat(USER);
+    var list, head;
+    if(query){
+      list=base.concat(osmOn?OSM:[]).filter(matchQ);
+      head='Resultados da busca';
+    } else {
+      list=base.slice();
+      head='Curadoria & meus pontos';
+    }
+    if(active!=='all') list=list.filter(function(p){ return (p.tipo||'camping')===active; });
+    list=list.slice().sort(function(a,b){return a.n.localeCompare(b.n);});
+    var total=list.length;
+    var shead=document.createElement('div'); shead.className='sh';
+    shead.textContent=head+(query?' — '+total+' encontrado'+(total===1?'':'s'):'');
+    side.appendChild(shead);
+    if(query && total===0){
+      var none=document.createElement('div'); none.className='nota'; none.style.padding='6px 4px';
+      none.textContent='Nada encontrado. Tente outro nome, cidade ou a sigla do estado (ex.: SC).';
+      side.appendChild(none); return;
+    }
+    var shown = query ? list.slice(0,120) : list;
+    shown.forEach(function(p){
       var tp=TIPOS[p.tipo]||TIPOS.camping;
       var c=document.createElement('div');
       c.className='scard'; c.style.setProperty('--sc',tp.hex);
       var foot='<a class="gps" href="'+gmaps(p)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a>';
       if(p.user){ foot+='<button class="del" data-id="'+esc(p.id)+'"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>excluir</button>'; }
-      c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3>'+(p.user?'<span class="mine">MEU</span>':'<span class="uf">'+esc(p.uf||'')+'</span>')+'</div>'
+      var tag = p.user ? '<span class="mine">MEU</span>' : (p.osm ? '<span class="osmtag">'+(p.uf?esc(p.uf)+' · ':'')+'OSM</span>' : '<span class="uf">'+esc(p.uf||'')+'</span>');
+      c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3>'+tag+'</div>'
         +(p.nota?'<div class="nota">'+esc(p.nota)+'</div>':'')
         +'<div class="foot">'+foot+'</div>';
-      c.onclick=function(){ map.setView([p.lat,p.lng],11); if(window.innerWidth<=760) document.getElementById('map').scrollIntoView({behavior:'smooth'}); };
+      c.onclick=function(){ flyTo(p); };
       side.appendChild(c);
     });
+    if(query && total>shown.length){
+      var more=document.createElement('div'); more.className='nota'; more.style.padding='6px 4px';
+      more.textContent='+'+(total-shown.length)+' outros resultados — refine a busca.';
+      side.appendChild(more);
+    }
     side.querySelectorAll('.del').forEach(function(b){
       b.onclick=function(e){ e.stopPropagation();
         var id=b.dataset.id, p=USER.find(function(x){return x.id===id;});
@@ -290,8 +342,26 @@
   });
   var osmChip=document.createElement('div'); osmChip.className='chip osm on';
   osmChip.innerHTML='Comunidade OSM ('+OSM.length+')';
-  osmChip.onclick=function(){ osmOn=!osmOn; osmChip.classList.toggle('on',osmOn); drawMap(); };
+  osmChip.onclick=function(){ osmOn=!osmOn; osmChip.classList.toggle('on',osmOn); renderSide(); drawMap(); };
   filtersEl.appendChild(osmChip);
+
+  // busca
+  var searchEl=document.getElementById('search');
+  var searchBox=searchEl.parentNode, searchClear=document.getElementById('searchClear');
+  var qTimer=null;
+  function runSearch(fit){
+    query=searchEl.value.trim();
+    searchBox.classList.toggle('has',!!query);
+    renderSide(); drawMap();
+    if(fit && query){
+      var hits=activePoints();
+      if(hits.length){ map.fitBounds(hits.map(function(p){return [p.lat,p.lng];}),{padding:[40,40],maxZoom:13}); }
+    }
+  }
+  searchEl.addEventListener('input',function(){ clearTimeout(qTimer); qTimer=setTimeout(function(){ runSearch(false); },160); });
+  searchEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){ clearTimeout(qTimer); runSearch(true); }
+    else if(e.key==='Escape'){ searchEl.value=''; runSearch(false); } });
+  searchClear.onclick=function(){ searchEl.value=''; runSearch(false); searchEl.focus(); };
 
   renderSide();
   var allpts=DATA_BASE.concat(USER).concat(OSM);
