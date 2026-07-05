@@ -193,6 +193,7 @@
 
 <script src="campings-brasil.js"></script>
 <script src="campings-osm.js"></script>
+<script src="apoio-osm.js"></script>
 <script>
 (function(){
   var TIPOS={
@@ -203,6 +204,8 @@
   };
   var DATA_BASE=(window.CAMPINGS_BR||[]).slice();
   var OSM=(window.CAMPINGS_OSM||[]).slice();
+  var APOIO=(window.APOIO_OSM||[]).slice();
+  function genericApoio(p){ return p.tipo==='apoio' && (p.n==='Parada de serviço'||p.n==='Área de descanso'); }
   var USER_KEY='campingsUser';
   function loadUser(){ try{ return JSON.parse(localStorage.getItem(USER_KEY)||'[]'); }catch(e){ return []; } }
   function saveUser(a){ try{ localStorage.setItem(USER_KEY, JSON.stringify(a)); }catch(e){} }
@@ -229,13 +232,14 @@
       +'<a href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>';
   }
 
-  var active='all', osmOn=true, query='';
+  var active='all', osmOn=true, apoioOn=false, query='';
   function norm(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
   function matchQ(p){ if(!query) return true; var q=norm(query); return norm(p.n).indexOf(q)>=0 || norm(p.uf).indexOf(q)>=0; }
 
   function activePoints(){
     var arr=DATA_BASE.concat(USER);
     if(osmOn) arr=arr.concat(OSM);
+    if(apoioOn) arr=arr.concat(APOIO);
     if(active!=='all') arr=arr.filter(function(p){ return (p.tipo||'camping')===active; });
     if(query) arr=arr.filter(matchQ);
     return arr;
@@ -287,7 +291,7 @@
     var base=DATA_BASE.concat(USER);
     var list, head;
     if(query){
-      list=base.concat(osmOn?OSM:[]).filter(matchQ);
+      list=base.concat(osmOn?OSM:[]).concat(apoioOn?APOIO.filter(function(p){return !genericApoio(p);}):[]).filter(matchQ);
       head='Resultados da busca';
     } else {
       list=base.slice();
@@ -344,6 +348,11 @@
   osmChip.innerHTML='Comunidade OSM ('+OSM.length+')';
   osmChip.onclick=function(){ osmOn=!osmOn; osmChip.classList.toggle('on',osmOn); renderSide(); drawMap(); };
   filtersEl.appendChild(osmChip);
+
+  var apoioChip=document.createElement('div'); apoioChip.className='chip osm';
+  apoioChip.innerHTML='Apoio na estrada ('+APOIO.length+')';
+  apoioChip.onclick=function(){ apoioOn=!apoioOn; apoioChip.classList.toggle('on',apoioOn); renderSide(); drawMap(); };
+  filtersEl.appendChild(apoioChip);
 
   // busca
   var searchEl=document.getElementById('search');

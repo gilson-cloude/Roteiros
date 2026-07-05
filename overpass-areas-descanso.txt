@@ -1,0 +1,9 @@
+[out:json][timeout:120];
+area["ISO3166-1"="BR"][admin_level=2]->.br;
+(
+  node["highway"="rest_area"](area.br);
+  node["highway"="services"](area.br);
+  way["highway"="rest_area"](area.br);
+  way["highway"="services"](area.br);
+);
+out center tags;
