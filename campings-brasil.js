@@ -200,10 +200,10 @@ window.CAMPINGS_BR = [
 
 
   /* ===================== COMUNIDADE PROMOVIDA (OSM, tags ricas) ===================== */
-  { n:"Camping Mucugê", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-13.0257, lng:-41.43895, nota:"Aceita motorhome, barraca, chuveiro/banheiro/água potável/energia/wi-fi. tel. +55 75 98158 5453 · campingmucuge.com.br/chapada-diamantina (OSM)" },
+  { n:"Camping Mucugê", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-13.0257, lng:-41.43895, nota:"Aceita motorhome, barraca, chuveiro/banheiro/água potável/energia/wi-fi. tel. +55 75 98158 5453 · campingmucuge.com.br/chapada-diamantina (OSM)" , ig:"campingmucuge"},
   { n:"Camping e hostel Xique Xique", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.8959, lng:-41.31936, nota:"Barraca, chuveiro/banheiro/água potável/energia/wi-fi. tel. +55 71 98838 4233 · abrigoxiquexique.com (OSM)" },
   { n:"República Lago (Leme)", uf:"SP", reg:"Sudeste", tipo:"camping", lat:-22.22618, lng:-47.29866, nota:"Chuveiro/banheiro/água potável/energia. tel. +55 11 3818 6600 · replago.com.br (OSM)" },
-  { n:"Marina Porto Abrolhos", uf:"ES", reg:"Sudeste", tipo:"camping", lat:-17.7266, lng:-39.17795, nota:"Aceita motorhome, barraca, piscina. tel. +55 73 3674 1060 · www.marinaportoabrolhos.com.br (OSM)" },
+  { n:"Marina Porto Abrolhos", uf:"ES", reg:"Sudeste", tipo:"camping", lat:-17.7266, lng:-39.17795, nota:"Aceita motorhome, barraca, piscina. tel. +55 73 3674 1060 · www.marinaportoabrolhos.com.br (OSM)" , ig:"hotelmarinaportoabrolhos"},
   { n:"Pantanal Ranch Mandovi", uf:"MS", reg:"Centro-Oeste", tipo:"pernoite", lat:-20.25313, lng:-56.35018, nota:"Energia/wi-fi. tel. +55 67 99292 3342 · www.pantanalranchmandovi.com (OSM)" },
   { n:"Lakshimi", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.61121, lng:-41.4987, nota:"Aceita motorhome, barraca, chuveiro/banheiro/água potável/energia/wi-fi. (OSM)" },
   { n:"Camping do Rancho", uf:"RJ", reg:"Sudeste", tipo:"camping", lat:-23.21029, lng:-44.71811, nota:"Wi-fi. tel. +55 24 99885 2054 · ranchodomineiro.com (OSM)" },
@@ -211,7 +211,7 @@ window.CAMPINGS_BR = [
   { n:"Eco Camping e Alojamento Casa da Grota", uf:"SC", reg:"Sul", tipo:"camping", lat:-29.169, lng:-49.98277, nota:"Wi-fi. tel. +5548998677992 · www.instagram.com/sitiocasadagrota (OSM)" , ig:"sitiocasadagrota"},
   { n:"Reserva Angelina", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.8071, lng:-41.32337, nota:"Aceita motorhome, barraca, chuveiro/banheiro/água potável/energia/wi-fi. (OSM)" },
   { n:"Camping da família", uf:"SP", reg:"Sudeste", tipo:"camping", lat:-24.7488, lng:-47.55391, nota:"Chuveiro/banheiro/energia/wi-fi. www.facebook.com/pages/Camping-Da-Familiailha-Comprida/708283539247732 (OSM)" },
-  { n:"Pousada e Camping Lumiar", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.56422, lng:-41.38931, nota:"Aceita motorhome, barraca, chuveiro/banheiro/água potável/energia. (OSM)" },
+  { n:"Pousada e Camping Lumiar", uf:"BA", reg:"Nordeste", tipo:"camping", lat:-12.56422, lng:-41.38931, nota:"Aceita motorhome, barraca, chuveiro/banheiro/água potável/energia. (OSM)" , ig:"lumiarpousadaecamping"},
   { n:"Rincão Clube Naturista", uf:"SP", reg:"Sudeste", tipo:"camping", lat:-22.94703, lng:-45.10222, nota:"Chuveiro/banheiro. www.rincaonaturista.com (OSM)" , ig:"naturismorincao"},
   { n:"Camping do senandes", uf:"RS", reg:"Sul", tipo:"camping", lat:-32.14538, lng:-52.19779, nota:"Wi-fi. tel. +55 53 3236-9120 · campingdosenandes.com.br (OSM)" },
   { n:"Camping da Dona Zilá", uf:"RJ", reg:"Sudeste", tipo:"camping", lat:-23.18129, lng:-44.34145, nota:"Barraca, chuveiro/banheiro/água potável/energia. tel. +55 24 99880-9550 (OSM)" },
