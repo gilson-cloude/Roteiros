@@ -49,6 +49,18 @@ window.VINICOLAS = [
   { n:"Domaine Bousquet", pais:"AR", reg:"Valle de Uco (Mendoza)", uva:"orgânica · Malbec", ig:"domainebousquetarg", igv:true, lat:-33.4353, lng:-69.2408, nota:"Em Tupungato, a ~1.200 m; uma das maiores vinícolas orgânicas do país." },
   { n:"Bodega Colomé", pais:"AR", reg:"Molinos (Salta)", uva:"altitude extrema · Malbec", ig:"bodegacolome", igv:true, lat:-25.3372, lng:-66.4106, nota:"Uma das vinícolas mais altas do mundo; hospedagem e o Museo James Turrell de luz." },
 
+  /* ============ ARGENTINA — San Juan (Valle de Tulum · Pedernal · Zonda) ============ */
+  { n:"Bodega Callia", pais:"AR", reg:"Valle de Tulum (San Juan)", uva:"Syrah · Malbec", ig:"bodegacallia", igv:true, lat:-31.6600, lng:-68.4300, nota:"Arquitetura moderna em Caucete; experiência 'crie seu blend' com enólogos." },
+  { n:"Finca Las Moras", pais:"AR", reg:"Valle de Tulum (San Juan)", uva:"Cabernet Sauvignon · Malbec", ig:"fincalasmoras", igv:true, lat:-31.6200, lng:-68.4700, nota:"Do Grupo Peñaflor; pioneira do Valle de Pedernal, vista panorâmica dos parreirais." },
+  { n:"Bodega Graffigna", pais:"AR", reg:"Valle de Tulum (San Juan)", uva:"Malbec · Syrah", ig:"graffignawines", igv:true, lat:-31.5100, lng:-68.5400, nota:"A mais tradicional de San Juan (1870); Museo del Vino em Desamparados." },
+  { n:"Pyros Wines (Salentein)", pais:"AR", reg:"Valle de Pedernal (San Juan)", uva:"Malbec de altitude", lat:-31.9500, lng:-69.0500, nota:"Braço de altitude da família Salentein no Pedernal; Malbec de clima frio." },
+  { n:"Graffigna-Yanzón", pais:"AR", reg:"Valle de Pedernal (San Juan)", uva:"Malbec · Syrah", lat:-31.9700, lng:-69.0300, nota:"Pequeno lodge da família fundadora, no início do vale; visita íntima." },
+
+  /* ============ ARGENTINA — La Rioja (Valles del Famatina · Chañarmuyo) ============ */
+  { n:"La Riojana Cooperativa", pais:"AR", reg:"Chilecito (La Rioja)", uva:"Torrontés Riojano · orgânico", ig:"lariojanawines", igv:true, lat:-29.1667, lng:-67.4933, nota:"Maior cooperativa vitivinícola da Argentina (1940); vinhos orgânicos e Fairtrade." },
+  { n:"Bodega Chañarmuyo", pais:"AR", reg:"Chañarmuyo (La Rioja)", uva:"Malbec de altitude", ig:"chanarmuyo", lat:-29.2833, lng:-67.8167, nota:"Posada-boutique entre as montanhas; visita com degustação e hospedagem all-inclusive." },
+  { n:"Valle de la Puerta", pais:"AR", reg:"Vichigasta (La Rioja)", uva:"Torrontés · azeite de oliva", ig:"valledelapuerta", lat:-29.4667, lng:-67.3167, nota:"Vinhos e azeites; passeios de bicicleta e a pé entre parreirais e olivais." },
+
   /* ============ ARGENTINA — Cafayate (Salta) ============ */
   { n:"Bodega El Esteco", pais:"AR", reg:"Cafayate (Salta)", uva:"Torrontés · Malbec", ig:"bodegaelesteco", igv:true, lat:-26.0508, lng:-65.9739, nota:"Colonial na entrada de Cafayate; hotel Patios de Cafayate e altos vinhedos." },
   { n:"Piattelli Vineyards", pais:"AR", reg:"Cafayate (Salta)", uva:"Torrontés · Malbec", ig:"piattellivineyards", lat:-26.0331, lng:-65.9469, nota:"Vista panorâmica dos Valles Calchaquíes; restaurante e degustação (reserve)." },
@@ -76,6 +88,14 @@ window.VINICOLAS = [
   { n:"Viña Errázuriz", pais:"CL", reg:"Valle del Aconcagua", uva:"Cabernet Sauvignon · Carménère", ig:"errazurizwinery", igv:true, lat:-32.5533, lng:-70.5989, nota:"Ícone de 1870; bodegas centenárias, restaurante Don Maximiano (reserve)." },
   { n:"Von Siebenthal", pais:"CL", reg:"Valle del Aconcagua", uva:"Merlot · Carménère", ig:"vonsiebenthal", igv:true, lat:-32.5600, lng:-70.6000, nota:"Bodega tradicional com tecnologia moderna; variedades bordalesas e rhône." },
   { n:"San Esteban", pais:"CL", reg:"Valle del Aconcagua", uva:"Cabernet · Sauvignon Blanc", ig:"vina_sanesteban", igv:true, lat:-32.3333, lng:-70.6000, nota:"Petroglifos precolombinos nas vinhas; trekking e arqueologia andina." },
+
+  /* ============ CHILE — Valle de Cachapoal (Rancagua) ============ */
+  { n:"Viña VIK", pais:"CL", reg:"Valle de Cachapoal (Millahue)", uva:"blend ícone", ig:"vik_wine", igv:true, lat:-34.3833, lng:-71.3167, nota:"#2 no ranking Best Vineyards do mundo (2024); hotel de luxo, cabalgatas e arquitetura de titânio." },
+  { n:"Viña Altaïr", pais:"CL", reg:"Valle de Cachapoal (Alto Cachapoal)", uva:"Cabernet · Carménère", lat:-34.2833, lng:-70.9500, nota:"Parceria San Pedro + Château Dassault; tintos bordaleses no Alto Cachapoal." },
+  { n:"Viña Anakena", pais:"CL", reg:"Valle de Cachapoal", uva:"Carménère · Chardonnay", ig:"anakenawines", lat:-34.2000, lng:-70.9000, nota:"Boa relação custo-benefício; visitas e degustação no valle central." },
+  { n:"Viña Morandé (Casablanca/Cachapoal)", pais:"CL", reg:"Valle de Cachapoal", uva:"Cabernet · Carménère", ig:"vinamorande", igv:true, lat:-34.2200, lng:-70.9600, nota:"House of Morandé; almoços cinco estrelas harmonizados no valle." },
+  { n:"Viña Puntiferrer", pais:"CL", reg:"Valle de Cachapoal", uva:"espumantes · tintos", ig:"puntiferrer", lat:-34.3000, lng:-70.9200, nota:"Boutique familiar; ampla gama de espumantes a tintos, atendimento personalizado." },
+  { n:"Torreón de Paredes", pais:"CL", reg:"Valle de Cachapoal (Rengo)", uva:"Cabernet · Carménère", lat:-34.4000, lng:-70.8600, nota:"Tradicional em Rengo; visitas diretas com degustação guiada." },
 
   /* ============ CHILE — Valle de Casablanca / San Antonio ============ */
   { n:"Casas del Bosque", pais:"CL", reg:"Valle de Casablanca", uva:"Sauvignon Blanc · Pinot Noir", ig:"casasdelbosque", igv:true, lat:-33.2806, lng:-71.4700, nota:"Brancos de clima frio; restaurante Tanino e passeios de bike entre parreiras." },
@@ -126,16 +146,14 @@ window.VINICOLAS = [
   { n:"Vinícola Guaspari", pais:"BR", reg:"Espírito Santo do Pinhal (SP)", uva:"Syrah de inverno", ig:"guaspari", lat:-22.1922, lng:-46.7472, nota:"Vinhos de terroir 'Vista da Serra'; dupla poda e Syrah premiado na Mantiqueira paulista." },
 
   /* ---- ARGENTINA · Mendoza (mais) ---- */
-  { n:"Bodega Chandon", pais:"AR", reg:"Luján de Cuyo (Mendoza)", uva:"espumantes", ig:"chandon_ar", igv:true, lat:-33.0289, lng:-68.8703, nota:"Braço argentino da Moët & Chandon, em Agrelo; tour dos espumantes." },
-  { n:"Ruca Malen", pais:"AR", reg:"Luján de Cuyo (Mendoza)", uva:"Malbec · Cabernet", ig:"bodegarucamalen", igv:true, lat:-33.0233, lng:-68.8697, nota:"Em Agrelo; um dos almoços harmonizados mais celebrados de Mendoza (reserve)." },
-  { n:"Pulenta Estate", pais:"AR", reg:"Luján de Cuyo (Mendoza)", uva:"Malbec · Cabernet Franc", ig:"pulentaestate", igv:true, lat:-33.0472, lng:-68.8517, nota:"Boutique familiar em Alto Agrelo; tintos de precisão muito premiados." },
   { n:"Bodega Vistalba", pais:"AR", reg:"Luján de Cuyo (Mendoza)", uva:"blends de Malbec", lat:-32.9789, lng:-68.9017, nota:"De Carlos Pulenta; adega gravitacional e o restaurante La Bourgogne." },
+  { n:"Bodegas Esmeralda", pais:"AR", reg:"Luján de Cuyo (Mendoza)", uva:"Cabernet Sauvignon · Malbec", ig:"bodegasesmeralda", igv:true, lat:-33.0333, lng:-68.8611, nota:"Em Agrelo; famosa pelo Tilia Cabernet Sauvignon, um dos vinhos argentinos mais vendidos no mundo." },
+  { n:"Bodega Luigi Bosca", pais:"AR", reg:"Maipú (Mendoza)", uva:"Malbec · Cabernet Franc", ig:"bodegaluigibosca", igv:true, lat:-32.9944, lng:-68.7828, nota:"Família Arizu desde 1901, em Finca El Paraíso; eleita Best Winery of the New World 2025 (Wine Enthusiast)." },
+  { n:"El Enemigo (Aleanna)", pais:"AR", reg:"Maipú (Mendoza)", uva:"Cabernet Franc · Malbec", ig:"elenemigowines", lat:-33.0000, lng:-68.8000, nota:"Projeto de Adrianna Catena e Alejandro Vigil; o restaurante Casa Vigil é um dos mais celebrados do país." },
   { n:"Alta Vista", pais:"AR", reg:"Luján de Cuyo (Mendoza)", uva:"Malbec de terroir", lat:-32.9856, lng:-68.8892, nota:"Casona histórica em Chacras de Coria; pioneira dos Malbecs de parcela única." },
-  { n:"Domaine Bousquet", pais:"AR", reg:"Valle de Uco (Mendoza)", uva:"orgânica · Malbec", ig:"domainebousquetarg", igv:true, lat:-33.4353, lng:-69.2408, nota:"Em Tupungato, a ~1.200 m; uma das maiores vinícolas orgânicas do país." },
   { n:"Monteviejo (Clos de los Siete)", pais:"AR", reg:"Valle de Uco (Mendoza)", uva:"blends bordaleses", lat:-33.7508, lng:-69.1531, nota:"Em Vista Flores, projeto de Michel Rolland; parte do célebre Clos de los Siete." },
 
   /* ---- ARGENTINA · Salta / Valles Calchaquíes (mais) ---- */
-  { n:"Bodega Colomé", pais:"AR", reg:"Molinos (Salta)", uva:"altitude extrema · Malbec", ig:"bodegacolome", igv:true, lat:-25.3372, lng:-66.4106, nota:"Uma das vinícolas mais altas do mundo; hospedagem e o Museo James Turrell de luz." },
   { n:"Amalaya", pais:"AR", reg:"Cafayate (Salta)", uva:"Torrontés · blends", ig:"amalayawines", lat:-26.0472, lng:-65.9686, nota:"Do grupo Hess (Colomé); ótimo custo-benefício e vista dos Calchaquíes." },
   { n:"San Pedro de Yacochuya", pais:"AR", reg:"Cafayate (Salta)", uva:"altitude · Malbec", lat:-26.0189, lng:-65.9967, nota:"Nas encostas de Yacochuya, com assinatura de Michel Rolland; vinhos de guarda." },
   { n:"Vasija Secreta", pais:"AR", reg:"Cafayate (Salta)", uva:"Torrontés", lat:-26.0631, lng:-65.9789, nota:"A mais antiga de Cafayate, com museu do vinho na entrada da vila." },
@@ -149,9 +167,11 @@ window.VINICOLAS = [
   { n:"Viña Indómita", pais:"CL", reg:"Valle de Casablanca", uva:"Sauvignon Blanc · Chardonnay", ig:"vinaindomita", lat:-33.3067, lng:-71.4092, nota:"Arquitetura-marco no alto do vale, visível da estrada; restaurante panorâmico." },
   { n:"Kingston Family Vineyards", pais:"CL", reg:"Valle de Casablanca", uva:"Pinot Noir · Syrah", lat:-33.3000, lng:-71.3500, nota:"Boutique familiar; visitas íntimas de Pinot e Syrah de clima frio (reserve)." },
   { n:"Loma Larga", pais:"CL", reg:"Valle de Casablanca", uva:"Syrah · Cabernet Franc", lat:-33.3300, lng:-71.3800, nota:"Tintos de clima frio incomuns para o vale; passeios entre as lomas." },
+  { n:"Bodegas RE", pais:"CL", reg:"Valle de Casablanca (Valparaíso)", uva:"blends autorais · cava subterrânea", ig:"bodegasre", igv:true, lat:-33.1500, lng:-71.5000, nota:"Vinhos autorais e criativos; tour pela cava subterrânea e experiência 'winemaker for a day'." },
 
   /* ---- CHILE · Maipo (mais) ---- */
   { n:"Almaviva", pais:"CL", reg:"Valle del Maipo (Puente Alto)", uva:"ícone bordalês", ig:"almavivawinery", igv:true, lat:-33.5983, lng:-70.5872, nota:"Joint-venture Concha y Toro + Baron Philippe de Rothschild; um dos maiores ícones do Chile (reserve)." },
+  { n:"Viña Haras de Pirque", pais:"CL", reg:"Valle del Maipo (Pirque)", uva:"Cabernet · Carménère orgânico", ig:"vinaharasdepirque", igv:true, lat:-33.6367, lng:-70.5733, nota:"Adega em formato de ferradura, homenagem ao haras de cavalos puro-sangue (1892); vinificação por gravidade." },
   { n:"Viña Santa Carolina", pais:"CL", reg:"Valle del Maipo (Santiago)", uva:"Cabernet · Carménère", ig:"carolinawines", igv:true, lat:-33.4869, lng:-70.6072, nota:"Adega histórica (1875) tombada, dentro de Santiago; visita ao casco patrimonial." },
   { n:"Viña Pérez Cruz", pais:"CL", reg:"Valle del Maipo (Paine)", uva:"Cabernet · Syrah", ig:"perezcruzwines", igv:true, lat:-33.8300, lng:-70.7200, nota:"Adega de madeira premiada no Maipo Alto de Paine; tintos potentes." },
   { n:"Viña De Martino", pais:"CL", reg:"Valle del Maipo (Isla de Maipo)", uva:"orgânica · Carménère", ig:"demartinowines", igv:true, lat:-33.7500, lng:-70.9000, nota:"Pioneira em orgânicos e ânforas; vinhos de vários vales do Chile." },
