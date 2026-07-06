@@ -3006,7 +3006,7 @@ window.ROTEIROS = (function(){
       id:"uruguai",
       nome:"Uruguai — Costa & Colônia",
       resumo:"Roteiros pelo Uruguai (entrada pela fronteira do Chuí): costa atlântica, vinhedos e Colonia del Sacramento. Leve documentação e seguro do veículo.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     pantanal: {
       id:"pantanal",
@@ -3024,43 +3024,43 @@ window.ROTEIROS = (function(){
       id:"paraguai",
       nome:"Paraguai — Missões & Capital",
       resumo:"Roteiro pelo Paraguai (entrada por Ciudad del Este): Itaipu, ruínas jesuíticas e Asunción. Leve documentação e seguro do veículo.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     bolivia: {
       id:"bolivia",
       nome:"Bolívia — Altiplano",
       resumo:"Roteiro andino pela Bolívia: La Paz, Titicaca, Sucre/Potosí e o Salar de Uyuni. Atenção à altitude; leve documentação e seguro.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     peru: {
       id:"peru",
       nome:"Peru — Andes & Inca",
       resumo:"Roteiro andino e inca: Lima, Arequipa/Colca, Cusco, Machu Picchu e o Titicaca. Atenção à altitude e reserve Machu Picchu com antecedência.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     argentina: {
       id:"argentina",
       nome:"Argentina — Noroeste (NOA)",
       resumo:"Roteiro pelo noroeste argentino: Salta, Cafayate e a Quebrada de Humahuaca. Atenção à altitude; leve documentação e seguro do veículo.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     chile: {
       id:"chile",
       nome:"Chile — Deserto do Atacama",
       resumo:"Roteiro pelo Atacama: San Pedro, Valle de la Luna, gêiseres do Tatio e lagunas altiplânicas. Conecta com a Bolívia pelo Hito Cajón.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     equador: {
       id:"equador",
       nome:"Equador — Andes",
       resumo:"Roteiro andino pelo Equador: Quito, Cotopaxi, Quilotoa e Cuenca. Atenção à altitude; leve documentação e seguro do veículo.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     colombia: {
       id:"colombia",
       nome:"Colômbia",
       resumo:"Roteiro pela Colômbia: Bogotá, Eixo Cafeeiro, Medellín e Cartagena. Atenção às distâncias; voos internos são comuns.",
-      recursos:[]
+      recursos:["postos.html","fronteiras.html","documentacao.html"]
     },
     venezuela: {
       id:"venezuela",
