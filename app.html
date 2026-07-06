@@ -227,7 +227,7 @@
   }
 
   // recursos universais (sempre aparecem) — o resto é gateado pela região
-  const UNIVERSAL = ['mapa.html','roteiro.html','roteiros.html','novo-roteiro.html','servicos.html','custos.html','checklist.html','campings-brasil.html'];
+  const UNIVERSAL = ['mapa.html','roteiro.html','roteiros.html','novo-roteiro.html','servicos.html','custos.html','checklist.html','campings-brasil.html','vinicolas.html'];
   function applyRegionGate(){
     const reg = (window.REGIOES||{})[active.regiaoId] || {};
     const allow = reg.recursos || [];
@@ -262,6 +262,8 @@
         ic:'<path d="M3 20h18M12 4 5 20M12 4l7 16M9 13l3-2 3 2"/><circle cx="12" cy="9" r="1"/>' },
       { c:'#0EA5C0', href:'camping.html', t:'Wild camping', d:'Pernoite livre por tipo',
         ic:'<path d="M3 20h18M12 4 5 20M12 4l7 16M9 13l3-2 3 2"/>' },
+      { c:'#7A2540', href:'vinicolas.html', wide:true, t:'Vinícolas da rota', d:'Enoturismo BR · AR · CL · UY com GPS',
+        ic:'<path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/>' },
       { c:'#B45309', href:'postos.html', t:'Postos de diesel', d:'AR & CL · trechos críticos',
         ic:'<path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0z"/>' },
     ]},

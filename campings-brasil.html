@@ -53,6 +53,16 @@
   .searchbox.has #searchClear{display:block}
   .scard .osmtag{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;
     color:var(--teal);background:#EAF3F1;border:1px solid #CBE6DF;border-radius:6px;padding:2px 6px;flex-shrink:0}
+  .searchrow{display:flex;gap:8px}
+  .searchrow .searchbox{flex:1}
+  .geobtn{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:11px;
+    padding:8px 13px;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;color:var(--slate);
+    cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+  .geobtn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+  .geobtn.on{background:var(--teal);border-color:var(--teal);color:#fff}
+  .geobtn.busy{opacity:.6;pointer-events:none}
+  .scard .km{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+    color:var(--teal);background:#EAF3F1;border-radius:6px;padding:2px 7px;flex-shrink:0}
   .layout{display:flex;height:calc(100vh - 150px)}
   #map{flex:1;min-width:0;height:100%;background:#dfe6ea}
   .side{width:340px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--line);background:var(--panel);padding:12px}
@@ -140,6 +150,7 @@
         <input id="search" type="text" placeholder="Buscar camping por nome, cidade ou UF…" autocomplete="off">
         <button id="searchClear" aria-label="Limpar" title="Limpar">×</button>
       </div>
+      <button class="geobtn" id="geobtn"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span id="geolabel">Perto de mim</span></button>
     </div>
     <div class="filters" id="filters"></div>
   </div>
@@ -250,12 +261,17 @@
 
   function popHtml(p){
     var tp=TIPOS[p.tipo]||TIPOS.camping;
-    return '<div class="pop"><h4>'+esc(p.n)+'</h4><div class="pn">'+(p.uf?esc(p.uf)+' · ':'')+tp.label+(p.user?' · meu ponto':(p.osm?' · comunidade':''))+(p.nota?' — '+linkify(p.nota):'')+'</div>'
+    return '<div class="pop"><h4>'+esc(p.n)+'</h4><div class="pn">'+(p.uf?esc(p.uf)+' · ':'')+tp.label+(p.user?' · meu ponto':(p.osm?' · comunidade':''))+(geoActive&&p._km!=null?' · '+fmtKm(p._km):'')+(p.nota?' — '+linkify(p.nota):'')+'</div>'
       +(p.ig?'<div class="pig">'+igBtn(p)+'</div>':'')
       +'<a class="gpsbtn" href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>';
   }
 
   var active='all', osmOn=true, apoioOn=false, query='';
+  var userLoc=null, geoActive=false;
+  function haversine(a,b){var R=6371,r=Math.PI/180;var dLat=(b.lat-a.lat)*r,dLng=(b.lng-a.lng)*r;
+    var s=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dLng/2)*Math.sin(dLng/2);
+    return 2*R*Math.asin(Math.sqrt(s));}
+  function fmtKm(km){ return km<1?Math.round(km*1000)+' m':(km<10?km.toFixed(1):Math.round(km))+' km'; }
   function norm(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
   function matchQ(p){ if(!query) return true; var q=norm(query); return norm(p.n).indexOf(q)>=0 || norm(p.uf).indexOf(q)>=0; }
 
@@ -265,6 +281,10 @@
     if(apoioOn) arr=arr.concat(APOIO);
     if(active!=='all') arr=arr.filter(function(p){ return (p.tipo||'camping')===active; });
     if(query) arr=arr.filter(matchQ);
+    if(geoActive && userLoc){
+      arr=arr.map(function(p){ p._km=haversine(userLoc,p); return p; });
+      arr.sort(function(a,b){ return a._km-b._km; });
+    }
     return arr;
   }
 
@@ -313,7 +333,13 @@
     side.innerHTML='';
     var base=DATA_BASE.concat(USER);
     var list, head;
-    if(query){
+    if(geoActive && userLoc){
+      list=base.concat(osmOn?OSM:[]).concat(apoioOn?APOIO.filter(function(p){return !genericApoio(p);}):[]);
+      if(query) list=list.filter(matchQ);
+      list=list.map(function(p){ p._km=haversine(userLoc,p); return p; });
+      list.sort(function(a,b){return a._km-b._km;});
+      head='Perto de você';
+    } else if(query){
       list=base.concat(osmOn?OSM:[]).concat(apoioOn?APOIO.filter(function(p){return !genericApoio(p);}):[]).filter(matchQ);
       head='Resultados da busca';
     } else {
@@ -321,17 +347,17 @@
       head='Curadoria & meus pontos';
     }
     if(active!=='all') list=list.filter(function(p){ return (p.tipo||'camping')===active; });
-    list=list.slice().sort(function(a,b){return a.n.localeCompare(b.n);});
+    if(!geoActive) list=list.slice().sort(function(a,b){return a.n.localeCompare(b.n);});
     var total=list.length;
     var shead=document.createElement('div'); shead.className='sh';
-    shead.textContent=head+(query?' — '+total+' encontrado'+(total===1?'':'s'):'');
+    shead.textContent=head+((query||geoActive)?' — '+total+' encontrado'+(total===1?'':'s'):'');
     side.appendChild(shead);
-    if(query && total===0){
+    if((query||geoActive) && total===0){
       var none=document.createElement('div'); none.className='nota'; none.style.padding='6px 4px';
       none.textContent='Nada encontrado. Tente outro nome, cidade ou a sigla do estado (ex.: SC).';
       side.appendChild(none); return;
     }
-    var shown = query ? list.slice(0,120) : list;
+    var shown = (query||geoActive) ? list.slice(0,120) : list;
     shown.forEach(function(p){
       var tp=TIPOS[p.tipo]||TIPOS.camping;
       var c=document.createElement('div');
@@ -339,6 +365,7 @@
       var foot='<a class="gps" href="'+gmaps(p)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a>';
       if(p.user){ foot+='<button class="del" data-id="'+esc(p.id)+'"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>excluir</button>'; }
       var tag = p.user ? '<span class="mine">MEU</span>' : (p.osm ? '<span class="osmtag">'+(p.uf?esc(p.uf)+' · ':'')+'OSM</span>' : '<span class="uf">'+esc(p.uf||'')+'</span>');
+      if(geoActive && p._km!=null) tag += '<span class="km">'+fmtKm(p._km)+'</span>';
       if(p.ig){ foot+=igBtn(p); }
       c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3>'+tag+'</div>'
         +(p.nota?'<div class="nota">'+linkify(p.nota)+'</div>':'')
@@ -346,7 +373,7 @@
       c.onclick=function(){ flyTo(p); };
       side.appendChild(c);
     });
-    if(query && total>shown.length){
+    if((query||geoActive) && total>shown.length){
       var more=document.createElement('div'); more.className='nota'; more.style.padding='6px 4px';
       more.textContent='+'+(total-shown.length)+' outros resultados — refine a busca.';
       side.appendChild(more);
@@ -395,6 +422,37 @@
   searchEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){ clearTimeout(qTimer); runSearch(true); }
     else if(e.key==='Escape'){ searchEl.value=''; runSearch(false); } });
   searchClear.onclick=function(){ searchEl.value=''; runSearch(false); searchEl.focus(); };
+
+  // Perto de mim
+  var geobtn=document.getElementById('geobtn'), geolabel=document.getElementById('geolabel');
+  var youMarker=null;
+  function youIcon(){ return L.divIcon({className:'',html:'<div style="width:16px;height:16px;border-radius:50%;background:#2563EB;border:3px solid #fff;box-shadow:0 0 0 4px rgba(37,99,235,.28)"></div>',iconSize:[16,16],iconAnchor:[8,8]}); }
+  function clearGeo(){
+    geoActive=false; userLoc=null;
+    if(youMarker){ map.removeLayer(youMarker); youMarker=null; }
+    geobtn.classList.remove('on'); geolabel.textContent='Perto de mim';
+    renderSide(); drawMap();
+  }
+  function showGeo(lat,lng){
+    userLoc={lat:lat,lng:lng}; geoActive=true;
+    if(youMarker) map.removeLayer(youMarker);
+    youMarker=L.marker([lat,lng],{icon:youIcon(),zIndexOffset:1000}).addTo(map).bindPopup('Você está aqui');
+    geobtn.classList.add('on'); geolabel.textContent='Perto de você';
+    renderSide(); drawMap();
+    map.setView([lat,lng], 11, {animate:true});
+  }
+  geobtn.onclick=function(){
+    if(geoActive){ clearGeo(); return; }
+    if(!navigator.geolocation){ geolabel.textContent='Sem suporte a GPS'; return; }
+    geobtn.classList.add('busy'); geolabel.textContent='Localizando…';
+    navigator.geolocation.getCurrentPosition(
+      function(pos){ geobtn.classList.remove('busy'); showGeo(pos.coords.latitude, pos.coords.longitude); },
+      function(err){ geobtn.classList.remove('busy');
+        geolabel.textContent = err.code===1 ? 'Permissão negada' : 'Não foi possível localizar';
+        setTimeout(function(){ if(!geoActive) geolabel.textContent='Perto de mim'; }, 2600); },
+      { enableHighAccuracy:true, timeout:10000, maximumAge:60000 }
+    );
+  };
 
   renderSide();
   var allpts=DATA_BASE.concat(USER).concat(OSM);

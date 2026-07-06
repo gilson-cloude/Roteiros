@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinícolas da rota · Planejador de Roteiros</title>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 80 56" xmlns="http://www.w3.org/2000/svg">
+<rect width="80" height="56" fill="#F6F5F3"/>
+<circle cx="24" cy="20" r="8" fill="#7A2540" opacity="0.8"/>
+<circle cx="40" cy="16" r="7" fill="#C0392B" opacity="0.7"/>
+<circle cx="56" cy="22" r="6" fill="#C99A2E" opacity="0.7"/>
+<circle cx="32" cy="36" r="5" fill="#1E8E5A" opacity="0.6"/>
+<circle cx="48" cy="38" r="5.5" fill="#3B7DD8" opacity="0.6"/>
+<path d="M8 44 L72 44" stroke="#E9E4E3" stroke-width="1"/>
+<text x="40" y="54" font-family="Arial, sans-serif" font-size="8" fill="#6A5F63" text-anchor="middle" font-weight="600">Vinícolas</text>
+</svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root{
+    --bg:#F6F5F3; --panel:#FFFFFF; --ink:#211A1D; --slate:#6A5F63; --faint:#9A8F92;
+    --line:#E9E4E3; --wine:#7A2540; --amber:#B45309;
+    --shadow:0 14px 34px -20px rgba(60,20,40,.4);
+    --c-BR:#1E8E5A; --c-AR:#3B7DD8; --c-CL:#C0392B; --c-UY:#C99A2E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.5}
+  .top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:12px 16px}
+  .top .row1{display:flex;align-items:center;gap:12px}
+  .back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px}
+  .back svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:2.2}
+  .top h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;margin-left:2px}
+  .top .count{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);white-space:nowrap}
+  .filters{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:6px 12px;cursor:pointer;transition:all .16s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .chip:hover{border-color:#d8cfce}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .fl{width:8px;height:8px;border-radius:3px}
+  .searchrow{margin-top:10px;display:flex;gap:8px}
+  .searchbox{flex:1;display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);
+    border-radius:11px;padding:8px 11px;transition:border-color .15s,box-shadow .15s}
+  .searchbox:focus-within{border-color:var(--wine);box-shadow:0 0 0 3px rgba(122,37,64,.12);background:#fff}
+  .searchbox svg{width:17px;height:17px;stroke:var(--faint);fill:none;stroke-width:2;flex-shrink:0}
+  .searchbox input{flex:1;border:none;background:none;outline:none;font-family:"IBM Plex Sans",sans-serif;
+    font-size:14px;color:var(--ink)}
+  .searchbox input::placeholder{color:var(--faint)}
+  .searchbox #searchClear{display:none;background:none;border:none;font-size:18px;line-height:1;color:var(--slate);
+    cursor:pointer;padding:0 2px;flex-shrink:0}
+  .searchbox.has #searchClear{display:block}
+  .geobtn{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:11px;
+    padding:8px 13px;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;color:var(--slate);
+    cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+  .geobtn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+  .geobtn.on{background:var(--wine);border-color:var(--wine);color:#fff}
+  .geobtn.busy{opacity:.6;pointer-events:none}
+  .note-bar{display:flex;align-items:flex-start;gap:9px;background:#F6EEF0;border-bottom:1px solid var(--line);
+    padding:9px 16px}
+  .note-bar svg{width:16px;height:16px;stroke:var(--wine);fill:none;stroke-width:2;flex-shrink:0;margin-top:2px}
+  .note-bar p{font-size:12px;color:var(--slate);line-height:1.45}
+  .layout{display:flex;height:calc(100vh - 150px)}
+  #map{flex:1;min-width:0;height:100%;background:#e7dfe0}
+  .side{width:340px;flex-shrink:0;overflow-y:auto;border-left:1px solid var(--line);background:var(--panel);padding:12px}
+  .side .sh{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:2px 2px 10px}
+  .scard{border:1px solid var(--line);border-left:3px solid var(--sc,var(--line));border-radius:12px;
+    padding:12px 13px;margin-bottom:10px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+  .scard:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+  .scard .h{display:flex;align-items:flex-start;gap:8px}
+  .scard h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;line-height:1.2}
+  .scard .pais{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;color:#fff;
+    background:var(--sc);border-radius:6px;padding:2px 7px;flex-shrink:0}
+  .scard .km{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+    color:var(--wine);background:#F3E6EA;border-radius:6px;padding:2px 7px;flex-shrink:0}
+  .scard .reg{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--faint);margin-top:5px}
+  .scard .uvatag{display:inline-block;font-size:10.5px;font-weight:600;color:var(--wine);background:#F3E6EA;
+    border-radius:6px;padding:2px 7px;margin-top:7px}
+  .scard .nota{font-size:12px;color:var(--slate);margin-top:6px;line-height:1.4}
+  .scard .foot{display:flex;align-items:center;gap:10px;margin-top:9px}
+  .scard .gps{display:inline-flex;align-items:center;gap:5px;font-family:"Space Grotesk",sans-serif;font-weight:600;
+    font-size:11.5px;color:var(--wine);text-decoration:none}
+  .scard .gps svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .iglink{display:inline-flex;align-items:center;gap:5px;font-family:"Space Grotesk",sans-serif;font-weight:600;
+    font-size:11.5px;color:#B03A6E;text-decoration:none}
+  .iglink svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+  .igv{color:#1E8E5A;font-weight:700;margin-left:1px}
+  .igq{color:var(--faint);font-weight:700;margin-left:1px;cursor:help}
+  .pop h4{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;margin-bottom:3px}
+  .pop .pn{font-size:12px;color:var(--slate);line-height:1.4}
+  .pop .gpsbtn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-family:"Space Grotesk",sans-serif;
+    font-weight:600;font-size:12px;color:#fff;background:var(--wine);border-radius:8px;padding:6px 11px;text-decoration:none}
+  .pop .gpsbtn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2}
+  .pop .pig{margin-top:7px}
+  .pop .pig .iglink{font-size:12px}
+  .leaflet-popup-content{margin:11px 13px}
+  .cluster{display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-weight:700;
+    font-family:"Space Grotesk",sans-serif;background:var(--wine);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(60,20,40,.4)}
+  @media(max-width:760px){
+    .layout{flex-direction:column;height:auto}
+    #map{height:56vh}
+    .side{width:100%;border-left:none;border-top:1px solid var(--line);max-height:none}
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="row1">
+      <a class="back" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar</a>
+      <h1>Vinícolas da rota</h1>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="searchrow">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="search" type="text" placeholder="Buscar por vinícola, região ou uva…" autocomplete="off">
+        <button id="searchClear" aria-label="Limpar" title="Limpar">×</button>
+      </div>
+      <button class="geobtn" id="geobtn"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span id="geolabel">Perto de mim</span></button>
+    </div>
+    <div class="filters" id="filters"></div>
+  </div>
+
+  <div class="note-bar">
+    <svg viewBox="0 0 24 24"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg>
+    <p>Curadoria de <b>enoturismo</b> ao longo da rota — Brasil, Argentina, Chile e Uruguai. Visitas quase sempre pedem <b>reserva</b>; confirme horários e almoço antes de ir. Coordenadas aproximadas.</p>
+  </div>
+
+  <div class="layout">
+    <div id="map"></div>
+    <aside class="side" id="side"></aside>
+  </div>
+
+<script src="vinicolas.js"></script>
+<script>
+(function(){
+  var PAISES={
+    BR:{hex:getComputedStyle(document.documentElement).getPropertyValue('--c-BR').trim(),label:'Brasil'},
+    AR:{hex:getComputedStyle(document.documentElement).getPropertyValue('--c-AR').trim(),label:'Argentina'},
+    CL:{hex:getComputedStyle(document.documentElement).getPropertyValue('--c-CL').trim(),label:'Chile'},
+    UY:{hex:getComputedStyle(document.documentElement).getPropertyValue('--c-UY').trim(),label:'Uruguai'}
+  };
+  var DATA=(window.VINICOLAS||[]).slice();
+
+  var map=L.map('map',{scrollWheelZoom:true,preferCanvas:true}).setView([-30,-62],4);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19
+  }).addTo(map);
+  var layer=L.layerGroup().addTo(map);
+
+  function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function gmaps(p){ return 'https://www.google.com/maps/dir/?api=1&destination='+p.lat+','+p.lng; }
+  function paisOf(p){ return PAISES[p.pais]||PAISES.BR; }
+  function igBtn(p){
+    if(p.ig){
+      var mark = p.igv ? '<span class="igv" title="Handle verificado">✓</span>'
+                       : '<span class="igq" title="Handle provável — confira">~</span>';
+      return '<a class="iglink" href="https://instagram.com/'+encodeURIComponent(p.ig)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@'+esc(p.ig)+mark+'</a>';
+    }
+    return '<a class="iglink" href="https://www.google.com/search?q='+encodeURIComponent(p.n+' '+p.reg+' vinícola instagram')+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>';
+  }
+  function dot(hex){ return L.divIcon({className:'',html:'<div style="width:15px;height:15px;border-radius:50%;background:'+hex+';border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',iconSize:[15,15],iconAnchor:[7,7]}); }
+  function clusterIcon(n){
+    var s = n<10?34 : n<50?42 : 52;
+    return L.divIcon({className:'', html:'<div class="cluster" style="width:'+s+'px;height:'+s+'px;font-size:13px">'+n+'</div>', iconSize:[s,s], iconAnchor:[s/2,s/2]});
+  }
+  function popHtml(p){
+    var pa=paisOf(p);
+    return '<div class="pop"><h4>'+esc(p.n)+'</h4><div class="pn">'+esc(p.reg)+' · '+pa.label
+      +(p.uva?' · '+esc(p.uva):'')+(geoActive&&p._km!=null?' · '+fmtKm(p._km):'')
+      +(p.nota?'<br>'+esc(p.nota):'')+'</div>'
+      +'<div class="pig">'+igBtn(p)+'</div>'
+      +'<a class="gpsbtn" href="'+gmaps(p)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a></div>';
+  }
+
+  var active='all', query='';
+  var userLoc=null, geoActive=false;
+  function haversine(a,b){var R=6371,r=Math.PI/180;var dLat=(b.lat-a.lat)*r,dLng=(b.lng-a.lng)*r;
+    var s=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dLng/2)*Math.sin(dLng/2);
+    return 2*R*Math.asin(Math.sqrt(s));}
+  function fmtKm(km){ return km<1?Math.round(km*1000)+' m':(km<10?km.toFixed(1):Math.round(km))+' km'; }
+  function norm(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+  function matchQ(p){ if(!query) return true; var q=norm(query);
+    return norm(p.n).indexOf(q)>=0 || norm(p.reg).indexOf(q)>=0 || norm(p.uva).indexOf(q)>=0 || norm(paisOf(p).label).indexOf(q)>=0; }
+
+  function activePoints(){
+    var arr=DATA.slice();
+    if(active!=='all') arr=arr.filter(function(p){ return p.pais===active; });
+    if(query) arr=arr.filter(matchQ);
+    if(geoActive && userLoc){
+      arr=arr.map(function(p){ p._km=haversine(userLoc,p); return p; });
+      arr.sort(function(a,b){ return a._km-b._km; });
+    }
+    return arr;
+  }
+
+  var CELL=54;
+  function drawMap(){
+    layer.clearLayers();
+    var z=map.getZoom();
+    var pts=activePoints();
+    var cells={};
+    pts.forEach(function(p){
+      var pt=map.project([p.lat,p.lng],z);
+      var k=Math.floor(pt.x/CELL)+'_'+Math.floor(pt.y/CELL);
+      (cells[k]=cells[k]||[]).push(p);
+    });
+    Object.keys(cells).forEach(function(k){
+      var g=cells[k];
+      if(g.length===1){
+        var p=g[0];
+        var m=L.marker([p.lat,p.lng],{icon:dot(paisOf(p).hex)});
+        m.bindPopup(popHtml(p));
+        m.addTo(layer);
+      } else {
+        var lat=0,lng=0; g.forEach(function(p){lat+=p.lat;lng+=p.lng;});
+        lat/=g.length; lng/=g.length;
+        var c=L.marker([lat,lng],{icon:clusterIcon(g.length)});
+        c.on('click',function(){
+          var b=L.latLngBounds(g.map(function(p){return [p.lat,p.lng];}));
+          if(b.getNorth()===b.getSouth()&&b.getEast()===b.getWest()) map.setView([lat,lng],Math.min(z+3,17));
+          else map.fitBounds(b,{padding:[50,50],maxZoom:16});
+        });
+        c.addTo(layer);
+      }
+    });
+    document.getElementById('count').textContent=pts.length+' vinícolas';
+  }
+  map.on('zoomend moveend',drawMap);
+
+  var side=document.getElementById('side');
+  function flyTo(p){
+    map.setView([p.lat,p.lng], 13, {animate:true});
+    L.popup({offset:[0,-6]}).setLatLng([p.lat,p.lng]).setContent(popHtml(p)).openOn(map);
+    if(window.innerWidth<=760){ var m=document.getElementById('map'); window.scrollTo({top:m.offsetTop-8,behavior:'smooth'}); }
+  }
+  function renderSide(){
+    side.innerHTML='';
+    var list=DATA.slice(), head;
+    if(active!=='all') list=list.filter(function(p){ return p.pais===active; });
+    if(geoActive && userLoc){
+      if(query) list=list.filter(matchQ);
+      list=list.map(function(p){ p._km=haversine(userLoc,p); return p; });
+      list.sort(function(a,b){return a._km-b._km;});
+      head='Perto de você';
+    } else if(query){
+      list=list.filter(matchQ);
+      list.sort(function(a,b){return a.n.localeCompare(b.n);});
+      head='Resultados da busca';
+    } else {
+      list.sort(function(a,b){return a.n.localeCompare(b.n);});
+      head='Curadoria';
+    }
+    var total=list.length;
+    var shead=document.createElement('div'); shead.className='sh';
+    shead.textContent=head+((query||geoActive||active!=='all')?' — '+total+(total===1?' vinícola':' vinícolas'):'');
+    side.appendChild(shead);
+    if(total===0){
+      var none=document.createElement('div'); none.className='nota'; none.style.padding='6px 4px';
+      none.textContent='Nada encontrado. Tente outra vinícola, região (ex.: Colchagua) ou uva (ex.: Malbec).';
+      side.appendChild(none); return;
+    }
+    list.forEach(function(p){
+      var pa=paisOf(p);
+      var c=document.createElement('div');
+      c.className='scard'; c.style.setProperty('--sc',pa.hex);
+      var tag = (geoActive && p._km!=null) ? '<span class="km">'+fmtKm(p._km)+'</span>'
+        : '<span class="pais">'+esc(p.pais)+'</span>';
+      c.innerHTML='<div class="h"><h3>'+esc(p.n)+'</h3>'+tag+'</div>'
+        +'<div class="reg">'+esc(p.reg)+'</div>'
+        +(p.uva?'<span class="uvatag">'+esc(p.uva)+'</span>':'')
+        +(p.nota?'<div class="nota">'+esc(p.nota)+'</div>':'')
+        +'<div class="foot"><a class="gps" href="'+gmaps(p)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>ir ao GPS</a>'+igBtn(p)+'</div>';
+      c.onclick=function(){ flyTo(p); };
+      side.appendChild(c);
+    });
+  }
+
+  // filtros por país
+  var filtersEl=document.getElementById('filters');
+  var defs=[{k:'all',label:'Todos'}].concat(Object.keys(PAISES).map(function(k){return {k:k,label:PAISES[k].label,hex:PAISES[k].hex};}));
+  defs.forEach(function(f){
+    var ch=document.createElement('div'); ch.className='chip'+(f.k==='all'?' on':''); ch.dataset.k=f.k;
+    ch.innerHTML=(f.hex?'<span class="fl" style="background:'+f.hex+'"></span>':'')+f.label;
+    ch.onclick=function(){ active=f.k; filtersEl.querySelectorAll('.chip[data-k]').forEach(function(x){x.classList.toggle('on',x.dataset.k===active);}); renderSide(); drawMap(); };
+    filtersEl.appendChild(ch);
+  });
+
+  // busca
+  var searchEl=document.getElementById('search');
+  var searchBox=searchEl.parentNode, searchClear=document.getElementById('searchClear');
+  var qTimer=null;
+  function runSearch(fit){
+    query=searchEl.value.trim();
+    searchBox.classList.toggle('has',!!query);
+    renderSide(); drawMap();
+    if(fit && query){
+      var hits=activePoints();
+      if(hits.length){ map.fitBounds(hits.map(function(p){return [p.lat,p.lng];}),{padding:[40,40],maxZoom:13}); }
+    }
+  }
+  searchEl.addEventListener('input',function(){ clearTimeout(qTimer); qTimer=setTimeout(function(){ runSearch(false); },160); });
+  searchEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){ clearTimeout(qTimer); runSearch(true); }
+    else if(e.key==='Escape'){ searchEl.value=''; runSearch(false); } });
+  searchClear.onclick=function(){ searchEl.value=''; runSearch(false); searchEl.focus(); };
+
+  // Perto de mim
+  var geobtn=document.getElementById('geobtn'), geolabel=document.getElementById('geolabel');
+  var youMarker=null;
+  function youIcon(){ return L.divIcon({className:'',html:'<div style="width:16px;height:16px;border-radius:50%;background:#7A2540;border:3px solid #fff;box-shadow:0 0 0 4px rgba(122,37,64,.28)"></div>',iconSize:[16,16],iconAnchor:[8,8]}); }
+  function clearGeo(){
+    geoActive=false; userLoc=null;
+    if(youMarker){ map.removeLayer(youMarker); youMarker=null; }
+    geobtn.classList.remove('on'); geolabel.textContent='Perto de mim';
+    renderSide(); drawMap();
+  }
+  function showGeo(lat,lng){
+    userLoc={lat:lat,lng:lng}; geoActive=true;
+    if(youMarker) map.removeLayer(youMarker);
+    youMarker=L.marker([lat,lng],{icon:youIcon(),zIndexOffset:1000}).addTo(map).bindPopup('Você está aqui');
+    geobtn.classList.add('on'); geolabel.textContent='Perto de você';
+    renderSide(); drawMap();
+    map.setView([lat,lng], 8, {animate:true});
+  }
+  geobtn.onclick=function(){
+    if(geoActive){ clearGeo(); return; }
+    if(!navigator.geolocation){ geolabel.textContent='Sem suporte a GPS'; return; }
+    geobtn.classList.add('busy'); geolabel.textContent='Localizando…';
+    navigator.geolocation.getCurrentPosition(
+      function(pos){ geobtn.classList.remove('busy'); showGeo(pos.coords.latitude, pos.coords.longitude); },
+      function(err){ geobtn.classList.remove('busy');
+        geolabel.textContent = err.code===1 ? 'Permissão negada' : 'Não foi possível localizar';
+        setTimeout(function(){ if(!geoActive) geolabel.textContent='Perto de mim'; }, 2600); },
+      { enableHighAccuracy:true, timeout:10000, maximumAge:60000 }
+    );
+  };
+
+  renderSide();
+  if(DATA.length) map.fitBounds(DATA.map(function(p){return [p.lat,p.lng];}),{padding:[30,30]});
+  drawMap();
+})();
+</script>
+</body>
+</html>
