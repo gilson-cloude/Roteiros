@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postos de combustível · Planejador de Roteiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo-doc.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  .osmmap-h{display:flex;align-items:baseline;gap:12px;margin:30px 0 6px}
+  .osmmap-h h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .osmmap-h .cc{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint)}
+  #osmmap{height:420px;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);margin:14px 0 8px;background:#e7edf3}
+  .osmcluster{display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-weight:700;
+    font-family:"Space Grotesk",sans-serif;background:#2563EB;border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .wrap{max-width:1080px}
+  .filters{position:sticky;top:14px;z-index:10;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border:1px solid var(--line);
+    border-radius:13px;padding:11px 14px;margin:22px 0 8px;box-shadow:var(--shadow)}
+  .chip{font-size:12px;font-weight:600;color:var(--slate);background:var(--bg);border:1px solid var(--line);
+    border-radius:20px;padding:7px 13px;cursor:pointer;transition:all .16s;white-space:nowrap}
+  .chip:hover{border-color:#cfd5de}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .fl{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .flegend{display:flex;flex-wrap:wrap;gap:16px;margin:16px 2px 28px;font-size:12.5px;color:var(--slate)}
+  .flegend .a{display:flex;align-items:center;gap:8px}
+  .flegend .a b{color:var(--ink);font-weight:600}
+  .flegend .a .pin{width:15px;height:15px;flex-shrink:0}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .fcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 18px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;border-left:3px solid var(--fc,var(--line));
+    transition:transform .16s,box-shadow .16s}
+  .fcard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -18px rgba(22,32,44,.26)}
+  .fcard.hidden{display:none}
+  .fcard .top{display:flex;align-items:flex-start;gap:11px}
+  .fcard .pin{width:30px;height:30px;flex-shrink:0;border-radius:9px;display:grid;place-items:center;
+    background:color-mix(in srgb,var(--fc) 14%,#fff);border:1px solid color-mix(in srgb,var(--fc) 30%,#fff)}
+  .fcard .pin svg{width:16px;height:16px;stroke:var(--fc);fill:none;stroke-width:2}
+  .fcard h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-.01em;line-height:1.15}
+  .fcard .road{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--faint);
+    text-transform:uppercase;margin-top:2px}
+  .fcard .flag{margin-left:auto;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:10px;
+    letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--fc);border-radius:20px;
+    padding:4px 9px;white-space:nowrap;flex-shrink:0;align-self:flex-start}
+  .brands{display:flex;flex-wrap:wrap;gap:6px}
+  .brands .bd{font-size:11px;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);
+    border-radius:6px;padding:3px 9px}
+  .brands .glp{color:#B45309;background:#FEF6EC;border-color:#F4D9B4}
+  .fcard .note{font-size:12.5px;color:var(--slate);line-height:1.45}
+  .fcard .note b{color:var(--ink)}
+  .fcard .foot{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--line-soft)}
+  .fcard .gps{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .fcard .gps svg{width:13px;height:13px;stroke:var(--teal);fill:none;stroke-width:1.8}
+  .fcard .gps .cp{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+  .fcard .flagdt{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--faint)}
+  .corr{margin-top:38px}
+  .corr-h{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+  .corr-h .fg{width:11px;height:11px;border-radius:3px;align-self:center;flex-shrink:0}
+  .corr-h h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .corr-h .cc{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="app.html"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar ao app</a>
+
+  <div class="brandline"><span class="dot"></span>diesel · argentina &amp; chile · fora do brasil</div>
+  <h1>Postos de <span class="hl">combustível</span></h1>
+  <p class="lead">Onde abastecer o motorhome <b>na Argentina e no Chile</b>. Na Patagônia os postos são raros e a distância entre eles define o tanque — destaque para os <b>trechos críticos</b>, onde se enche sempre que possível.</p>
+
+  <div class="callout">
+    <svg viewBox="0 0 24 24"><path d="M3 17V7a2 2 0 0 1 2-2h7v12M12 11h4l3 3v3M7 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg>
+    <div><h4>Regra do tanque cheio</h4><p>Em postos isolados (Bajo Caracoles, Tres Lagos, Río Tranquilo) pode <b>faltar diesel</b> ou haver fila. <b>Nunca</b> passe de um posto grande com menos de meio tanque. Leve <b>reserva</b> em galão para os vãos longos.</p></div>
+  </div>
+
+  <div class="osmmap-h">
+    <h2>Mapa completo (OpenStreetMap)</h2>
+    <span class="cc" id="osmCount"></span>
+  </div>
+  <p class="lead" style="margin-top:-6px">Camada complementar com <b>todos os postos mapeados</b> na Patagônia AR/CL (comunidade OSM) — além dos hubs curados abaixo. País por posto é aproximado.</p>
+  <div id="osmmap"></div>
+
+  <div class="filters">
+    <div class="chips" id="chips" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div class="flegend">
+    <div class="a"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="#2E9E5B" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><b>Hub</b> — grande, várias bandeiras</div>
+    <div class="a"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><b>Encher tanque</b> — último antes de vão longo</div>
+    <div class="a"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><b>Posto isolado</b> — incerto, leve reserva</div>
+    <div class="a"><span class="bd glp" style="font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:6px">GLP</span> ponto com gás (cozinha/aquecimento)</div>
+  </div>
+
+  <div id="corrs"></div>
+
+  <footer>
+    <span>PLANEJADOR DE ROTEIROS · POSTOS DE COMBUSTÍVEL</span>
+    <span>Disponibilidade aproximada · confirme em apps (iOverlander / YPF / Copec) na viagem</span>
+  </footer>
+</div>
+
+<script>
+  const FLAGS = {
+    hub:      { cor:'#2E9E5B', label:'Hub' },
+    encher:   { cor:'#D97706', label:'Encher' },
+    isolado:  { cor:'#DC2626', label:'Isolado' },
+    normal:   { cor:'#2563EB', label:'Abastecer' },
+  };
+  const CORRS = [
+    { id:'ar3', fg:'#2563EB', nome:'Argentina — Ruta 3 (Atlântico)' },
+    { id:'tdf', fg:'#7C3AED', nome:'Terra do Fogo' },
+    { id:'ar40', fg:'#0F766E', nome:'Argentina — Ruta 40 & Glaciares' },
+    { id:'cl', fg:'#D97706', nome:'Chile — Carretera Austral' },
+    { id:'ret', fg:'#2E9E5B', nome:'Retorno (Lagos & norte)' },
+  ];
+  const POSTOS = [
+    // Ruta 3
+    { c:'ar3', n:'Bahía Blanca', road:'AR · RN3 / RN22', flag:'hub', gps:[-38.7196,-62.2724],
+      marcas:['YPF','Axion','Shell','Puma','GLP'], nota:'Última grande cidade antes da Patagônia. Todas as bandeiras, GLP e oficinas. Encha e estoque.' },
+    { c:'ar3', n:'San Antonio Oeste / Las Grutas', road:'AR · RN3', flag:'encher', gps:[-40.732,-64.948],
+      marcas:['YPF','Axion'], nota:'Bom ponto antes do trecho mais vazio até Madryn. Abasteça aqui.' },
+    { c:'ar3', n:'Puerto Madryn', road:'AR · RN3 (desvio)', flag:'hub', gps:[-42.769,-65.038],
+      marcas:['YPF','Axion','Shell','GLP'], nota:'Base da Península Valdés. Postos grandes, GLP e supermercados. Encha antes de rodar Valdés (ripio interno).' },
+    { c:'ar3', n:'Comodoro Rivadavia', road:'AR · RN3', flag:'hub', gps:[-45.864,-67.496],
+      marcas:['YPF','Axion','Shell','Puma'], nota:'Maior hub do trecho. <b>Atenção</b>: zona com histórico de piquetes — abasteça e não pernoite na rua.' },
+    { c:'ar3', n:'Caleta Olivia', road:'AR · RN3', flag:'normal', gps:[-46.439,-67.528],
+      marcas:['YPF','Axion'], nota:'Reforço logo após Comodoro, antes do longo vão até San Julián.' },
+    { c:'ar3', n:'Puerto San Julián', road:'AR · RN3', flag:'encher', gps:[-49.310,-67.726],
+      marcas:['YPF'], nota:'Parada clássica na descida. Encha — distâncias longas entre vilas a partir daqui.' },
+    { c:'ar3', n:'Cdte. Luis Piedra Buena', road:'AR · RN3', flag:'normal', gps:[-49.985,-68.913],
+      marcas:['YPF','Axion'], nota:'Às margens do Rio Santa Cruz. Posto e pernoite seguro antes de Río Gallegos.' },
+    { c:'ar3', n:'Río Gallegos', road:'AR · RN3 / RN40', flag:'hub', gps:[-51.623,-69.216],
+      marcas:['YPF','Axion','Shell','GLP'], nota:'<b>Último grande abastecimento</b> antes da Terra do Fogo e da dupla fronteira. Tanque cheio + reserva.' },
+    // Terra do Fogo
+    { c:'tdf', n:'Río Grande', road:'AR · RN3 (TdF)', flag:'normal', gps:[-53.787,-67.710],
+      marcas:['YPF','Axion'], nota:'Entrada na Terra do Fogo argentina. Abasteça após a travessia do Estreito.' },
+    { c:'tdf', n:'Tolhuin', road:'AR · RN3 · Lago Fagnano', flag:'normal', gps:[-54.510,-67.193],
+      marcas:['YPF'], nota:'Posto + a famosa padaria La Unión. Reforço antes de Ushuaia.' },
+    { c:'tdf', n:'Ushuaia', road:'AR · fim da RN3', flag:'hub', gps:[-54.807,-68.307],
+      marcas:['YPF','Axion','GLP'], nota:'Os postos mais ao sul do mundo. Encha para a subida de volta pela RN3.' },
+    // Ruta 40 / glaciares
+    { c:'ar40', n:'El Calafate', road:'AR · RP11 / RN40', flag:'hub', gps:[-50.339,-72.275],
+      marcas:['YPF','Axion','GLP'], nota:'Base do Perito Moreno. Encha bem — Chaltén e a RN40 ao norte têm postos fracos.' },
+    { c:'ar40', n:'El Chaltén', road:'AR · RP23', flag:'encher', gps:[-49.331,-72.886],
+      marcas:['YPF / ACA'], nota:'Posto pequeno, com <b>filas e faltas</b> em alta temporada. Chegue já abastecido de Calafate.' },
+    { c:'ar40', n:'Tres Lagos', road:'AR · RN40', flag:'isolado', gps:[-49.589,-71.452],
+      marcas:['ACA (incerto)'], nota:'Posto <b>único e incerto</b> no vão da RN40. Pode não ter diesel — leve reserva e não dependa dele.' },
+    { c:'ar40', n:'Gobernador Gregores', road:'AR · RN40 (desvio)', flag:'encher', gps:[-48.757,-70.250],
+      marcas:['YPF'], nota:'Desvio que muitos fazem justamente para garantir diesel no meio da RN40. Vale o detour.' },
+    { c:'ar40', n:'Bajo Caracoles', road:'AR · RN40', flag:'isolado', gps:[-47.456,-70.929],
+      marcas:['ACA (1 bomba)'], nota:'Lendário ponto isolado de <b>uma bomba</b>. Frequentemente sem combustível. <b>Nunca</b> conte só com ele.' },
+    { c:'ar40', n:'Perito Moreno / Los Antiguos', road:'AR · RN40 / RP43', flag:'encher', gps:[-46.589,-70.929],
+      marcas:['YPF'], nota:'<b>Últimos postos argentinos</b> antes de cruzar a Chile Chico e iniciar a Carretera. Encha o tanque.' },
+    // Chile — Carretera Austral
+    { c:'cl', n:'Chile Chico', road:'CL · Ruta 265', flag:'normal', gps:[-46.542,-71.724],
+      marcas:['Copec'], nota:'Primeiro posto no Chile após a fronteira. Pequeno; abasteça para entrar na Carretera.' },
+    { c:'cl', n:'Cochrane', road:'CL · Ruta 7', flag:'encher', gps:[-47.244,-72.574],
+      marcas:['Copec'], nota:'<b>Último abastecimento forte do sul</b> da Carretera. Encha antes de descer a O\'Higgins (ida e volta).' },
+    { c:'cl', n:'Puerto Río Tranquilo', road:'CL · Ruta 7', flag:'isolado', gps:[-46.626,-72.667],
+      marcas:['Copec (pequeno)'], nota:'Posto pequeno, às vezes <b>vende em tambor</b>. Não conte com grande volume; chegue abastecido de Cochrane/Coyhaique.' },
+    { c:'cl', n:'Villa Cerro Castillo', road:'CL · Ruta 7', flag:'isolado', gps:[-46.122,-72.163],
+      marcas:['posto pequeno'], nota:'Abastecimento limitado. Útil como reforço, não como parada principal.' },
+    { c:'cl', n:'Coyhaique', road:'CL · Ruta 7', flag:'hub', gps:[-45.572,-72.068],
+      marcas:['Copec','Petrobras','Aramco','GLP'], nota:'<b>Maior hub de toda a Carretera</b> (capital de Aysén). Várias bandeiras, oficinas e GLP. Encha bem nos dois sentidos.' },
+    { c:'cl', n:'La Junta', road:'CL · Ruta 7', flag:'normal', gps:[-43.974,-72.408],
+      marcas:['Copec'], nota:'Cruzamento para Futaleufú. Reforço no trecho norte da Carretera.' },
+    { c:'cl', n:'Puyuhuapi', road:'CL · Ruta 7', flag:'isolado', gps:[-44.327,-72.558],
+      marcas:['posto pequeno'], nota:'Abastecimento limitado junto às termas e ao PN Queulat. Não dependa dele para volumes grandes.' },
+    { c:'cl', n:'Chaitén', road:'CL · Ruta 7', flag:'encher', gps:[-42.916,-72.708],
+      marcas:['Copec'], nota:'Fim do trecho de estrada antes do <b>ferry para Puerto Montt</b>. Encha antes de embarcar.' },
+    { c:'cl', n:'Puerto Montt', road:'CL · Ruta 5 / Ruta 7', flag:'hub', gps:[-41.469,-72.942],
+      marcas:['Copec','Petrobras','Shell','Aramco','GLP'], nota:'Reentrada na malha asfaltada. Grande hub: todas as bandeiras, GLP e oficinas. Revisão e reabastecimento.' },
+    // Retorno
+    { c:'ret', n:'Bariloche', road:'AR · RN40 / Sete Lagos', flag:'hub', gps:[-41.135,-71.310],
+      marcas:['YPF','Axion','Shell','GLP'], nota:'De volta à Argentina pelos Sete Lagos. Hub completo para a longa volta ao norte.' },
+    { c:'ret', n:'Neuquén', road:'AR · RN22', flag:'hub', gps:[-38.951,-68.059],
+      marcas:['YPF','Axion','Shell','Puma'], nota:'Saída da Patagônia rumo ao norte. Último grande reabastecimento antes da reta final ao Brasil.' },
+  ];
+
+  window.PCcopy = function(txt, el){
+    if(navigator.clipboard) navigator.clipboard.writeText(txt);
+    const cp = el.querySelector('.cp'); if(cp){ const o=cp.textContent; cp.textContent='copiado!'; setTimeout(()=>cp.textContent=o,1200); }
+  };
+  function pinSvg(cor){ return `<svg viewBox="0 0 24 24" style="stroke:${cor}"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>`; }
+
+  const corrsEl = document.getElementById('corrs');
+  CORRS.forEach(co=>{
+    const group = POSTOS.filter(p=>p.c===co.id);
+    if(!group.length) return;
+    const sec = document.createElement('section'); sec.className='corr'; sec.dataset.c=co.id;
+    const h = document.createElement('div'); h.className='corr-h';
+    h.innerHTML = `<span class="fg" style="background:${co.fg}"></span><h2>${co.nome}</h2><span class="cc">${group.length} postos</span>`;
+    sec.appendChild(h);
+    const grid = document.createElement('div'); grid.className='grid3';
+    group.forEach(p=>{
+      const fl = FLAGS[p.flag];
+      const coord = `${p.gps[0].toFixed(4)}, ${p.gps[1].toFixed(4)}`;
+      const brands = p.marcas.map(m=> m==='GLP'
+        ? `<span class="bd glp">GLP</span>`
+        : `<span class="bd">${m}</span>`).join('');
+      const card = document.createElement('div');
+      card.className='fcard'; card.dataset.flag=p.flag; card.style.setProperty('--fc', fl.cor);
+      card.innerHTML = `
+        <div class="top">
+          <span class="pin">${pinSvg(fl.cor)}</span>
+          <div style="min-width:0"><h3>${p.n}</h3><div class="road">${p.road}</div></div>
+          <span class="flag">${fl.label}</span>
+        </div>
+        <div class="brands">${brands}</div>
+        <p class="note">${p.nota}</p>
+        <div class="foot">
+          <span class="gps" title="copiar coordenadas" onclick="PCcopy('${coord}', this)">
+            ${pinSvg(getComputedStyle(document.documentElement).getPropertyValue('--teal')||'#0F766E')}
+            ${coord}<span class="cp">copiar</span></span>
+        </div>`;
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+    corrsEl.appendChild(sec);
+  });
+
+  // filters
+  const chipsEl = document.getElementById('chips');
+  const filters = [
+    { k:'all', label:'Todos' },
+    { k:'hub', label:'Hubs', cor:'#2E9E5B' },
+    { k:'encher', label:'Encher tanque', cor:'#D97706' },
+    { k:'isolado', label:'Postos isolados', cor:'#DC2626' },
+    { k:'glp', label:'Com GLP', cor:'#B45309' },
+  ];
+  let active='all';
+  filters.forEach(ft=>{
+    const c=document.createElement('div'); c.className='chip'+(ft.k==='all'?' on':''); c.dataset.k=ft.k;
+    c.innerHTML=(ft.cor?`<span class="fl" style="background:${ft.cor}"></span>`:'')+ft.label;
+    c.onclick=()=>{ active=ft.k; chipsEl.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x.dataset.k===active)); apply(); };
+    chipsEl.appendChild(c);
+  });
+  function apply(){
+    document.querySelectorAll('.fcard').forEach(card=>{
+      let show=true;
+      if(active==='glp') show = !!card.querySelector('.glp');
+      else if(active!=='all') show = card.dataset.flag===active;
+      card.classList.toggle('hidden', !show);
+    });
+    document.querySelectorAll('.corr').forEach(sec=>{
+      const any=[...sec.querySelectorAll('.fcard')].some(c=>!c.classList.contains('hidden'));
+      sec.style.display = any?'':'none';
+    });
+  }
+</script>
+<script src="postos-osm.js"></script>
+<script>
+(function(){
+  var DATA = window.POSTOS_OSM || [];
+  document.getElementById('osmCount').textContent = DATA.length + ' postos (OSM)';
+  var COR = { AR:'#2563EB', CL:'#DC2626' };
+  var map = L.map('osmmap', { scrollWheelZoom:true, preferCanvas:true }).setView([-43,-71], 5);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:18
+  }).addTo(map);
+  var layer = L.layerGroup().addTo(map);
+  function dot(cor){ return L.divIcon({ className:'', html:'<div style="width:10px;height:10px;border-radius:50%;background:'+cor+';border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>', iconSize:[10,10], iconAnchor:[5,5] }); }
+  function clusterIcon(n){ var s = n<10?30:(n<50?38:48); return L.divIcon({ className:'', html:'<div class="osmcluster" style="width:'+s+'px;height:'+s+'px;font-size:12px">'+n+'</div>', iconSize:[s,s], iconAnchor:[s/2,s/2] }); }
+  var CELL = 50;
+  function draw(){
+    layer.clearLayers();
+    var z = map.getZoom();
+    var cells = {};
+    DATA.forEach(function(p){
+      var pt = map.project([p.lat,p.lng], z);
+      var k = Math.floor(pt.x/CELL)+'_'+Math.floor(pt.y/CELL);
+      (cells[k]=cells[k]||[]).push(p);
+    });
+    Object.keys(cells).forEach(function(k){
+      var g = cells[k];
+      if(g.length===1){
+        var p = g[0];
+        L.marker([p.lat,p.lng], {icon:dot(COR[p.pais]||'#64748B')})
+          .bindPopup('<b>'+p.n+'</b><br>'+(p.pais==='CL'?'Chile':'Argentina'))
+          .addTo(layer);
+      } else {
+        var lat=0,lng=0; g.forEach(function(p){lat+=p.lat;lng+=p.lng;});
+        lat/=g.length; lng/=g.length;
+        var c = L.marker([lat,lng], {icon:clusterIcon(g.length)});
+        c.on('click', function(){
+          var b = L.latLngBounds(g.map(function(p){return [p.lat,p.lng];}));
+          map.fitBounds(b, {padding:[40,40], maxZoom:14});
+        });
+        c.addTo(layer);
+      }
+    });
+  }
+  map.on('zoomend moveend', draw);
+  draw();
+})();
+</script>
+  <script src="geo.js"></script>
+<script src="dados.js"></script>
+<script src="roteiros.js"></script>
+<script src="app-shared.js"></script>
+<script>(function(){try{if(!window.PLANNER)return;var b=PLANNER.regionBanner();var w=document.querySelector(".wrap");if(!b||!w)return;var bl=w.querySelector(".backlink");if(bl)bl.insertAdjacentElement("afterend",b);else w.insertBefore(b,w.firstChild);}catch(e){}})();</script>
+</body>
+</html>
